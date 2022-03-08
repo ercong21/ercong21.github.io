@@ -1,0 +1,100 @@
+@font-face {
+    font-family: "myFont";
+    src: url('titillium-regular.woff2') format('woff2');
+}
+
+html {
+    background-color: #f3f3f4; /*Gray*/
+    font-family: "myFont", arial, sans-serif;
+    letter-spacing: 0.05em;
+}
+
+h1 {
+    font-size: 44px;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+    text-align: left;
+    margin: 0;
+    padding: 20px 0;    
+    color: #3D3D3D; /*Black*/
+}
+
+h2 {
+    font-size: 30px;
+    letter-spacing: 0.05em;
+    font-weight: 400;
+    text-align: left;
+    margin: 0;
+    padding: 10px 0px;
+    color: #3D3D3D; /*Black*/
+}
+
+p {
+    font-size: 16px;
+    font-weight: 400;
+    }
+
+body {
+    font-size: 16px;
+    width: 80%; /*1100px;*/
+    margin: 0 auto;
+    text-align: left;
+    background-color: #fff;
+    padding: 20px 20px 100px 20px;
+}
+
+/* TABLE */
+
+table {
+	border-collapse: separate;
+	border-spacing: 0.0em;
+	width: 100%;
+	margin: 0;
+}
+
+th, td {
+	padding: 0.2em 0.5em;
+	border-radius: 0.0em;
+	height: 40px;	
+}
+
+thead th {
+    font-size: 17px;
+    font-weight: 400;
+    text-align: left;
+	background-color: #f3f3f4; /*Gray*/
+	color: #3d3d3d;
+    height: 40px;
+    box-shadow: inset 0px 1px 0px 0px #E5E5E5;
+}
+
+td {
+	text-align: left;
+	box-shadow: inset 0px 1px 0px 0px #E5E5E5;
+}
+
+td:empty {
+	box-shadow: none;
+}
+
+/* LINKS */
+
+a {
+    color: #17a81a; /*Green*/
+}
+
+a:link {
+    text-decoration: none;
+}
+
+a:visited {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+a:active {
+    text-decoration: underline;
+}

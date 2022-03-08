@@ -1,0 +1,56 @@
+body {
+	padding-top: 50px;
+	padding-bottom: 30px;
+}
+
+.navbar .nav > li > a {
+	color: rgb(60,60,60);
+}
+
+.navbar-brand {
+	height: 10px
+}
+
+.navbar-default {
+	background-color:  rgb(223, 240, 218);
+}
+
+textarea {
+    resize: none;
+}
+
+a {
+	color: green;
+}
+
+#publications > a {
+	margin-right:20px;
+}
+
+#top-links  {
+	margin-bottom:30px;
+}
+
+#top-links > a {
+	margin-right:20px;
+}
+
+a:hover {
+	color: green;
+	text-decoration: none;
+}
+
+a.anchor {
+	display: block;
+    position: relative;
+	top: -50px;
+}
+
+.slide-abstract {
+	height: 0;
+	overflow: hidden;
+	transition: height 0.5s ease;
+
+	margin-left: 20px;
+	margin-right: 20px;
+}
