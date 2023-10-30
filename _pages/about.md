@@ -87,8 +87,8 @@ I study *Natural Language Processing (NLP)*. My linguistic background guides me 
 
 ## Teaching  
 
-I have been a teaching assistant at the University of Munich in various modules, both at Bachelor and Master level. These include:
-- Advanced Module for Computational Linguistics
+I have been a teaching assistant at the University of Munich in various modules, both at Bachelor and Master level. The topics of these courses include:
+- Foundations of Deep Learning for Natural Language Processing
 - Human-Centric Natural Language Processing
 - Applied Deep Learning
 - Statistical Methods in Natural Language Processing
