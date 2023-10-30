@@ -15,10 +15,10 @@ news: true  # includes a list of news items
 selected_papers: true # includes a list of papers marked as "selected={true}"
 social: false  # includes social icons at the bottom of the page
 ---
-[Schuetze NLP Lab](https://schuetze.cis.lmu.de/), [Center for Information and Language Processing (CIS)](https://www.cis.lmu.de/) 
+[Schuetze NLP Lab](https://schuetze.cis.lmu.de/), [Center for Information and Language Processing (CIS)](https://www.cis.lmu.de/)  
 [Ludwig Maximilians University of Munich](https://www.lmu.de/en/)
 
-Email: nie at cis.lmu.de
+Email: nie at cis.lmu.de  
 [[Twitter](https://twitter.com/NielKlug)], [[Google Scholar](https://scholar.google.com/citations?user=dx00mD4AAAAJ&hl=en)], [[LinkedIn](https://www.linkedin.com/in/ercong-nie-6375a5104/)], [[Zhihu](https://www.zhihu.com/people/nie-er-cong-56)]
 
 * Hi, I am Ercong, a second-year PhD candidate at Center for Information and Language Processing ([CIS](https://www.cis.lmu.de/)), [LMU Munich](https://www.lmu.de/en/index.html).
