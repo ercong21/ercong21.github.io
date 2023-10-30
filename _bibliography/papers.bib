@@ -3,99 +3,115 @@
 
 @string{aps = {American Physical Society,}}
 
-@inproceedings{sancheti-rudinger-2022-large,
-    title = "Testing Paraphrase Models on Recognising Sentence Pairs at Different Degrees of Semantic Overlap",
-    author = "Peng, Qiwei  and
-      Weir, David and
-      Weeds, Julie",
-    booktitle = "Proceedings of the 12th Joint Conference on Lexical and Computational Semantics",
+@inproceedings{
+ziegler2022what,
+title={From Classification to Generation: Insights into Crosslingual Retrieval Augmented ICL},
+author="Li, Xiaoqian and Nie, Ercong and Liang, Sheng",
+booktitle={NeurIPS 2023 Workshop on Instruction Tuning and Instruction Following},
+year={2023},
+month=dec,
+address = "New Orleans, Louisiana, United States",
+abstract = "The remarkable ability of Large Language Models (LLMs) to understand and follow instructions has sometimes been limited by their in-context learning (ICL) performance in low-resource languages. To address this, we introduce a novel approach that leverages cross-lingual retrieval-augmented in-context learning (CREA-ICL). By extracting semantically similar prompts from high-resource languages, we aim to improve the zero-shot performance of multilingual pre-trained language models (MPLMs) across diverse tasks. Though our approach yields steady improvements in classification tasks, it faces challenges in generation tasks, with Bangla serving as a key case study. Our evaluation offers insights into the performance dynamics of retrieval-augmented in-context learning across both classification and generation domains.",
+abbr = {Instruction@NeurIPS}
+}
+
+
+@inproceedings{nie-etal-2023-unleashing,
+    title = "Unleashing the Multilingual Encoder Potential: Boosting Zero-Shot Performance via Probability Calibration",
+    author = "Nie, Ercong and Schmid, Helmut and Sch{\"u}tze, Hinrich",
+    booktitle = "Findings of the Association for Computational Linguistics: EMNLP 2023",
+    month = dec,
+    year = "2023",
+    address = "Singapore, Singapore",
+    publisher = "Association for Computational Linguistics",
+    abbr = {Findings@EMNLP},
+    selected = {true},
+    abstract = "Pretraiend multilingual encoder models can directly perform zero-shot multilingual tasks or linguistic probing by reformulating the input examples into cloze-style prompts. This is accomplished by predicting the probabilities of the label words at the masked token position, without requiring any updates to the model parameters. However, the performance of this pattern is limited by the model's bias toward predicting label words which frequently occurred during the pretraining. These words typically receive high probabilities. To address this issue, we combine the models with various calibration techniques which modify the probabilities of label words predicted by the models. We evaluate the effectiveness of these calibration methods on monolingual encoders as well as multilingual encoders. Across a diverse range of tasks, we achieve substantial performance gains through calibration. Furthermore, with only very few training samples, the trained calibration parameters are able to yield additional enhancements.",
+    url = "https://arxiv.org/abs/2310.05069"
+}
+
+@inproceedings{zhang-etal-2023-baby,
+    title = "Crosslingual Retrieval Augmented In-context Learning for Bangla",
+    author = "Li, Xiaoqian and Nie, Ercong and Liang, Sheng",
+    booktitle = "Proceedings of the First Workshop on Bangla Language Processing",
+    month = dec,
+    year = "2023",
+    address = "Singapore, Singapore",
+    publisher = "Association for Computational Linguistics",
+    abstract = "The promise of Large Language Models (LLMs) in Natural Language Processing has often been overshadowed by their limited performance in low-resource languages such as Bangla. To address this, our paper presents a pioneering approach that utilizes cross-lingual retrieval augmented in-context learning. By strategically sourcing semantically similar prompts from high-resource language, we enable multilingual pretrained language models (MPLMs), especially the generative model BLOOMZ, to successfully boost performance on Bangla tasks. Our extensive evaluation highlights that the cross-lingual retrieval augmented prompts bring steady improvements to MPLMs over the zero-shot performance.",
+    abbr = {BLP@EMNLP}
+}
+
+@inproceedings{zhang-etal-2023-baby,
+    title = "Baby's CoThought: Leveraging Large Language Models for Enhanced Reasoning in Compact Models",
+    author = "Zhang*, Zheyu and Yang*, Han and Ma*, Bolei and R{\"u}gamer, David and Nie&dagger;, Ercong",
+    booktitle = "Proceedings of the Workshop on Cognitive Modeling and Computational Linguistics",
+    month = dec,
+    year = "2023",
+    address = "Singapore, Singapore",
+    publisher = "Association for Computational Linguistics",
+    url = "https://arxiv.org/abs/2308.01684",
+    abstract = "Large Language Models (LLMs) demonstrate remarkable performance on a variety of natural language understanding (NLU) tasks, primarily due to their in-context learning ability. This ability could be applied to building babylike models, i.e. models at small scales, improving training efficiency. In this paper, we propose a 'CoThought' pipeline, which efficiently trains smaller 'baby' language models (BabyLMs) by leveraging the Chain of Thought prompting of LLMs. Our pipeline restructures a dataset of less than 100M in size using GPT-3.5-turbo, transforming it into task-oriented, human-readable texts that are comparable to the school texts for language learners. The BabyLM is then pretrained on this restructured dataset in a RoBERTa fashion. In evaluations across 4 benchmarks, our BabyLM outperforms the vanilla RoBERTa in 10 linguistic, NLU, and question-answering tasks by more than 3 points, showing a superior ability to extract contextual information. These results suggest that compact LMs pretrained on small, LLM-restructured data can better understand tasks and achieve improved performance.",
+    abbr = {CMCL@CoNLL}
+}
+
+
+ @inproceedings{ma-etal-2023-prompt,
+    title = "Is Prompt-Based Finetuning Always Better than Vanilla Finetuning? Insights from Cross-Lingual Language Understanding",
+    author = "Ma*, Bolei and Nie*, Ercong and Schmid, Helmut and Sch{\"u}tze, Hinrich",
+    booktitle = "Proceedings of the 18th Conference on Natural Language Processing (KONVENS 2022)",
+    month = sep,
+    year = "2023",
+    address = "Ingolstadt, Germany",
+    publisher = "KONVENS 2022 Organizers",
+    url = "https://arxiv.org/abs/2307.07880",
+    abstract = "Multilingual pretrained language models (MPLMs) have demonstrated substantial performance improvements in zero-shot cross-lingual transfer across various natural language understanding tasks by finetuning MPLMs on task-specific labelled data of a source language (e.g. English) and evaluating on a wide range of target languages. Recent studies show that prompt-based finetuning surpasses regular finetuning in few-shot scenarios. However, the exploration of prompt-based learning in multilingual tasks remains limited. In this study, we propose the ProFiT pipeline to investigate the cross-lingual capabilities of Prompt-based Finetuning. We conduct comprehensive experiments on diverse cross-lingual language understanding tasks (sentiment classification, paraphrase identification, and natural language inference) and empirically analyze the variation trends of prompt-based finetuning performance in cross-lingual transfer across different few-shot and full-data settings. Our results reveal the effectiveness and versatility of prompt-based finetuning in cross-lingual language understanding. Our findings indicate that prompt-based finetuning outperforms vanilla finetuning in full-data scenarios and exhibits greater advantages in few-shot scenarios, with different performance patterns dependent on task types. Additionally, we analyze underlying factors such as language similarity and pretraining data size that impact the cross-lingual performance of prompt-based finetuning. Overall, our work provides valuable insights into the cross-lingual prowess of prompt-based finetuning.",
+    abbr = {KONVENS}
+}
+
+
+@inproceedings{nie-etal-2023-lingual,
+    title = "Cross-Lingual Constituency Parsing for Middle High German: A Delexicalized Approach",
+    author = "Nie, Ercong and Schmid, Helmut and Sch{\"u}tze, Hinrich",
+    booktitle = "Proceedings of the Ancient Language Processing Workshop",
+    month = sep,
+    year = "2023",
+    address = "Varna, Bulgaria",
+    publisher = "INCOMA Ltd.",
+    abstract = "Constituency parsing plays a fundamental role in advancing natural language processing (NLP) tasks. However, training an automatic syntactic analysis system for ancient languages solely relying on annotated parse data is a formidable task due to the inherent challenges in building treebanks for such languages. It demands extensive linguistic expertise, leading to a scarcity of available resources. To overcome this hurdle, cross-lingual transfer techniques which require minimal or even no annotated data for low-resource target languages offer a promising solution. In this study, we focus on building a constituency parser for Middle High German (MHG) under realistic conditions, where no annotated MHG treebank is available for training. In our approach, we leverage the linguistic continuity and structural similarity between MHG and Modern German (MG), along with the abundance of MG treebank resources. Specifically, by employing the delexicalization method, we train a constituency parser on MG parse datasets and perform cross-lingual transfer to MHG parsing. Our delexicalized constituency parser demonstrates remarkable performance on the MHG test set, achieving an F1-score of 67.3%. It outperforms the best zero-shot cross-lingual baseline by a margin of 28.6% points. These encouraging results underscore the practicality and potential for automatic syntactic analysis in other ancient languages that face similar challenges as MHG.",
+    url = "https://arxiv.org/abs/2308.04645",
+    abbr = {ALP@RANLP}
+}
+
+
+@inproceedings{nie-etal-2023-cross,
+    title = "Cross-Lingual Retrieval Augmented Prompt for Low-Resource Languages",
+    author = {Nie*, Ercong  and
+      Liang, Sheng  and
+      Schmid, Helmut  and
+      Sch{\"u}tze, Hinrich},
+    booktitle = "Findings of the Association for Computational Linguistics: ACL 2023",
     month = jul,
     year = "2023",
     address = "Toronto, Canada",
     publisher = "Association for Computational Linguistics",
-    abbr = {*SEM},
+    url = "https://aclanthology.org/2023.findings-acl.528",
+    doi = "10.18653/v1/2023.findings-acl.528",
+    pages = "8320--8340",
+    abbr = {Findings@ACL},
+    abstract = "Multilingual Pretrained Language Models (MPLMs) perform strongly in cross-lingual transfer. We propose Prompts Augmented by Retrieval Crosslingually (PARC) to improve zero-shot performance on low-resource languages (LRLs) by augmenting the context with prompts consisting of semantically similar sentences retrieved from a high-resource language (HRL). PARC improves zero-shot performance on three downstream tasks (sentiment classification, topic categorization, natural language inference) with multilingual parallel test sets across 10 LRLs covering 6 language families in unlabeled (+5.1{\%}) and labeled settings (+16.3{\%}). PARC also outperforms finetuning by 3.7{\%}. We find a significant positive correlation between cross-lingual transfer performance on one side, and the similarity between high- and low-resource languages as well as the amount of low-resource pretraining data on the other side. A robustness analysis suggests that PARC has the potential to achieve even stronger performance with more powerful MPLMs.",
     selected = {true}
 }
 
-@inproceedings{ashby-weir-2020-leveraging,
-    title = "Towards Structure-aware Paraphrase Identification with Phrase Alignment Using Sentence Encoders",
-    author = "Peng, Qiwei  and
-      Weir, David and
-      Weeds, Julie",
-    booktitle = "Proceedings of the 29th International Conference on Computational Linguistics",
-    month = oct,
-    year = "2022",
-    address = "South Korea",
-    publisher = "International Committee on Computational Linguistics",
-    abbr = {COLING},
-    award = {Oral},
-    selected = {true}
-}
-
-@inproceedings{peng-etal-2022-predicate,
-    title = "Predicate-Argument Based Bi-Encoder for Paraphrase Identification",
-    author = "Peng, Qiwei  and
-      Weir, David  and
-      Weeds, Julie  and
-      Chai, Yekun",
-    booktitle = "Proceedings of the 60th Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers)",
-    month = may,
-    year = "2022",
-    address = "Dublin, Ireland",
-    publisher = "Association for Computational Linguistics",
-    url = "https://aclanthology.org/2022.acl-long.382",
-    doi = "10.18653/v1/2022.acl-long.382",
-    pages = "5579--5589",
-    abstract = "Paraphrase identification involves identifying whether a pair of sentences express the same or similar meanings. While cross-encoders have achieved high performances across several benchmarks, bi-encoders such as SBERT have been widely applied to sentence pair tasks. They exhibit substantially lower computation complexity and are better suited to symmetric tasks. In this work, we adopt a bi-encoder approach to the paraphrase identification task, and investigate the impact of explicitly incorporating predicate-argument information into SBERT through weighted aggregation. Experiments on six paraphrase identification datasets demonstrate that, with a minimal increase in parameters, the proposed model is able to outperform SBERT/SRoBERTa significantly. Further, ablation studies reveal that the predicate-argument based component plays a significant role in the performance gain.",
-    selected={true},
-    abbr={ACL},
-    award = {Oral}
-}
-
-@inproceedings{peng-etal-2021-structure,
-    title = "Structure-aware Sentence Encoder in Bert-Based {S}iamese Network",
-    author = "Peng, Qiwei  and
-      Weir, David  and
-      Weeds, Julie",
-    booktitle = "Proceedings of the 6th Workshop on Representation Learning for NLP (RepL4NLP-2021)",
-    month = aug,
-    year = "2021",
-    address = "Online",
-    publisher = "Association for Computational Linguistics",
-    url = "https://aclanthology.org/2021.repl4nlp-1.7",
-    doi = "10.18653/v1/2021.repl4nlp-1.7",
-    pages = "57--63",
-    abstract = "Recently, impressive performance on various natural language understanding tasks has been achieved by explicitly incorporating syntax and semantic information into pre-trained models, such as BERT and RoBERTa. However, this approach depends on problem-specific fine-tuning, and as widely noted, BERT-like models exhibit weak performance, and are inefficient, when applied to unsupervised similarity comparison tasks. Sentence-BERT (SBERT) has been proposed as a general-purpose sentence embedding method, suited to both similarity comparison and downstream tasks. In this work, we show that by incorporating structural information into SBERT, the resulting model outperforms SBERT and previous general sentence encoders on unsupervised semantic textual similarity (STS) datasets and transfer classification tasks.",
-    selected={true},
-    abbr={RepL4NLP@ACL}
-}
-
-@inproceedings{bertolini-etal-2021-representing,
-    title = "Representing Syntax and Composition with Geometric Transformations",
-    author = "Bertolini, Lorenzo  and
-      Weeds, Julie  and
-      Weir, David  and
-      Peng, Qiwei",
-    booktitle = "Findings of the Association for Computational Linguistics: ACL-IJCNLP 2021",
-    month = aug,
-    year = "2021",
-    address = "Online",
-    publisher = "Association for Computational Linguistics",
-    url = "https://aclanthology.org/2021.findings-acl.296",
-    doi = "10.18653/v1/2021.findings-acl.296",
-    pages = "3343--3353",
-    selected={true},
-    abbr={Findings@ACL}
-}
-
-@article{xia2021aroused,
-  title={Aroused and Impulsive Effects of Colour Stimuli on Lateral and Logical Abilities},
-  author={Xia, Guobin and Li, Muzi and Henry, Philip and Westland, Stephen and Queiroz, Francisco and Peng, Qiwei and Yu, Luwen},
-  journal={Behavioral Sciences},
-  volume={11},
-  number={2},
-  pages={24},
-  year={2021},
-  publisher={MDPI},
-  abbr={Behav Sci}
+@inproceedings{
+ziegler2022what,
+title={What cleaves? Is proteasomal cleavage prediction reaching a ceiling?},
+author={Ingo Ziegler and Bolei Ma and Ercong Nie and Bernd Bischl and David R{\"u}gamer and Benjamin Schubert and Emilio Dorigatti},
+booktitle={NeurIPS 2022 Workshop on Learning Meaningful Representations of Life},
+year={2022},
+month=dec,
+url={https://openreview.net/forum?id=bUyk2atqXqt},
+address = "online",
+abstract = "Epitope vaccines are a promising direction to enable precision treatment for cancer, autoimmune diseases, and allergies. Effectively designing such vaccines requires accurate prediction of proteasomal cleavage in order to ensure that the epitopes in the vaccine are presented to T cells by the major histocompatibility complex (MHC). While direct identification of proteasomal cleavage \emph{in vitro} is cumbersome and low throughput, it is possible to implicitly infer cleavage events from the termini of MHC-presented epitopes, which can be detected in large amounts thanks to recent advances in high-throughput MHC ligandomics. Inferring cleavage events in such a way provides an inherently noisy signal which can be tackled with new developments in the field of deep learning that supposedly make it possible to learn predictors from noisy labels. Inspired by such innovations, we sought to modernize proteasomal cleavage predictors by benchmarking a wide range of recent methods, including LSTMs, transformers, CNNs, and denoising methods, on a recently introduced cleavage dataset. We found that increasing model scale and complexity appeared to deliver limited performance gains, as several methods reached about 88.5% AUC on C-terminal and 79.5% AUC on N-terminal cleavage prediction. This suggests that the noise and/or complexity of proteasomal cleavage and the subsequent biological processes of the antigen processing pathway are the major limiting factors for predictive performance rather than the specific modeling approach used. While biological complexity can be tackled by more data and better models, noise and randomness inherently limit the maximum achievable predictive performance. All our datasets and experiments are available at https://github.com/ziegler-ingo/cleavage_prediction.",
+abbr = {LMRL@NeurIPS}
 }
