@@ -20,7 +20,6 @@ social: false  # includes social icons at the bottom of the page
 
 
 [[Twitter]](https://twitter.com/NielKlug), [[Google Scholar]](https://scholar.google.com/citations?user=dx00mD4AAAAJ&hl=en), [[LinkedIn]](https://www.linkedin.com/in/ercong-nie-6375a5104/), [[Zhihu]](https://www.zhihu.com/people/nie-er-cong-56)  
-`Email: nie [at] cis.lmu.de`  
 
 * Hi, I am Ercong, a second-year PhD candidate at Center for Information and Language Processing ([CIS](https://www.cis.lmu.de/)), [LMU Munich](https://www.lmu.de/en/index.html).
 * I am supervised by [PD. Dr. Helmut Schmid](https://www.cis.uni-muenchen.de/~schmid/). I am also part of the [Schütze Lab](https://schuetze.cis.lmu.de/) led by [Prof. Hinrich Schütze](https://schuetze.cis.lmu.de/about/) and Munich Center for Machine Learning ([MCML](https://mcml.ai/)).
@@ -95,7 +94,7 @@ I have been a teaching assistant at the University of Munich in various modules,
 - Statistical Methods in Natural Language Processing
 - Finite State Technologies in Computational Linguistics
 
-Besides, I also supervise Bachelor and Master theses.
+Besides, I also supervise B.Sc. & M.Sc. theses and semester projects.
 <br><br>
 
 <!-- ## Service
