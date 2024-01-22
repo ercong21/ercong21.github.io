@@ -3,6 +3,25 @@
 
 @string{aps = {American Physical Society,}}
 
+@inproceedings{ma-etal-2024-topro,
+    title = "TOPRO: Token-Level Prompt Decomposition for Cross-Lingual Sequence Labeling Tasks",
+    author = "Ma*, Bolei and Nie*, Ercong and Yuan, Shuzhou and Schmid, Helmut and F{\"a}rber Michael and Kreuter, Frauke and Sch{\"u}tze, Hinrich",
+    booktitle = "Proceedings of the 18th Conference of the European Chapter of the Association for Computational Linguistics",
+    month = mar,
+    year = "2024",
+    address = "Malta, Malta",
+    publisher = "Association for Computational Linguistics",
+    abbr = {EACL},
+    selected = {true},
+    abstract = "Prompt-based methods have been successfully applied to multilingual pretrained language models for zero-shot cross-lingual understanding.
+However, most previous studies primarily focused on sentence-level classification tasks,
+and only a few considered token-level labeling tasks such as Named Entity Recognition (NER) and Part-of-Speech (POS) tagging. 
+In this paper, we propose Token-Level Prompt Decomposition (ToPro), which facilitates the prompt-based method for token-level sequence labeling tasks. The ToPro method decomposes an input sentence into single tokens and applies one prompt template to each token. Our experiments on multilingual NER 
+and POS tagging datasets demonstrate that ToPro-based fine-tuning outperforms Vanilla fine-tuning and Prompt-Tuning in zero-shot cross-lingual transfer, especially for languages that are typologically different from the source language English. Our method also attains state-of-the-art performance when employed with the mT5 model.
+Besides, our exploratory study in multilingual large language models shows that ToPro performs much better than the current in-context learning method. 
+Overall, the performance improvements show that \method could potentially serve as a novel and simple benchmarking method for sequence labeling tasks.",
+}
+
 @inproceedings{
 Li2023classification,
 title={From Classification to Generation: Insights into Crosslingual Retrieval Augmented ICL},
