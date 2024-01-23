@@ -96,7 +96,7 @@ I have been a teaching assistant at the University of Munich in various modules,
 
 Besides, I also supervise BSc. & MSc. theses and semester projects.  <br>
 <p style='color: red;'>Note: </p>**The <a href="https://cisnlp.github.io/thesis_proposals/2024/Ercong-2024-Project-1.pdf">thesis topic</a> that I will supervise for SS 2024 is already out.**
-Please check <a href="https://cisnlp.github.io/vacancies/">here</a> on our lab website if you have interest in research on multilinguality and large language models. 
+Please click <a href="https://cisnlp.github.io/vacancies/">here</a> to get more details from our lab website if you have interest in research on multilinguality and large language models. 
 <br><br>
 
 <!-- ## Service
