@@ -32,9 +32,9 @@ During my bachelor study, I spent one exchange semester at [University of Heidel
 
 ### Research Interest
 I study *Natural Language Processing (NLP)*. My linguistic background guides me to conduct NLP research 
-* **of languages:** traditional computational linguistic fields e.g., syntactic parsing, linguistic annotation (POS tagging, morphology).
-* **for languages:** multilingual NLP, e.g., cross-lingual transfer learning for low-resource and historical languages.
-* **by languages:** AI models learning languages inspired by human language acquisition, e.g., in-context learning.
+* **of the languages:** traditional computational linguistic fields e.g., syntactic parsing, linguistic annotation (POS tagging, morphology).
+* **for the languages:** multilingual NLP, e.g., cross-lingual transfer learning for low-resource and historical languages.
+* **by the languages:** AI models learning languages inspired by human language acquisition, e.g., in-context learning.
   
 
 <!-- ## Publications
@@ -94,7 +94,9 @@ I have been a teaching assistant at the University of Munich in various modules,
 - Statistical Methods in Natural Language Processing
 - Finite State Technologies in Computational Linguistics
 
-Besides, I also supervise B.Sc. & M.Sc. theses and semester projects.
+Besides, I also supervise BSc. & MSc. theses and semester projects.  <br>
+<p style='color: red;'>Note: </p>**The <a href="https://cisnlp.github.io/thesis_proposals/2024/Ercong-2024-Project-1.pdf">thesis topic</a> that I will supervise for SS 2024 is already out.**
+Please check <a href="https://cisnlp.github.io/vacancies/">here</a> on our lab website if you have interest in research on multilinguality and large language models. 
 <br><br>
 
 <!-- ## Service
