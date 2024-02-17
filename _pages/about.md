@@ -31,7 +31,7 @@ During my bachelor study, I spent one exchange semester at [University of Heidel
 
 
 ### Research Interest
-I have a broad research interest in the field of *Natural Language Processing* (NLP), especially in multilingualality of large language models, low-resource NLP , human-centered NLP, etc. 
+I have a broad research interest in the field of *Natural Language Processing* (NLP), especially in multilingualality of large language models, low-resource NLP , human-centered NLP, etc. <br>
 Overall, my linguistic background guides me to conduct NLP research 
 * **of the languages:** traditional computational linguistic fields e.g., syntactic parsing, linguistic annotation (POS tagging, morphology).
 * **for the languages:** multilingual NLP, e.g., cross-lingual transfer learning for low-resource and historical languages, multilingual LLMs.
