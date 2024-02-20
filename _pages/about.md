@@ -17,7 +17,8 @@ social: false  # includes social icons at the bottom of the page
 ---
 [Schuetze NLP Lab](https://schuetze.cis.lmu.de/), [Center for Information and Language Processing (CIS)](https://www.cis.lmu.de/),  
 [Ludwig Maximilians University of Munich (LMU Munich)](https://www.lmu.de/en/),  
-[Munich Center for Machine Learning (MCML)](https://mcml.ai/)
+[Munich Center for Machine Learning (MCML)](https://mcml.ai/)<br><br>
+Email: lastname@cis.lmu.de
 
 
 [[Twitter]](https://twitter.com/NielKlug), [[Google Scholar]](https://scholar.google.com/citations?user=dx00mD4AAAAJ&hl=en), [[LinkedIn]](https://www.linkedin.com/in/ercong-nie-6375a5104/), [[Zhihu]](https://www.zhihu.com/people/nie-er-cong-56), [[CV]](https://ercong21.github.io/files/Resume_Nie.pdf)
