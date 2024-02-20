@@ -3,6 +3,42 @@
 
 @string{aps = {American Physical Society,}}
 
+@inproceedings{nevens-etal-2022-language,
+    title = "Language Models as the Brain: Probing Linguistic Structures within Neural Language Models using Minimal Pairs",
+    author = "He, Linyang  and
+      Chen, Peilin  and
+      Nie, Ercong and
+      Li, Yuanning and
+      Brennan, Jonathan R.",
+    booktitle = "Proceedings of the 2024 Joint International Conference on Computational Linguistics, Language Resources and Evaluation (To be published) ",
+    month = may,
+    year = "2024",
+    address = "Torino, Italy",
+    publisher = "ELRA Language Resources Association and International Committee on Computational Linguistics",
+    abstract = "Inspired by cognitive neuroscience studies, we introduce a novel `decoding probing' method that uses minimal pairs benchmark (BLiMP) to probe internal linguistic characteristics in neural language models layer by layer. By treating the language model as the brain and its representations as 'neural activations', we decode grammaticality labels of minimal pairs from the intermediate layers' representations. This approach reveals: 1) Self-supervised language models capture abstract linguistic structures in intermediate layers that GloVe and RNN language models cannot learn. 2) Information about syntactic grammaticality is robustly captured through the first third layers of GPT-2 and also distributed in later layers. As sentence complexity increases, more layers are required for learning grammatical capabilities. 3) Morphological and semantics/syntax interface-related features are harder to capture than syntax, which also aligns with cognitive neuroscience studies. 4) For Transformer-based models, both embeddings and attentions capture grammatical features but show distinct patterns. Different attention heads exhibit similar tendencies toward various linguistic phenomena, but with varied contributions. Notably, specific heads consistently offer the most contributions. ",
+    abbr = {LREC-COLING 2024}
+}
+
+@inproceedings{ma-etal-2024-topro,
+    title = "ToPro: Token-Level Prompt Decomposition for Cross-Lingual Sequence Labeling Tasks",
+    author = "Ma*, Bolei and Nie*, Ercong and Yuan, Shuzhou and Schmid, Helmut and F{\"a}rber Michael and Kreuter, Frauke and Sch{\"u}tze, Hinrich",
+    booktitle = "Proceedings of the 18th Conference of the European Chapter of the Association for Computational Linguistics",
+    month = mar,
+    year = "2024",
+    address = "Malta, Malta",
+    publisher = "Association for Computational Linguistics",
+    abbr = {EACL 2024},
+    selected = {true},
+    url="https://arxiv.org/abs/2401.16589",
+    abstract = "Prompt-based methods have been successfully applied to multilingual pretrained language models for zero-shot cross-lingual understanding.
+However, most previous studies primarily focused on sentence-level classification tasks,
+and only a few considered token-level labeling tasks such as Named Entity Recognition (NER) and Part-of-Speech (POS) tagging. 
+In this paper, we propose Token-Level Prompt Decomposition (ToPro), which facilitates the prompt-based method for token-level sequence labeling tasks. The ToPro method decomposes an input sentence into single tokens and applies one prompt template to each token. Our experiments on multilingual NER 
+and POS tagging datasets demonstrate that ToPro-based fine-tuning outperforms Vanilla fine-tuning and Prompt-Tuning in zero-shot cross-lingual transfer, especially for languages that are typologically different from the source language English. Our method also attains state-of-the-art performance when employed with the mT5 model.
+Besides, our exploratory study in multilingual large language models shows that ToPro performs much better than the current in-context learning method. 
+Overall, the performance improvements show that ToPro could potentially serve as a novel and simple benchmarking method for sequence labeling tasks.",
+}
+
 @article{nie2024ldecomposing,
   title={Decomposed Prompting: Unveiling Multilingual Linguistic Structure Knowledge in English-Centric Large Language Models},
   author={Nie, Ercong and Yuan, Shuzhou and Ma, Bolei and Schmid, Helmut and F{\"a}rber, Michael and Kreuter, Frauke and Sch{\"u}tze, Hinrich},
@@ -25,26 +61,6 @@
   journal={preprint},
   year={2024},
   abbr={preprint}
-}
-
-@inproceedings{ma-etal-2024-topro,
-    title = "ToPro: Token-Level Prompt Decomposition for Cross-Lingual Sequence Labeling Tasks",
-    author = "Ma*, Bolei and Nie*, Ercong and Yuan, Shuzhou and Schmid, Helmut and F{\"a}rber Michael and Kreuter, Frauke and Sch{\"u}tze, Hinrich",
-    booktitle = "Proceedings of the 18th Conference of the European Chapter of the Association for Computational Linguistics",
-    month = mar,
-    year = "2024",
-    address = "Malta, Malta",
-    publisher = "Association for Computational Linguistics",
-    abbr = {EACL 2024},
-    selected = {true},
-    url="https://arxiv.org/abs/2401.16589",
-    abstract = "Prompt-based methods have been successfully applied to multilingual pretrained language models for zero-shot cross-lingual understanding.
-However, most previous studies primarily focused on sentence-level classification tasks,
-and only a few considered token-level labeling tasks such as Named Entity Recognition (NER) and Part-of-Speech (POS) tagging. 
-In this paper, we propose Token-Level Prompt Decomposition (ToPro), which facilitates the prompt-based method for token-level sequence labeling tasks. The ToPro method decomposes an input sentence into single tokens and applies one prompt template to each token. Our experiments on multilingual NER 
-and POS tagging datasets demonstrate that ToPro-based fine-tuning outperforms Vanilla fine-tuning and Prompt-Tuning in zero-shot cross-lingual transfer, especially for languages that are typologically different from the source language English. Our method also attains state-of-the-art performance when employed with the mT5 model.
-Besides, our exploratory study in multilingual large language models shows that ToPro performs much better than the current in-context learning method. 
-Overall, the performance improvements show that ToPro could potentially serve as a novel and simple benchmarking method for sequence labeling tasks.",
 }
 
 @inproceedings{
