@@ -3,7 +3,7 @@
 
 @string{aps = {American Physical Society,}}
 
-@inproceedings{nevens-etal-2022-language,
+@inproceedings{he-etal-2024-language,
     title = "Language Models as the Brain: Probing Linguistic Structures within Neural Language Models using Minimal Pairs",
     author = "He, Linyang  and
       Chen, Peilin  and
@@ -52,7 +52,10 @@ Overall, the performance improvements show that ToPro could potentially serve as
   author={Yuan, Shuzhou and Nie, Ercong and Ma, Bolei and F{\"a}rber, Michael and Schmid, Helmut and Sch{\"u}tze, Hinrich},
   journal={preprint},
   year={2024},
-  abbr={preprint}
+  month=feb,
+  abbr={preprint},
+  url="https://arxiv.org/pdf/2402.11709.pdf",
+  abstract={Large Language Models (LLMs) exhibit strong In-Context Learning (ICL) capabilities when prompts with demonstrations are applied to them. However, fine-tuning still remains crucial to further enhance their adaptability. Prompt-based fine-tuning proves to be an effective fine-tuning method in low-data scenarios, but high demands on computing resources limit its practicality. We address this issue by introducing a prompt-based parameter-efficient fine-tuning (PEFT) approach. GNNavi leverages insights into ICL's information flow dynamics, which indicates that label words act in prompts as anchors for information propagation. GNNavi employs a Graph Neural Network (GNN) layer to precisely guide the aggregation and distribution of information flow during the processing of prompts by hardwiring the desired information flow into the GNN. Our experiments on text classification tasks with GPT-2 and Llama2 shows GNNavi surpasses standard prompt-based fine-tuning methods in few-shot settings by updating just 0.2% to 0.5% of parameters. We compare GNNavi with prevalent PEFT approaches, such as prefix tuning, LoRA and Adapter in terms of performance and efficiency. Our analysis reveals that GNNavi enhances information flow and ensures a clear aggregation process.}
 }
 
 @article{yuan2024lift,
@@ -60,6 +63,9 @@ Overall, the performance improvements show that ToPro could potentially serve as
   author={Yuan, Shuzhou and Nie, Ercong and Ma, Bolei and F{\"a}rber, Michael},
   journal={preprint},
   year={2024},
+  month=feb,
+  abstract={Large Language Models (LLMs) possess outstanding capabilities in addressing various natural language processing (NLP) tasks. However, the sheer size of these models poses challenges in terms of storage, training and inference due to the inclusion of billions of parameters through layer stacking. While traditional approaches such as model pruning or distillation offer ways for reducing model size, they often come at the expense of performance retention. In our investigation, we systematically explore the approach of reducing the number of layers in LLMs. Surprisingly, we observe that even with fewer layers, LLMs maintain similar or better performance levels, particularly in prompt-based fine-tuning for text classification tasks. Remarkably, in certain cases, models with a single layer outperform their fully layered counterparts. These findings offer valuable insights for future work aimed at mitigating the size constraints of LLMs while preserving their performance, thereby opening avenues for significantly more efficient use of LLMs.},
+  url="https://arxiv.org/pdf/2402.11700.pdf",
   abbr={preprint}
 }
 
