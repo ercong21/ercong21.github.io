@@ -7,6 +7,15 @@ nav: true
 nav_order: 4
 ---
 
+I have been a teaching assistant at the University of Munich in various modules, both at Bachelor and Master level. The topics of these courses include:
+- Foundations of Deep Learning for Natural Language Processing
+- Human-Centric Natural Language Processing
+- Applied Deep Learning
+- Statistical Methods in Natural Language Processing
+- Finite State Technologies in Computational Linguistics
+
+Besides, I also supervise BSc. & MSc. theses and semester projects.  <br>
+
 ### Courses  
   * [**Statistical Methods in the Language Processing**](https://www.cip.ifi.lmu.de/~nie/snlp_tutorial) (Bachelor). *Teaching Assistant* (with [Dr. Helmut Schmid](https://www.cis.uni-muenchen.de/~schmid/)).   
     CIS, LMU Munich, WS 2023-24.

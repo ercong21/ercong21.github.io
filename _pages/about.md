@@ -86,9 +86,7 @@ Overall, my linguistic background guides me to conduct NLP research
   * [2023.09.08] Oral presentation at the First Workshop on Ancient Language Processing (ALP 2023) in the beautiful city, Varna, Bulgaria, by the Black Sea ([slides](https://ercong21.github.io/files/ALP_2023_Slides.pdf))
   * [2023.03.02] Invited by Zhihu to the online discussion on the popularity of ChatGPT ([video](https://www.zhihu.com/zvideo/1614993318261219328), Chinese)
   * [2022.05.26] [Presentation](https://talks.stuts.de/en/stuts71/public/events/789) at the 31. TaCoS (Student Conference on Computational Linguistics) on *Fine-Tuned Sentence Transformer Model for Question Answering Task*, Leeuwarden, Netherland -->
-<br>
-
-## Teaching  
+<!-- ## Teaching  
 
 I have been a teaching assistant at the University of Munich in various modules, both at Bachelor and Master level. The topics of these courses include:
 - Foundations of Deep Learning for Natural Language Processing
@@ -97,8 +95,8 @@ I have been a teaching assistant at the University of Munich in various modules,
 - Statistical Methods in Natural Language Processing
 - Finite State Technologies in Computational Linguistics
 
-Besides, I also supervise BSc. & MSc. theses and semester projects.  <br>
-<p style='color: red;'>Note: </p>**The <a href="https://cisnlp.github.io/thesis_proposals/2024/Ercong-2024-Project-1.pdf">thesis topic</a> that I will supervise for SS 2024 is already out.**
+Besides, I also supervise BSc. & MSc. theses and semester projects.  <br> -->
+<p style='color: red;'>Note:</p>**The <a href="https://cisnlp.github.io/thesis_proposals/2024/Ercong-2024-Project-1.pdf">thesis topic</a> that I will supervise for SS 2024 is already out.**
 Please click <a href="https://cisnlp.github.io/vacancies/">here</a> to get more details from our lab website if you have interest in research on multilinguality and large language models. 
 <br><br>
 
