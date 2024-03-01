@@ -8,8 +8,13 @@ nav_order: 5
 ---
 
 ### Conference Reviewer / Program Committee Member
-* ACL ARR 2024 Reviewer
-* [LREC-COLING 2023](https://lrec-coling-2024.org/)
+
+#### 2024  
+* [SemEval 2024](https://semeval.github.io/SemEval2024/)
+* [ACL ARR 2024 Reviewer](https://aclrollingreview.org/people)
+* [LREC-COLING 2024](https://lrec-coling-2024.org/)
+
+#### 2023  
 * [EMNLP 2023](https://2023.emnlp.org/)
 * [BLP Worshop @ EMNLP 2023](https://blp-workshop.github.io/organizers)
 * [Instruction Workshop @ NeurIPS 2023](https://an-instructive-workshop.github.io/organization/)
