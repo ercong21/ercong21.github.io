@@ -4,7 +4,7 @@
 @string{aps = {American Physical Society,}}
 
 @inproceedings{he-etal-2024-language,
-    title = "Language Models as the Brain: Probing Linguistic Structures within Neural Language Models using Minimal Pairs",
+    title = "Decoding Probing: Revealing Internal Linguistic Structures in Neural Language Models using Minimal Pairs",
     author = "He, Linyang  and
       Chen, Peilin  and
       Nie, Ercong and
@@ -16,7 +16,8 @@
     address = "Torino, Italy",
     publisher = "ELRA Language Resources Association and International Committee on Computational Linguistics",
     abstract = "Inspired by cognitive neuroscience studies, we introduce a novel `decoding probing' method that uses minimal pairs benchmark (BLiMP) to probe internal linguistic characteristics in neural language models layer by layer. By treating the language model as the brain and its representations as 'neural activations', we decode grammaticality labels of minimal pairs from the intermediate layers' representations. This approach reveals: 1) Self-supervised language models capture abstract linguistic structures in intermediate layers that GloVe and RNN language models cannot learn. 2) Information about syntactic grammaticality is robustly captured through the first third layers of GPT-2 and also distributed in later layers. As sentence complexity increases, more layers are required for learning grammatical capabilities. 3) Morphological and semantics/syntax interface-related features are harder to capture than syntax, which also aligns with cognitive neuroscience studies. 4) For Transformer-based models, both embeddings and attentions capture grammatical features but show distinct patterns. Different attention heads exhibit similar tendencies toward various linguistic phenomena, but with varied contributions. Notably, specific heads consistently offer the most contributions. ",
-    abbr = {LREC-COLING 2024}
+    abbr = {LREC-COLING 2024},
+    url="https://arxiv.org/pdf/2403.17299.pdf"
 }
 
 @inproceedings{ma-etal-2024-topro,
@@ -100,7 +101,7 @@ url = "https://openreview.net/pdf?id=KLPLCXo4aD"
     url = "https://aclanthology.org/2023.findings-emnlp.1056/"
 }
 
-@inproceedings{zhang-etal-2023-baby,
+@inproceedings{li-etal-2023-crosslingual,
     title = "Crosslingual Retrieval Augmented In-context Learning for Bangla",
     author = "Li, Xiaoqian and Nie, Ercong and Liang, Sheng",
     booktitle = "Proceedings of the First Workshop on Bangla Language Processing",
@@ -123,14 +124,14 @@ url = "https://openreview.net/pdf?id=KLPLCXo4aD"
     publisher = "Association for Computational Linguistics",
     url = "https://aclanthology.org/2023.conll-babylm.13/",
     abstract = "Large Language Models (LLMs) demonstrate remarkable performance on a variety of natural language understanding (NLU) tasks, primarily due to their in-context learning ability. This ability could be applied to building babylike models, i.e. models at small scales, improving training efficiency. In this paper, we propose a 'CoThought' pipeline, which efficiently trains smaller 'baby' language models (BabyLMs) by leveraging the Chain of Thought prompting of LLMs. Our pipeline restructures a dataset of less than 100M in size using GPT-3.5-turbo, transforming it into task-oriented, human-readable texts that are comparable to the school texts for language learners. The BabyLM is then pretrained on this restructured dataset in a RoBERTa fashion. In evaluations across 4 benchmarks, our BabyLM outperforms the vanilla RoBERTa in 10 linguistic, NLU, and question-answering tasks by more than 3 points, showing a superior ability to extract contextual information. These results suggest that compact LMs pretrained on small, LLM-restructured data can better understand tasks and achieve improved performance.",
-    abbr = {CMCL@CoNLL 2023}
+    abbr = {CMCL@CoNLL 2023},
 }
 
 
 @inproceedings{ma-etal-2023-prompt,
     title = "Is Prompt-Based Finetuning Always Better than Vanilla Finetuning? Insights from Cross-Lingual Language Understanding",
     author = "Ma, Bolei  and
-      Nie, Ercong  and
+      Nie*, Ercong  and
       Schmid, Helmut  and
       Schuetze, Hinrich",
     editor = "Georges, Munir  and
