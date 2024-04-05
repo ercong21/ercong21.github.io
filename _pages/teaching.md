@@ -41,6 +41,7 @@ Besides, I also supervise BSc. & MSc. theses and semester projects.  <br>
     Master Thesis, SS 2023.
 
 ### Project Supervision
-  * **[SemEval'24 Task 1](https://semantic-textual-relatedness.github.io/): Measuring the Semantic Textual Relatedness**. Course project, WS 2023-24
-  * **[SemEval'24 Task 8](https://github.com/mbzuai-nlp/SemEval2024-task8): Machine-Generated Text Detection**. Course project, WS 2023-24
-  * **[BabyLM Challenge](https://babylm.github.io/): Sample-efficient pretraining on a developmentally plausible corpus**. Course project, SS 2023
+  * **[KDD Cup 2024](https://www.aicrowd.com/challenges/meta-comprehensive-rag-benchmark-kdd-cup-2024): Meta Comprehensive Retrieval-Augmented Generation (RAG) Benchmark**. Course project, SS 2024.
+  * **[SemEval'24 Task 1](https://semantic-textual-relatedness.github.io/): Measuring the Semantic Textual Relatedness**. Course project, WS 2023-24.
+  * **[SemEval'24 Task 8](https://github.com/mbzuai-nlp/SemEval2024-task8): Machine-Generated Text Detection**. Course project, WS 2023-24.
+  * **[BabyLM Challenge](https://babylm.github.io/): Sample-efficient pretraining on a developmentally plausible corpus**. Course project, SS 2023.

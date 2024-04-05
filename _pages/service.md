@@ -19,3 +19,7 @@ nav_order: 5
 * [BLP Worshop @ EMNLP 2023](https://blp-workshop.github.io/organizers)
 * [Instruction Workshop @ NeurIPS 2023](https://an-instructive-workshop.github.io/organization/)
 * [CoNLL-CMCL Shared Task BabyLM 2023](https://babylm.github.io/)
+
+### Journal Reviewer
+* [ACM Transactions on Intelligent Systems and Technology (ACM TIST)](https://dl.acm.org/journal/tist)
+* [Royal Society Open Science (RSOS)](https://royalsocietypublishing.org/journal/rsos)
