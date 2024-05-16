@@ -17,6 +17,20 @@
   abstract={Large Language Models (LLMs) exhibit strong In-Context Learning (ICL) capabilities when prompts with demonstrations are applied to them. However, fine-tuning still remains crucial to further enhance their adaptability. Prompt-based fine-tuning proves to be an effective fine-tuning method in low-data scenarios, but high demands on computing resources limit its practicality. We address this issue by introducing a prompt-based parameter-efficient fine-tuning (PEFT) approach. GNNavi leverages insights into ICL's information flow dynamics, which indicates that label words act in prompts as anchors for information propagation. GNNavi employs a Graph Neural Network (GNN) layer to precisely guide the aggregation and distribution of information flow during the processing of prompts by hardwiring the desired information flow into the GNN. Our experiments on text classification tasks with GPT-2 and Llama2 shows GNNavi surpasses standard prompt-based fine-tuning methods in few-shot settings by updating just 0.2% to 0.5% of parameters. We compare GNNavi with prevalent PEFT approaches, such as prefix tuning, LoRA and Adapter in terms of performance and efficiency. Our analysis reveals that GNNavi enhances information flow and ensures a clear aggregation process.}
 }
 
+@inproceedings{MGTD4ADLSemeval2024task8, 
+  author    = {Chen, Huixin  and  Büssing, Jan  and  Rügamer, David  and  Nie†, Ercong},
+  title     = {Team MGTD4ADL at SemEval-2024 Task 8: Leveraging (Sentence) Transformer Models with Contrastive Learning for Identifying Machine-Generated Text},
+  booktitle      = {Proceedings of the 18th International Workshop on Semantic Evaluation (SemEval-2024)},
+  month          = {June},
+  year           = {2024},
+  address        = {Mexico City, Mexico},
+  publisher      = {Association for Computational Linguistics},
+  pages     = {1722--1729},
+  abstract  = {This paper outlines our approach to SemEval-2024 Task 8 (Subtask B), which focuses on discerning machine-generated text from human-written content, while also identifying the text sources, i.e., from which Large Language Model (LLM) the target text is generated. Our detection system is built upon Transformer-based techniques, leveraging various pre-trained language models (PLMs), including sentence transformer models. Additionally, we incorporate Contrastive Learning (CL) into the classifier to improve the detecting capabilities and employ Data Augmentation methods. Ultimately, our system achieves a peak accuracy of 76.96\% on the test set of the competition, configured using a sentence transformer model integrated with CL methodology.},
+  url       = {https://aclanthology.org/2024.semeval2024-1.243},
+  abbr  = {SemEval@NAACL 2024}          
+}
+
 @inproceedings{he-etal-2024-language,
     title = "Decoding Probing: Revealing Internal Linguistic Structures in Neural Language Models using Minimal Pairs",
     author = "He, Linyang  and
@@ -76,8 +90,7 @@ Overall, the performance improvements show that ToPro could potentially serve as
   abbr={preprint}
 }
 
-@inproceedings{
-Li2023classification,
+@inproceedings{Li2023classification,
 title={From Classification to Generation: Insights into Crosslingual Retrieval Augmented ICL},
 author="Li, Xiaoqian and Nie, Ercong and Liang, Sheng",
 booktitle={NeurIPS 2023 Workshop on Instruction Tuning and Instruction Following},
