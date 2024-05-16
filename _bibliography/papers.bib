@@ -3,6 +3,20 @@
 
 @string{aps = {American Physical Society,}}
 
+@inproceedings{yuan2024lgnnavi,
+  title="GNNavi: Navigating the Information Flow in Large Language Models by Graph Neural Network",
+  author="Yuan, Shuzhou and Nie, Ercong and F{\"a}rber, Michael and Schmid, Helmut and Sch{\"u}tze, Hinrich",
+  booktitle = "Findings of the Association for Computational Linguistics: ACL 2024",
+  year="2024",
+  month=aug,
+  address = "Bangkok, Thailand",
+  publisher = "Association for Computational Linguistics",
+  abbr={ACL 2024},
+  url="https://arxiv.org/pdf/2402.11709.pdf",
+  selected=True,
+  abstract={Large Language Models (LLMs) exhibit strong In-Context Learning (ICL) capabilities when prompts with demonstrations are applied to them. However, fine-tuning still remains crucial to further enhance their adaptability. Prompt-based fine-tuning proves to be an effective fine-tuning method in low-data scenarios, but high demands on computing resources limit its practicality. We address this issue by introducing a prompt-based parameter-efficient fine-tuning (PEFT) approach. GNNavi leverages insights into ICL's information flow dynamics, which indicates that label words act in prompts as anchors for information propagation. GNNavi employs a Graph Neural Network (GNN) layer to precisely guide the aggregation and distribution of information flow during the processing of prompts by hardwiring the desired information flow into the GNN. Our experiments on text classification tasks with GPT-2 and Llama2 shows GNNavi surpasses standard prompt-based fine-tuning methods in few-shot settings by updating just 0.2% to 0.5% of parameters. We compare GNNavi with prevalent PEFT approaches, such as prefix tuning, LoRA and Adapter in terms of performance and efficiency. Our analysis reveals that GNNavi enhances information flow and ensures a clear aggregation process.}
+}
+
 @inproceedings{he-etal-2024-language,
     title = "Decoding Probing: Revealing Internal Linguistic Structures in Neural Language Models using Minimal Pairs",
     author = "He, Linyang  and
@@ -10,7 +24,7 @@
       Nie, Ercong and
       Li, Yuanning and
       Brennan, Jonathan R.",
-    booktitle = "Proceedings of the 2024 Joint International Conference on Computational Linguistics, Language Resources and Evaluation (To be published) ",
+    booktitle = "Proceedings of the 2024 Joint International Conference on Computational Linguistics, Language Resources and Evaluation",
     month = may,
     year = "2024",
     address = "Torino, Italy",
@@ -49,17 +63,6 @@ Overall, the performance improvements show that ToPro could potentially serve as
   url="https://arxiv.org/pdf/2402.18397.pdf",
   abstract={Despite the predominance of English in their training data, English-centric Large Language Models (LLMs) like GPT-3 and LLaMA display a remarkable ability to perform multilingual tasks, raising questions about the depth and nature of their cross-lingual capabilities. This paper introduces the decomposed prompting approach to probe the linguistic structure understanding of these LLMs in sequence labeling tasks. Diverging from the single text-to-text prompt, our method generates for each token of the input sentence an individual prompt which asks for its linguistic label. We assess our method on the Universal Dependencies part-of-speech tagging dataset for 38 languages, utilizing both English-centric and multilingual LLMs. Our findings show that decomposed prompting surpasses the iterative prompting baseline in efficacy and efficiency under zero- and few-shot settings. Further analysis reveals the influence of evaluation methods and the use of instructions in prompts. Our multilingual investigation shows that English-centric language models perform better on average than multilingual models. Our study offers insights into the multilingual transferability of English-centric LLMs, contributing to the understanding of their multilingual linguistic knowledge.},
   abbr={preprint}
-}
-
-@article{yuan2024lgnnavi,
-  title={GNNavi: Navigating the Information Flow in Large Language Models by Graph Neural Network},
-  author={Yuan, Shuzhou and Nie, Ercong and Ma, Bolei and F{\"a}rber, Michael and Schmid, Helmut and Sch{\"u}tze, Hinrich},
-  journal={preprint},
-  year={2024},
-  month=feb,
-  abbr={preprint},
-  url="https://arxiv.org/pdf/2402.11709.pdf",
-  abstract={Large Language Models (LLMs) exhibit strong In-Context Learning (ICL) capabilities when prompts with demonstrations are applied to them. However, fine-tuning still remains crucial to further enhance their adaptability. Prompt-based fine-tuning proves to be an effective fine-tuning method in low-data scenarios, but high demands on computing resources limit its practicality. We address this issue by introducing a prompt-based parameter-efficient fine-tuning (PEFT) approach. GNNavi leverages insights into ICL's information flow dynamics, which indicates that label words act in prompts as anchors for information propagation. GNNavi employs a Graph Neural Network (GNN) layer to precisely guide the aggregation and distribution of information flow during the processing of prompts by hardwiring the desired information flow into the GNN. Our experiments on text classification tasks with GPT-2 and Llama2 shows GNNavi surpasses standard prompt-based fine-tuning methods in few-shot settings by updating just 0.2% to 0.5% of parameters. We compare GNNavi with prevalent PEFT approaches, such as prefix tuning, LoRA and Adapter in terms of performance and efficiency. Our analysis reveals that GNNavi enhances information flow and ensures a clear aggregation process.}
 }
 
 @article{yuan2024lift,

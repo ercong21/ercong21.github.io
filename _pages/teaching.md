@@ -35,9 +35,9 @@ Besides, I also supervise BSc. & MSc. theses and semester projects.  <br>
   Master Thesis, SS 2024.  
   * Han Yang (LMU): **Enhancing Reasoning and Safety: Integrating Classical Rule-Based AI with Large Language Models.**   
   Master Thesis, WS 2023-24.
-  * [Bolei Ma](https://boleima.github.io/)(LMU): **Prompt-based finetuning of multilingual models for zero-shot cross-lingual transfer**.  
-    Master Thesis, SS 2023 (Currently PhD candidate with [Prof. Frauker Kreuter](https://www.statistik.uni-muenchen.de/personen/professuren/kreuter1/index.html) at Department of Statistics, LMU Munich).
-  * Xiaoqian Li(LMU): **Extend the cross-lingual retrieval-augmented prompting method to new tasks and settings**. (Co-supervised with Sheng Liang)  
+  * [Bolei Ma](https://boleima.github.io/) (LMU): **Prompt-based finetuning of multilingual models for zero-shot cross-lingual transfer**.  
+    Master Thesis, SS 2023 (Currently PhD candidate with [Prof. Frauke Kreuter](https://www.statistik.uni-muenchen.de/personen/professuren/kreuter1/index.html) at Department of Statistics, LMU Munich).
+  * Xiaoqian Li (LMU): **Extend the cross-lingual retrieval-augmented prompting method to new tasks and settings**. (Co-supervised with Sheng Liang)  
     Master Thesis, SS 2023.
 
 ### Project Supervision
