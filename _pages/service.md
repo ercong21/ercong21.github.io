@@ -4,7 +4,7 @@ permalink: /service/
 title: Service
 description:
 nav: true
-nav_order: 5
+nav_order: 4
 ---
 
 ### Conference Reviewer / Program Committee Member
