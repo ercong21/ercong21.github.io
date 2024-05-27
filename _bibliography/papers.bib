@@ -3,6 +3,21 @@
 
 @string{aps = {American Physical Society,}}
 
+@inproceedings{gilhuber2023diffusal,
+  title={A Unified Data Augmentation Framework for Low-Resource Multi-Domain Dialogue Generation},
+  author={Liu*, Yongkang and Nie*, Ercong and Feng, Shi and Hua, Zheng and Ding, Zifeng and Wang, Daling and Zhang, Yifei and Sch{\"u}tze, Hinrich},
+  booktitle={European Conference on Machine Learning and Principles and Practice of Knowledge Discovery in Databases},
+  year={2024},
+  publisher={Springer},
+  month=sep,
+  address={Vilnus, Lithunia},
+  abbr={ECML-PKDD 2024},
+  selected=True,
+  abstract={Current state-of-the-art dialogue systems heavily rely on extensive training datasets. However, challenges arise in domains where domain-specific training datasets are insufficient or entirely absent. To tackle this challenge, we propose a novel data Augmentation framework for Multi-Domain Dialogue Generation, referred to as AMD2G. The AMD2G framework consists of a data augmentation process and a two-stage training approach: domain-agnostic training and domain adaptation training. We posit that domain corpora are a blend of domain-agnostic and domain-specific features, with certain representation patterns shared among diverse domains. Domain-agnostic training aims to enable models to learn these common expressive patterns.
+To construct domain-agnostic dialogue corpora, we employ a de-domaining data processing technique used to remove domain-specific features. By mitigating the impact of domain-specific features, the model trained on the de-domained corpora can effectively learn shared expressive patterns across various domains. Subsequently, we adapt the learned domain-agnostic features to the target domain through domain adaptation training.
+We conduct experiments on Chinese dialogue datasets from five different domains, demonstrating that AMD2G achieves superior performance compared to both direct training on the target domain corpus and training on all five domain corpora collectively. Our work underscores AMD2G as a viable alternative solution for low-resource multi-domain dialogue generation.},
+}
+
 @inproceedings{yuan2024lgnnavi,
   title="GNNavi: Navigating the Information Flow in Large Language Models by Graph Neural Network",
   author="Yuan, Shuzhou and Nie, Ercong and F{\"a}rber, Michael and Schmid, Helmut and Sch{\"u}tze, Hinrich",
@@ -45,6 +60,7 @@
     publisher = "ELRA Language Resources Association and International Committee on Computational Linguistics",
     abstract = "Inspired by cognitive neuroscience studies, we introduce a novel `decoding probing' method that uses minimal pairs benchmark (BLiMP) to probe internal linguistic characteristics in neural language models layer by layer. By treating the language model as the brain and its representations as 'neural activations', we decode grammaticality labels of minimal pairs from the intermediate layers' representations. This approach reveals: 1) Self-supervised language models capture abstract linguistic structures in intermediate layers that GloVe and RNN language models cannot learn. 2) Information about syntactic grammaticality is robustly captured through the first third layers of GPT-2 and also distributed in later layers. As sentence complexity increases, more layers are required for learning grammatical capabilities. 3) Morphological and semantics/syntax interface-related features are harder to capture than syntax, which also aligns with cognitive neuroscience studies. 4) For Transformer-based models, both embeddings and attentions capture grammatical features but show distinct patterns. Different attention heads exhibit similar tendencies toward various linguistic phenomena, but with varied contributions. Notably, specific heads consistently offer the most contributions. ",
     abbr = {LREC-COLING 2024},
+    selected=True,
     url="https://aclanthology.org/2024.lrec-main.402.pdf"
 }
 
