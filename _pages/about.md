@@ -23,8 +23,8 @@ Email: lastname@cis.lmu.de
 
 [[Twitter]](https://twitter.com/NielKlug), [[Google Scholar]](https://scholar.google.com/citations?user=dx00mD4AAAAJ&hl=en), [[LinkedIn]](https://www.linkedin.com/in/ercong-nie-6375a5104/), [[Zhihu]](https://www.zhihu.com/people/nie-er-cong-56), [[CV]](https://ercong21.github.io/files/Resume_Nie.pdf)
 
-* Hi, I am Ercong, a second-year PhD candidate at Center for Information and Language Processing ([CIS](https://www.cis.lmu.de/)), [LMU Munich](https://www.lmu.de/en/index.html).
-* I am supervised by [PD. Dr. Helmut Schmid](https://www.cis.uni-muenchen.de/~schmid/). I am also part of the [Schütze Lab](https://schuetze.cis.lmu.de/) led by [Prof. Hinrich Schütze](https://schuetze.cis.lmu.de/about/), and an affiliated member of Munich Center for Machine Learning ([MCML](https://mcml.ai/)).
+* Hi, I am Ercong, a second-year PhD student at Center for Information and Language Processing ([CIS](https://www.cis.lmu.de/)), [LMU Munich](https://www.lmu.de/en/index.html).
+* I am supervised by [PD. Dr. Helmut Schmid](https://www.cis.uni-muenchen.de/~schmid/). I am also part of the [Schütze Lab](https://schuetze.cis.lmu.de/) led by [Prof. Hinrich Schütze](https://schuetze.cis.lmu.de/about/), and an affiliated doctoral researcher of Munich Center for Machine Learning ([MCML](https://mcml.ai/)).
 * I obtained my M.Sc. degree in computational linguistics and informatics (computer science) at 
 [LMU Munich](https://www.lmu.de/en/index.html). Prior to LMU, I was an undergraduate at Shanghai Jiao Tong University ([SJTU](https://sfl.sjtu.edu.cn/En)),
 majoring in German Studies and minoring in Finance. 
@@ -33,11 +33,15 @@ During my bachelor study, I spent one exchange semester at [University of Heidel
 
 
 ### Research Interest
-I have a broad research interest in the field of *Natural Language Processing* (NLP), especially in multilinguality of large language models, low-resource NLP , human-centered NLP, etc. <br>
-Overall, my linguistic background guides me to conduct NLP research 
+I have a broad research interest in the field of *Natural Language Processing* (NLP), especially in multilingual NLP, efficient methods for NLP, and human-centric NLP. <br>
+* **Multilingual NLP:** multilinguality of LLMs ([Nie et al., 2024](https://arxiv.org/pdf/2402.18397.pdf)), cross-lingual transfer ([Nie et al., 2023a](https://doi.org/10.18653/v1/2023.findings-acl.528), [Li et al., 2023b](https://openreview.net/pdf?id=KLPLCXo4aD), [Ma et al., 2024](https://aclanthology.org/2024.eacl-long.164v2.pdf)), historical language processing ([Nie et al., 2023b](https://aclanthology.org/2023.alp-1.8/)).
+* **Efficient methods for NLP:**  prompt-based learning([Nie et al., 2023c](https://aclanthology.org/2023.findings-emnlp.1056/), [Ma et al., 2023](https://aclanthology.org/2023.konvens-main.1), [Li et al., 2023a](https://aclanthology.org/2023.banglalp-1.15.pdf)), low-resource learning ([Liu et al., 2024](https://www.google.com)), parameter-efficient fine-tuning ([Yuan et al., 2024a](https://arxiv.org/pdf/2402.11709.pdf), [Yuan et al., 2024b](https://arxiv.org/pdf/2402.11700.pdf)).
+* **Human-centric NLP:** NLP inspired by human language processing ([Zhang et al., 2023](https://aclanthology.org/2023.conll-babylm.13/), [Chen et al., 2024](https://aclanthology.org/2024.semeval2024-1.243)), computational neurolinguistics ([He et al., 2024](https://aclanthology.org/2024.lrec-main.402.pdf)).
+
+<!-- Overall, my linguistic background guides me to conduct NLP research 
 * **of the languages:** traditional computational linguistic fields e.g., syntactic parsing, linguistic annotation (POS tagging, morphology).
 * **for the languages:** multilingual NLP, e.g., cross-lingual transfer learning for low-resource and historical languages, multilingual LLMs.
-* **by the languages:** AI models learning languages inspired by human language acquisition, e.g., prompt learning, cognition-motivated NLP.
+* **by the languages:** AI models learning languages inspired by human language acquisition, e.g., prompt learning, cognition-motivated NLP. -->
   
 
 <!-- ## Publications
