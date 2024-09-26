@@ -105,7 +105,7 @@ Please click <a href="https://cisnlp.github.io/vacancies/">here</a> to get more 
 <p>
         <strong>Feel free to reach out if you're interested in topics related to
         <span style="color: blue;">NLP</span> and 
-        <span style="color: green;">LLM</span> topics, including 
+        <span style="color: green;">LLM</span>, including 
         <span style="color: red;">multilinguality</span>, 
         <span style="color: purple;">interpretability</span>, 
         <span style="color: orange;">retrieval-augmented methods</span>, 
