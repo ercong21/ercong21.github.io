@@ -7,7 +7,7 @@ nav: true
 nav_order: 3
 ---
 
-I have been a teaching assistant at the University of Munich in various modules, both at Bachelor and Master level. The topics of these courses include:
+I have been a teaching assistant at the University of Munich in various modules, at both Bachelor and Master level. The topics of these courses include:
 - Foundations of Deep Learning for Natural Language Processing
 - Human-Centric Natural Language Processing
 - Applied Deep Learning
