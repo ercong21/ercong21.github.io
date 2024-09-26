@@ -31,12 +31,12 @@ majoring in German Studies and minoring in Finance.
 During my bachelor study, I spent one exchange semester at [University of Heidelberg](https://www.uni-heidelberg.de/en) in *Comparative German Studies*.  
   <!--[CV](https://ercong21.github.io/files/Resume.pdf)-->
 
-
-### Research Interest
-I have a broad research interest in the field of *Natural Language Processing* (NLP), especially in multilingual NLP, efficient methods for NLP, and human-centric NLP. <br>
+<br>
+## Research Interest
+I have a broad research interest in the field of *Natural Language Processing* (NLP), especially in multilingual NLP, efficient methods for NLP, and human-inspired NLP. <br>
 * **Multilingual NLP:** multilinguality of LLMs ([Nie et al., 2024](https://arxiv.org/pdf/2402.18397.pdf)), cross-lingual transfer ([Nie et al., 2023a](https://doi.org/10.18653/v1/2023.findings-acl.528), [Li et al., 2023b](https://openreview.net/pdf?id=KLPLCXo4aD), [Ma et al., 2024](https://aclanthology.org/2024.eacl-long.164v2.pdf)), historical language processing ([Nie et al., 2023b](https://aclanthology.org/2023.alp-1.8/)).
 * **Efficient methods for NLP:**  prompt-based learning([Nie et al., 2023c](https://aclanthology.org/2023.findings-emnlp.1056/), [Ma et al., 2023](https://aclanthology.org/2023.konvens-main.1), [Li et al., 2023a](https://aclanthology.org/2023.banglalp-1.15.pdf)), low-resource learning ([Liu et al., 2024](https://www.google.com)), parameter-efficient fine-tuning ([Yuan et al., 2024a](https://arxiv.org/pdf/2402.11709.pdf), [Yuan et al., 2024b](https://arxiv.org/pdf/2402.11700.pdf)).
-* **Human-centric NLP:** NLP inspired by human language processing ([Zhang et al., 2023](https://aclanthology.org/2023.conll-babylm.13/), [Chen et al., 2024](https://aclanthology.org/2024.semeval2024-1.243)), computational neurolinguistics ([He et al., 2024](https://aclanthology.org/2024.lrec-main.402.pdf)).
+* **Human-inspired NLP:** NLP inspired by human language processing ([Zhang et al., 2023](https://aclanthology.org/2023.conll-babylm.13/), [Chen et al., 2024](https://aclanthology.org/2024.semeval2024-1.243)), computational neurolinguistics ([He et al., 2024](https://aclanthology.org/2024.lrec-main.402.pdf)).
 
 <!-- Overall, my linguistic background guides me to conduct NLP research 
 * **of the languages:** traditional computational linguistic fields e.g., syntactic parsing, linguistic annotation (POS tagging, morphology).
@@ -100,13 +100,21 @@ I have been a teaching assistant at the University of Munich in various modules,
 - Finite State Technologies in Computational Linguistics
 
 Besides, I also supervise BSc. & MSc. theses and semester projects.  <br> -->
-<p style='color: red;'>Note:</p>**The <a href="https://cisnlp.github.io/thesis_proposals/2024/Ercong-2024-Project-1.pdf">thesis topic</a> that I will supervise for SS 2024 is already out.**
-Please click <a href="https://cisnlp.github.io/vacancies/">here</a> to get more details from our lab website if you have interest in research on multilinguality and large language models. 
-<br><br>
-
-<!-- ## Service
-
-* **Reviewer:** EMNLP 2023 -->
+<!-- <p style='color: red;'>Note:</p>**The <a href="https://cisnlp.github.io/thesis_proposals/2024/Ercong-2024-Project-1.pdf">thesis topic</a> that I will supervise for SS 2024 is already out.**
+Please click <a href="https://cisnlp.github.io/vacancies/">here</a> to get more details from our lab website if you have interest in research on multilinguality and large language models.  -->
+<p>
+        <strong>Feel free to reach out if you're interested in topics related to
+        <span style="color: blue;">NLP</span> and 
+        <span style="color: green;">LLM</span> topics, including 
+        <span style="color: red;">multilinguality</span>, 
+        <span style="color: purple;">interpretability</span>, 
+        <span style="color: orange;">retrieval-augmented methods</span>, 
+        <span style="color: teal;">human-inspired NLP</span>, 
+        and their intersections with 
+        <span style="color: coral;">digital humanities</span> and 
+        <span style="color: crimson;">social sciences</span> or 
+        <span style="color: deeppink;">domain-specific applications</span>.</strong> 
+    </p><br>
 
 <!-- #### Possible topics for Bachelor/Master student project/thesis: 
   * An empirical study of multilinguality in zero-shot prompt learning.
