@@ -1,7 +1,7 @@
 ---
 layout: page
 permalink: /service/
-title: Service
+title: Service and Recognition
 description:
 nav: true
 nav_order: 4
@@ -16,5 +16,9 @@ nav_order: 4
 * [ACM Transactions on Intelligent Systems and Technology (ACM TIST)](https://dl.acm.org/journal/tist)
 * [Royal Society Open Science (RSOS)](https://royalsocietypublishing.org/journal/rsos)
 
-### Community Service
+### Community and Professional Roles
 * Committe member of [NICE](https://nice-nlp.github.io/), an NLP Academic Exchange Platform.
+* Member of [AI Grid](https://ai-grid.org/en/), a community connecting young scientists AI funded by the German Ferderal Ministry of Education and Research.
+
+### Awards
+* China Internation College Students' Innovation Competition 2024 (Shanghai) **Bronze Prize**
