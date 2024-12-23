@@ -1,7 +1,7 @@
 ---
 layout: page
 permalink: /service/
-title: Service and Recognition
+title: Services
 description:
 nav: true
 nav_order: 4
