@@ -8,9 +8,9 @@ nav_order: 4
 ---
 
 ### Conference Reviewer / PC Member
-* **2025:** [COLING](https://coling2025.org/)
-* **2024:** [SemEval](https://semeval.github.io/SemEval2024/), [ACL ARR](https://aclrollingreview.org/people) (ACL, EMNLP, etc.), [LREC-COLING](https://lrec-coling-2024.org/)
-* **2023:** [EMNLP](https://2023.emnlp.org/), [EMNLP Worshop BLP](https://blp-workshop.github.io/organizers), [NeurIPS Workshop Instruction](https://an-instructive-workshop.github.io/organization/), [CoNLL-CMCL BabyLM Challenge](https://babylm.github.io/)
+* **2025:** [COLING](https://coling2025.org/), [Second Workshop on Ancient Language Processing](https://www.ancientnlp.com/alp2025/organization/) @ NAACL
+* **2024:** [ACL ARR](https://aclrollingreview.org/people) (ACL, EMNLP, NAACL, EACL, etc.), [LREC-COLING](https://lrec-coling-2024.org/), [SemEval](https://semeval.github.io/SemEval2024/)
+* **2023:** [EMNLP](https://2023.emnlp.org/), [First Workshop on Bangla Language Processing](https://blp-workshop.github.io/organizers) @ EMNLP, [Workshop on Instruction Tuning and Instruction Following](https://an-instructive-workshop.github.io/organization/) @ NeurIPS, [CoNLL-CMCL BabyLM Challenge](https://babylm.github.io/) @ EMNLP
 
 ### Journal Reviewer
 * [ACM Transactions on Intelligent Systems and Technology (ACM TIST)](https://dl.acm.org/journal/tist)
