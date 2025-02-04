@@ -21,22 +21,22 @@ jobs:
       uses: ruby/setup-ruby@v1
       with:
         ruby-version: '3.0.2'
-        bundler-cache: false
+        bundler-cache: true
 
-    - name: Install a compatible RubyGems version
-      run: |
-        gem install rubygems-update -v 3.3.22
-        update_rubygems
-        gem --version  # Verify the updated RubyGems version
+    # - name: Install a compatible RubyGems version
+    #   run: |
+    #     gem install rubygems-update -v 3.3.22
+    #     update_rubygems
+    #     gem --version  # Verify the updated RubyGems version
     
-    - name: Update Bundler
-      run: |
-        gem install bundler
-        bundler --version  # Verify the installed Bundler version
+    # - name: Update Bundler
+    #   run: |
+    #     gem install bundler
+    #     bundler --version  # Verify the installed Bundler version
 
-    - name: Install Jekyll
-      run: |
-        gem install jekyll
+    # - name: Install Jekyll
+    #   run: |
+    #     gem install jekyll
 
     - name: Install deps
       run: |
