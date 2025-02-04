@@ -34,9 +34,13 @@ jobs:
     #     gem install bundler
     #     bundler --version  # Verify the installed Bundler version
 
-    # - name: Install Jekyll
-    #   run: |
-    #     gem install jekyll
+    - name: Install dependencies
+      run: |
+        bundle install
+
+    - name: Install Jekyll
+      run: |
+        gem install jekyll
 
     - name: Install deps
       run: |
