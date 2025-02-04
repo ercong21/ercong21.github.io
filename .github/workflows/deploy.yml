@@ -29,9 +29,9 @@ jobs:
         update_rubygems
         gem --version  # Verify the updated RubyGems version
 
-    - name: Install dependencies
+    - name: Install Jekyll
       run: |
-        bundle install
+        gem install jekyll
 
     - name: Install deps
       run: |
