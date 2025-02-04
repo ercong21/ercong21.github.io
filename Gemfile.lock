@@ -181,6 +181,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  benchmark (~> 0.4.0)
   feedjira
   httparty
   jekyll
