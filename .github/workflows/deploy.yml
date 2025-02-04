@@ -28,6 +28,11 @@ jobs:
         gem install rubygems-update -v 3.3.22
         update_rubygems
         gem --version  # Verify the updated RubyGems version
+    
+    - name: Update Bundler
+      run: |
+        gem install bundler
+        bundler --version  # Verify the installed Bundler version
 
     - name: Install Jekyll
       run: |
