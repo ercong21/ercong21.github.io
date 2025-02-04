@@ -23,9 +23,10 @@ jobs:
         ruby-version: '3.0.2'
         bundler-cache: false
 
-    - name: Update RubyGems
+    - name: Install a compatible RubyGems version
       run: |
-        gem update --system
+        gem install rubygems-update -v 3.3.22
+        update_rubygems
         gem --version  # Verify the updated RubyGems version
 
     - name: Install deps
