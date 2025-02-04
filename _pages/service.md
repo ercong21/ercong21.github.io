@@ -8,8 +8,8 @@ nav_order: 4
 ---
 
 ### Conference Reviewer / PC Member
-* **2025:** [ACL ARR](https://aclrollingreview.org/people) (ACL, EMNLP, NAACL, etc.), [COLING](https://coling2025.org/), [IJCNN](https://2025.ijcnn.org/), [Second Workshop on Ancient Language Processing](https://www.ancientnlp.com/alp2025/organization/) @ NAACL, [The 19th Linguistic Annotation Workshop](https://sigann.github.io/LAW-XIX-2025/) @ ACL
-* **2024:** [ACL ARR](https://aclrollingreview.org/people) (ACL, EMNLP, NAACL, EACL, etc.), [LREC-COLING](https://lrec-coling-2024.org/), [SemEval](https://semeval.github.io/SemEval2024/), ...
+* **2025:** [ACL ARR](https://aclrollingreview.org/people) (ACL, EMNLP, NAACL, etc.), [COLING](https://coling2025.org/), [IJCNN](https://2025.ijcnn.org/), [Second Workshop on Ancient Language Processing](https://www.ancientnlp.com/alp2025/organization/) @ NAACL, [The 19th Linguistic Annotation Workshop](https://sigann.github.io/LAW-XIX-2025/) @ ACL, ...
+* **2024:** [ACL ARR](https://aclrollingreview.org/people) (ACL, EMNLP, NAACL, EACL, etc.), [LREC-COLING](https://lrec-coling-2024.org/), [SemEval](https://semeval.github.io/SemEval2024/)
 * **2023:** [EMNLP](https://2023.emnlp.org/), [First Workshop on Bangla Language Processing](https://blp-workshop.github.io/organizers) @ EMNLP, [Workshop on Instruction Tuning and Instruction Following](https://an-instructive-workshop.github.io/organization/) @ NeurIPS, [CoNLL-CMCL BabyLM Challenge](https://babylm.github.io/) @ EMNLP
 
 ### Journal Reviewer
