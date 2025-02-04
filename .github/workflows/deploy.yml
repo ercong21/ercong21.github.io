@@ -29,6 +29,10 @@ jobs:
         update_rubygems
         gem --version  # Verify the updated RubyGems version
 
+    - name: Install dependencies
+      run: |
+        bundle install
+
     - name: Install deps
       run: |
         npm install -g mermaid.cli
