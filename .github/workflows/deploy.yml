@@ -21,6 +21,12 @@ jobs:
       with:
         ruby-version: '3.0.2'
         bundler-cache: true
+
+    - name: Update RubyGems
+      run: |
+        gem update --system
+        gem --version  # Verify the updated RubyGems version
+        
     - name: Install deps
       run: |
         npm install -g mermaid.cli
