@@ -41,7 +41,7 @@ I have a broad research interest in the field of *Natural Language Processing* (
         <span style="color: coral;">digital humanities</span> and 
         <span style="color: crimson;">social sciences</span> or 
         <span style="color: deeppink;">domain-specific applications</span>.</strong> 
-    </p><br>
+    </p>
 
 #### Selected Publications
 
@@ -52,10 +52,8 @@ I have a broad research interest in the field of *Natural Language Processing* (
 - Shuzhou Yuan, **Ercong Nie**, Michael Färber, Helmut Schmid, Hinrich Schuetze. **GNNavi: Navigating the Information Flow in Large Language Models by Graph Neural Network**. In ACL Findings 2024. [[Paper]](https://aclanthology.org/2024.findings-acl.237.pdf), [[Code]](https://github.com/ShuzhouYuan/GNNavi)
 - Linyang He, Peili Chen, **Ercong Nie**, Yuanning Li, Jonathan R. Brennan. **Decoding Probing: Revealing Internal Linguistic Structures in Neural Language Models Using Minimal Pairs**. In LREC-COLING 2024. [[Paper]](https://aclanthology.org/2024.lrec-main.402.pdf)
 
-(\* denotes equal contribution)
-
+(\* denotes equal contribution)  
 See more in [my publications](publications/).
-
 
 #### Academic Services
 
