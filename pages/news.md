@@ -15,6 +15,8 @@ permalink: /news/
 - **04/2024** Presentation of prompt-based finetuning at CIS PhD seminar.
 - **02/2024** One paper (oral) accepted to EACL 2024.
 - **02/2024** One paper accepted to LREC-COLING 2024.
+- **12/2023** One paper accepted to NeuIPS 2023 workshop.
+- **11/2023** Two papers accepted to EMNLP 2023 workshops.
 - **11/2023** One paper accepted to EMNLP 2023.
 - **09/2023** One paper (oral) accepted to KONVENS 2023.
 - **09/2023** Invited talk on "Academic writing with ChatGPT" at Hubei University, China.
@@ -24,6 +26,3 @@ permalink: /news/
 - **09/2022** Start my PhD journey at CIS, LMU Munich.
 - **08/2022** Defend my Master Thesis.
 - **05/2022** Oral presentation at TaCoS in Leeuwarden.
-
-- **11/2019** One paper (poster) accepted to AAAI 2020.
-- **05/2019** One paper (oral) accepted to IJCAI 2019.
