@@ -1,63 +1,82 @@
 ---
 layout: index
-title: Peiqin Lin's Homepage
-description: Peiqin Lin's Homepage
-keywords: Peiqin Lin, 林佩勤
+title: Homepage
+description: Ercong Nie's Homepage
+keywords: Ercong Nie, 聂耳聪
 comments: true
 permalink: /
 ---
 
+[Schuetze NLP Lab](https://schuetze.cis.lmu.de/), [Center for Information and Language Processing (CIS)](https://www.cis.lmu.de/),  
+[Ludwig Maximilians University of Munich (LMU Munich)](https://www.lmu.de/en/),  
+[Munich Center for Machine Learning (MCML)](https://mcml.ai/)<br>
+
+Email: lastname@cis.lmu.de
+
 #### About Me
 
-My name is Peiqin Lin (林佩勤) originally from [Haimen, China](https://en.wikipedia.org/wiki/Haimen,_Guangdong). Currently, I am an [ELLIS Ph.D. student](https://ellis.eu/phd-postdoc) at [the Center for Information and Language Processing (CIS), LMU Munich](https://schuetze.cis.lmu.de/) and [SARDINE Group, Instituto Superior Técnico](https://sardine-lab.github.io/), under the supervison of [Hinrich Schütze](https://schuetze.cis.lmu.de/team/) and [André F. T. Martins](https://andre-martins.github.io/index.html). I work on multilingualism and cross-lingual NLP.
+* Hi, I am Ercong, a third-year PhD student at Center for Information and Language Processing ([CIS](https://www.cis.lmu.de/)), [LMU Munich](https://www.lmu.de/en/index.html).
+* I am supervised by [PD. Dr. Helmut Schmid](https://www.cis.uni-muenchen.de/~schmid/). I am also part of the [Schütze Lab](https://schuetze.cis.lmu.de/) led by [Prof. Hinrich Schütze](https://schuetze.cis.lmu.de/about/), and an affiliated doctoral researcher of Munich Center for Machine Learning ([MCML](https://mcml.ai/)).
+* I obtained my M.Sc. degree in computational linguistics and informatics (computer science) at 
+[LMU Munich](https://www.lmu.de/en/index.html). Prior to LMU, I was an undergraduate at Shanghai Jiao Tong University ([SJTU](https://sfl.sjtu.edu.cn/En)),
+majoring in German Studies and minoring in Finance. 
+During my bachelor study, I spent one exchange semester at [University of Heidelberg](https://www.uni-heidelberg.de/en) in *Comparative German Studies*.
 
-Note: I will be on the job market in summer 2025! If you have any interesting research opportunities available, please reach out to me via email.
 
-#### Education
+#### Research Interest
+I have a broad research interest in the field of *Natural Language Processing* (NLP), especially in multilingual NLP, efficient methods for NLP, and human-inspired NLP. <br>
+* **Multilingual NLP:** multilinguality of LLMs ([Nie et al., 2024](https://arxiv.org/pdf/2402.18397.pdf)), cross-lingual transfer ([Nie et al., 2023a](https://doi.org/10.18653/v1/2023.findings-acl.528), [Li et al., 2023b](https://openreview.net/pdf?id=KLPLCXo4aD), [Ma et al., 2024](https://aclanthology.org/2024.eacl-long.164v2.pdf)), historical language processing ([Nie et al., 2023b](https://aclanthology.org/2023.alp-1.8/)).
+* **Efficient methods for NLP:**  prompt-based learning([Nie et al., 2023c](https://aclanthology.org/2023.findings-emnlp.1056/), [Ma et al., 2023](https://aclanthology.org/2023.konvens-main.1), [Li et al., 2023a](https://aclanthology.org/2023.banglalp-1.15.pdf)), low-resource learning ([Liu et al., 2024](https://www.google.com)), parameter-efficient fine-tuning ([Yuan et al., 2024a](https://arxiv.org/pdf/2402.11709.pdf), [Yuan et al., 2024b](https://arxiv.org/pdf/2402.11700.pdf)).
+* **Human-inspired NLP:** NLP inspired by human language processing ([Zhang et al., 2023](https://aclanthology.org/2023.conll-babylm.13/), [Chen et al., 2024](https://aclanthology.org/2024.semeval2024-1.243)), computational neurolinguistics ([He et al., 2024](https://aclanthology.org/2024.lrec-main.402.pdf)).
 
-- LMU Munich (Oct 2021 - ). Ph.D. student in Computer Science. Supervisor: [Hinrich Schütze](https://schuetze.cis.lmu.de/team/) and [André F. T. Martins](https://andre-martins.github.io/index.html). 
-- Sun Yat-sen University (Sep 2018 – Jun 2020). M.Eng. in Software Engineering. Supervisor: [Meng Yang](https://scholar.google.com/citations?user=r2nw6DIAAAAJ&hl=en).
-- South China Normal University (Sep 2014 – Jun 2018). B.Eng. in Software Engineering.
+<p>
+        <strong>Feel free to reach out if you're interested in topics related to
+        <span style="color: blue;">NLP</span> and 
+        <span style="color: green;">LLM</span>, including 
+        <span style="color: red;">multilinguality</span>, 
+        <span style="color: purple;">interpretability</span>, 
+        <span style="color: orange;">retrieval-augmented methods</span>, 
+        <span style="color: teal;">human-inspired NLP</span>, 
+        and their intersections with 
+        <span style="color: coral;">digital humanities</span> and 
+        <span style="color: crimson;">social sciences</span> or 
+        <span style="color: deeppink;">domain-specific applications</span>.</strong> 
+    </p><br>
 
 #### Selected Publications
 
-- **Peiqin Lin**, André F. T. Martins, Hinrich Schütze. **XAMPLER: Learning to Retrieve Cross-Lingual In-Context Examples**. In NAACL Findings 2025. [[Paper]](https://arxiv.org/abs/2405.05116)
-- **Peiqin Lin**, André F. T. Martins, Hinrich Schütze. **A Recipe of Parallel Corpora Exploitation for Multilingual Large Language Models**. In NAACL Findings 2025. [[Paper]](https://arxiv.org/abs/2407.00436)
-- Shaoxiong Ji, Zihao Li, Indraneil Paul, Jaakko Paavola, **Peiqin Lin**, Pinzhen Chen, Dayyán O'Brien, Hengyu Luo, Hinrich Schütze, Jörg Tiedemann, Barry Haddow. **Emma-500: Enhancing Massively Multilingual Adaptation of Large Language Models**. In arXiv 2024. [[Paper]](https://arxiv.org/abs/2409.17892)
-- **Peiqin Lin**\*, Shaoxiong Ji\*, Jörg Tiedemann, André F. T. Martins, Hinrich Schütze. **MaLA-500: Massive Language Adaptation of Large Language Models**. In arXiv 2024. [[Paper]](https://arxiv.org/abs/2401.13303)[[Huggingface]](https://huggingface.co/MaLA-LM/mala-500)
-- **Peiqin Lin**\*, Chengzhi Hu\*, Zheyu Zhang, André F. T. Martins, Hinrich Schütze. **mPLM-Sim: Unveiling Better Cross-Lingual Similarity and Transfer in Multilingual Pretrained Language Models**. In EACL Findings 2024, Malta. [[Paper]](https://arxiv.org/abs/2305.13684)[[Code]](https://github.com/cisnlp/mPLM-Sim)
-- Ayyoob Imani\*, **Peiqin Lin**\*, Amir Hossein Kargaran, Silvia Severini, Masoud Jalili Sabet, Nora Kassner, Chunlan Ma, Helmut Schmid, André F. T. Martins, François Yvon, Hinrich Schütze. **Glot500: Scaling Multilingual Corpora and Language Models to 500 Languages**. In ACL 2023, Toronto, Canada. [[Paper]](https://arxiv.org/abs/2305.12182)[[Code]](https://github.com/cisnlp/Glot500)[[Slides]](assets/files/ACL23-Glot500.pdf)[[Huggingface]](https://huggingface.co/cis-lmu/glot500-base) (Area Chair Award)
+- **Ercong Nie**\*, Sheng Liang\*, Helmut Schmid, Hinrich Schütze. **Cross-Lingual Retrieval Augmented Prompt for Low-Resource Languages**. In ACL Findings 2023. [[Paper]](https://aclanthology.org/2023.findings-acl.528.pdf), [[Code]](https://github.com/ercong21/parc)
+- **Ercong Nie**, Helmut Schmid, Hinrich Schuetze. **Unleashing the Multilingual Encoder Potential: Boosting Zero-Shot Performance via Probability Calibration**. In EMNLP Findings 2023. [[Paper]](https://aclanthology.org/2023.findings-emnlp.1056.pdf), [[Code]](https://github.com/ercong21/calibration)
+- Bolei Ma\*, **Ercong Nie**\*, Shuzhou Yuan, Helmut Schmid, Michael Färber, Frauke Kreuter, Hinrich Schuetze. **ToPro: Token-Level Prompt Decomposition for Cross-Lingual Sequence Labeling Tasks**. In EACL 2024. [[Paper]](https://aclanthology.org/2024.eacl-long.164.pdf), [[Code]](https://github.com/boleima/ToPro)
+- Yongkang Liu\*, **Ercong Nie**\*, Shi Feng, Zheng Hua, Zifeng Ding, Daling Wang, Yifei Zhang, Hinrich Schütze. **A Unified Data Augmentation Framework for Low-Resource Multi-domain Dialogue Generation**. In ECML-PKDD 2024. [[Paper]](https://link.springer.com/chapter/10.1007/978-3-031-70344-7_10) 
+- Shuzhou Yuan, **Ercong Nie**, Michael Färber, Helmut Schmid, Hinrich Schuetze. **GNNavi: Navigating the Information Flow in Large Language Models by Graph Neural Network**. In ACL Findings 2024. [[Paper]](https://aclanthology.org/2024.findings-acl.237.pdf), [[Code]](https://github.com/ShuzhouYuan/GNNavi)
+- Linyang He, Peili Chen, **Ercong Nie**, Yuanning Li, Jonathan R. Brennan. **Decoding Probing: Revealing Internal Linguistic Structures in Neural Language Models Using Minimal Pairs**. In LREC-COLING 2024. [[Paper]](https://aclanthology.org/2024.lrec-main.402.pdf)
 
 (\* denotes equal contribution)
 
-See more in [my publications](https://lpq29743.github.io/publications/).
+See more in [my publications](publications/).
 
-#### Empolyment
 
-- Hong Kong Polytechnic University (Apr 2021 - Sep 2021). Research Assistant on Emotion-aware Dialogue System. Advisor: [Wenjie Li](http://www4.comp.polyu.edu.hk/~cswjli/).
-- Tencent (Jul 2019 – Aug 2019). Research Intern on Keyphrase Extraction.
-- Qibot (May 2018 – Aug 2018). Research Intern on Text Classification.
+#### Academic Services
 
-#### Services
+###### Conference Reviewer
+* **2025:** [ACL ARR](https://aclrollingreview.org/people) (ACL, EMNLP, NAACL), [COLING](https://coling2025.org/), [IJCNN](https://2025.ijcnn.org/), [Second Workshop on Ancient Language Processing](https://www.ancientnlp.com/alp2025/organization/) @ NAACL, [The 19th Linguistic Annotation Workshop](https://sigann.github.io/LAW-XIX-2025/) @ ACL
+* **2024:** [ACL ARR](https://aclrollingreview.org/people) (ACL, EMNLP, NAACL, EACL), [LREC-COLING](https://lrec-coling-2024.org/), [SemEval](https://semeval.github.io/SemEval2024/)
+* **2023:** [EMNLP](https://2023.emnlp.org/), [First Workshop on Bangla Language Processing](https://blp-workshop.github.io/organizers) @ EMNLP, [Workshop on Instruction Tuning and Instruction Following](https://an-instructive-workshop.github.io/organization/) @ NeurIPS, [CoNLL-CMCL BabyLM Challenge](https://babylm.github.io/) @ EMNLP
 
-##### Program Committee Member/Conference Reviewer
+###### Journal Reviewer
+* ACM Transactions on Intelligent Systems and Technology [(ACM TIST)](https://dl.acm.org/journal/tist)
+* [Royal Society Open Science (RSOS)](https://royalsocietypublishing.org/journal/rsos)
 
-- ACL Rolling Review
-- ACL 2023, 2021
-- EMNLP 2023, 2022, 2021
-- ICLR 2022
-- NeurIPS 2022
-- AAAI 2021
-- SocialNLP 2021
+###### Community Members
+* Committe member of [NICE](https://nice-nlp.github.io/), an NLP Academic Exchange Platform.
+* Member of [AI Grid](https://ai-grid.org/en/), a community connecting young scientists AI funded by the German Ferderal Ministry of Education and Research.
+* Junior member of Munich Center for Machine Learning [(MCML)](https://mcml.ai/#about), one of six German national AI Competence Centers.
 
-##### Journal Reviewer
 
-- TALLIP
+<br>
 
-#### Languages
-
-- Chinese (Native)
-- English (Proficient, IELTS 6.5)
-- [Teochew dialect](https://en.wikipedia.org/wiki/Teochew_dialect) (Native)
-- Cantonese (Intermediate)
-
+---
+<span style="font-size: smaller; color: grey;">
+Credits: This page was originally created by <a href="https://lpq29743.github.io/" target="_blank">Peiqin Lin</a> and has been adopted and modified by me.
+</span>

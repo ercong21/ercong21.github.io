@@ -6,47 +6,29 @@ description: 开源改变世界。
 permalink: /project/
 ---
 
-{% if site.github.public_repositories != null %}
-{% assign sorted_repos = (site.github.public_repositories | sort: 'stargazers_count') | reverse %}
+### Grants 
+  * <p style="display: flex; justify-content: space-between;">
+  <span><strong>BMBF Software Campus Doctoral Research Grant (115,000 EUR)</strong> <i>German Federal Ministry of Education and Research (BMBF), Germany</i></span>
+  <span>2024.09</span></p>
+Leading a doctoral research project on the topic of retrieval-augmented generation (RAG) with LLMs in cooperation with the industrial partner Bosch. This project is funded by the German Federal Ministry of Education and Research (BMBF) with a grant amount of 115,000 Euro through the Software Campus Programme, which aims to support a computer science Ph.D. student to lead a research team for a 2-year project.
 
-<section class="container">
-    <header class="text-center">
-        <h1>Open Source Projects</h1>
-        <p class="lead">I have <span class="repo-count">{{ sorted_repos.size }}</span> projects on Github</p>
-    </header>
-    <div class="repo-list">
-        <!-- Check here for github metadata -->
-        <!-- https://help.github.com/articles/repository-metadata-on-github-pages/ -->
-        {% for repo in sorted_repos %}
-        <a href="{{ repo.html_url }}" target="_blank" class="one-third-column card text-center">
-            <div class="thumbnail">
-                <div class="card-image geopattern" data-pattern-id="{{ repo.name }}">
-                    <div class="card-image-cell">
-                        <h3 class="card-title">
-                            {{ repo.name }}
-                        </h3>
-                    </div>
-                </div>
-                <div class="caption">
-                    <div class="card-description">
-                        <p class="card-text">{{ repo.description }}</p>
-                    </div>
-                    <div class="card-text">
-                        <span class="meta-info" title="{{ repo.stargazers_count }} stars">
-                            <span class="octicon octicon-star"></span> {{ repo.stargazers_count }}
-                        </span>
-                        <span class="meta-info" title="{{ repo.forks_count }} forks">
-                            <span class="octicon octicon-git-branch"></span> {{ repo.forks_count }}
-                        </span>
-                        <span class="meta-info" title="Last updated：{{ repo.updated_at }}">
-                            <span class="octicon octicon-clock"></span>
-                            <time datetime="{{ repo.updated_at }}">{{ repo.updated_at | date: '%Y-%m-%d' }}</time>
-                        </span>
-                    </div>
-                </div>
-            </div>
-        </a>
-        {% endfor %}
-    </div>
-</section>
-{% endif %}
+  * <p style="display: flex; justify-content: space-between;">
+  <span><strong>DDSA Visit Grant For Young Researchers (15,000 DKK)</strong> <i>DDSA, Denmark</i></span>
+  <span>2024.09</span></p>
+Funded by Danish Data Science Academy (DDSA) for a research stay at Copenhagen NLP research group led by [Prof. Isabelle Augenstein](https://isabelleaugenstein.github.io/).
+
+  * <p style="display: flex; justify-content: space-between;">
+  <span><strong>OpenAI Researcher Access Program (5,000 USD)</strong> <i>OpenAI, USA</i></span>
+  <span>2024.07</span></p>
+Supporting researchers using OpenAI models to study areas related to the responsible deployment of AI.
+    
+### Engaged Projects
+  * <p style="display: flex; justify-content: space-between;">
+  <span><strong>DFG (German Research Foundation) SFB (Collaborative Research Centre) 1412 B04 Project </strong> <i>Berlin, Germany</i> </span> 
+  <span>2024.03 - current</span></p>
+  <em>External collaborator</em> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Emergence and transfer of register patterns: Situational-functional parameters of intraindividual variation in the writings of Martin Luther and Johannes Bretke
+
+  * <p style="display: flex; justify-content: space-between;">
+  <span><strong>DFG (German Research Foundation) Project </strong> <i>Munich, Germany</i> </span> 
+  <span>2021.04 - 2021.07</span></p>
+  <em>Student research assistant</em> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ReMLAV: Relational Machine Learning for Argument Validation

@@ -16,7 +16,14 @@
   
   
     {
-      "title"    : "Peiqin Lin&#39;s Homepage",
+      "title"    : "Grants and Awards",
+      "url"      : "http://localhost:4000/grants/"
+    } ,
+  
+  
+  
+    {
+      "title"    : "Homepage",
       "url"      : "http://localhost:4000/"
     } ,
   
@@ -42,6 +49,13 @@
     } ,
   
   
+  
+  
+  
+    {
+      "title"    : "Teaching",
+      "url"      : "http://localhost:4000/teaching/"
+    } ,
   
   
   

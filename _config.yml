@@ -1,25 +1,36 @@
 # Site Settings
-url: https://lpq29743.github.io
-title: Peiqin Lin's Homepage
-subtitle: "Software is like sex: it's better when it's free."
-description: "Peiqin Lin's Homepage"
-keywords: 林佩勤, Peiqin Lin, 半截小丑, lpq29743
+url: https://ercong21.github.io
+base_ulr: ""
+title: Ercong Nie [ɚ'tsʰʊŋ, niɛ]
+subtitle: "Ercong's Homepage"
+description: "Ercong Nie [ɚ'tsʰʊŋ, niɛ]"
+keywords: 聂耳聪, Ercong Nie, ercong21
 timezone: Asia/Shanghai
 encoding: "utf-8"
-SEOTitle: Peiqin Lin's Homepage
-repository: lpq29743/lpq29743.github.io
+SEOTitle: Ercong Nie's Homepage
+repository: ercong21/ercong21.github.io
 
 # Author Settings
-author: Peiqin Lin
-github_username: lpq29743
-location: Guangdong, China
-email: lpq29743@gmail.com
+author: Ercong Nie
+github_username: ercong21
+location: Munich, Germany
+email: nie@cis.lmu.de
 
 # Navigation Settings
-# navs:
-#   -
-#     href: 
-#     label: Home
+navs:
+  -
+    href: /
+    label: Home
+  - href: /news/
+    label: News
+  - href: /publications/
+    label: Publications
+  - href: /teaching/
+    label: Teaching
+  - href: /grants/
+    label: Grants
+  - href: /files/Resume_Nie.pdf
+    label: CV
 
 # RSS Settings
 RSS: true
@@ -44,7 +55,7 @@ mathjax: true
 # Comments Settings
 comments_provider: gitment
 gitment:
-    owner: lpq29743
+    owner: ercong21
     repo: blog-comments
     oauth:
         client_id: 5818ceff784afe05d31c
