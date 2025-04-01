@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans" prefix="og: http://ogp.me/ns#" class="han-init">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <title>Android 反编译总结 &mdash; Peiqin Lin's Homepage</title>
+    <link rel="stylesheet" href="http://localhost:4000/assets/vendor/primer-css/css/primer.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/vendor/primer-markdown/dist/user-content.min.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/vendor/octicons/octicons/octicons.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/components/collection.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/components/repo-card.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/repo-list.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/mini-repo-list.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/profile.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/contact.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/news.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/components/boxed-group.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/globals/common.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/vendor/share.js/dist/css/share.min.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/globals/responsive.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/posts/index.css">
+    <!-- Latest compiled and minified CSS -->
+    
+
+    
+    <link rel="canonical" href="http://localhost:4000/android/2016/10/06/AndroidDecompile/">
+    <link rel="alternate" type="application/atom+xml" title="Peiqin Lin's Homepage" href="/feed.xml">
+    <link rel="shortcut icon" href="http://localhost:4000/favicon.ico">
+    
+    <meta property="og:title" content="Android 反编译总结">
+      
+    <meta name="keywords" content="Android, Android反编译">
+    <meta name="og:keywords" content="Android, Android反编译">
+      
+    <meta name="description" content="在进行Android开发的过程中，我们会接触到很多优秀app。作为一个Android开发者，我们或多或少会好奇其中某个功能的实现。那么在仅仅拥有apk文件的情况下，我们应该怎样操作才能获取到其中的源码呢？">
+    <meta name="og:description" content="在进行Android开发的过程中，我们会接触到很多优秀app。作为一个Android开发者，我们或多或少会好奇其中某个功能的实现。那么在仅仅拥有apk文件的情况下，我们应该怎样操作才能获取到其中的源码呢？">
+      
+    
+    
+        
+    
+    <meta property="og:url" content="http://localhost:4000/android/2016/10/06/AndroidDecompile/">
+    <meta property="og:site_name" content="Peiqin Lin's Homepage">
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="zh_CN" />
+    
+    <meta property="article:published_time" content="2016-10-06">
+    
+    <script src="http://localhost:4000/assets/vendor/jquery/dist/jquery.min.js"></script>
+    <script src="http://localhost:4000/assets/js/jquery-ui.js"></script>
+    <script type="text/javascript">
+    function toggleMenu() {
+        var nav = document.getElementsByClassName("site-header-nav")[0];
+        if (nav.style.display == "inline-flex") {
+          nav.style.display = "none";
+        } else {
+          nav.style.display = "inline-flex";
+        }
+    }
+    </script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-114643083-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-114643083-1');
+    </script>
+</head>
+<body class="" data-mz="">
+    <header class="site-header">
+        <div class="container">
+            <h1><a href="http://localhost:4000/" title="Peiqin Lin's Homepage">Peiqin Lin's Homepage</a></h1>
+            <button class="collapsed mobile-visible" type="button" onclick="toggleMenu();">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <nav class="site-header-nav" role="navigation">
+                
+            </nav>
+        </div>
+    </header>
+    <!-- / header -->
+
+    <section class="collection-head small geopattern" data-pattern-id="Android 反编译总结">
+<div class="container">
+  <div class="columns">
+    <div class="column three-fourths">
+      <div class="collection-title">
+        <h1 class="collection-header">Android 反编译总结</h1>
+        <div class="collection-info">
+          
+          <span class="meta-info">
+            <span class="octicon octicon-calendar"></span> 2016/10/06
+          </span>
+          
+          
+          <span class="meta-info">
+            <span class="octicon octicon-file-directory"></span>
+            <a href="http://localhost:4000/categories/#Android" title="Android">Android</a>
+          </span>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+<!-- / .banner -->
+<section class="container content">
+<div class="columns">
+  <div class="column three-fourths" >
+    <article class="article-content markdown-body">
+    <p>在进行Android开发的过程中，我们会接触到很多优秀app。作为一个Android开发者，我们或多或少会好奇其中某个功能的实现。那么在仅仅拥有apk文件的情况下，我们应该怎样操作才能获取到其中的源码呢？</p>
+
+<p>“工欲善其事，必先利其器”。这句千古名言在Android反编译中同样有效，那么Android反编译需要用到哪些工具呢？具体如下：</p>
+
+<ul>
+  <li>apktool：用于资源文件获取。（<a href="https://bitbucket.org/iBotPeaches/apktool/downloads">下载地址一</a>、<a href="http://download.csdn.net/detail/vipzjyno1/7025111">下载地址二</a>）</li>
+  <li>dex2jar：用于将apk反编译成java源码，即classes.dex转化成jar文件。（<a href="http://sourceforge.net/projects/dex2jar/files/">下载地址一</a>、<a href="http://download.csdn.net/detail/vipzjyno1/7025127">下载地址二</a>）</li>
+  <li>jd-gui：查看APK中classes.dex转化成出的jar文件，即源码文件。（<a href="http://jd.benow.ca/">下载地址一</a>、<a href="http://download.csdn.net/detail/vipzjyno1/7025145">下载地址二</a>）</li>
+</ul>
+
+<p>那么有了工具之后我们改怎么使用呢？</p>
+
+<h3 id="apktool的使用">apktool的使用</h3>
+
+<p>如果只是为了一些图片资源，直接把apk修改为zip，然后解压。我们可以用android的调试工具monitor获取view的id，然后在解压后的zip中全局搜索id即可。</p>
+
+<p>直接解压apk也能得到图片、xml等资源文件，但是得到的xml文件是乱码，而图片资源也不是原封不动的，特别是.9图片，全都变成了一般的图片。这个情况下往往就需要apktool出手：</p>
+
+<h4 id="反编译出apk获取资源文件">反编译出apk（获取资源文件）</h4>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># -f 如果目标文件夹已存在，则强制删除现有文件夹（默认如果目标文件夹已存在，则解码失败）</span>
+<span class="c"># -o 指定解码目标文件夹的名称（默认使用APK文件的名字来命名目标文件夹）</span>
+<span class="c"># -s 不反编译dex文件，也就是说classes.dex文件会被保留（默认会将dex文件解码成smali文件）</span>
+<span class="c"># -r 不反编译资源文件，也就是说resources.arsc文件会被保留（默认会将resources.arsc解码成具体的资源文件）</span>
+java <span class="nt">-jar</span> apktool_2.0.1.jar d <span class="nt">-f</span> test.apk <span class="nt">-o</span> <span class="nb">test</span>
+</code></pre></div></div>
+
+<h4 id="对反编译出的文件进行逆向形成apk常用于软件汉化破解等">对反编译出的文件进行逆向形成apk（常用于软件汉化、破解等）</h4>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 打包过后的apk文件由于没有签名文件，所以不能安装，要自己对软件重新签名才可以，也就是传说中的盗版</span>
+apktool b <span class="nb">test</span>
+<span class="c"># 通过jarsigner重新签名，jarsigner命令是存放在jdk的bin目录下，需将bin目录配置环境变量才可随处使用</span>
+jarsigner <span class="nt">-verbose</span> <span class="nt">-sigalg</span> SHA1withRSA <span class="nt">-digestalg</span> SHA1 <span class="nt">-keystore</span> 签名文件名 <span class="nt">-storepass</span> 签名密码 待签名的APK文件名 签名的别名
+<span class="c"># 使用zipalign对apk进行对齐操作，使程序运行更快。该工具存放于&lt;Android SDK&gt;/build-tools/&lt;version&gt;目录下</span>
+<span class="c"># 其中4是固定值不能改变，后面指定待对齐的APK文件名和对齐后的APK文件名</span>
+zipalign 4 New_Demo.apk New_Demo_aligned.apk
+</code></pre></div></div>
+
+<h3 id="dex2jar的使用">dex2jar的使用</h3>
+
+<p>首先要将apk后缀名改为.rar或.zip，解压得到其中的classes.dex文件（它就是java文件编译再通过dx工具打包而成的）</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 生成classes_dex2jar.jar</span>
+dex2jar.bat classes.dex
+</code></pre></div></div>
+
+<p>对于我们而言，jar文件也不是可读的，因此要借助jd-gui这个工具来将jar文件转换成java代码。 </p>
+
+<p>看完这篇文章之后，相信大家对Android反编译有了更好的了解了吧，不过我现在要很遗憾的告诉大家，Android反编译在实际开发中其实很少用到。原因主要有两方面：一方面，对于那些源码不想被你看见的开发者，他会通过代码混淆的等方式把源码保护地非常好，通过这些工具你根本无法获取到源码，关于代码混淆等app保护方式，博主之后也会用一篇博客的形式进行讲解；另一方面，对于那些想要分享代码、公开代码的开发者来说，自然有很多渠道可以获取到他们的代码，比如github。</p>
+
+<p>那么，这篇博客是不是就毫无意义了呢？并不是，知识这东西从来没有毫无意义这一说法。通过对反编译的了解，我们可以更好地认识到app安全的重要性，加强app保护意思；与此同时，我们也能对应用的本质有更深的认识。</p>
+
+    </article>
+    <div class="share">
+      <div class="share-component"></div>
+    </div>
+    <div class="comment">
+      
+  
+        <div id="container"></div>
+        <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+        <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+        <script>
+        var gitment = new Gitment({
+            id: '/android/2016/10/06/AndroidDecompile/',
+            owner: 'lpq29743',
+            repo: 'blog-comments',
+            oauth: {
+                client_id: '5818ceff784afe05d31c',
+                client_secret: 'dc7e8efc044c7194cf453740f82c646aa998f206',
+            },
+        })
+        gitment.render('container')
+        </script>
+  
+
+
+    </div>
+	<ul class="pager">
+		
+		<li class="previous">
+			<a href="/tool/2016/10/05/Docker2/" data-toggle="tooltip" data-placement="top" title="Docker 再入门">
+				Previous<br>
+				<span>Docker 再入门</span>
+			</a>
+		</li>
+		
+		
+		<li class="next">
+			<a href="/blog/2016/10/06/ComputerCelebrity/" data-toggle="tooltip" data-placement="top" title="盘点 IT 领域的大神">
+				Next<br>
+				<span>盘点 IT 领域的大神</span>
+			</a>
+		</li>
+		
+	</ul>
+  </div>
+  <div class="column one-fourth">
+    
+<h3>Search</h3>
+<div id="site_search">
+    <input type="text" id="search_box" placeholder="Search">
+</div>
+
+<ul id="search_results"></ul>
+
+<link rel="stylesheet" type="text/css" href="http://localhost:4000/assets/css/modules/sidebar-search.css">
+<script src="http://localhost:4000/assets/js/jekyll-search.min.js"></script>
+<script src="http://localhost:4000/assets/js/search.js"></script>
+
+<script type="text/javascript">
+SimpleJekyllSearch({
+    searchInput: document.getElementById('search_box'),
+    resultsContainer: document.getElementById('search_results'),
+    json: 'http://localhost:4000/assets/search_data.json',
+    searchResultTemplate: '<li><a href="{url}" title="{desc}">{title}</a></li>',
+    noResultsText: 'No results found',
+    limit: 10,
+    fuzzy: false,
+    exclude: ['Welcome']
+})
+</script>
+
+    
+<h3 class="post-directory-title mobile-hidden">Table of Contents</h3>
+<div id="post-directory-module" class="mobile-hidden">
+  <section class="post-directory">
+  <!-- Links that trigger the jumping -->
+  <!-- Added by javascript below -->
+  <dl></dl>
+  </section>
+</div>
+
+<script src="http://localhost:4000/assets/js/jquery.toc.js"></script>
+
+  </div>
+</div>
+</section>
+<!-- /section.content -->
+
+    <footer class="container">
+        <div class="site-footer" role="contentinfo">
+            <div class="copyright left mobile-block">
+                <a href="javascript:window.scrollTo(0,0)" class="right mobile-visible">TOP</a>
+            </div>
+
+            <ul class="site-footer-links right mobile-hidden">
+                <li>
+                    <a href="javascript:window.scrollTo(0,0)" >TOP</a>
+                </li>
+            </ul>
+            <a href="https://github.com/lpq29743/lpq29743.github.io" target="_blank" aria-label="view source code">
+                <span class="mega-octicon octicon-mark-github" title="GitHub"></span>
+            </a>
+            <ul class="site-footer-links mobile-hidden">
+                
+            </ul>
+
+        </div>
+    </footer>
+    <!-- / footer -->
+    <script src="http://localhost:4000/assets/vendor/share.js/dist/js/share.min.js"></script>
+    <script src="http://localhost:4000/assets/js/geopattern.js"></script>
+    <script src="http://localhost:4000/assets/js/prism.js"></script>
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/globals/prism.css">
+    <script>
+      jQuery(document).ready(function($) {
+        // geopattern
+        $('.geopattern').each(function(){
+          $(this).geopattern($(this).data('pattern-id'));
+        });
+       // hljs.initHighlightingOnLoad();
+      });
+    </script>
+    
+</body>
+</html>

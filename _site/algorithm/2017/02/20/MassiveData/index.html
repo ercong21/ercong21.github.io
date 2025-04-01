@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans" prefix="og: http://ogp.me/ns#" class="han-init">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <title>海量数据处理问题 &mdash; Peiqin Lin's Homepage</title>
+    <link rel="stylesheet" href="http://localhost:4000/assets/vendor/primer-css/css/primer.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/vendor/primer-markdown/dist/user-content.min.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/vendor/octicons/octicons/octicons.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/components/collection.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/components/repo-card.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/repo-list.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/mini-repo-list.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/profile.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/contact.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/news.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/components/boxed-group.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/globals/common.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/vendor/share.js/dist/css/share.min.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/globals/responsive.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/posts/index.css">
+    <!-- Latest compiled and minified CSS -->
+    
+
+    
+    <link rel="canonical" href="http://localhost:4000/algorithm/2017/02/20/MassiveData/">
+    <link rel="alternate" type="application/atom+xml" title="Peiqin Lin's Homepage" href="/feed.xml">
+    <link rel="shortcut icon" href="http://localhost:4000/favicon.ico">
+    
+    <meta property="og:title" content="海量数据处理问题">
+      
+    <meta name="keywords" content="数据结构与算法, 算法, 海量数据处理">
+    <meta name="og:keywords" content="数据结构与算法, 算法, 海量数据处理">
+      
+    <meta name="description" content="海量数据处理问题在面试中出现相当频繁，今天就让我们来总结一下这类问题！">
+    <meta name="og:description" content="海量数据处理问题在面试中出现相当频繁，今天就让我们来总结一下这类问题！">
+      
+    
+    
+        
+    
+    <meta property="og:url" content="http://localhost:4000/algorithm/2017/02/20/MassiveData/">
+    <meta property="og:site_name" content="Peiqin Lin's Homepage">
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="zh_CN" />
+    
+    <meta property="article:published_time" content="2017-02-20">
+    
+    <script src="http://localhost:4000/assets/vendor/jquery/dist/jquery.min.js"></script>
+    <script src="http://localhost:4000/assets/js/jquery-ui.js"></script>
+    <script type="text/javascript">
+    function toggleMenu() {
+        var nav = document.getElementsByClassName("site-header-nav")[0];
+        if (nav.style.display == "inline-flex") {
+          nav.style.display = "none";
+        } else {
+          nav.style.display = "inline-flex";
+        }
+    }
+    </script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-114643083-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-114643083-1');
+    </script>
+</head>
+<body class="" data-mz="">
+    <header class="site-header">
+        <div class="container">
+            <h1><a href="http://localhost:4000/" title="Peiqin Lin's Homepage">Peiqin Lin's Homepage</a></h1>
+            <button class="collapsed mobile-visible" type="button" onclick="toggleMenu();">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <nav class="site-header-nav" role="navigation">
+                
+            </nav>
+        </div>
+    </header>
+    <!-- / header -->
+
+    <section class="collection-head small geopattern" data-pattern-id="海量数据处理问题">
+<div class="container">
+  <div class="columns">
+    <div class="column three-fourths">
+      <div class="collection-title">
+        <h1 class="collection-header">海量数据处理问题</h1>
+        <div class="collection-info">
+          
+          <span class="meta-info">
+            <span class="octicon octicon-calendar"></span> 2017/02/20
+          </span>
+          
+          
+          <span class="meta-info">
+            <span class="octicon octicon-file-directory"></span>
+            <a href="http://localhost:4000/categories/#Algorithm" title="Algorithm">Algorithm</a>
+          </span>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+<!-- / .banner -->
+<section class="container content">
+<div class="columns">
+  <div class="column three-fourths" >
+    <article class="article-content markdown-body">
+    <p>海量数据处理问题在面试中出现相当频繁，今天就让我们来总结一下这类问题！</p>
+
+<p>处理海量数据问题，主要有六个方法，接下来我们将一一讲述！</p>
+
+<h3 id="分而治之hash映射--hash统计--堆快速归并排序">分而治之/hash映射 + hash统计 + 堆/快速/归并排序</h3>
+
+<p><strong>例题一：海量日志数据，提取出某日访问百度次数最多的那个IP</strong></p>
+
+<ol>
+  <li>分而治之/hash映射：针对数据太大，内存受限，只能把大文件化成（取模映射）小文件</li>
+  <li>hash_map统计：当大文件转化了小文件，便可采用常规的hash_map(ip，value)进行频率统计</li>
+  <li>堆/快速排序：统计完后，便进行排序（可采取堆排序），得到次数最多的IP</li>
+</ol>
+
+<p><strong>例题二：寻找热门查询，300万个查询字符串中统计最热门的10个查询</strong></p>
+
+<p>此题数据规模较小，故无需第一步，直接hash统计+排序。针对此类TOP K问题，对策往往是：hashmap + 堆。</p>
+
+<ol>
+  <li>hash_map统计：维护一个Key为Query字串，Value为该Query出现次数的HashTable，每读取一个Query，如果该字串不在Table中，那么加入该字串，并设Value为1；如果存在，则计数加一</li>
+  <li>堆排序：借助小根堆找出Top K，最终时间复杂度是：O(N)+N*O(logK)</li>
+</ol>
+
+<p><strong>例题三：有个1G文件，里面每行是一个词，词大小不超过16字节，内存限制是1M。返回频数最高的100个词</strong></p>
+
+<p>此题文件很大，又是内存受限，具体解决方案如下：</p>
+
+<ol>
+  <li>分而治之/hash映射：顺序读文件，对每个词x，取hash(x)%5000，然后按值存到5000个小文件中</li>
+  <li>hash_map统计：对每个小文件，采用trie树/hash_map等统计每个文件中出现的词及相应频率</li>
+  <li>堆/归并排序：取出频率最大的100个词（可用100个结点的最小堆）存入文件，得到5000个文件。下一步就是把5000个文件归并（类似归并排序）</li>
+</ol>
+
+<p><strong>例题四：海量数据分布在100台电脑中，高效统计出这批数据的TOP10</strong></p>
+
+<p>如果每个数据元素只出现一次，且只出现在某台机器中，那么可采取以下步骤：</p>
+
+<ol>
+  <li>堆排序：在每台电脑上求出TOP10，可采用包含10个元素的堆完成（如求TOP10大，先取10个元素调整成最小堆，然后扫描数据，并与堆顶元素比较，如果比堆顶元素大，那么用替换堆顶，再调整为最小堆）</li>
+  <li>求出每台电脑上TOP10后，组合起来，再利用上面类似方法求出TOP10</li>
+</ol>
+
+<p>但如果同一个元素重复出现在不同的电脑中呢，这个时候，有两种方法：</p>
+
+<ol>
+  <li>遍历数据，重新hash取摸，使同一元素只出现在一台电脑中，然后用上面方法找出最终的TOP10</li>
+  <li>直接统计每台电脑中各个元素出现次数，然后把同个元素在不同机器中的出现次数相加，最终找出TOP10</li>
+</ol>
+
+<p><strong>例题五：10个1G的文件，每行存放的都是用户的query，每个文件的query都可能重复。要求按query频度排序</strong></p>
+
+<p>方案1：</p>
+
+<ol>
+  <li>hash映射：顺序读取文件，按照hash(query)%10的结果将query写入到另外10个文件。新生成文件大小大约也1G</li>
+  <li>hash_map统计：用hash_map(query, query_count)统计每个query出现次数。hash_map统计出现次数，不储值</li>
+  <li>堆/快速/归并排序：进行排序，将排好的query和query_count输出到文件，得到10个排好序的文件，再归并排序</li>
+</ol>
+
+<p>方案2：一般query总量有限，只是重复次数较多，可能对于所有query，一次性就可以加入到内存。这样就可以采用trie树/hash_map等直接统计每个query出现的次数，然后按出现次数做快速/堆/归并排序就可以了</p>
+
+<p>方案3：类似方案1，但hash映射后，可交给多个文件来处理，采用分布式架构处理（如MapReduce），最后再合并</p>
+
+<p><strong>例题六：a、b两个文件，各存放50亿个url，每个url占64字节，内存限制4G，找出a、b文件共同的url</strong></p>
+
+<ol>
+  <li>分而治之/hash映射：遍历a，对url求hash(url)%1000，根据取得值将url存到1000个文件中。相同方式处理b。处理后，可能相同的url都在对应文件中，不对应的文件不可能有相同url。然后求出1000对文件中相同的url</li>
+  <li>hash_set统计：求相同url时，把其中一个文件的url存到hash_set，然后遍历另一个文件的url，看是否在hash_set中，如果是，就是共同的url</li>
+</ol>
+
+<h3 id="双层桶划分">双层桶划分</h3>
+
+<p>适用范围：在不重复或重复的数字中求第k大的数和求中位数</p>
+
+<p>基本原理及要点：元素范围大，不能利用直接寻址表，所以多次划分，逐步确定范围，最后在一个可接受的范围内</p>
+
+<p><strong>例题七：2.5亿个整数中找出不重复的整数的个数，内存空间不足以容纳这2.5亿个整数。</strong></p>
+
+<p>整数个数为 2^32^ ，可将数划分为2^8^个区域（单个文件代表一个区域），再将数据分离到不同区域，利用bitmap解决</p>
+
+<p><strong>例题八：5亿个int找它们的中位数。</strong></p>
+
+<p>方案一：将int分为2^16^个区域，统计各区域数的个数，判断中位数到哪个区域，同时知道该区域第几大数是中位数，第二次扫描只统计该区域的数就可以了。如果不是int是int64，可先分成2^24^个区域，然后确定区域的第几大数，再将该区域分成2^20^个子区域，然后确定子区域的第几大数，子区域里数只有2^20^，可用direct addr table统计</p>
+
+<p>方案二：开个大小65536的Int数组，第一遍读取，统计Int32高16位情况，相当于除以65536。每读一个数，数组中对应计数+1，考虑有负数的情况，需要将结果加32768后，记录在相应的数组内。第一遍统计后，遍历数组，累加统计，看中位数处于哪个区间，第二遍统计类似，但统计区间k低16位情况，最后将高位和低位组合就是结果了</p>
+
+<h3 id="bloom-filterbitmap">Bloom filter/Bitmap</h3>
+
+<p>先了解一下Bloom Filter：当元素加入集合，通过K个Hash函数映射成位阵列中的K个点，并置1。检索时，只要看点是否都是1就大约知道有没有它了：如果这些点有任何一个0，则一定没有；如果都是1，则很可能在。但Bloom Filter的高效是有代价的：可能会把不属于集合的元素误认为属于集合。因此，Bloom Filter不适合零错误场合。</p>
+
+<p>适用范围：实现数据字典，进行数据判重或集合求交集</p>
+
+<p>基本原理及要点：位数组+k个hash函数。将对应位置1，查找时如果对应位都是1则存在（不保证100%正确），但不支持删除关键字，因为会牵动其他关键字。可改进为counting Bloom filter，用counter数组代替位数组，实现删除功能。</p>
+
+<p>一个重要问题是：根据元素个数n，确定位数组m及函数个数k。这里我们直接记住结论：m = n * lg(1/E) * 1.44 * 1.44（lg以2为底）k = 0.7 * (m/n)。假设错误率为0.01，则m是n的13倍，k是9个（m以bit为单位）。</p>
+
+<p><strong>例题九：A、B各存放50亿URL，每条URL占64字节，内存限制4G，找出共同的URL。如果是三个乃至n个文件呢</strong></p>
+
+<p>4G约为340亿bit，n=50亿，按出错率0.01算要650亿bit。现可用340亿，可能使出错率上升些。如果允许一定的错误率，可用Bloom filter将其中一个文件中的url映射为340亿bit，然后读取另一文件的url进行判断。</p>
+
+<p><strong>例题十：在2.5亿个整数中找出不重复的整数，内存不足以容纳这2.5亿个整数</strong></p>
+
+<p>方案1：采用2-Bitmap（每个数分配2bit，00表示不存在，01表示一次，10表示多次，11无意义）。扫描整数，查看对应位，如果是00变01，01变10，10保持不变。扫描后查看bitmap，把01的整数输出</p>
+
+<p>方案2：划分成小文件，然后在小文件中找出不重复整数并排序。再进行归并</p>
+
+<h3 id="trie树数据库倒排索引">Trie树/数据库/倒排索引</h3>
+
+<p><strong>Trie树</strong></p>
+
+<p>适用范围：数据量大，重复多，但是数据种类小可以放入内存</p>
+
+<p>问题实例：</p>
+
+<ol>
+  <li>例题二寻找热门查询：查询串重复度比较高，虽然总数1千万，但除去重复后不超过3百万个，每个不超过255字节</li>
+  <li>例题五有10个文件，每个文件1G，每行存放的是用户的query，每个文件的query都可能重复</li>
+  <li>1000万字符串，其中有些是相同的，需要把重复的去掉，保留没有重复的字符串</li>
+</ol>
+
+<p><strong>数据库索引</strong></p>
+
+<p>适用范围：大数据量的增删改查</p>
+
+<p>基本原理及要点：利用数据的设计实现方法，对海量数据的增删改查进行处理</p>
+
+<p><strong>倒排索引(Inverted index)</strong></p>
+
+<p>适用范围：搜索引擎，关键字查询</p>
+
+<p>基本原理及要点：倒排索引，存储全文搜索下某个单词在一个或一组文档中存储位置的映射</p>
+
+<p>以英文为例，下面是被索引文本：</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>T0 = "it is what it is"
+T1 = "what is it"
+T2 = "it is a banana"
+</code></pre></div></div>
+
+<p>我们能得到下面的反向文件索引：</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"a":{2}
+"banana":{2}
+"is":{0, 1, 2}
+"it":{0, 1, 2}
+"what":{0, 1}
+</code></pre></div></div>
+
+<p>检索的条件”what”，”is”和”it”将对应集合的交集。</p>
+
+<h3 id="外排序">外排序</h3>
+
+<p>适用范围：大数据的排序，去重</p>
+
+<p>基本原理及要点：外排序的归并方法，置换选择败者树原理，最优归并树</p>
+
+<p>问题实例：1G大小的文件，里面每行是一个词，词大小不超过16个字节，内存限制1M，返回频数最高的100个词。词大小16个字节，但内存只有1M做hash不够，所以可用来排序。内存当输入缓冲区使用</p>
+
+<h3 id="分布式处理之hadoopmapreduce">分布式处理之Hadoop/Mapreduce</h3>
+
+<p>适用范围：数据量大，但是数据种类小可以放入内存</p>
+
+<p>基本原理及要点：MapReduce将大批量的数据分解（MAP）执行，再将结果合并成最终结果（REDUCE）。这样做可以在任务被分解后，通过大量机器并行计算，减少操作时间。Mapreduce的原理就是归并排序</p>
+
+<p>问题实例：</p>
+
+<ol>
+  <li>海量数据分布在100台电脑中，高效统计出这批数据的TOP10</li>
+  <li>N个机器，每个机器有N个数，且最多存O(N)个数并对它们操作，如何找到N^2个数的中数</li>
+</ol>
+
+    </article>
+    <div class="share">
+      <div class="share-component"></div>
+    </div>
+    <div class="comment">
+      
+  
+        <div id="container"></div>
+        <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+        <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+        <script>
+        var gitment = new Gitment({
+            id: '/algorithm/2017/02/20/MassiveData/',
+            owner: 'lpq29743',
+            repo: 'blog-comments',
+            oauth: {
+                client_id: '5818ceff784afe05d31c',
+                client_secret: 'dc7e8efc044c7194cf453740f82c646aa998f206',
+            },
+        })
+        gitment.render('container')
+        </script>
+  
+
+
+    </div>
+	<ul class="pager">
+		
+		<li class="previous">
+			<a href="/java/2017/02/19/JavaJVM2/" data-toggle="tooltip" data-placement="top" title="Java 中 JVM 的原理（下）">
+				Previous<br>
+				<span>Java 中 JVM 的原理（下）</span>
+			</a>
+		</li>
+		
+		
+		<li class="next">
+			<a href="/mysql/2017/02/24/MySQLBenchmarkingTools/" data-toggle="tooltip" data-placement="top" title="MySQL 基准测试工具">
+				Next<br>
+				<span>MySQL 基准测试工具</span>
+			</a>
+		</li>
+		
+	</ul>
+  </div>
+  <div class="column one-fourth">
+    
+<h3>Search</h3>
+<div id="site_search">
+    <input type="text" id="search_box" placeholder="Search">
+</div>
+
+<ul id="search_results"></ul>
+
+<link rel="stylesheet" type="text/css" href="http://localhost:4000/assets/css/modules/sidebar-search.css">
+<script src="http://localhost:4000/assets/js/jekyll-search.min.js"></script>
+<script src="http://localhost:4000/assets/js/search.js"></script>
+
+<script type="text/javascript">
+SimpleJekyllSearch({
+    searchInput: document.getElementById('search_box'),
+    resultsContainer: document.getElementById('search_results'),
+    json: 'http://localhost:4000/assets/search_data.json',
+    searchResultTemplate: '<li><a href="{url}" title="{desc}">{title}</a></li>',
+    noResultsText: 'No results found',
+    limit: 10,
+    fuzzy: false,
+    exclude: ['Welcome']
+})
+</script>
+
+    
+<h3 class="post-directory-title mobile-hidden">Table of Contents</h3>
+<div id="post-directory-module" class="mobile-hidden">
+  <section class="post-directory">
+  <!-- Links that trigger the jumping -->
+  <!-- Added by javascript below -->
+  <dl></dl>
+  </section>
+</div>
+
+<script src="http://localhost:4000/assets/js/jquery.toc.js"></script>
+
+  </div>
+</div>
+</section>
+<!-- /section.content -->
+
+    <footer class="container">
+        <div class="site-footer" role="contentinfo">
+            <div class="copyright left mobile-block">
+                <a href="javascript:window.scrollTo(0,0)" class="right mobile-visible">TOP</a>
+            </div>
+
+            <ul class="site-footer-links right mobile-hidden">
+                <li>
+                    <a href="javascript:window.scrollTo(0,0)" >TOP</a>
+                </li>
+            </ul>
+            <a href="https://github.com/lpq29743/lpq29743.github.io" target="_blank" aria-label="view source code">
+                <span class="mega-octicon octicon-mark-github" title="GitHub"></span>
+            </a>
+            <ul class="site-footer-links mobile-hidden">
+                
+            </ul>
+
+        </div>
+    </footer>
+    <!-- / footer -->
+    <script src="http://localhost:4000/assets/vendor/share.js/dist/js/share.min.js"></script>
+    <script src="http://localhost:4000/assets/js/geopattern.js"></script>
+    <script src="http://localhost:4000/assets/js/prism.js"></script>
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/globals/prism.css">
+    <script>
+      jQuery(document).ready(function($) {
+        // geopattern
+        $('.geopattern').each(function(){
+          $(this).geopattern($(this).data('pattern-id'));
+        });
+       // hljs.initHighlightingOnLoad();
+      });
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans" prefix="og: http://ogp.me/ns#" class="han-init">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <title>jieba 源码阅读笔记（一） &mdash; Peiqin Lin's Homepage</title>
+    <link rel="stylesheet" href="http://localhost:4000/assets/vendor/primer-css/css/primer.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/vendor/primer-markdown/dist/user-content.min.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/vendor/octicons/octicons/octicons.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/components/collection.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/components/repo-card.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/repo-list.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/mini-repo-list.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/profile.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/contact.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/news.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/components/boxed-group.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/globals/common.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/vendor/share.js/dist/css/share.min.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/globals/responsive.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/posts/index.css">
+    <!-- Latest compiled and minified CSS -->
+    
+
+    
+    <link rel="canonical" href="http://localhost:4000/artificialintelligence/2018/12/12/Jieba1/">
+    <link rel="alternate" type="application/atom+xml" title="Peiqin Lin's Homepage" href="/feed.xml">
+    <link rel="shortcut icon" href="http://localhost:4000/favicon.ico">
+    
+    <meta property="og:title" content="jieba 源码阅读笔记（一）">
+      
+    <meta name="keywords" content="分词工具, 源码阅读, 自然语言处理, nlp, 分词, jieba, jieba源码">
+    <meta name="og:keywords" content="分词工具, 源码阅读, 自然语言处理, nlp, 分词, jieba, jieba源码">
+      
+    <meta name="description" content="jieba 初始化">
+    <meta name="og:description" content="jieba 初始化">
+      
+    
+    
+        
+    
+    <meta property="og:url" content="http://localhost:4000/artificialintelligence/2018/12/12/Jieba1/">
+    <meta property="og:site_name" content="Peiqin Lin's Homepage">
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="zh_CN" />
+    
+    <meta property="article:published_time" content="2018-12-12">
+    
+    <script src="http://localhost:4000/assets/vendor/jquery/dist/jquery.min.js"></script>
+    <script src="http://localhost:4000/assets/js/jquery-ui.js"></script>
+    <script type="text/javascript">
+    function toggleMenu() {
+        var nav = document.getElementsByClassName("site-header-nav")[0];
+        if (nav.style.display == "inline-flex") {
+          nav.style.display = "none";
+        } else {
+          nav.style.display = "inline-flex";
+        }
+    }
+    </script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-114643083-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-114643083-1');
+    </script>
+</head>
+<body class="" data-mz="">
+    <header class="site-header">
+        <div class="container">
+            <h1><a href="http://localhost:4000/" title="Peiqin Lin's Homepage">Peiqin Lin's Homepage</a></h1>
+            <button class="collapsed mobile-visible" type="button" onclick="toggleMenu();">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <nav class="site-header-nav" role="navigation">
+                
+            </nav>
+        </div>
+    </header>
+    <!-- / header -->
+
+    <section class="collection-head small geopattern" data-pattern-id="jieba 源码阅读笔记（一）">
+<div class="container">
+  <div class="columns">
+    <div class="column three-fourths">
+      <div class="collection-title">
+        <h1 class="collection-header">jieba 源码阅读笔记（一）</h1>
+        <div class="collection-info">
+          
+          <span class="meta-info">
+            <span class="octicon octicon-calendar"></span> 2018/12/12
+          </span>
+          
+          
+          <span class="meta-info">
+            <span class="octicon octicon-file-directory"></span>
+            <a href="http://localhost:4000/categories/#ArtificialIntelligence" title="ArtificialIntelligence">ArtificialIntelligence</a>
+          </span>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+<!-- / .banner -->
+<section class="container content">
+<div class="columns">
+  <div class="column three-fourths" >
+    <article class="article-content markdown-body">
+    <h3 id="jieba-初始化">jieba 初始化</h3>
+
+<p>jieba 自 0.28 版后就开始采用了延迟加载机制，jieba 在初始化的时候会创建一个<code class="language-plaintext highlighter-rouge">Tokenizer</code>实例<code class="language-plaintext highlighter-rouge">dt</code>，此实例在创建时不会构建词频字典，它定义了一个描述当前初始化情况的变量<code class="language-plaintext highlighter-rouge">self.initialized</code>，并在初始化时，设置其为<code class="language-plaintext highlighter-rouge">False</code>。因此当我们导入 jieba 时，词典并不会被加载，只有当我们使用 jieba 的具体功能的，<code class="language-plaintext highlighter-rouge">dt</code>实例才会调用<code class="language-plaintext highlighter-rouge">check_initialized(self)</code>函数，判断<code class="language-plaintext highlighter-rouge">initialized</code>变量是否为<code class="language-plaintext highlighter-rouge">True</code>，如果不是，则会调用<code class="language-plaintext highlighter-rouge">initialize(self, dictionary=None)</code>函数，实行初始化。</p>
+
+<p>初始化过程主要加载词频文件，返回词频字典<code class="language-plaintext highlighter-rouge">self.FREQ</code>（key 为词，value 为词频，可用<code class="language-plaintext highlighter-rouge">jieba.get_FREQ(k)</code>搜索对应词的词频）和词频总和<code class="language-plaintext highlighter-rouge">self.total</code>。</p>
+
+<p>如果我们要手动初始化 jieba，可以手动调用<code class="language-plaintext highlighter-rouge">jieba.initialize()</code>进行初始化。</p>
+
+<h3 id="trie-树">Trie 树</h3>
+
+<p>根据词频字典<code class="language-plaintext highlighter-rouge">self.FREQ</code>，jieba 可以将一个句子转换为一个有向无环图（DAG），而这其中利用到的一个重要数据结构就是 Trie 树（原始版本直接实现 Trie 树，现有版本借鉴思想，将前缀树存储在文件中）。</p>
+
+<p>Trie 树，又叫字典树或前缀树，是一棵多叉树。Trie 树一般用来统计、排序和保存字符串，具体的应用包括词频统计、前缀匹配和自动补全。当字符串量级大、字符串过长的时候不适合用 Trie 树。Trie 树的常用操作是查找和插入，时间复杂度为 \(O(m)\)，其中 \(m\) 是待插入/查询的字符串，删除操作很少用。</p>
+
+<p>Trie 树有 3 个基本性质：</p>
+
+<ol>
+  <li>根节点不包含字符，除根节点外每一个节点都只包含一个字符</li>
+  <li>从根节点到某一节点，路径上经过的字符连接起来，为该节点对应的字符串</li>
+  <li>每个节点的所有子节点包含的字符都不相同</li>
+</ol>
+
+<p>词频字典<code class="language-plaintext highlighter-rouge">self.FREQ</code>实际上就是以 Trie 树的思想存储的，每个词的前缀都保存在文本中，对于没有在分析文本中独立出现的前缀词，词频记为 0。</p>
+
+<h3 id="获取-dag">获取 DAG</h3>
+
+<p>jieba 通过调用<code class="language-plaintext highlighter-rouge">get_DAG(self, sentence)</code>来获取每个字符基于 Trie 树的有向无环图（DAG），我们以官方样例“我来到北京清华大学”来进行研讨。</p>
+
+<p><code class="language-plaintext highlighter-rouge">get_DAG(self, sentence)</code>返回一个 DAG 字典（key 为每个字符，value 为字符对应的 DAG，{0:[0, 1]} 就是一个简单的例子），对于上面的这个句子，得到的字典为<code class="language-plaintext highlighter-rouge">{0: [0], 1: [1, 2], 2: [2], 3: [3, 4], 4: [4], 5: [5, 6, 8], 6: [6, 7], 7: [7, 8], 8: [8]}</code>，其中位置 5（即“清”）的 DAG 是<code class="language-plaintext highlighter-rouge">[5, 6, 8]</code>，之所以跳过 7（即“大”），是因为“清华大”出现在字典中（表明拥有其作为前缀的词），但词频为 0（表示前缀没有单独出现在统计文本中）。</p>
+
+<h3 id="全模式">全模式</h3>
+
+<p>使用 jieba 的全模式（把句子中所有的可以成词的词语都扫描出来, 速度非常快，但是不能解决歧义）的案例代码如下：</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">jieba</span>
+<span class="n">seg_list</span> <span class="o">=</span> <span class="n">jieba</span><span class="p">.</span><span class="n">cut</span><span class="p">(</span><span class="s">"我来到北京清华大学"</span><span class="p">,</span> <span class="n">cut_all</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"Full Mode: "</span> <span class="o">+</span> <span class="s">"/ "</span><span class="p">.</span><span class="n">join</span><span class="p">(</span><span class="n">seg_list</span><span class="p">))</span>  <span class="c1"># 全模式
+</span></code></pre></div></div>
+
+<p>在 jieba 中，全模式实现的函数为<code class="language-plaintext highlighter-rouge">__cut_all(self, sentence)</code>，其具体实现思路是：</p>
+
+<ol>
+  <li>遍历每一个字符<code class="language-plaintext highlighter-rouge">i</code></li>
+  <li>如果当前字符<code class="language-plaintext highlighter-rouge">i</code>的 DAG 中只有自己一个字符，判断其是否已被前面 DAG 包括，如果是跳过，如果不是，则输出</li>
+  <li>如果当前字符<code class="language-plaintext highlighter-rouge">i</code>的 DAG 包括多个字符，则遍历其后面的每个字符<code class="language-plaintext highlighter-rouge">j</code>，将区间<code class="language-plaintext highlighter-rouge">[i, j]</code>内的字符合并成词输出</li>
+</ol>
+
+<h3 id="基于词频的最大切分组合">基于词频的最大切分组合</h3>
+
+<p>jieba 采用了动态规划查找最大概率路径, 找出基于词频的最大切分组合，具体实现函数是<code class="language-plaintext highlighter-rouge">calc(self, sentence, DAG, route)</code>。</p>
+
+<p>对于一个句子中的每个字符，根据其 DAG，我们可以得到从其开始进行切分的所有可能，那么到底哪个可能是最大的呢？这与后面的切分情况有关，因此，jieba 采用了自底向上（即从后往前）的动态规划算法，其状态转移方程为：
+\(r_i = \max_{(i, j) \in E}{r_j+w(i, j)}\)
+其中 \(r_i\) 表示当前字符的最大切分对数概率，\(E\) 表示根据 DAG 生成的切分词集合，遍历集合中的每一个元素，计算当前切分词对数概率 \(w(i,j)\) 和下一个字符开始切分的最大对数概率 \(r_j\) 之和（为防止浮点数相乘下溢，通过取对数的方式将相乘转换为相加）的最大值。在<code class="language-plaintext highlighter-rouge">calc(self, sentence, DAG, route)</code>函数中，具体的实现如下：</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">calc</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sentence</span><span class="p">,</span> <span class="n">DAG</span><span class="p">,</span> <span class="n">route</span><span class="p">):</span>
+    <span class="n">N</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">sentence</span><span class="p">)</span>
+    <span class="n">route</span><span class="p">[</span><span class="n">N</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>    
+    <span class="n">logtotal</span> <span class="o">=</span> <span class="n">log</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">total</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="n">N</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+        <span class="n">route</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">=</span> <span class="nb">max</span><span class="p">((</span><span class="n">log</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">FREQ</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="n">sentence</span><span class="p">[</span><span class="n">idx</span><span class="p">:</span><span class="n">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">])</span> <span class="ow">or</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="n">logtotal</span> <span class="o">+</span> <span class="n">route</span><span class="p">[</span><span class="n">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">DAG</span><span class="p">[</span><span class="n">idx</span><span class="p">])</span>
+</code></pre></div></div>
+
+<h3 id="精确模式">精确模式</h3>
+
+<p>使用 jieba 的精确模式（试图将句子最精确地切开，适合文本分析）的案例代码如下：</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">jieba</span>
+<span class="n">seg_list</span> <span class="o">=</span> <span class="n">jieba</span><span class="p">.</span><span class="n">cut</span><span class="p">(</span><span class="s">"我来到北京清华大学"</span><span class="p">,</span> <span class="n">cut_all</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"Default Mode: "</span> <span class="o">+</span> <span class="s">"/ "</span><span class="p">.</span><span class="n">join</span><span class="p">(</span><span class="n">seg_list</span><span class="p">))</span>  <span class="c1"># 精确模式
+</span><span class="n">seg_list</span> <span class="o">=</span> <span class="n">jieba</span><span class="p">.</span><span class="n">cut</span><span class="p">(</span><span class="s">"他来到了网易杭研大厦"</span><span class="p">)</span>  <span class="c1"># 默认是精确模式
+</span></code></pre></div></div>
+
+<p>在 jieba 中，精确模式有两种实现方案，分别是运用 HMM （默认方案）和不运用 HMM 的，分别对应的函数为<code class="language-plaintext highlighter-rouge">__cut_DAG(self, sentence)</code>和<code class="language-plaintext highlighter-rouge">__cut_DAG_NO_HMM(self, sentence)</code>，两种方案的主要区别在于前者运用了 HMM 和 Viterbi 算法来识别新词（即遇到多个单字连续出现）。此部分的代码在<code class="language-plaintext highlighter-rouge">finalseg</code>中实现，具体分析将留在之后的 jieba 源码阅读之中。</p>
+
+<h3 id="搜索引擎模式">搜索引擎模式</h3>
+
+<p>使用 jieba 的搜索引擎模式（在精确模式的基础上，对长词再次切分，提高召回率，适合用于搜索引擎分词）的案例代码如下：</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">jieba</span>
+<span class="n">seg_list</span> <span class="o">=</span> <span class="n">jieba</span><span class="p">.</span><span class="n">cut_for_search</span><span class="p">(</span><span class="s">"小明硕士毕业于中国科学院计算所，后在日本京都大学深造"</span><span class="p">)</span>  <span class="c1"># 搜索引擎模式
+</span><span class="k">print</span><span class="p">(</span><span class="s">", "</span><span class="p">.</span><span class="n">join</span><span class="p">(</span><span class="n">seg_list</span><span class="p">))</span>
+</code></pre></div></div>
+
+<p>上述例子在精确模式下的分词结果为：</p>
+
+<blockquote>
+  <p>小明, 硕士, 毕业, 于, 中国科学院, 计算所, ，, 后, 在, 日本京都大学, 深造</p>
+</blockquote>
+
+<p>在搜索模式下的分词结果为：</p>
+
+<blockquote>
+  <p>小明, 硕士, 毕业, 于, 中国, 科学, 学院, 科学院, 中国科学院, 计算, 计算所, ，, 后, 在, 日本, 京都, 大学, 日本京都大学, 深造</p>
+</blockquote>
+
+<p>在 jieba 中，全模式实现的函数为<code class="language-plaintext highlighter-rouge">__cut_for_search(self, sentence)</code>，在精确模式的基础上，搜索模式主要的操作有：</p>
+
+<ol>
+  <li>对于长度大于 2 的词，以长度为 2 为单位捕获子串，如果子串在词频文件里词频值不为 0，则返回</li>
+  <li>对于长度大于 3 的词，以长度为 3 为单位捕获子串，如果子串在词频文件里词频值不为 0，则返回</li>
+</ol>
+
+<h3 id="补充">补充</h3>
+
+<p>上述的代码都在<code class="language-plaintext highlighter-rouge">jieba.__init__</code>中实现，这个文件中还有一些有趣的内容：</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">lcut()</code>和<code class="language-plaintext highlighter-rouge">lcut_for_search()</code>分别与<code class="language-plaintext highlighter-rouge">cut()</code>和<code class="language-plaintext highlighter-rouge">cut_for_search()</code>对应，只不过前者返回<code class="language-plaintext highlighter-rouge">list</code>，后者返回<code class="language-plaintext highlighter-rouge">generator</code>。</li>
+  <li>这部分提供了<code class="language-plaintext highlighter-rouge">load_userdict(self, f)</code>来让用户指定自定义词典，也提供了<code class="language-plaintext highlighter-rouge">add_word(self, word)</code>和<code class="language-plaintext highlighter-rouge">del_word(self, word)</code>来让用户修改词典，还提供了<code class="language-plaintext highlighter-rouge">suggest_freq(self, segment)</code>来让用户调整单个词语的词频。</li>
+  <li>这部分还提供了<code class="language-plaintext highlighter-rouge">tokenizer(self, unicode_sentence)</code>来返回分词结果中每个词的起始位置和终止位置，以及并行分词等操作，感兴趣的读者可以自行了解。</li>
+</ul>
+
+
+    </article>
+    <div class="share">
+      <div class="share-component"></div>
+    </div>
+    <div class="comment">
+      
+  
+        <div id="container"></div>
+        <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+        <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+        <script>
+        var gitment = new Gitment({
+            id: '/artificialintelligence/2018/12/12/Jieba1/',
+            owner: 'lpq29743',
+            repo: 'blog-comments',
+            oauth: {
+                client_id: '5818ceff784afe05d31c',
+                client_secret: 'dc7e8efc044c7194cf453740f82c646aa998f206',
+            },
+        })
+        gitment.render('container')
+        </script>
+  
+
+
+    </div>
+	<ul class="pager">
+		
+		<li class="previous">
+			<a href="/algorithm/2018/12/12/Fibonacci/" data-toggle="tooltip" data-placement="top" title="Fibonacci 数列问题">
+				Previous<br>
+				<span>Fibonacci 数列问题</span>
+			</a>
+		</li>
+		
+		
+		<li class="next">
+			<a href="/artificialintelligence/2019/02/13/Jieba2/" data-toggle="tooltip" data-placement="top" title="jieba 源码阅读笔记（二）">
+				Next<br>
+				<span>jieba 源码阅读笔记（二）</span>
+			</a>
+		</li>
+		
+	</ul>
+  </div>
+  <div class="column one-fourth">
+    
+<h3>Search</h3>
+<div id="site_search">
+    <input type="text" id="search_box" placeholder="Search">
+</div>
+
+<ul id="search_results"></ul>
+
+<link rel="stylesheet" type="text/css" href="http://localhost:4000/assets/css/modules/sidebar-search.css">
+<script src="http://localhost:4000/assets/js/jekyll-search.min.js"></script>
+<script src="http://localhost:4000/assets/js/search.js"></script>
+
+<script type="text/javascript">
+SimpleJekyllSearch({
+    searchInput: document.getElementById('search_box'),
+    resultsContainer: document.getElementById('search_results'),
+    json: 'http://localhost:4000/assets/search_data.json',
+    searchResultTemplate: '<li><a href="{url}" title="{desc}">{title}</a></li>',
+    noResultsText: 'No results found',
+    limit: 10,
+    fuzzy: false,
+    exclude: ['Welcome']
+})
+</script>
+
+    
+<h3 class="post-directory-title mobile-hidden">Table of Contents</h3>
+<div id="post-directory-module" class="mobile-hidden">
+  <section class="post-directory">
+  <!-- Links that trigger the jumping -->
+  <!-- Added by javascript below -->
+  <dl></dl>
+  </section>
+</div>
+
+<script src="http://localhost:4000/assets/js/jquery.toc.js"></script>
+
+  </div>
+</div>
+</section>
+<!-- /section.content -->
+
+    <footer class="container">
+        <div class="site-footer" role="contentinfo">
+            <div class="copyright left mobile-block">
+                <a href="javascript:window.scrollTo(0,0)" class="right mobile-visible">TOP</a>
+            </div>
+
+            <ul class="site-footer-links right mobile-hidden">
+                <li>
+                    <a href="javascript:window.scrollTo(0,0)" >TOP</a>
+                </li>
+            </ul>
+            <a href="https://github.com/lpq29743/lpq29743.github.io" target="_blank" aria-label="view source code">
+                <span class="mega-octicon octicon-mark-github" title="GitHub"></span>
+            </a>
+            <ul class="site-footer-links mobile-hidden">
+                
+            </ul>
+
+        </div>
+    </footer>
+    <!-- / footer -->
+    <script src="http://localhost:4000/assets/vendor/share.js/dist/js/share.min.js"></script>
+    <script src="http://localhost:4000/assets/js/geopattern.js"></script>
+    <script src="http://localhost:4000/assets/js/prism.js"></script>
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/globals/prism.css">
+    <script>
+      jQuery(document).ready(function($) {
+        // geopattern
+        $('.geopattern').each(function(){
+          $(this).geopattern($(this).data('pattern-id'));
+        });
+       // hljs.initHighlightingOnLoad();
+      });
+    </script>
+    
+</body>
+</html>

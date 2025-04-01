@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans" prefix="og: http://ogp.me/ns#" class="han-init">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <title>一起来学 GCC 与 Makefile &mdash; Peiqin Lin's Homepage</title>
+    <link rel="stylesheet" href="http://localhost:4000/assets/vendor/primer-css/css/primer.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/vendor/primer-markdown/dist/user-content.min.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/vendor/octicons/octicons/octicons.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/components/collection.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/components/repo-card.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/repo-list.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/mini-repo-list.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/profile.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/contact.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/news.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/components/boxed-group.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/globals/common.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/vendor/share.js/dist/css/share.min.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/globals/responsive.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/posts/index.css">
+    <!-- Latest compiled and minified CSS -->
+    
+
+    
+    <link rel="canonical" href="http://localhost:4000/c/c++/2017/03/14/GccMakefile/">
+    <link rel="alternate" type="application/atom+xml" title="Peiqin Lin's Homepage" href="/feed.xml">
+    <link rel="shortcut icon" href="http://localhost:4000/favicon.ico">
+    
+    <meta property="og:title" content="一起来学 GCC 与 Makefile">
+      
+    <meta name="keywords" content="C, GCC, Makefile, Linux C">
+    <meta name="og:keywords" content="C, GCC, Makefile, Linux C">
+      
+    <meta name="description" content="在Linux下的C编程中，不可避免地会接触到GCC和Makefile，今天就让我们一起来学一下这些东西！">
+    <meta name="og:description" content="在Linux下的C编程中，不可避免地会接触到GCC和Makefile，今天就让我们一起来学一下这些东西！">
+      
+    
+    
+        
+    
+    <meta property="og:url" content="http://localhost:4000/c/c++/2017/03/14/GccMakefile/">
+    <meta property="og:site_name" content="Peiqin Lin's Homepage">
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="zh_CN" />
+    
+    <meta property="article:published_time" content="2017-03-14">
+    
+    <script src="http://localhost:4000/assets/vendor/jquery/dist/jquery.min.js"></script>
+    <script src="http://localhost:4000/assets/js/jquery-ui.js"></script>
+    <script type="text/javascript">
+    function toggleMenu() {
+        var nav = document.getElementsByClassName("site-header-nav")[0];
+        if (nav.style.display == "inline-flex") {
+          nav.style.display = "none";
+        } else {
+          nav.style.display = "inline-flex";
+        }
+    }
+    </script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-114643083-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-114643083-1');
+    </script>
+</head>
+<body class="" data-mz="">
+    <header class="site-header">
+        <div class="container">
+            <h1><a href="http://localhost:4000/" title="Peiqin Lin's Homepage">Peiqin Lin's Homepage</a></h1>
+            <button class="collapsed mobile-visible" type="button" onclick="toggleMenu();">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <nav class="site-header-nav" role="navigation">
+                
+            </nav>
+        </div>
+    </header>
+    <!-- / header -->
+
+    <section class="collection-head small geopattern" data-pattern-id="一起来学 GCC 与 Make">
+<div class="container">
+  <div class="columns">
+    <div class="column three-fourths">
+      <div class="collection-title">
+        <h1 class="collection-header">一起来学 GCC 与 Makefile</h1>
+        <div class="collection-info">
+          
+          <span class="meta-info">
+            <span class="octicon octicon-calendar"></span> 2017/03/14
+          </span>
+          
+          
+          <span class="meta-info">
+            <span class="octicon octicon-file-directory"></span>
+            <a href="http://localhost:4000/categories/#C/C++" title="C/C++">C/C++</a>
+          </span>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+<!-- / .banner -->
+<section class="container content">
+<div class="columns">
+  <div class="column three-fourths" >
+    <article class="article-content markdown-body">
+    <p>在Linux下的C编程中，不可避免地会接触到GCC和Makefile，今天就让我们一起来学一下这些东西！</p>
+
+<h3 id="gcc">GCC</h3>
+
+<p>GCC是GNU推出的基于C/C++的编译命令，其编译包括以下四个步骤：</p>
+
+<ol>
+  <li>预处理：将包含的头文件编译进来，文件形式一般为hello.i，对应选项为-E</li>
+  <li>编译：检查代码规范性及语法错误等，文件形式一般为hello.s，对应选项为-S</li>
+  <li>汇编：把编译生成的”.s”文件转成二进制目标代码，文件形式一般为hello.o，对应选项为-c</li>
+  <li>链接：成功编译后就进入了链接阶段，文件形式一般为hello，对应选项为-o</li>
+</ol>
+
+<p>接下来我们再介绍一下GCC的命令：</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 无选项编译链接。预处理、汇编、编译并链接形成可执行文件，默认输出为a.out</span>
+gcc hello.c
+<span class="c"># -o选项。指定输出文件的文件名</span>
+gcc hello.c <span class="nt">-o</span> hello
+<span class="c"># -E选项。预处理生成test.i</span>
+gcc <span class="nt">-E</span> hello.c <span class="nt">-o</span> hello.i
+<span class="c"># -S选项。将预处理输出文件hello.i汇编成hello.s文件 </span>
+gcc –S hello.i –o hello.s
+<span class="c"># -c选项。将汇编输出文件hello.s编译输出hello.o文件</span>
+gcc –c hello.s –o hello.o
+<span class="c"># 无选项链接。将编译输出文件hello.o链接成最终可执行文件hello</span>
+gcc hello.o <span class="nt">-o</span> hello
+<span class="c"># -O选项。用编译优化级别1编译程序。级别为1~3，级别越大效果越好，但时间越长</span>
+gcc <span class="nt">-O1</span> hello.c <span class="nt">-o</span> hello
+<span class="c"># -wall选项。显示警告信息</span>
+gcc <span class="nt">-Wall</span> hello.c <span class="nt">-o</span> hello
+<span class="c"># 多文件编译。将test1.c和test2.c分别编译链接成test可执行文件，需要所有文件重新编译</span>
+gcc test1.c test2.c <span class="nt">-o</span> <span class="nb">test</span>
+<span class="c"># 多文件编译。将test1.c编译成test1.o，再将test2.c编译成test2.o，最后将test1.o和test2.o链接成test，只重新编译修改文件，未修改文件不用重新编译</span>
+gcc <span class="nt">-c</span> test1.c
+gcc <span class="nt">-c</span> test2.c
+gcc <span class="nt">-o</span> test1.o test2.o <span class="nt">-o</span> <span class="nb">test</span>
+</code></pre></div></div>
+
+<h3 id="makefile">Makefile</h3>
+
+<h4 id="什么是makefile">什么是Makefile</h4>
+
+<p>Makefile就像Shell脚本，它带来的好处是自动化编译。只需一个make命令，工程就自动编译，其形式具体如下：</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>target: prerequisites
+	<span class="nb">command</span>
+</code></pre></div></div>
+
+<p>target是可以是Object File，也可以是执行文件，还可以是标签；prerequisites是生成target所需的文件或目标；command是make需要执行的命令。</p>
+
+<h4 id="一个例子">一个例子</h4>
+
+<p>假设工程有8个C文件和3个头文件，我们要写一个Makefile并且满足以下规则：</p>
+
+<ol>
+  <li>如果工程没有编译过，则所有C文件都要编译并被链接</li>
+  <li>如果工程的某几个C文件被修改，则只编译被修改的C文件，并链接目标程序</li>
+  <li>如果工程的头文件改变了，则编译引用了这些头文件的C文件，并链接目标程序</li>
+</ol>
+
+<p>为了完成以上规则，Makefile大概如下：</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>edit : main.o kbd.o command.o display.o /
+	insert.o search.o files.o utils.o
+	gcc <span class="nt">-o</span> edit main.o kbd.o command.o display.o /
+	insert.o search.o files.o utils.o
+main.o : main.c defs.h
+	gcc <span class="nt">-c</span> main.c
+kbd.o : kbd.c defs.h command.h
+	gcc <span class="nt">-c</span> kbd.c
+command.o : command.c defs.h command.h
+	gcc <span class="nt">-c</span> command.c
+display.o : display.c defs.h buffer.h
+	gcc <span class="nt">-c</span> display.c
+insert.o : insert.c defs.h buffer.h
+	gcc <span class="nt">-c</span> insert.c
+search.o : search.c defs.h buffer.h
+	gcc <span class="nt">-c</span> search.c
+files.o : files.c defs.h buffer.h command.h
+	gcc <span class="nt">-c</span> files.c
+utils.o : utils.c defs.h
+	gcc <span class="nt">-c</span> utils.c
+clean :
+	<span class="nb">rm </span>edit main.o kbd.o command.o display.o /
+	insert.o search.o files.o utils.o
+</code></pre></div></div>
+
+<p>我们把以上内容保存为文件名为Makefile或makefile的文件中，然后用命令make就可以生成执行文件edit。若要删除执行文件和所有中间目标文件，执行make clean就可以了。使用clean不仅便于重编译，也很利于保持文件清洁。</p>
+
+<p>在这个makefile中，target包含执行文件edit和中间目标文件，prerequisites就是冒号后的.c文件和.h文件。每个.o文件都有一组依赖文件，而这些.o文件又是edit的依赖文件。依赖关系说明了目标文件是由哪些文件生成的，或者说是更新的。</p>
+
+<p>定义好依赖关系后，后续那行定义了生成目标文件的操作系统命令。make会比较targets文件和prerequisites文件的修改日期，如果prerequisites文件比targets文件新，或target不存在的话，则make就会执行后续定义的命令。</p>
+
+<p>在整个工程中，make的具体工作如下：</p>
+
+<ol>
+  <li>在当前目录下找叫Makefile或makefile的文件</li>
+  <li>如果找到，它会找文件中的第一个target，在上面例子中是edit这个文件，并把这个文件作为最终的目标文件</li>
+  <li>如果edit文件不存在，或依赖文件比edit新，那么，它会执行后面所定义的命令生成edit</li>
+  <li>如果edit依赖的文件存在，那么make会在当前文件中找目标为.o文件的依赖性，若找到则再根据规则3生成.o文件</li>
+  <li>根据C文件和H文件，make会生成.o文件，再用.o文件声明make的终极任务，也就是执行文件edit了</li>
+</ol>
+
+<p>找寻过程中如果出现错误，如依赖文件找不到，那么make会退出并报错，而对于命令错误或编译不成功，make不理采。像clean这种没有被关联到的，它定义的命令不会自动执行，只能用命令make clean显式执行。</p>
+
+<p>在上面makefile例子中的第一段，.o文件的字符串重复了两次，如果要加入新的.o文件，则需要多次修改。对于这个问题，我们可以使用变量进行解决，具体改良如下：</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>objects <span class="o">=</span> main.o kbd.o command.o display.o <span class="se">\</span>
+	insert.osearch.o files.o utils.o 
+edit : <span class="si">$(</span>objects<span class="si">)</span>
+	gcc <span class="nt">-o</span> edit <span class="si">$(</span>objects<span class="si">)</span>
+main.o : main.c defs.h
+	gcc <span class="nt">-c</span> main.c
+kbd.o : kbd.c defs.h command.h
+	gcc <span class="nt">-c</span> kbd.c
+command.o : command.c defs.h command.h
+	gcc <span class="nt">-c</span> command.c
+display.o : display.c defs.h buffer.h
+	gcc <span class="nt">-c</span> display.c
+insert.o : insert.c defs.h buffer.h
+	gcc <span class="nt">-c</span> insert.c
+search.o : search.c defs.h buffer.h
+	gcc <span class="nt">-c</span> search.c
+files.o : files.c defs.h buffer.h command.h
+	gcc <span class="nt">-c</span> files.c
+utils.o : utils.c defs.h
+	gcc <span class="nt">-c</span> utils.c
+clean :
+	<span class="nb">rm </span>edit <span class="si">$(</span>objects<span class="si">)</span>
+</code></pre></div></div>
+
+<p>make可推导文件及依赖关系后面的命令，一看到.o文件，就会把.c文件加到依赖关系，故可改进代码如下（其实.PHONY表示clean是伪目标文件）：</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>objects <span class="o">=</span> main.o kbd.o command.o display.o <span class="se">\</span>
+	insert.osearch.o files.o utils.o 
+edit : <span class="si">$(</span>objects<span class="si">)</span>
+	gcc <span class="nt">-o</span> edit <span class="si">$(</span>objects<span class="si">)</span>
+main.o : defs.h
+kbd.o : defs.h command.h
+command.o : defs.h command.h
+display.o : defs.h buffer.h
+insert.o : defs.h buffer.h
+search.o : defs.h buffer.h
+files.o : defs.h buffer.h command.h
+utils.o : defs.h
+.PHONY : clean
+clean :
+	<span class="nb">rm </span>edit <span class="si">$(</span>objects<span class="si">)</span>
+</code></pre></div></div>
+
+<p>即然make可以自动推导命令，那其实makefile可以继续改进：</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>objects <span class="o">=</span> main.o kbd.o command.o display.o <span class="se">\</span>
+	insert.osearch.o files.o utils.o 
+edit : <span class="si">$(</span>objects<span class="si">)</span>
+	gcc <span class="nt">-o</span> edit <span class="si">$(</span>objects<span class="si">)</span>
+<span class="si">$(</span>objects<span class="si">)</span> : defs.h
+kbd.o command.o files.o : command.h
+display.o insert.o search.o files.o : buffer.h
+.PHONY : clean
+clean :
+	<span class="nb">rm </span>edit <span class="si">$(</span>objects<span class="si">)</span>
+</code></pre></div></div>
+
+<p>这让makefile变得简单，但依赖关系显得凌乱，具体选择哪一种写法，就看大家喜好了！</p>
+
+<h4 id="引用其它的makefile">引用其它的Makefile</h4>
+
+<p>Makefile使用include可以把别的Makefile包含进来，include的语法是：</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># filename可以是当前操作系统Shell的文件模式</span>
+include&lt;filename&gt;
+<span class="c"># 有几个Makefile：a.mk、b.mk、c.mk，还有foo.make，以及变量$(bar)，其包含了e.mk和f.mk，则下面语句：</span>
+include foo.make <span class="k">*</span>.mk <span class="si">$(</span>bar<span class="si">)</span>
+<span class="c"># 等价于：</span>
+include foo.make a.mk b.mk c.mk e.mk f.mk
+</code></pre></div></div>
+
+<p>如果文件没指定路径，make会在当前目录下寻找，如果没找到，则还会在以下目录查找：</p>
+
+<ol>
+  <li>如果make执行时，有“-I”或“–include-dir”参数，那么make就会这个参数所指定的目录寻找</li>
+  <li>如果目录/include（一般是/usr/local/bin或/usr/include）存在，make也会在该目录寻找</li>
+</ol>
+
+<p>如果没有找到，make会生成警告信息，但不会出现错误，并继续载入其它文件。一旦读完makefile，make会重试没有找到或不能读取的文件，如果不行，make会出现一条致命信息。如果想让make不理会无法读取的文件而继续执行，可以在include前加减号“-”。如-include<filename>。</filename></p>
+
+<h4 id="在规则中使用通配符">在规则中使用通配符</h4>
+
+<p>make支持以下通配符：</p>
+
+<ul>
+  <li><strong>~</strong>：“~/test”表示当前用户$HOME目录下的test目录，而“~hchen/test”表示用户hchen宿主目录下的test目录。</li>
+  <li><strong>\</strong>：如果我们的文件名中有通配符，如“*”，那么可以用转义字符“\”表示真实的“*”字符</li>
+</ul>
+
+    </article>
+    <div class="share">
+      <div class="share-component"></div>
+    </div>
+    <div class="comment">
+      
+  
+        <div id="container"></div>
+        <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+        <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+        <script>
+        var gitment = new Gitment({
+            id: '/c/c++/2017/03/14/GccMakefile/',
+            owner: 'lpq29743',
+            repo: 'blog-comments',
+            oauth: {
+                client_id: '5818ceff784afe05d31c',
+                client_secret: 'dc7e8efc044c7194cf453740f82c646aa998f206',
+            },
+        })
+        gitment.render('container')
+        </script>
+  
+
+
+    </div>
+	<ul class="pager">
+		
+		<li class="previous">
+			<a href="/blog/2017/03/13/URIURLURN/" data-toggle="tooltip" data-placement="top" title="URI、URL 和 URN">
+				Previous<br>
+				<span>URI、URL 和 URN</span>
+			</a>
+		</li>
+		
+		
+		<li class="next">
+			<a href="/blog/2017/03/18/Bittorrent/" data-toggle="tooltip" data-placement="top" title="聊聊 BT 那些事">
+				Next<br>
+				<span>聊聊 BT 那些事</span>
+			</a>
+		</li>
+		
+	</ul>
+  </div>
+  <div class="column one-fourth">
+    
+<h3>Search</h3>
+<div id="site_search">
+    <input type="text" id="search_box" placeholder="Search">
+</div>
+
+<ul id="search_results"></ul>
+
+<link rel="stylesheet" type="text/css" href="http://localhost:4000/assets/css/modules/sidebar-search.css">
+<script src="http://localhost:4000/assets/js/jekyll-search.min.js"></script>
+<script src="http://localhost:4000/assets/js/search.js"></script>
+
+<script type="text/javascript">
+SimpleJekyllSearch({
+    searchInput: document.getElementById('search_box'),
+    resultsContainer: document.getElementById('search_results'),
+    json: 'http://localhost:4000/assets/search_data.json',
+    searchResultTemplate: '<li><a href="{url}" title="{desc}">{title}</a></li>',
+    noResultsText: 'No results found',
+    limit: 10,
+    fuzzy: false,
+    exclude: ['Welcome']
+})
+</script>
+
+    
+<h3 class="post-directory-title mobile-hidden">Table of Contents</h3>
+<div id="post-directory-module" class="mobile-hidden">
+  <section class="post-directory">
+  <!-- Links that trigger the jumping -->
+  <!-- Added by javascript below -->
+  <dl></dl>
+  </section>
+</div>
+
+<script src="http://localhost:4000/assets/js/jquery.toc.js"></script>
+
+  </div>
+</div>
+</section>
+<!-- /section.content -->
+
+    <footer class="container">
+        <div class="site-footer" role="contentinfo">
+            <div class="copyright left mobile-block">
+                <a href="javascript:window.scrollTo(0,0)" class="right mobile-visible">TOP</a>
+            </div>
+
+            <ul class="site-footer-links right mobile-hidden">
+                <li>
+                    <a href="javascript:window.scrollTo(0,0)" >TOP</a>
+                </li>
+            </ul>
+            <a href="https://github.com/lpq29743/lpq29743.github.io" target="_blank" aria-label="view source code">
+                <span class="mega-octicon octicon-mark-github" title="GitHub"></span>
+            </a>
+            <ul class="site-footer-links mobile-hidden">
+                
+            </ul>
+
+        </div>
+    </footer>
+    <!-- / footer -->
+    <script src="http://localhost:4000/assets/vendor/share.js/dist/js/share.min.js"></script>
+    <script src="http://localhost:4000/assets/js/geopattern.js"></script>
+    <script src="http://localhost:4000/assets/js/prism.js"></script>
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/globals/prism.css">
+    <script>
+      jQuery(document).ready(function($) {
+        // geopattern
+        $('.geopattern').each(function(){
+          $(this).geopattern($(this).data('pattern-id'));
+        });
+       // hljs.initHighlightingOnLoad();
+      });
+    </script>
+    
+</body>
+</html>

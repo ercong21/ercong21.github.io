@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans" prefix="og: http://ogp.me/ns#" class="han-init">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <title>Android xml tools 使用详解 &mdash; Peiqin Lin's Homepage</title>
+    <link rel="stylesheet" href="http://localhost:4000/assets/vendor/primer-css/css/primer.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/vendor/primer-markdown/dist/user-content.min.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/vendor/octicons/octicons/octicons.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/components/collection.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/components/repo-card.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/repo-list.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/mini-repo-list.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/profile.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/contact.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/news.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/components/boxed-group.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/globals/common.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/vendor/share.js/dist/css/share.min.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/globals/responsive.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/posts/index.css">
+    <!-- Latest compiled and minified CSS -->
+    
+
+    
+    <link rel="canonical" href="http://localhost:4000/android/2016/10/04/AndroidXmlTools/">
+    <link rel="alternate" type="application/atom+xml" title="Peiqin Lin's Homepage" href="/feed.xml">
+    <link rel="shortcut icon" href="http://localhost:4000/favicon.ico">
+    
+    <meta property="og:title" content="Android xml tools 使用详解">
+      
+    <meta name="keywords" content="Android, Android xml, Android xml tools">
+    <meta name="og:keywords" content="Android, Android xml, Android xml tools">
+      
+    <meta name="description" content="在写Android布局文件时，经常会碰到要预览效果的问题。相信有一部分人跟笔者一样，一开始在做Android开发的时候，想要看TextView的效果，就设置个android.text=”xxx”，然后等把效果改满意后，出于代码洁癖症，又把这一句删掉。这样一来，在xml设计中耗费的时间变多，开发者也很容易失去耐心。那么，怎么解决这个问题呢？当然是本文提到的tools。 ">
+    <meta name="og:description" content="在写Android布局文件时，经常会碰到要预览效果的问题。相信有一部分人跟笔者一样，一开始在做Android开发的时候，想要看TextView的效果，就设置个android.text=”xxx”，然后等把效果改满意后，出于代码洁癖症，又把这一句删掉。这样一来，在xml设计中耗费的时间变多，开发者也很容易失去耐心。那么，怎么解决这个问题呢？当然是本文提到的tools。 ">
+      
+    
+    
+        
+    
+    <meta property="og:url" content="http://localhost:4000/android/2016/10/04/AndroidXmlTools/">
+    <meta property="og:site_name" content="Peiqin Lin's Homepage">
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="zh_CN" />
+    
+    <meta property="article:published_time" content="2016-10-04">
+    
+    <script src="http://localhost:4000/assets/vendor/jquery/dist/jquery.min.js"></script>
+    <script src="http://localhost:4000/assets/js/jquery-ui.js"></script>
+    <script type="text/javascript">
+    function toggleMenu() {
+        var nav = document.getElementsByClassName("site-header-nav")[0];
+        if (nav.style.display == "inline-flex") {
+          nav.style.display = "none";
+        } else {
+          nav.style.display = "inline-flex";
+        }
+    }
+    </script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-114643083-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-114643083-1');
+    </script>
+</head>
+<body class="" data-mz="">
+    <header class="site-header">
+        <div class="container">
+            <h1><a href="http://localhost:4000/" title="Peiqin Lin's Homepage">Peiqin Lin's Homepage</a></h1>
+            <button class="collapsed mobile-visible" type="button" onclick="toggleMenu();">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <nav class="site-header-nav" role="navigation">
+                
+            </nav>
+        </div>
+    </header>
+    <!-- / header -->
+
+    <section class="collection-head small geopattern" data-pattern-id="Android xml too">
+<div class="container">
+  <div class="columns">
+    <div class="column three-fourths">
+      <div class="collection-title">
+        <h1 class="collection-header">Android xml tools 使用详解</h1>
+        <div class="collection-info">
+          
+          <span class="meta-info">
+            <span class="octicon octicon-calendar"></span> 2016/10/04
+          </span>
+          
+          
+          <span class="meta-info">
+            <span class="octicon octicon-file-directory"></span>
+            <a href="http://localhost:4000/categories/#Android" title="Android">Android</a>
+          </span>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+<!-- / .banner -->
+<section class="container content">
+<div class="columns">
+  <div class="column three-fourths" >
+    <article class="article-content markdown-body">
+    <p>在写Android布局文件时，经常会碰到要预览效果的问题。相信有一部分人跟笔者一样，一开始在做Android开发的时候，想要看TextView的效果，就设置个android.text=”xxx”，然后等把效果改满意后，出于代码洁癖症，又把这一句删掉。这样一来，在xml设计中耗费的时间变多，开发者也很容易失去耐心。那么，怎么解决这个问题呢？当然是本文提到的tools。 </p>
+
+<p>首先需要添加tools命名空间：</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">xmlns:</span><span class="n">tools</span><span class="o">=</span><span class="s">"http://schemas.android.com/tools"</span>
+</code></pre></div></div>
+
+<p>接下来就可以使用了</p>
+
+<p><strong>设置文本</strong></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">tools:</span><span class="n">text</span><span class="o">=</span><span class="s">"I am a title"</span>
+</code></pre></div></div>
+
+<p><strong>忽略警告</strong></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">tools:</span><span class="n">ignore</span><span class="o">=</span><span class="s">"contentDescription"</span>
+</code></pre></div></div>
+
+<p><strong>忽略目标API警告</strong></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">tools:</span><span class="n">targetApi</span><span class="o">=</span><span class="s">"LOLLIPOP"</span>
+</code></pre></div></div>
+
+<p><strong>设置拼写检查</strong></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">tools:</span><span class="n">locale</span><span class="o">=</span><span class="s">"it"</span>
+</code></pre></div></div>
+
+<p><strong>设置上下文</strong></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">tools:</span><span class="n">context</span><span class="o">=</span><span class="s">"com.android.example.MainActivity"</span>
+</code></pre></div></div>
+
+<p><strong>设置菜单</strong></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 当主题为Theme.AppCompat时，这个属性不起作用</span>
+<span class="nl">tools:</span><span class="n">menu</span><span class="o">=</span><span class="s">"menu_main,menu_edit"</span>
+  
+<span class="c1">// 如果你不希望在预览图中显示菜单则：</span>
+<span class="nl">tools:</span><span class="n">menu</span><span class="o">=</span><span class="s">""</span>
+</code></pre></div></div>
+
+<p><strong>设置app bar模式</strong></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/* 当主题是Theme.AppCompat (r21+, at least) 或者Theme.Material,或者使用了布局包含Toolbar的方式。  该属性也不起作用，只有holo主题才有效。*/</span>
+<span class="nl">tools:</span><span class="n">actionBarNavMode</span><span class="o">=</span><span class="s">"tabs"</span>
+</code></pre></div></div>
+
+<p><strong>设置 listitem, listheader 和 listfooter 属性</strong></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">tools:</span><span class="n">listheader</span><span class="o">=</span><span class="s">"@layout/list_header"</span>
+<span class="nl">tools:</span><span class="n">listitem</span><span class="o">=</span><span class="s">"@layout/list_item"</span>
+<span class="nl">tools:</span><span class="n">listfooter</span><span class="o">=</span><span class="s">"@layout/list_footer"</span>
+</code></pre></div></div>
+
+<p><strong>设置显示在某个布局里面</strong></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">tools:</span><span class="n">showIn</span><span class="o">=</span><span class="s">"@layout/activity_main"</span>
+</code></pre></div></div>
+
+    </article>
+    <div class="share">
+      <div class="share-component"></div>
+    </div>
+    <div class="comment">
+      
+  
+        <div id="container"></div>
+        <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+        <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+        <script>
+        var gitment = new Gitment({
+            id: '/android/2016/10/04/AndroidXmlTools/',
+            owner: 'lpq29743',
+            repo: 'blog-comments',
+            oauth: {
+                client_id: '5818ceff784afe05d31c',
+                client_secret: 'dc7e8efc044c7194cf453740f82c646aa998f206',
+            },
+        })
+        gitment.render('container')
+        </script>
+  
+
+
+    </div>
+	<ul class="pager">
+		
+		<li class="previous">
+			<a href="/android/2016/10/04/AndroidStyle/" data-toggle="tooltip" data-placement="top" title="Android style 笔记">
+				Previous<br>
+				<span>Android style 笔记</span>
+			</a>
+		</li>
+		
+		
+		<li class="next">
+			<a href="/tool/2016/10/04/Docker1/" data-toggle="tooltip" data-placement="top" title="Docker 入门">
+				Next<br>
+				<span>Docker 入门</span>
+			</a>
+		</li>
+		
+	</ul>
+  </div>
+  <div class="column one-fourth">
+    
+<h3>Search</h3>
+<div id="site_search">
+    <input type="text" id="search_box" placeholder="Search">
+</div>
+
+<ul id="search_results"></ul>
+
+<link rel="stylesheet" type="text/css" href="http://localhost:4000/assets/css/modules/sidebar-search.css">
+<script src="http://localhost:4000/assets/js/jekyll-search.min.js"></script>
+<script src="http://localhost:4000/assets/js/search.js"></script>
+
+<script type="text/javascript">
+SimpleJekyllSearch({
+    searchInput: document.getElementById('search_box'),
+    resultsContainer: document.getElementById('search_results'),
+    json: 'http://localhost:4000/assets/search_data.json',
+    searchResultTemplate: '<li><a href="{url}" title="{desc}">{title}</a></li>',
+    noResultsText: 'No results found',
+    limit: 10,
+    fuzzy: false,
+    exclude: ['Welcome']
+})
+</script>
+
+    
+<h3 class="post-directory-title mobile-hidden">Table of Contents</h3>
+<div id="post-directory-module" class="mobile-hidden">
+  <section class="post-directory">
+  <!-- Links that trigger the jumping -->
+  <!-- Added by javascript below -->
+  <dl></dl>
+  </section>
+</div>
+
+<script src="http://localhost:4000/assets/js/jquery.toc.js"></script>
+
+  </div>
+</div>
+</section>
+<!-- /section.content -->
+
+    <footer class="container">
+        <div class="site-footer" role="contentinfo">
+            <div class="copyright left mobile-block">
+                <a href="javascript:window.scrollTo(0,0)" class="right mobile-visible">TOP</a>
+            </div>
+
+            <ul class="site-footer-links right mobile-hidden">
+                <li>
+                    <a href="javascript:window.scrollTo(0,0)" >TOP</a>
+                </li>
+            </ul>
+            <a href="https://github.com/lpq29743/lpq29743.github.io" target="_blank" aria-label="view source code">
+                <span class="mega-octicon octicon-mark-github" title="GitHub"></span>
+            </a>
+            <ul class="site-footer-links mobile-hidden">
+                
+            </ul>
+
+        </div>
+    </footer>
+    <!-- / footer -->
+    <script src="http://localhost:4000/assets/vendor/share.js/dist/js/share.min.js"></script>
+    <script src="http://localhost:4000/assets/js/geopattern.js"></script>
+    <script src="http://localhost:4000/assets/js/prism.js"></script>
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/globals/prism.css">
+    <script>
+      jQuery(document).ready(function($) {
+        // geopattern
+        $('.geopattern').each(function(){
+          $(this).geopattern($(this).data('pattern-id'));
+        });
+       // hljs.initHighlightingOnLoad();
+      });
+    </script>
+    
+</body>
+</html>

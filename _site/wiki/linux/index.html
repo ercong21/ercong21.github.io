@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans" prefix="og: http://ogp.me/ns#" class="han-init">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <title>Linux &mdash; Peiqin Lin's Homepage</title>
+    <link rel="stylesheet" href="http://localhost:4000/assets/vendor/primer-css/css/primer.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/vendor/primer-markdown/dist/user-content.min.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/vendor/octicons/octicons/octicons.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/components/collection.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/components/repo-card.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/repo-list.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/mini-repo-list.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/profile.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/contact.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/news.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/components/boxed-group.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/globals/common.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/vendor/share.js/dist/css/share.min.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/globals/responsive.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/posts/index.css">
+    <!-- Latest compiled and minified CSS -->
+    
+
+    
+    <link rel="canonical" href="http://localhost:4000/wiki/linux/">
+    <link rel="alternate" type="application/atom+xml" title="Peiqin Lin's Homepage" href="/feed.xml">
+    <link rel="shortcut icon" href="http://localhost:4000/favicon.ico">
+    
+    <meta property="og:title" content="Linux">
+      
+    <meta name="keywords" content="Linux, Linux命令">
+    <meta name="og:keywords" content="Linux, Linux命令">
+      
+    <meta name="description" content="ls">
+    <meta name="og:description" content="ls">
+      
+    
+    
+        
+    
+    <meta property="og:url" content="http://localhost:4000/wiki/linux/">
+    <meta property="og:site_name" content="Peiqin Lin's Homepage">
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="zh_CN" />
+    
+    <meta property="article:published_time" content="2025-04-01">
+    
+    <script src="http://localhost:4000/assets/vendor/jquery/dist/jquery.min.js"></script>
+    <script src="http://localhost:4000/assets/js/jquery-ui.js"></script>
+    <script type="text/javascript">
+    function toggleMenu() {
+        var nav = document.getElementsByClassName("site-header-nav")[0];
+        if (nav.style.display == "inline-flex") {
+          nav.style.display = "none";
+        } else {
+          nav.style.display = "inline-flex";
+        }
+    }
+    </script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-114643083-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-114643083-1');
+    </script>
+</head>
+<body class="" data-mz="">
+    <header class="site-header">
+        <div class="container">
+            <h1><a href="http://localhost:4000/" title="Peiqin Lin's Homepage">Peiqin Lin's Homepage</a></h1>
+            <button class="collapsed mobile-visible" type="button" onclick="toggleMenu();">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <nav class="site-header-nav" role="navigation">
+                
+            </nav>
+        </div>
+    </header>
+    <!-- / header -->
+
+    <section class="collection-head small geopattern" data-pattern-id="Linux">
+<div class="container">
+  <div class="columns">
+    <div class="column three-fourths">
+      <div class="collection-title">
+        <h1 class="collection-header">Linux</h1>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+<!-- / .banner -->
+<section class="container content">
+<div class="columns">
+  <div class="column three-fourths" >
+    <article class="article-content markdown-body">
+    <h3 id="ls">ls</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 列出当前目录下的所有目录和文件</span>
+<span class="nb">ls</span>
+<span class="c"># 列出 /bin 下的所有目录和文件</span>
+<span class="nb">ls</span> /bin
+<span class="c"># 列出当前目录下的所有目录和文件（包含详细信息）</span>
+<span class="nb">ls</span> <span class="nt">-l</span>
+<span class="c"># 列出当前目录下的所有目录和文件（包含隐藏文件）</span>
+<span class="nb">ls</span> <span class="nt">-a</span>
+<span class="c"># 列出当前目录下的所有目录和文件（易读形式）</span>
+<span class="nb">ls</span> <span class="nt">-lh</span>
+<span class="c"># 列出当前目录下的所有目录和文件（只列目录）</span>
+<span class="nb">ls</span> <span class="nt">-d</span>
+<span class="c"># 列出当前目录下的所有目录和文件（按时间序输出）</span>
+<span class="nb">ls</span> <span class="nt">-t</span>
+<span class="c"># 列出当前目录下的所有目录和文件（按大小序输出）</span>
+<span class="nb">ls</span> <span class="nt">-S</span>
+<span class="c"># 列出当前目录下的所有目录和文件（按字母序反向输出）</span>
+<span class="nb">ls</span> <span class="nt">-r</span>
+<span class="c"># 列出当前目录下的所有目录和文件（按时间反序输出）</span>
+<span class="nb">ls</span> <span class="nt">-rt</span>
+<span class="c"># 以递归的方式列出所有子目录和文件</span>
+<span class="nb">ls</span> <span class="nt">-R</span>
+<span class="c"># 查看进程运行目录</span>
+<span class="nb">ls</span> /proc/PID
+</code></pre></div></div>
+
+<h3 id="cd">cd</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 切换到某个路径，可为绝对路径，也可为相对路径</span>
+<span class="nb">cd </span>some_dir
+<span class="c"># 相当于 cd ~，切换到 /home 目录</span>
+<span class="nb">cd</span>
+</code></pre></div></div>
+
+<h3 id="pwd">pwd</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 打印当前工作目录</span>
+<span class="nb">pwd</span>
+</code></pre></div></div>
+
+<h3 id="mkdir">mkdir</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 创建一个新目录</span>
+<span class="nb">mkdir </span>new_dir
+<span class="c"># 创建多个新目录</span>
+<span class="nb">mkdir </span>new_dir1 new_dir2
+<span class="c"># 递归创建新目录</span>
+<span class="nb">mkdir</span> <span class="nt">-p</span> new_dir/sub_new_dir
+<span class="c"># 创建新目录并设置权限（方式一）</span>
+<span class="nb">mkdir</span> <span class="nt">-m</span><span class="o">=</span>r-- new_dir
+<span class="c"># 创建新目录并设置权限（方式二）</span>
+<span class="nb">mkdir</span> <span class="nt">-m</span> 711 new_dir
+<span class="c"># 创建目录并打印信息</span>
+<span class="nb">mkdir</span> <span class="nt">-v</span> new_dir
+</code></pre></div></div>
+
+<h3 id="rm">rm</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 删除文件</span>
+<span class="nb">rm </span>file
+<span class="c"># 删除前询问</span>
+<span class="nb">rm</span> <span class="nt">-i</span> file
+<span class="c"># 强制删除，无需确认</span>
+<span class="nb">rm</span> <span class="nt">-f</span> file
+<span class="c"># 将目录及其下文件删除</span>
+<span class="nb">rm</span> <span class="nt">-r</span> <span class="nb">dir</span>
+<span class="c"># 将当前目录下的所有内容删除</span>
+<span class="nb">rm</span> <span class="nt">-r</span> /path/to/directory/<span class="k">*</span>
+<span class="c"># 删除并打印信息</span>
+<span class="nb">rm</span> <span class="nt">-v</span> file
+</code></pre></div></div>
+
+<h3 id="rmdir">rmdir</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 删除目录</span>
+<span class="nb">mkdir dir</span>
+<span class="c"># 递归删除目录</span>
+<span class="nb">mkdir</span> <span class="nt">-p</span> new_dir/sub_new_dir
+</code></pre></div></div>
+
+<h3 id="mv">mv</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 移动一个文件到目录</span>
+<span class="nb">mv </span>file <span class="nb">dir</span>
+<span class="c"># 移动多个文件到目录</span>
+<span class="nb">mv </span>file1 file2 <span class="nb">dir</span>
+<span class="c"># 文件改名</span>
+<span class="nb">mv </span>file1 file2
+<span class="c"># 文件改名（询问）</span>
+<span class="nb">mv</span> <span class="nt">-i</span> file1 file2
+<span class="c"># 文件改名（不询问）</span>
+<span class="nb">mv</span> <span class="nt">-f</span> file1 file2
+<span class="c"># 文件覆盖前做备份</span>
+<span class="nb">mv</span> <span class="nt">-b</span> file1 file2
+<span class="c"># 目录移动</span>
+<span class="nb">mv </span>dir1 dir2
+</code></pre></div></div>
+
+<h3 id="cp">cp</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 复制文件</span>
+<span class="nb">cp </span>file1 file2
+<span class="c"># 复制文件（询问）</span>
+<span class="nb">cp</span> <span class="nt">-i</span> file1 file2
+<span class="c"># 复制文件（备份）</span>
+<span class="nb">cp</span> <span class="nt">-b</span> file1 file2
+<span class="c"># 创建硬链接</span>
+<span class="nb">cp</span> <span class="nt">-l</span> file1 file2
+<span class="c"># 创建软链接</span>
+<span class="nb">cp</span> <span class="nt">-s</span> file1 file2
+<span class="c"># 递归复制目录</span>
+<span class="nb">cp</span> <span class="nt">-r</span> dir1 dir2
+</code></pre></div></div>
+
+<h3 id="scp">scp</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 从本地复制到远程</span>
+scp /path/file1 myuser@192.168.0.1:/path/file2
+<span class="c"># 从远程复制到本地</span>
+scp myuser@192.168.0.1:/path/file2 /path/file1
+<span class="c"># 限制速度为 400 Kbit/s</span>
+scp <span class="nt">-l</span> 400 /path/file1 myuser@192.168.0.1:/path/file2
+<span class="c"># 使用 2222 端口</span>
+scp <span class="nt">-P</span> 2222 /path/file1 myuser@192.168.0.1:/path/file2
+<span class="c"># 使用 IPv4</span>
+scp <span class="nt">-4</span> /path/file1 myuser@192.168.0.1:/path/file2
+<span class="c"># 使用 IPv6</span>
+scp <span class="nt">-6</span> /path/file1 myuser@192.168.0.1:/path/file2
+</code></pre></div></div>
+
+<h3 id="touch">touch</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 创建一个空文件</span>
+<span class="nb">touch </span>new_file
+<span class="c"># 修改文件的时间属性为当前系统时间</span>
+<span class="nb">touch </span>old_file
+<span class="c"># 只更新访问时间</span>
+<span class="nb">touch</span> <span class="nt">-a</span> old_file
+<span class="c"># 只更新修改时间</span>
+<span class="nb">touch</span> <span class="nt">-m</span> old_file
+<span class="c"># 将一个文件的时间属性复制到另一个文件上</span>
+<span class="nb">touch</span> <span class="nt">-r</span> <span class="nb">source </span>target
+<span class="c"># 指定时间属性（2 月 5 号 13 点 51 分）</span>
+<span class="nb">touch</span> <span class="nt">-t</span> 02051351 old_file
+</code></pre></div></div>
+
+<h3 id="cat">cat</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 显示文件内容</span>
+<span class="nb">cat </span>test.txt
+<span class="c"># 显示多个文件内容</span>
+<span class="nb">cat </span>test1.txt test2.txt
+<span class="c"># 倒序显示文件内容</span>
+<span class="nb">tac </span>text.txt
+<span class="c"># 无论是否有空行，都输出行号，相当于 nl -b a test.txt</span>
+<span class="nb">cat</span> <span class="nt">-n</span> test.txt
+<span class="c"># 对空行不编号</span>
+<span class="nb">cat</span> <span class="nt">-b</span> test.txt
+<span class="c"># 出现多个空白行时，替代为一行的空白行</span>
+<span class="nb">cat</span> <span class="nt">-s</span> test.txt
+<span class="c"># 将 test1.txt 文件覆盖到 test2.txt 文件中，相当于复制</span>
+<span class="nb">cat </span>test1.txt <span class="o">&gt;</span> test2.txt
+<span class="c"># 合并文件</span>
+<span class="nb">cat </span>test1.txt test2.txt <span class="o">&gt;</span> test.txt
+<span class="c"># 将 test1.txt 文件加上行号追加到 test2.txt 文件末尾</span>
+<span class="nb">cat</span> <span class="nt">-n</span> test1.txt <span class="o">&gt;&gt;</span> test2.txt
+<span class="c"># 创建文件 test.txt，并输入文件内容</span>
+<span class="nb">cat</span> <span class="o">&gt;</span> test.txt
+</code></pre></div></div>
+
+<h3 id="nl">nl</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 输出带有行号的文本内容</span>
+<span class="nb">nl </span>test.txt
+</code></pre></div></div>
+
+<h3 id="more">more</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 逐页显示文本内容，空格键显示下一页，回车键显示下一行，q 退出</span>
+more test.txt
+<span class="c"># 逐页显示文本内容，多个空白行用一个空白行显示</span>
+more <span class="nt">-s</span> test.txt
+<span class="c"># 从第 20 行开始显示内容</span>
+more +20 test.txt
+</code></pre></div></div>
+
+<h3 id="less">less</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 逐页显示文本内容，空格键显示下一页，b 展示上一页，回车键显示下一行，q 退出</span>
+less test.txt
+<span class="c"># 查看进程信息并用 less 分页显示</span>
+ps <span class="nt">-ef</span> | less
+</code></pre></div></div>
+
+<h3 id="head">head</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 显示文本开头内容，默认为 10 行</span>
+<span class="nb">head </span>test.txt
+<span class="c"># 显示文本的前 20 行</span>
+<span class="nb">head</span> <span class="nt">-n</span> 20 test.txt
+<span class="c"># 显示文本的前 20 个字节</span>
+<span class="nb">head</span> <span class="nt">-c</span> 20 test.txt
+<span class="c"># 显示除了后 20 行的文本内容</span>
+<span class="nb">head</span> <span class="nt">-n</span> <span class="nt">-20</span> test.txt
+<span class="c"># 显示除了后 20 个字节的文本内容</span>
+<span class="nb">head</span> <span class="nt">-c</span> <span class="nt">-20</span> test.txt
+</code></pre></div></div>
+
+<h3 id="tail">tail</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 显示文本结尾内容，默认为 10 行</span>
+<span class="nb">tail </span>test.txt
+<span class="c"># 持续监测文本结尾内容</span>
+<span class="nb">tail</span> <span class="nt">-f</span> test.txt
+<span class="c"># 显示文本的后 20 行</span>
+<span class="nb">tail</span> <span class="nt">-n</span> 20 test.txt
+<span class="c"># 从第 20 行开始显示文本内容</span>
+<span class="nb">tail</span> <span class="nt">-n</span> +20 test.txt
+<span class="c"># 显示前 20 行，但从第 11 行开始</span>
+<span class="nb">head</span> <span class="nt">-n</span> 20 test.txt | <span class="nb">tail</span> <span class="nt">-n</span> +11
+</code></pre></div></div>
+
+<h3 id="umask">umask</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 指定以下权限在新文件的默认权限中被删除（方式一）</span>
+<span class="nb">umask </span><span class="nv">u</span><span class="o">=</span>, g-w, <span class="nv">o</span><span class="o">=</span>rwx
+<span class="c"># 指定以下权限在新文件的默认权限中被删除（方式二）</span>
+<span class="nb">umask </span>022
+<span class="c"># 查看新创建文件的默认权限（一般看后三位数字）</span>
+<span class="nb">umask</span> <span class="nt">-s</span>
+</code></pre></div></div>
+
+<h3 id="which">which</h3>
+
+<h3 id="whereis">whereis</h3>
+
+<h3 id="locate">locate</h3>
+
+<h3 id="find">find</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 列出当前目录及其子目录下的所有文件和文件夹</span>
+find <span class="nb">.</span>
+<span class="c"># 删除当前目录及其子目录下的所有文件和文件夹</span>
+find <span class="nb">.</span> <span class="nt">-delete</span>
+<span class="c"># 在当前目录及其子目录下查找（按文件名）</span>
+find <span class="nb">.</span> <span class="nt">-name</span> test.txt
+<span class="c"># 在 /home 目录及其子目录下查找（按文件名）</span>
+find /home <span class="nt">-name</span> test.txt
+<span class="c"># 在当前目录及其子目录下查找（按文件名后缀）</span>
+find <span class="nb">.</span> <span class="nt">-name</span> <span class="k">*</span>.txt
+<span class="c"># 在当前目录及其子目录下查找（按文件名，忽略大小写）</span>
+find <span class="nb">.</span> <span class="nt">-iname</span> test.txt
+<span class="c"># 在当前目录及其子目录下查找（按正则文件名）</span>
+find <span class="nb">.</span> <span class="nt">-regex</span> .<span class="k">*</span><span class="se">\(\.</span>txt<span class="se">\|\.</span>pdf<span class="se">\)</span><span class="err">$</span>
+<span class="c"># 在当前目录及其子目录下查找（按正则文件名，忽略大小写）</span>
+find <span class="nb">.</span> <span class="nt">-iregex</span> .<span class="k">*</span><span class="se">\(\.</span>txt<span class="se">\|\.</span>pdf<span class="se">\)</span><span class="err">$</span>
+<span class="c"># 列出当前目录及其子目录下的所有文件</span>
+find <span class="nb">.</span> <span class="nt">-type</span> f
+<span class="c"># 列出当前目录及其子目录下的所有文件夹</span>
+find <span class="nb">.</span> <span class="nt">-type</span> d
+<span class="c"># 在当前目录及其子目录下查找（按权限）</span>
+find <span class="nb">.</span> <span class="nt">-perm</span> 777
+<span class="c"># 在当前目录及其子目录下查找（按文件所属的用户）</span>
+find <span class="nb">.</span> <span class="nt">-user</span> xiaoming
+<span class="c"># 在当前目录及其子目录下查找（按文件所属的组）</span>
+find <span class="nb">.</span> <span class="nt">-group</span> china
+<span class="c"># 在当前目录及其子目录下查找（最近 20 天内更新）</span>
+find <span class="nb">.</span> <span class="nt">-mtime</span> <span class="nt">-20</span>
+<span class="c"># 在当前目录及其子目录下查找（20 天以前更新）</span>
+find <span class="nb">.</span> <span class="nt">-mtime</span> +20
+<span class="c"># 在当前目录及其子目录下查找（按大小，刚好 50M）</span>
+find <span class="nb">.</span> <span class="nt">-size</span> 50M
+<span class="c"># 在当前目录及其子目录下查找（按大小，从 50M 到 100M）</span>
+find <span class="nb">.</span> <span class="nt">-size</span> +50M <span class="nt">-size</span> <span class="nt">-100M</span>
+<span class="c"># 在当前目录及其子目录下查找（按目录深度）</span>
+find <span class="nb">.</span> <span class="nt">-maxdepth</span> 3
+<span class="c"># 把搜索到的文件删除掉（方式一）</span>
+find ./foo <span class="nt">-type</span> f <span class="nt">-name</span> <span class="s2">"*.txt"</span> <span class="nt">-exec</span> <span class="nb">rm</span> <span class="o">{}</span> <span class="se">\;</span> 
+<span class="c"># 把搜索到的文件删除掉（方式二）</span>
+find ./foo <span class="nt">-type</span> f <span class="nt">-name</span> <span class="s2">"*.txt"</span> | xargs <span class="nb">rm</span>
+</code></pre></div></div>
+
+<h3 id="chmod">chmod</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 将某个目录下的所有文件修改为所有人可访问</span>
+find ./foo <span class="nt">-type</span> d <span class="nt">-exec</span> <span class="nb">chmod </span>755 <span class="o">{}</span> <span class="se">\;</span>
+find ./foo <span class="nt">-type</span> f <span class="nt">-exec</span> <span class="nb">chmod </span>644 <span class="o">{}</span> <span class="se">\;</span>
+</code></pre></div></div>
+
+<h3 id="tar">tar</h3>
+
+<h3 id="chgrp">chgrp</h3>
+
+<h3 id="chown">chown</h3>
+
+<h3 id="gzip">gzip</h3>
+
+<h3 id="df">df</h3>
+
+<h3 id="du">du</h3>
+
+<h3 id="ln">ln</h3>
+
+<h3 id="diff">diff</h3>
+
+<h3 id="date">date</h3>
+
+<h3 id="cal">cal</h3>
+
+<h3 id="grep">grep</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 在 test.txt 中寻找 str 字符串</span>
+<span class="nb">grep </span>str test.txt
+<span class="c"># 在 test1.txt，test2.txt 中寻找 str 字符串</span>
+<span class="nb">grep </span>str test1.txt test2.txt
+<span class="c"># 在当前目录下的所有文件中寻找 str 字符串</span>
+<span class="nb">grep</span> <span class="nt">-r</span> str <span class="nb">.</span>
+<span class="c"># 在 test.txt 中寻找 str 字符串，并输出匹配行的行号</span>
+<span class="nb">grep</span> <span class="nt">-n</span> str test.txt
+<span class="c"># 在 test.txt 中寻找不含 str 字符串的行</span>
+<span class="nb">grep</span> <span class="nt">-v</span> str test.txt
+<span class="c"># 在 test.txt 中寻找 str 字符串，并忽略字母大小写</span>
+<span class="nb">grep</span> <span class="nt">-i</span> str test.txt
+<span class="c"># 计算在 test.txt 中中出现 str 字符串的行数</span>
+<span class="nb">grep</span> <span class="nt">-c</span> str test.txt
+<span class="c"># 在 test.txt 中全字寻找 str 字符串</span>
+<span class="nb">grep</span> <span class="nt">-w</span> str test.txt
+<span class="c"># 在 test.txt 中寻找 str 字符串，并使查询结果高亮</span>
+<span class="nb">grep</span> <span class="nt">--color</span> str test.txt
+<span class="c"># 使用正则表达式查找，相当于 egrep "[1-9]+"</span>
+<span class="nb">grep</span> <span class="nt">-E</span> <span class="s2">"[1-9]+"</span>
+</code></pre></div></div>
+
+<h3 id="awk">awk</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 打印文件中的第一列（从 1 开始计数）</span>
+<span class="nb">awk</span> <span class="s1">'{print $1}'</span> file
+<span class="c"># 打印文件中的满足第三列为正数的条目的第一列</span>
+<span class="nb">awk</span> <span class="s1">'$3 &gt; 0 {print $1}'</span> file
+<span class="c"># 打印文件中的所有列（方式一）</span>
+<span class="nb">awk</span> <span class="s1">'{print}'</span> file
+<span class="c"># 打印文件中的所有列（方式二）</span>
+<span class="nb">awk</span> <span class="s1">'{print $0}'</span> file
+<span class="c"># 打印文件中的最后一列，$NF = 列数</span>
+<span class="nb">awk</span> <span class="s1">'{print $NF}'</span> file
+<span class="c"># 打印文件中的第一列，包含行号信息</span>
+<span class="nb">awk</span> <span class="s1">'{print NR $1}'</span> file
+<span class="c"># 打印文件中的第一列（以大写形式）</span>
+<span class="nb">awk</span> <span class="s1">'{print toupper($1)}'</span> file
+<span class="c"># 打印文件中的第一列（指定分隔符）</span>
+<span class="nb">awk</span> <span class="nt">-F</span> <span class="s1">':'</span> <span class="s1">'{print $1}'</span> file
+</code></pre></div></div>
+
+<h3 id="sed">sed</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 将文件中每一行第一次出现的 str1 替换为 str2（不会改变文件）</span>
+<span class="nb">sed</span> <span class="s1">'s/str1/str2'</span> test.txt
+<span class="c"># 将文件中 str1 替换为 str2（会改变文件）</span>
+<span class="nb">sed</span> <span class="nt">-i</span> <span class="s1">'s/str1/str2'</span> test.txt
+<span class="c"># 将文件中每一行第二次出现的 str1 替换为 str2（从 1 开始计数）</span>
+<span class="nb">sed</span> <span class="s1">'s/str1/str2/2'</span> test.txt
+<span class="c"># 将文件中每一行出现的所有 str1 替换为 str2</span>
+<span class="nb">sed</span> <span class="s1">'s/str1/str2/g'</span> test.txt
+<span class="c"># 将文件中每一行从第三次出现的所有 str1 替换为 str2</span>
+<span class="nb">sed</span> <span class="s1">'s/str1/str2/3g'</span> test.txt
+<span class="c"># 将文件中第三行第一次出现的 str1 替换为 str2（从 1 开始计数）</span>
+<span class="nb">sed</span> <span class="s1">'3 s/str1/str2'</span> test.txt
+<span class="c"># 将文件中第一行到第三行第一次出现的 str1 替换为 str2</span>
+<span class="nb">sed</span> <span class="s1">'1,3 s/str1/str2'</span> test.txt
+<span class="c"># 将文件中第二行到最后一行第一次出现的 str1 替换为 str2</span>
+<span class="nb">sed</span> <span class="s1">'2,$ s/str1/str2'</span> test.txt
+<span class="c"># 删除文件中的第 5 行</span>
+<span class="nb">sed</span> <span class="s1">'5d'</span> test.txt
+<span class="c"># 删除文件中的最后一行</span>
+<span class="nb">sed</span> <span class="s1">'$d'</span> test.txt
+<span class="c"># 删除文件中的第 3-6 行</span>
+<span class="nb">sed</span> <span class="s1">'3,6d'</span> test.txt
+<span class="c"># 删除包含字符串 str 的行</span>
+<span class="nb">sed</span> <span class="s1">'/str/d'</span> test.txt
+</code></pre></div></div>
+
+<h3 id="wc">wc</h3>
+
+<h3 id="ps">ps</h3>
+
+<h3 id="kill">kill</h3>
+
+<h3 id="killall">killall</h3>
+
+<h3 id="top">top</h3>
+
+<h3 id="free">free</h3>
+
+<h3 id="vmstat">vmstat</h3>
+
+<h3 id="iostat">iostat</h3>
+
+<h3 id="watch">watch</h3>
+
+<h3 id="at">at</h3>
+
+<h3 id="crontab">crontab</h3>
+
+<h3 id="lsof">lsof</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 检查端口</span>
+lsof <span class="nt">-i</span> :80
+</code></pre></div></div>
+
+<h3 id="ifconfig">ifconfig</h3>
+
+<h3 id="route">route</h3>
+
+<h3 id="ping">ping</h3>
+
+<h3 id="traceroute">traceroute</h3>
+
+<h3 id="netstat">netstat</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 检查端口</span>
+netstat <span class="nt">-tplugn</span> | <span class="nb">grep</span> :22
+</code></pre></div></div>
+
+<h3 id="ss">ss</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 检查端口</span>
+ss <span class="nt">-lntu</span> | <span class="nb">grep</span> <span class="s1">':25'</span>
+</code></pre></div></div>
+
+<h3 id="telnet">telnet</h3>
+
+<h3 id="rcp">rcp</h3>
+
+<h3 id="scp-1">scp</h3>
+
+<h3 id="wget">wget</h3>
+
+    </article>
+    <div class="share">
+      <div class="share-component"></div>
+    </div>
+    <div class="comment">
+      
+  
+        <div id="container"></div>
+        <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+        <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+        <script>
+        var gitment = new Gitment({
+            id: '/wiki/linux/',
+            owner: 'lpq29743',
+            repo: 'blog-comments',
+            oauth: {
+                client_id: '5818ceff784afe05d31c',
+                client_secret: 'dc7e8efc044c7194cf453740f82c646aa998f206',
+            },
+        })
+        gitment.render('container')
+        </script>
+  
+
+
+    </div>
+  </div>
+  <div class="column one-fourth">
+    
+<h3>Search</h3>
+<div id="site_search">
+    <input type="text" id="search_box" placeholder="Search">
+</div>
+
+<ul id="search_results"></ul>
+
+<link rel="stylesheet" type="text/css" href="http://localhost:4000/assets/css/modules/sidebar-search.css">
+<script src="http://localhost:4000/assets/js/jekyll-search.min.js"></script>
+<script src="http://localhost:4000/assets/js/search.js"></script>
+
+<script type="text/javascript">
+SimpleJekyllSearch({
+    searchInput: document.getElementById('search_box'),
+    resultsContainer: document.getElementById('search_results'),
+    json: 'http://localhost:4000/assets/search_data.json',
+    searchResultTemplate: '<li><a href="{url}" title="{desc}">{title}</a></li>',
+    noResultsText: 'No results found',
+    limit: 10,
+    fuzzy: false,
+    exclude: ['Welcome']
+})
+</script>
+
+    
+<h3 class="post-directory-title mobile-hidden">Table of Contents</h3>
+<div id="post-directory-module" class="mobile-hidden">
+  <section class="post-directory">
+  <!-- Links that trigger the jumping -->
+  <!-- Added by javascript below -->
+  <dl></dl>
+  </section>
+</div>
+
+<script src="http://localhost:4000/assets/js/jquery.toc.js"></script>
+
+  </div>
+</div>
+</section>
+<!-- /section.content -->
+
+    <footer class="container">
+        <div class="site-footer" role="contentinfo">
+            <div class="copyright left mobile-block">
+                <a href="javascript:window.scrollTo(0,0)" class="right mobile-visible">TOP</a>
+            </div>
+
+            <ul class="site-footer-links right mobile-hidden">
+                <li>
+                    <a href="javascript:window.scrollTo(0,0)" >TOP</a>
+                </li>
+            </ul>
+            <a href="https://github.com/lpq29743/lpq29743.github.io" target="_blank" aria-label="view source code">
+                <span class="mega-octicon octicon-mark-github" title="GitHub"></span>
+            </a>
+            <ul class="site-footer-links mobile-hidden">
+                
+            </ul>
+
+        </div>
+    </footer>
+    <!-- / footer -->
+    <script src="http://localhost:4000/assets/vendor/share.js/dist/js/share.min.js"></script>
+    <script src="http://localhost:4000/assets/js/geopattern.js"></script>
+    <script src="http://localhost:4000/assets/js/prism.js"></script>
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/globals/prism.css">
+    <script>
+      jQuery(document).ready(function($) {
+        // geopattern
+        $('.geopattern').each(function(){
+          $(this).geopattern($(this).data('pattern-id'));
+        });
+       // hljs.initHighlightingOnLoad();
+      });
+    </script>
+    
+</body>
+</html>

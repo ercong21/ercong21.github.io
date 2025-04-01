@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans" prefix="og: http://ogp.me/ns#" class="han-init">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <title>Docker 入门 &mdash; Peiqin Lin's Homepage</title>
+    <link rel="stylesheet" href="http://localhost:4000/assets/vendor/primer-css/css/primer.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/vendor/primer-markdown/dist/user-content.min.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/vendor/octicons/octicons/octicons.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/components/collection.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/components/repo-card.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/repo-list.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/mini-repo-list.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/profile.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/contact.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/news.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/components/boxed-group.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/globals/common.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/vendor/share.js/dist/css/share.min.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/globals/responsive.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/posts/index.css">
+    <!-- Latest compiled and minified CSS -->
+    
+
+    
+    <link rel="canonical" href="http://localhost:4000/tool/2016/10/04/Docker1/">
+    <link rel="alternate" type="application/atom+xml" title="Peiqin Lin's Homepage" href="/feed.xml">
+    <link rel="shortcut icon" href="http://localhost:4000/favicon.ico">
+    
+    <meta property="og:title" content="Docker 入门">
+      
+    <meta name="keywords" content="Docker, Docker入门, Docker初学者">
+    <meta name="og:keywords" content="Docker, Docker入门, Docker初学者">
+      
+    <meta name="description" content="学习Docker的目的主要是探寻考研中云计算这个方向。当然，无论什么目的，知识这东西都是有用的。">
+    <meta name="og:description" content="学习Docker的目的主要是探寻考研中云计算这个方向。当然，无论什么目的，知识这东西都是有用的。">
+      
+    
+    
+        
+    
+    <meta property="og:url" content="http://localhost:4000/tool/2016/10/04/Docker1/">
+    <meta property="og:site_name" content="Peiqin Lin's Homepage">
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="zh_CN" />
+    
+    <meta property="article:published_time" content="2016-10-04">
+    
+    <script src="http://localhost:4000/assets/vendor/jquery/dist/jquery.min.js"></script>
+    <script src="http://localhost:4000/assets/js/jquery-ui.js"></script>
+    <script type="text/javascript">
+    function toggleMenu() {
+        var nav = document.getElementsByClassName("site-header-nav")[0];
+        if (nav.style.display == "inline-flex") {
+          nav.style.display = "none";
+        } else {
+          nav.style.display = "inline-flex";
+        }
+    }
+    </script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-114643083-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-114643083-1');
+    </script>
+</head>
+<body class="" data-mz="">
+    <header class="site-header">
+        <div class="container">
+            <h1><a href="http://localhost:4000/" title="Peiqin Lin's Homepage">Peiqin Lin's Homepage</a></h1>
+            <button class="collapsed mobile-visible" type="button" onclick="toggleMenu();">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <nav class="site-header-nav" role="navigation">
+                
+            </nav>
+        </div>
+    </header>
+    <!-- / header -->
+
+    <section class="collection-head small geopattern" data-pattern-id="Docker 入门">
+<div class="container">
+  <div class="columns">
+    <div class="column three-fourths">
+      <div class="collection-title">
+        <h1 class="collection-header">Docker 入门</h1>
+        <div class="collection-info">
+          
+          <span class="meta-info">
+            <span class="octicon octicon-calendar"></span> 2016/10/04
+          </span>
+          
+          
+          <span class="meta-info">
+            <span class="octicon octicon-file-directory"></span>
+            <a href="http://localhost:4000/categories/#Tool" title="Tool">Tool</a>
+          </span>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+<!-- / .banner -->
+<section class="container content">
+<div class="columns">
+  <div class="column three-fourths" >
+    <article class="article-content markdown-body">
+    <p>学习Docker的目的主要是探寻考研中云计算这个方向。当然，无论什么目的，知识这东西都是有用的。</p>
+
+<p>说实话，之前也学了一次docker，但那次不注重做笔记，有点囫囵吞枣，所以效果极差。这一次，希望通过笔记和实践的形式来提高自己的学习效率。</p>
+
+<p>首先，先抛出几个比较有意义的链接：</p>
+
+<p><a href="https://www.zhihu.com/question/22871084/answer/88293837">Docker有什么优势</a></p>
+
+<p><a href="https://docs.docker.com/">Docker开发文档</a></p>
+
+<p>目前比较知名的docker公开仓库：</p>
+
+<p><a href="https://hub.docker.com">国外Docker Hub</a></p>
+
+<p><a href="http://www.dockerpool.com">国内Docker Pool</a></p>
+
+<p>几个国内Docker服务平台（这几个云平台都有免费使用服务，在这几个云平台上摸索摸索，能学到很多东西）：<a href="https://www.ghostcloud.cn/home/home.html">精灵云</a>、<a href="https://www.shurenyun.com/">数人云</a>、<a href="https://www.goodrain.com/">好雨云</a>、<a href="https://www.tenxcloud.com/">时速云</a>、<a href="http://www.alauda.cn/">灵雀云</a>、<a href="https://www.daocloud.io/">道客云</a></p>
+
+<p>另附两篇数人云部署应用的文章：</p>
+
+<p><a href="http://www.jingyuyun.com/article/2157.html">玩转数人云：两步发布2048游戏应用</a></p>
+
+<p><a href="http://blog.dataman-inc.com/20151119-shurenyun-wordpress/">玩转数人云：10分钟建立wordpress集群网站</a></p>
+
+<p>把干货摆的差不多了，接下来就进入正题。</p>
+
+<p>关于Docker，如果你像我一样一窍不通的话，打开上面这几个链接肯定是一脸懵逼。其实这些东西你应该看完这篇文章之后想要实验实验在去看的。。。</p>
+
+<p>Ubuntu和CentOS上都可以支持docker，具体的安装一句命令就可以搞定。至于Windows，听说只有Win10能支持，不过笔者没有试验过。本文的实验环境也是在CentOS下。</p>
+
+<p>命令走起：</p>
+
+<p><strong>docker基本命令</strong></p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 开启Docker服务</span>
+<span class="nb">sudo </span>service docker start
+<span class="c"># 查看docker信息</span>
+<span class="nb">sudo </span>docker info
+<span class="c"># 查看docker帮助</span>
+<span class="nb">sudo </span>docker <span class="nb">help</span>
+</code></pre></div></div>
+
+<p><strong>镜像简单操作</strong></p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 查找镜像</span>
+<span class="nb">sudo </span>docker search puppet
+<span class="c"># 获取镜像</span>
+<span class="nb">sudo </span>docker pull ubuntu:12.04
+<span class="c"># 使用下载的镜像启动容器（当启动的镜像不存在，则会在公有仓库中下载）</span>
+<span class="nb">sudo </span>docker run <span class="nt">-t</span> <span class="nt">-i</span> ubuntu:12.04 /bin/bash
+<span class="nb">sudo </span>docker run ubuntu:14.04 /bin/echo <span class="s1">'Hello world'</span>
+<span class="c"># 查看当前镜像列表</span>
+<span class="nb">sudo </span>docker images
+<span class="c"># 导出镜像到本地文件</span>
+<span class="nb">sudo </span>docker save <span class="nt">-o</span> ubuntu_14.04.tar ubuntu:14.04
+<span class="c"># 本地文件中导入到本地镜像库</span>
+<span class="nb">sudo </span>docker load <span class="nt">--input</span> ubuntu_14.04.tar
+<span class="nb">sudo </span>docker load &lt; ubuntu_14.04.tar
+<span class="c"># 移除本地的镜像</span>
+<span class="nb">sudo </span>docker rmi ubuntu:14.04
+</code></pre></div></div>
+
+<p><strong>容器简单操作</strong></p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 容器重命名</span>
+<span class="nb">sudo </span>docker run <span class="nt">--name</span> 名字 <span class="nt">-i</span> <span class="nt">-t</span> ubuntu /bin/bash
+<span class="c"># 查看正在运行的容器列表</span>
+<span class="nb">sudo </span>docker ps <span class="o">(</span><span class="nt">-a</span><span class="o">)</span>
+<span class="c"># 直接将一个已经终止的容器启动运行</span>
+<span class="nb">sudo </span>docker start ao_ct
+<span class="nb">sudo </span>docker start b1ec5fb7f499
+<span class="c"># 终止运行容器</span>
+<span class="nb">sudo </span>docker stop ao_ct
+<span class="c"># 快速杀死容器</span>
+<span class="nb">sudo </span>docker <span class="nb">kill </span>aofo
+<span class="c"># 重启运行容器</span>
+<span class="nb">sudo </span>docker restart ao_ct
+<span class="c"># 附到容器上</span>
+<span class="nb">sudo </span>docker attach aoct
+<span class="nb">sudo </span>docker attach 614122c0aabb
+<span class="c"># 通过添加-d参数创建一个叫aofo的守护式容器</span>
+<span class="nb">sudo </span>docker run <span class="nt">--name</span> aofo <span class="nt">-d</span> ubuntu:14.04 /bin/sh <span class="nt">-c</span> <span class="s2">"while true; do echo hello world; sleep 1; done"</span>
+<span class="c"># 打印容器日志</span>
+<span class="nb">sudo </span>docker logs aofo
+<span class="c"># 查看容器内进程</span>
+<span class="nb">sudo </span>docker top aofo
+<span class="c"># 获取更多容器信息</span>
+<span class="nb">sudo </span>docker inspect aofo
+<span class="c"># 查看容器运行状态</span>
+<span class="nb">sudo </span>docker inspect <span class="nt">--format</span><span class="o">=</span><span class="s1">''</span> aofo
+<span class="nb">sudo </span>docker inspect <span class="nt">--format</span><span class="o">=</span><span class="s1">''</span> aofo aoct
+<span class="c"># 查看容器IP地址（没有设置则为空）</span>
+<span class="nb">sudo </span>docker inspect <span class="nt">--format</span><span class="o">=</span><span class="s1">''</span> aofo
+<span class="c"># 在容器内部运行进程</span>
+<span class="nb">sudo </span>docker <span class="nb">exec</span> <span class="nt">-d</span> daemon aofo <span class="nb">touch</span> /etc/new_config_file
+<span class="nb">sudo </span>docker <span class="nb">exec</span> <span class="nt">-t</span> <span class="nt">-i</span> aofo /bin/bash
+<span class="c"># 删除容器</span>
+<span class="nb">sudo </span>docker <span class="nb">rm </span>容器ID
+<span class="c"># 一次性删除所有容器</span>
+<span class="nb">sudo </span>docker <span class="nb">rm</span> <span class="sb">`</span>docker ps <span class="nt">-a</span> <span class="nt">-q</span><span class="sb">`</span>
+<span class="c"># 导出容器</span>
+<span class="nb">sudo </span>docker <span class="nb">export </span>aofo
+<span class="c"># 导入容器</span>
+<span class="nb">sudo </span>docker import aofo
+<span class="nb">sudo </span>docker import http://example.com/exampleimage.tgz example/imagerepo
+</code></pre></div></div>
+
+    </article>
+    <div class="share">
+      <div class="share-component"></div>
+    </div>
+    <div class="comment">
+      
+  
+        <div id="container"></div>
+        <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+        <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+        <script>
+        var gitment = new Gitment({
+            id: '/tool/2016/10/04/Docker1/',
+            owner: 'lpq29743',
+            repo: 'blog-comments',
+            oauth: {
+                client_id: '5818ceff784afe05d31c',
+                client_secret: 'dc7e8efc044c7194cf453740f82c646aa998f206',
+            },
+        })
+        gitment.render('container')
+        </script>
+  
+
+
+    </div>
+	<ul class="pager">
+		
+		<li class="previous">
+			<a href="/android/2016/10/04/AndroidXmlTools/" data-toggle="tooltip" data-placement="top" title="Android xml tools 使用详解">
+				Previous<br>
+				<span>Android xml tools 使用详解</span>
+			</a>
+		</li>
+		
+		
+		<li class="next">
+			<a href="/tool/2016/10/05/Docker2/" data-toggle="tooltip" data-placement="top" title="Docker 再入门">
+				Next<br>
+				<span>Docker 再入门</span>
+			</a>
+		</li>
+		
+	</ul>
+  </div>
+  <div class="column one-fourth">
+    
+<h3>Search</h3>
+<div id="site_search">
+    <input type="text" id="search_box" placeholder="Search">
+</div>
+
+<ul id="search_results"></ul>
+
+<link rel="stylesheet" type="text/css" href="http://localhost:4000/assets/css/modules/sidebar-search.css">
+<script src="http://localhost:4000/assets/js/jekyll-search.min.js"></script>
+<script src="http://localhost:4000/assets/js/search.js"></script>
+
+<script type="text/javascript">
+SimpleJekyllSearch({
+    searchInput: document.getElementById('search_box'),
+    resultsContainer: document.getElementById('search_results'),
+    json: 'http://localhost:4000/assets/search_data.json',
+    searchResultTemplate: '<li><a href="{url}" title="{desc}">{title}</a></li>',
+    noResultsText: 'No results found',
+    limit: 10,
+    fuzzy: false,
+    exclude: ['Welcome']
+})
+</script>
+
+    
+<h3 class="post-directory-title mobile-hidden">Table of Contents</h3>
+<div id="post-directory-module" class="mobile-hidden">
+  <section class="post-directory">
+  <!-- Links that trigger the jumping -->
+  <!-- Added by javascript below -->
+  <dl></dl>
+  </section>
+</div>
+
+<script src="http://localhost:4000/assets/js/jquery.toc.js"></script>
+
+  </div>
+</div>
+</section>
+<!-- /section.content -->
+
+    <footer class="container">
+        <div class="site-footer" role="contentinfo">
+            <div class="copyright left mobile-block">
+                <a href="javascript:window.scrollTo(0,0)" class="right mobile-visible">TOP</a>
+            </div>
+
+            <ul class="site-footer-links right mobile-hidden">
+                <li>
+                    <a href="javascript:window.scrollTo(0,0)" >TOP</a>
+                </li>
+            </ul>
+            <a href="https://github.com/lpq29743/lpq29743.github.io" target="_blank" aria-label="view source code">
+                <span class="mega-octicon octicon-mark-github" title="GitHub"></span>
+            </a>
+            <ul class="site-footer-links mobile-hidden">
+                
+            </ul>
+
+        </div>
+    </footer>
+    <!-- / footer -->
+    <script src="http://localhost:4000/assets/vendor/share.js/dist/js/share.min.js"></script>
+    <script src="http://localhost:4000/assets/js/geopattern.js"></script>
+    <script src="http://localhost:4000/assets/js/prism.js"></script>
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/globals/prism.css">
+    <script>
+      jQuery(document).ready(function($) {
+        // geopattern
+        $('.geopattern').each(function(){
+          $(this).geopattern($(this).data('pattern-id'));
+        });
+       // hljs.initHighlightingOnLoad();
+      });
+    </script>
+    
+</body>
+</html>

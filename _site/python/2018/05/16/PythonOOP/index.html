@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans" prefix="og: http://ogp.me/ns#" class="han-init">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <title>Python 面向对象编程 &mdash; Peiqin Lin's Homepage</title>
+    <link rel="stylesheet" href="http://localhost:4000/assets/vendor/primer-css/css/primer.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/vendor/primer-markdown/dist/user-content.min.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/vendor/octicons/octicons/octicons.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/components/collection.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/components/repo-card.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/repo-list.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/mini-repo-list.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/profile.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/contact.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/news.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/components/boxed-group.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/globals/common.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/vendor/share.js/dist/css/share.min.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/globals/responsive.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/posts/index.css">
+    <!-- Latest compiled and minified CSS -->
+    
+
+    
+    <link rel="canonical" href="http://localhost:4000/python/2018/05/16/PythonOOP/">
+    <link rel="alternate" type="application/atom+xml" title="Peiqin Lin's Homepage" href="/feed.xml">
+    <link rel="shortcut icon" href="http://localhost:4000/favicon.ico">
+    
+    <meta property="og:title" content="Python 面向对象编程">
+      
+    <meta name="keywords" content="Python">
+    <meta name="og:keywords" content="Python">
+      
+    <meta name="description" content="首先先从一个简单地定义一个类 Human：">
+    <meta name="og:description" content="首先先从一个简单地定义一个类 Human：">
+      
+    
+    
+        
+    
+    <meta property="og:url" content="http://localhost:4000/python/2018/05/16/PythonOOP/">
+    <meta property="og:site_name" content="Peiqin Lin's Homepage">
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="zh_CN" />
+    
+    <meta property="article:published_time" content="2018-05-16">
+    
+    <script src="http://localhost:4000/assets/vendor/jquery/dist/jquery.min.js"></script>
+    <script src="http://localhost:4000/assets/js/jquery-ui.js"></script>
+    <script type="text/javascript">
+    function toggleMenu() {
+        var nav = document.getElementsByClassName("site-header-nav")[0];
+        if (nav.style.display == "inline-flex") {
+          nav.style.display = "none";
+        } else {
+          nav.style.display = "inline-flex";
+        }
+    }
+    </script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-114643083-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-114643083-1');
+    </script>
+</head>
+<body class="" data-mz="">
+    <header class="site-header">
+        <div class="container">
+            <h1><a href="http://localhost:4000/" title="Peiqin Lin's Homepage">Peiqin Lin's Homepage</a></h1>
+            <button class="collapsed mobile-visible" type="button" onclick="toggleMenu();">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <nav class="site-header-nav" role="navigation">
+                
+            </nav>
+        </div>
+    </header>
+    <!-- / header -->
+
+    <section class="collection-head small geopattern" data-pattern-id="Python 面向对象编程">
+<div class="container">
+  <div class="columns">
+    <div class="column three-fourths">
+      <div class="collection-title">
+        <h1 class="collection-header">Python 面向对象编程</h1>
+        <div class="collection-info">
+          
+          <span class="meta-info">
+            <span class="octicon octicon-calendar"></span> 2018/05/16
+          </span>
+          
+          
+          <span class="meta-info">
+            <span class="octicon octicon-file-directory"></span>
+            <a href="http://localhost:4000/categories/#Python" title="Python">Python</a>
+          </span>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+<!-- / .banner -->
+<section class="container content">
+<div class="columns">
+  <div class="column three-fourths" >
+    <article class="article-content markdown-body">
+    <p>首先先从一个简单地定义一个类 Human：</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Human</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">pass</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">Human</code>为类名，括号里的<code class="language-plaintext highlighter-rouge">object</code>为继承的父类。在 Python 中，<code class="language-plaintext highlighter-rouge">object</code>为所有类都会继承到的类。当然，这里语法也允许括号留空或者去掉括号。如果要使用这个类，就要创建一个实例，具体为<code class="language-plaintext highlighter-rouge">Tom = Human()</code>。</p>
+
+<p>人类会有很多的属性，那如何在类中加入属性呢？继续看下一个程序：</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Human</span><span class="p">:</span>
+    <span class="n">num_of_head</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">def</span> <span class="nf">eat</span><span class="p">():</span>
+        <span class="k">return</span> <span class="s">'eat something!'</span>
+</code></pre></div></div>
+
+<p>类的属性可以是变量，也可以是函数。具体使用如下：</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Tom</span> <span class="o">=</span> <span class="n">Human</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="n">Tom</span><span class="p">.</span><span class="n">num_of_head</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">Tom</span><span class="p">.</span><span class="n">eat</span><span class="p">())</span>
+</code></pre></div></div>
+
+<p>在创建实例的时候，我们也可以完成一些初始化的操作，这时候类要如此定义：</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Human</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">gender</span><span class="p">):</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">gender</span> <span class="o">=</span> <span class="n">gender</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">__init__</code>是 Python 中类特有的初始化方法，它的第一个参数固定是<code class="language-plaintext highlighter-rouge">self</code>，代表创建的实例本身，不需要传入。在类的定义中加入初始化操作后，我们可以这样创建一个实例：<code class="language-plaintext highlighter-rouge">Tom = Human('man')</code>。与<code class="language-plaintext highlighter-rouge">__init__</code>相似的，还有一个<code class="language-plaintext highlighter-rouge">__del__</code>方法，其相当于 C++ 里面的析构函数，在实例回收的时候执行。</p>
+
+<p>Python 类还有一些内置的属性，具体如下：</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">__dict__</code>：类的属性（包含一个字典，由类的数据属性组成）</li>
+  <li><code class="language-plaintext highlighter-rouge">__doc__</code>：类的文档字符串</li>
+  <li><code class="language-plaintext highlighter-rouge">__name__</code>：类名</li>
+  <li><code class="language-plaintext highlighter-rouge">__module__</code>：类定义所在的模块</li>
+  <li><code class="language-plaintext highlighter-rouge">__bases__</code>：类的所有父类构成元素（包含了一个由所有父类组成的元组）</li>
+</ul>
+
+<p>Python 中定义的属性都默认为 Public 状态，可以被外界访问和修改。如果要改成内部属性，则应该在属性前面加上两个下划线，如<code class="language-plaintext highlighter-rouge">gender</code>改为<code class="language-plaintext highlighter-rouge">__gender</code>，这样子就变成了私有变量，只有内部可以访问。一个有趣的事情是：不能在外部访问<code class="language-plaintext highlighter-rouge">__gender</code>的原因是因为 Python 解释器对外把<code class="language-plaintext highlighter-rouge">__gender</code>变量改成了<code class="language-plaintext highlighter-rouge">_Human__gender</code>，所以实际上外部是可以通过<code class="language-plaintext highlighter-rouge">_Human__gender</code>来访问<code class="language-plaintext highlighter-rouge">__gender</code>的。但我们一般不建议这么做，因为不同版本的 Python 解释器可能会把<code class="language-plaintext highlighter-rouge">__gender</code>改成不同的变量名。</p>
+
+<p>面向对象的三大特性是封装、继承和多态。刚讲完封装，接下来就让我们看看 Python 类中的继承。</p>
+
+<p>我们可以写一个类 Man 继承类 Human，具体实现如下：</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Man</span><span class="p">(</span><span class="n">Human</span><span class="p">):</span>
+    <span class="k">pass</span>
+</code></pre></div></div>
+
+<p>继承父类的子类可以使用或者重写父类的属性和方法，也可以新增属性和方法。</p>
+
+<p>另外，Python 还支持多继承，具体语法为<code class="language-plaintext highlighter-rouge">class Son(Father, Mother)</code>。</p>
+
+    </article>
+    <div class="share">
+      <div class="share-component"></div>
+    </div>
+    <div class="comment">
+      
+  
+        <div id="container"></div>
+        <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+        <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+        <script>
+        var gitment = new Gitment({
+            id: '/python/2018/05/16/PythonOOP/',
+            owner: 'lpq29743',
+            repo: 'blog-comments',
+            oauth: {
+                client_id: '5818ceff784afe05d31c',
+                client_secret: 'dc7e8efc044c7194cf453740f82c646aa998f206',
+            },
+        })
+        gitment.render('container')
+        </script>
+  
+
+
+    </div>
+	<ul class="pager">
+		
+		<li class="previous">
+			<a href="/artificialintelligence/2018/05/16/PyTorch/" data-toggle="tooltip" data-placement="top" title="PyTorch 入门">
+				Previous<br>
+				<span>PyTorch 入门</span>
+			</a>
+		</li>
+		
+		
+		<li class="next">
+			<a href="/algorithm/2018/09/12/RecursiveEquationSolving/" data-toggle="tooltip" data-placement="top" title="递归方程求解方法">
+				Next<br>
+				<span>递归方程求解方法</span>
+			</a>
+		</li>
+		
+	</ul>
+  </div>
+  <div class="column one-fourth">
+    
+<h3>Search</h3>
+<div id="site_search">
+    <input type="text" id="search_box" placeholder="Search">
+</div>
+
+<ul id="search_results"></ul>
+
+<link rel="stylesheet" type="text/css" href="http://localhost:4000/assets/css/modules/sidebar-search.css">
+<script src="http://localhost:4000/assets/js/jekyll-search.min.js"></script>
+<script src="http://localhost:4000/assets/js/search.js"></script>
+
+<script type="text/javascript">
+SimpleJekyllSearch({
+    searchInput: document.getElementById('search_box'),
+    resultsContainer: document.getElementById('search_results'),
+    json: 'http://localhost:4000/assets/search_data.json',
+    searchResultTemplate: '<li><a href="{url}" title="{desc}">{title}</a></li>',
+    noResultsText: 'No results found',
+    limit: 10,
+    fuzzy: false,
+    exclude: ['Welcome']
+})
+</script>
+
+    
+<h3 class="post-directory-title mobile-hidden">Table of Contents</h3>
+<div id="post-directory-module" class="mobile-hidden">
+  <section class="post-directory">
+  <!-- Links that trigger the jumping -->
+  <!-- Added by javascript below -->
+  <dl></dl>
+  </section>
+</div>
+
+<script src="http://localhost:4000/assets/js/jquery.toc.js"></script>
+
+  </div>
+</div>
+</section>
+<!-- /section.content -->
+
+    <footer class="container">
+        <div class="site-footer" role="contentinfo">
+            <div class="copyright left mobile-block">
+                <a href="javascript:window.scrollTo(0,0)" class="right mobile-visible">TOP</a>
+            </div>
+
+            <ul class="site-footer-links right mobile-hidden">
+                <li>
+                    <a href="javascript:window.scrollTo(0,0)" >TOP</a>
+                </li>
+            </ul>
+            <a href="https://github.com/lpq29743/lpq29743.github.io" target="_blank" aria-label="view source code">
+                <span class="mega-octicon octicon-mark-github" title="GitHub"></span>
+            </a>
+            <ul class="site-footer-links mobile-hidden">
+                
+            </ul>
+
+        </div>
+    </footer>
+    <!-- / footer -->
+    <script src="http://localhost:4000/assets/vendor/share.js/dist/js/share.min.js"></script>
+    <script src="http://localhost:4000/assets/js/geopattern.js"></script>
+    <script src="http://localhost:4000/assets/js/prism.js"></script>
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/globals/prism.css">
+    <script>
+      jQuery(document).ready(function($) {
+        // geopattern
+        $('.geopattern').each(function(){
+          $(this).geopattern($(this).data('pattern-id'));
+        });
+       // hljs.initHighlightingOnLoad();
+      });
+    </script>
+    
+</body>
+</html>

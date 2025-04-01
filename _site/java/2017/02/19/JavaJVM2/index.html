@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans" prefix="og: http://ogp.me/ns#" class="han-init">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <title>Java 中 JVM 的原理（下） &mdash; Peiqin Lin's Homepage</title>
+    <link rel="stylesheet" href="http://localhost:4000/assets/vendor/primer-css/css/primer.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/vendor/primer-markdown/dist/user-content.min.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/vendor/octicons/octicons/octicons.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/components/collection.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/components/repo-card.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/repo-list.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/mini-repo-list.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/profile.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/contact.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/news.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/components/boxed-group.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/globals/common.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/vendor/share.js/dist/css/share.min.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/globals/responsive.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/posts/index.css">
+    <!-- Latest compiled and minified CSS -->
+    
+
+    
+    <link rel="canonical" href="http://localhost:4000/java/2017/02/19/JavaJVM2/">
+    <link rel="alternate" type="application/atom+xml" title="Peiqin Lin's Homepage" href="/feed.xml">
+    <link rel="shortcut icon" href="http://localhost:4000/favicon.ico">
+    
+    <meta property="og:title" content="Java 中 JVM 的原理（下）">
+      
+    <meta name="keywords" content="Java, JVM, Java虚拟机, 垃圾收集器, GC机制">
+    <meta name="og:keywords" content="Java, JVM, Java虚拟机, 垃圾收集器, GC机制">
+      
+    <meta name="description" content="上一篇文章我们对JVM有了一个粗略地认识，这一篇我们就讲一讲垃圾收集器和内存分配策略。">
+    <meta name="og:description" content="上一篇文章我们对JVM有了一个粗略地认识，这一篇我们就讲一讲垃圾收集器和内存分配策略。">
+      
+    
+    
+        
+    
+    <meta property="og:url" content="http://localhost:4000/java/2017/02/19/JavaJVM2/">
+    <meta property="og:site_name" content="Peiqin Lin's Homepage">
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="zh_CN" />
+    
+    <meta property="article:published_time" content="2017-02-19">
+    
+    <script src="http://localhost:4000/assets/vendor/jquery/dist/jquery.min.js"></script>
+    <script src="http://localhost:4000/assets/js/jquery-ui.js"></script>
+    <script type="text/javascript">
+    function toggleMenu() {
+        var nav = document.getElementsByClassName("site-header-nav")[0];
+        if (nav.style.display == "inline-flex") {
+          nav.style.display = "none";
+        } else {
+          nav.style.display = "inline-flex";
+        }
+    }
+    </script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-114643083-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-114643083-1');
+    </script>
+</head>
+<body class="" data-mz="">
+    <header class="site-header">
+        <div class="container">
+            <h1><a href="http://localhost:4000/" title="Peiqin Lin's Homepage">Peiqin Lin's Homepage</a></h1>
+            <button class="collapsed mobile-visible" type="button" onclick="toggleMenu();">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <nav class="site-header-nav" role="navigation">
+                
+            </nav>
+        </div>
+    </header>
+    <!-- / header -->
+
+    <section class="collection-head small geopattern" data-pattern-id="Java 中 JVM 的原理（">
+<div class="container">
+  <div class="columns">
+    <div class="column three-fourths">
+      <div class="collection-title">
+        <h1 class="collection-header">Java 中 JVM 的原理（下）</h1>
+        <div class="collection-info">
+          
+          <span class="meta-info">
+            <span class="octicon octicon-calendar"></span> 2017/02/19
+          </span>
+          
+          
+          <span class="meta-info">
+            <span class="octicon octicon-file-directory"></span>
+            <a href="http://localhost:4000/categories/#Java" title="Java">Java</a>
+          </span>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+<!-- / .banner -->
+<section class="container content">
+<div class="columns">
+  <div class="column three-fourths" >
+    <article class="article-content markdown-body">
+    <p>上一篇文章我们对JVM有了一个粗略地认识，这一篇我们就讲一讲垃圾收集器和内存分配策略。</p>
+
+<h3 id="如何判断对象已死">如何判断对象已死</h3>
+
+<p>垃圾收集器在对堆进行回收前，首先要确定对象中哪些还存活着，哪些已经死去。具体采用以下算法：</p>
+
+<ul>
+  <li>引用计数算法：给每个对象中添加一个引用计数器，当引用它时，计数器值就加1；当引用失效时，计数器值就减1。任何时刻计数器为0的对象就是不可能再被使用的。引用计数算法实现简单，判定效率也很高，大部分情况下它都是不错的算法。Java虚拟机没有选用引用计数算法来管理内存，主要原因是很难解决对象之间<strong>相互循环引用</strong>的问题。</li>
+  <li>可达性分析算法：通过一系列的称为“GC Roots”的对象作为起始点，从这些节点开始向下搜索，搜索所走过的路径称为引用链，当从GC Roots 到这个对象不可达时，则证明此对象是不可用。</li>
+</ul>
+
+<p>即使在可达性分析算法中不可达的对象，也并非非死不可。对象死亡至少要经过两次标记过程：如果对象在可达性分析后发现不可达，那它会被第一次标记并且进行筛选，筛选条件是对象是否有必要执行<code class="language-plaintext highlighter-rouge">finalize()</code>方法。当对象没有覆盖<code class="language-plaintext highlighter-rouge">fnalize()</code>方法，或者<code class="language-plaintext highlighter-rouge">finalize()</code>方法已被虚拟机调用过，都视为没有必要执行。</p>
+
+<p>如果对象被判定为有必要执行<code class="language-plaintext highlighter-rouge">finalize()</code>方法，那对象将会被放置在名为F-Queue的队列中，井在稍后由一条由虚拟机自动建立的、低优先级的Finalizer线程执行（虚拟机会触发方法，但不承诺等待它运行结束）。<code class="language-plaintext highlighter-rouge">finalize()</code>方法是对象逃脱死亡的最后机会，稍后GC将对F-Queue中的对象进行第二次小规模标记，如果对象还没逃脱，就可以回收了。 </p>
+
+<h3 id="java引用">Java引用</h3>
+
+<p>Java将引用分为强引用、软引用、弱引用、虚引用，它们的引用强度依次逐渐减弱。</p>
+
+<ul>
+  <li>强引用：类似<code class="language-plaintext highlighter-rouge">Object obj=new Object()</code>，只要强引用还在，垃圾收集器永远不会回收被引用的对象。</li>
+  <li>软引用：有用但非必需的对象。系统将发生内存溢出异常前，会把这些对象列进垃圾回收范围中进行第二次回收。如果还是没有足够内存，才抛出内存谧出异常。Soft Reference类可实现软引用。</li>
+  <li>弱引用：描述非必需对象。被弱引用关联的对象只能生存到下一次垃圾收集发生之前。当垃圾收集器工作肘，无论内存是否足够，都会回收掉只被弱引用关联的对象。WeakReference类可实现弱引用。</li>
+  <li>虚引用：最弱的引用关系。一个对象是否有虚引用，完全不影响其生存时间，也无法通过虚引用取得对象实例。为对象设置虚引用关联的唯一目的就是希望对象被回收时收到系统通知。PhantomReference类可实现虚引用。</li>
+</ul>
+
+<h3 id="回收方法区">回收方法区</h3>
+
+<p>方法区（HotSpot虚拟机中的永久代 ）垃圾收集主要回收两部分内容：废弃常量和无用类。无用类需满足3 个条件：</p>
+
+<ul>
+  <li>该类所有的实例都已被回收，即Java堆中不存在该类的任何实例</li>
+  <li>加载该类的ClassLoader已经被回收</li>
+  <li>该类对应的java.lang.Class对象没有在任何地方被引用，无法在任何地方通过反射访问该类的方法</li>
+</ul>
+
+<p>虚拟机可对满足上述3 个条件的无用类进行回收，但并不一定进行回收。</p>
+
+<h3 id="内存分配与回收策略">内存分配与回收策略</h3>
+
+<ul>
+  <li>对象优先在Eden（新生代）分配：大多数情况下，对象在新生代Eden区分配。当Eden区没有足够空间进行分配时，虚拟机将发起一次Minor GC</li>
+  <li>大对象直接进入老年代：虚拟机提供了参数：-XX:PretenureSizeThreshold（该设置只对Serial和ParNew收集器生效），令大于这个设置值的对象直接在老年代分配</li>
+  <li>长期存活的对象将进入老年代：对象定义了对象年龄计数器。对象在Eden出生并经过一次Minor GC后仍存活，且被Survivor容纳，则被移动到Survivor，且对象年龄设为1。对象在Survivor区熬过一次Minor GC，年龄就加1，当年龄加到一定程度（默认15岁），就会到老年代中。对象晋升老年代的阈值，通过-XX:MaxTenuringThreshold设置</li>
+  <li>动态对象年龄判定：虚拟机并不要求对象年龄达到MaxTenuringThreshold才晋升老年代，如果在Servivor中同年龄所有对象大小总和大于Survivor空间一半，年龄大于等于该年龄的对象可直接进入老年代，无须等到要求年龄</li>
+  <li>空间分配担保：Minor GC前，虚拟机会检查老年代最大可用连续空间是否大于新生代所有对象的总空间。大于则进行Minor GC，小于则看HandlePromotionFailure设置是否允许担保失败（不允许则Full GC）。若允许，则检查老年代最大可用连续空间是否大于历次晋升到老年代对象的平均大小，大于则尝试Minor GC（尝试失败也会触发Full GC），小于则进行Full GC</li>
+</ul>
+
+<h3 id="关于jvm内存管理的一些建议">关于JVM内存管理的一些建议</h3>
+
+<ul>
+  <li>手动将生成的无用对象、中间对象置为null，加快内存回收</li>
+  <li>对象池技术。如果生成对象可重用，只是属性不同，可用对象池减少对象生成</li>
+  <li>JVM调优。配置JVM参数提高垃圾回收速度，如果没有出现内存泄露且上面办法都不能保证JVM内存回收时，可采用JVM调优解决，不过要经过实体机的长期测试，因为不同参数可能引起不同效果</li>
+</ul>
+
+    </article>
+    <div class="share">
+      <div class="share-component"></div>
+    </div>
+    <div class="comment">
+      
+  
+        <div id="container"></div>
+        <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+        <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+        <script>
+        var gitment = new Gitment({
+            id: '/java/2017/02/19/JavaJVM2/',
+            owner: 'lpq29743',
+            repo: 'blog-comments',
+            oauth: {
+                client_id: '5818ceff784afe05d31c',
+                client_secret: 'dc7e8efc044c7194cf453740f82c646aa998f206',
+            },
+        })
+        gitment.render('container')
+        </script>
+  
+
+
+    </div>
+	<ul class="pager">
+		
+		<li class="previous">
+			<a href="/java/2017/02/18/JavaJVM1/" data-toggle="tooltip" data-placement="top" title="Java 中 JVM 的原理（上）">
+				Previous<br>
+				<span>Java 中 JVM 的原理（上）</span>
+			</a>
+		</li>
+		
+		
+		<li class="next">
+			<a href="/algorithm/2017/02/20/MassiveData/" data-toggle="tooltip" data-placement="top" title="海量数据处理问题">
+				Next<br>
+				<span>海量数据处理问题</span>
+			</a>
+		</li>
+		
+	</ul>
+  </div>
+  <div class="column one-fourth">
+    
+<h3>Search</h3>
+<div id="site_search">
+    <input type="text" id="search_box" placeholder="Search">
+</div>
+
+<ul id="search_results"></ul>
+
+<link rel="stylesheet" type="text/css" href="http://localhost:4000/assets/css/modules/sidebar-search.css">
+<script src="http://localhost:4000/assets/js/jekyll-search.min.js"></script>
+<script src="http://localhost:4000/assets/js/search.js"></script>
+
+<script type="text/javascript">
+SimpleJekyllSearch({
+    searchInput: document.getElementById('search_box'),
+    resultsContainer: document.getElementById('search_results'),
+    json: 'http://localhost:4000/assets/search_data.json',
+    searchResultTemplate: '<li><a href="{url}" title="{desc}">{title}</a></li>',
+    noResultsText: 'No results found',
+    limit: 10,
+    fuzzy: false,
+    exclude: ['Welcome']
+})
+</script>
+
+    
+<h3 class="post-directory-title mobile-hidden">Table of Contents</h3>
+<div id="post-directory-module" class="mobile-hidden">
+  <section class="post-directory">
+  <!-- Links that trigger the jumping -->
+  <!-- Added by javascript below -->
+  <dl></dl>
+  </section>
+</div>
+
+<script src="http://localhost:4000/assets/js/jquery.toc.js"></script>
+
+  </div>
+</div>
+</section>
+<!-- /section.content -->
+
+    <footer class="container">
+        <div class="site-footer" role="contentinfo">
+            <div class="copyright left mobile-block">
+                <a href="javascript:window.scrollTo(0,0)" class="right mobile-visible">TOP</a>
+            </div>
+
+            <ul class="site-footer-links right mobile-hidden">
+                <li>
+                    <a href="javascript:window.scrollTo(0,0)" >TOP</a>
+                </li>
+            </ul>
+            <a href="https://github.com/lpq29743/lpq29743.github.io" target="_blank" aria-label="view source code">
+                <span class="mega-octicon octicon-mark-github" title="GitHub"></span>
+            </a>
+            <ul class="site-footer-links mobile-hidden">
+                
+            </ul>
+
+        </div>
+    </footer>
+    <!-- / footer -->
+    <script src="http://localhost:4000/assets/vendor/share.js/dist/js/share.min.js"></script>
+    <script src="http://localhost:4000/assets/js/geopattern.js"></script>
+    <script src="http://localhost:4000/assets/js/prism.js"></script>
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/globals/prism.css">
+    <script>
+      jQuery(document).ready(function($) {
+        // geopattern
+        $('.geopattern').each(function(){
+          $(this).geopattern($(this).data('pattern-id'));
+        });
+       // hljs.initHighlightingOnLoad();
+      });
+    </script>
+    
+</body>
+</html>

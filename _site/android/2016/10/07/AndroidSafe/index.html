@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans" prefix="og: http://ogp.me/ns#" class="han-init">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <title>Android 防破解总结 &mdash; Peiqin Lin's Homepage</title>
+    <link rel="stylesheet" href="http://localhost:4000/assets/vendor/primer-css/css/primer.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/vendor/primer-markdown/dist/user-content.min.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/vendor/octicons/octicons/octicons.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/components/collection.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/components/repo-card.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/repo-list.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/mini-repo-list.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/profile.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/contact.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/news.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/components/boxed-group.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/globals/common.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/vendor/share.js/dist/css/share.min.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/globals/responsive.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/posts/index.css">
+    <!-- Latest compiled and minified CSS -->
+    
+
+    
+    <link rel="canonical" href="http://localhost:4000/android/2016/10/07/AndroidSafe/">
+    <link rel="alternate" type="application/atom+xml" title="Peiqin Lin's Homepage" href="/feed.xml">
+    <link rel="shortcut icon" href="http://localhost:4000/favicon.ico">
+    
+    <meta property="og:title" content="Android 防破解总结">
+      
+    <meta name="keywords" content="Android, Android防破解, Android安全">
+    <meta name="og:keywords" content="Android, Android防破解, Android安全">
+      
+    <meta name="description" content="之前我们讲解了如何通过apk文件查看Android应用的源码。通过该文章，我们也认识到了Android开发安全的重要性。那么，这篇文章来讲一讲如何防止Android应用被破解的方法。">
+    <meta name="og:description" content="之前我们讲解了如何通过apk文件查看Android应用的源码。通过该文章，我们也认识到了Android开发安全的重要性。那么，这篇文章来讲一讲如何防止Android应用被破解的方法。">
+      
+    
+    
+        
+    
+    <meta property="og:url" content="http://localhost:4000/android/2016/10/07/AndroidSafe/">
+    <meta property="og:site_name" content="Peiqin Lin's Homepage">
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="zh_CN" />
+    
+    <meta property="article:published_time" content="2016-10-07">
+    
+    <script src="http://localhost:4000/assets/vendor/jquery/dist/jquery.min.js"></script>
+    <script src="http://localhost:4000/assets/js/jquery-ui.js"></script>
+    <script type="text/javascript">
+    function toggleMenu() {
+        var nav = document.getElementsByClassName("site-header-nav")[0];
+        if (nav.style.display == "inline-flex") {
+          nav.style.display = "none";
+        } else {
+          nav.style.display = "inline-flex";
+        }
+    }
+    </script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-114643083-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-114643083-1');
+    </script>
+</head>
+<body class="" data-mz="">
+    <header class="site-header">
+        <div class="container">
+            <h1><a href="http://localhost:4000/" title="Peiqin Lin's Homepage">Peiqin Lin's Homepage</a></h1>
+            <button class="collapsed mobile-visible" type="button" onclick="toggleMenu();">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <nav class="site-header-nav" role="navigation">
+                
+            </nav>
+        </div>
+    </header>
+    <!-- / header -->
+
+    <section class="collection-head small geopattern" data-pattern-id="Android 防破解总结">
+<div class="container">
+  <div class="columns">
+    <div class="column three-fourths">
+      <div class="collection-title">
+        <h1 class="collection-header">Android 防破解总结</h1>
+        <div class="collection-info">
+          
+          <span class="meta-info">
+            <span class="octicon octicon-calendar"></span> 2016/10/07
+          </span>
+          
+          
+          <span class="meta-info">
+            <span class="octicon octicon-file-directory"></span>
+            <a href="http://localhost:4000/categories/#Android" title="Android">Android</a>
+          </span>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+<!-- / .banner -->
+<section class="container content">
+<div class="columns">
+  <div class="column three-fourths" >
+    <article class="article-content markdown-body">
+    <p>之前我们讲解了如何通过apk文件查看Android应用的源码。通过该文章，我们也认识到了Android开发安全的重要性。那么，这篇文章来讲一讲如何防止Android应用被破解的方法。</p>
+
+<p>防破解技术主要有四种实现方式：</p>
+
+<ol>
+  <li>代码混淆（ProGuard）技术</li>
+  <li>签名比对技术</li>
+  <li>NDK  .so 动态库技术</li>
+  <li>动态加载技术</li>
+</ol>
+
+<h3 id="代码混淆技术">代码混淆技术</h3>
+
+<p>该技术主要是进行代码混淆，降低代码逆向编译后的可读性，但该技术无法防止加壳技术进行加壳（加入吸费、广告、病毒等代码），而且只要是细心的人，依然可以对代码依然可以对代码进行逆向分析，所以该技术并没有从根本解决破解问题，只是增加了破解难度。此文所提供的教程代码混淆只针对Android Studio。</p>
+
+<h4 id="第一步配置buildgradle">第一步：配置build.gradle</h4>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>buildTypes <span class="o">{</span>
+    debug <span class="o">{</span>
+        minifyEnabled <span class="nb">false</span>
+    <span class="o">}</span>
+    release <span class="o">{</span>
+        signingConfig signingConfigs.release
+        minifyEnabled <span class="nb">true
+        </span>proguardFiles <span class="s1">'proguard-rules.pro'</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h4 id="第二步混淆注意事项">第二步：混淆注意事项</h4>
+
+<p>一般情况，我们只需要修改proguard-rules.pro文件，把不需要混淆的部分在该文件中声明。不需混淆的部分如下：</p>
+
+<ul>
+  <li>在AndroidManifest中配置的类，比如四大组件</li>
+  <li>JNI调用的方法</li>
+  <li>反射用到的类，如Gson，Fastjson时，Bean类不需要混淆</li>
+  <li>WebView中JavaScript调用的方法</li>
+  <li>Layout文件引用到的自定义View</li>
+  <li>一些引入的第三方库，如百度地图等</li>
+  <li>枚举不需混淆</li>
+</ul>
+
+<h4 id="第三步根据proguard语法修改proguard-rulespro文件">第三步：根据ProGuard语法修改proguard-rules.pro文件</h4>
+
+<h5 id="保留">保留</h5>
+
+<ul>
+  <li>-keep {Modifier} {class_specification} 保护指定的类文件和类的成员</li>
+  <li>-keepclassmembers {modifier} {class_specification} 保护指定类的成员，如果此类受到保护他们会保护的更好</li>
+  <li>-keepclasseswithmembers {class_specification} 保护指定的类和类的成员，但条件是所有指定的类和类成员是要存在。</li>
+  <li>-keepnames {class_specification} 保护指定的类和类的成员的名称（如果他们不会压缩步骤中删除）</li>
+  <li>-keepclassmembernames {class_specification} 保护指定的类的成员的名称（如果他们不会压缩步骤中删除）</li>
+  <li>-keepclasseswithmembernames {class_specification} 保护指定的类和类的成员的名称，如果所有指定的类成员出席（在压缩步骤之后）</li>
+  <li>-printseeds {filename} 列出类和类的成员-keep选项的清单，标准输出到给定的文件</li>
+</ul>
+
+<h5 id="压缩">压缩</h5>
+
+<ul>
+  <li>-dontshrink 不压缩输入的类文件</li>
+  <li>-printusage {filename}</li>
+  <li>-whyareyoukeeping {class_specification}</li>
+</ul>
+
+<h5 id="优化">优化</h5>
+
+<ul>
+  <li>-dontoptimize 不优化输入的类文件</li>
+  <li>-assumenosideeffects {class_specification} 优化时假设指定的方法，没有任何副作用</li>
+  <li>-allowaccessmodification 优化时允许访问并修改有修饰符的类和类的成员</li>
+</ul>
+
+<h5 id="混淆">混淆</h5>
+
+<ul>
+  <li>-dontobfuscate 不混淆输入的类文件</li>
+  <li>-obfuscationdictionary {filename} 使用给定文件中的关键字作为要混淆方法的名称</li>
+  <li>-overloadaggressively 混淆时应用侵入式重载</li>
+  <li>-useuniqueclassmembernames 确定统一的混淆类的成员名称来增加混淆</li>
+  <li>-flattenpackagehierarchy {package_name} 重新包装所有重命名的包并放在给定的单一包中</li>
+  <li>-repackageclass {package_name} 重新包装所有重命名的类文件中放在给定的单一包中</li>
+  <li>-dontusemixedcaseclassnames 混淆时不会产生形形色色的类名</li>
+  <li>-keepattributes {attribute_name,…} 保护给定的可选属性，例如LineNumberTable, LocalVariableTable, SourceFile, Deprecated, Synthetic, Signature, and InnerClasses.</li>
+  <li>-renamesourcefileattribute {string} 设置源文件中给定的字符串常量</li>
+</ul>
+
+<h5 id="通配符匹配规则">通配符匹配规则</h5>
+
+<ul>
+  <li>?：匹配单个字符</li>
+  <li>*：匹配类名中的任何部分，但不包含额外的包名</li>
+  <li>**：匹配类名中的任何部分，并且可以包含额外的包名</li>
+  <li>%：匹配任何基础类型的类型名</li>
+  <li>***：匹配任意类型名 ,包含基础类型/非基础类型</li>
+  <li>…：匹配任意数量、任意类型的参数</li>
+  <li>
+    <init>：匹配任何构造器
+</init>
+  </li>
+  <li>
+    <ifield>：匹配任何字段名
+</ifield>
+  </li>
+  <li>
+    <imethod>：匹配任何方法
+</imethod>
+  </li>
+  <li>*(当用在类内部时)：匹配任何字段和方法</li>
+  <li>$：指内部类</li>
+</ul>
+
+<blockquote>
+  <p>更详细的语法请戳:<a href="http://proguard.sourceforge.net/manual/usage.html#classspecification">http://proguard.sourceforge.net/manual/usage.html#classspecification</a></p>
+</blockquote>
+
+<h4 id="第四步根据例子进行修改proguard-rulespro文件">第四步：根据例子进行修改proguard-rules.pro文件</h4>
+
+<p> 查看语法可能会让基础不好的朋友一头雾水，接下来给出例子，大家可根据例子进行修改：</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">################common###############</span>
+<span class="nt">-keep</span> class com.jph.android.entity.<span class="k">**</span> <span class="o">{</span> <span class="k">*</span><span class="p">;</span> <span class="o">}</span> <span class="c">#实体类不参与混淆</span>
+<span class="nt">-keep</span> class com.jph.android.view.<span class="k">**</span> <span class="o">{</span> <span class="k">*</span><span class="p">;</span> <span class="o">}</span> <span class="c">#自定义控件不参与混淆</span>
+
+<span class="c">################baidu map###############</span>
+<span class="nt">-libraryjars</span> libs/baidumapapi_v3_2_0.jar
+<span class="nt">-libraryjars</span> libs/locSDK_5.0.jar
+<span class="nt">-keep</span> class com.baidu.<span class="k">**</span> <span class="o">{</span> <span class="k">*</span><span class="p">;</span> <span class="o">}</span>
+<span class="nt">-keep</span> class vi.com.gdi.bgl.android.<span class="k">**</span><span class="o">{</span><span class="k">*</span><span class="p">;</span><span class="o">}</span>
+<span class="nt">-dontwarn</span> com.baidu.<span class="k">**</span>
+
+<span class="c">################afinal##################</span>
+<span class="c">#-libraryjars libs/afinal_0.5_bin.jar</span>
+<span class="c">#-keep class net.tsz.afinal.** { *; } </span>
+<span class="c">#-keep public class * extends net.tsz.afinal.**  </span>
+<span class="c">#-keep public interface net.tsz.afinal.** {*;}</span>
+<span class="c">#-dontwarn net.tsz.afinal.**</span>
+
+<span class="c">################xutils##################</span>
+<span class="nt">-libraryjars</span> libs/xUtils-2.6.14.jar
+<span class="nt">-keep</span> class com.lidroid.xutils.<span class="k">**</span> <span class="o">{</span> <span class="k">*</span><span class="p">;</span> <span class="o">}</span> 
+<span class="nt">-keep</span> public class <span class="k">*</span> extends com.lidroid.xutils.<span class="k">**</span>  
+<span class="nt">-keepattributes</span> Signature
+<span class="nt">-keepattributes</span> <span class="k">*</span>Annotation<span class="k">*</span>
+<span class="nt">-keep</span> public interface com.lidroid.xutils.<span class="k">**</span> <span class="o">{</span><span class="k">*</span><span class="p">;</span><span class="o">}</span>
+<span class="nt">-dontwarn</span> com.lidroid.xutils.<span class="k">**</span>
+<span class="nt">-keepclasseswithmembers</span> class com.jph.android.entity.<span class="k">**</span> <span class="o">{</span>
+	&lt;fields&gt;<span class="p">;</span>
+	&lt;methods&gt;<span class="p">;</span>
+<span class="o">}</span>
+
+<span class="c">################支付宝##################</span>
+<span class="nt">-libraryjars</span> libs/alipaysecsdk.jar
+<span class="nt">-libraryjars</span> libs/alipayutdid.jar
+<span class="nt">-libraryjars</span> libs/alipaysdk.jar
+<span class="nt">-keep</span> class com.alipay.android.app.IAliPay<span class="o">{</span><span class="k">*</span><span class="p">;</span><span class="o">}</span>
+<span class="nt">-keep</span> class com.alipay.android.app.IAlixPay<span class="o">{</span><span class="k">*</span><span class="p">;</span><span class="o">}</span>
+<span class="nt">-keep</span> class com.alipay.android.app.IRemoteServiceCallback<span class="o">{</span><span class="k">*</span><span class="p">;</span><span class="o">}</span>
+<span class="nt">-keep</span> class com.alipay.android.app.lib.ResourceMap<span class="o">{</span><span class="k">*</span><span class="p">;</span><span class="o">}</span>
+
+<span class="c">################gson##################</span>
+<span class="nt">-libraryjars</span> libs/gson-2.2.4.jar
+<span class="nt">-keep</span> class com.google.gson.<span class="k">**</span> <span class="o">{</span><span class="k">*</span><span class="p">;</span><span class="o">}</span>
+<span class="c">#-keep class com.google.**{*;}</span>
+<span class="nt">-keep</span> class sun.misc.Unsafe <span class="o">{</span> <span class="k">*</span><span class="p">;</span> <span class="o">}</span>
+<span class="nt">-keep</span> class com.google.gson.stream.<span class="k">**</span> <span class="o">{</span> <span class="k">*</span><span class="p">;</span> <span class="o">}</span>
+<span class="nt">-keep</span> class com.google.gson.examples.android.model.<span class="k">**</span> <span class="o">{</span> <span class="k">*</span><span class="p">;</span> <span class="o">}</span> 
+<span class="nt">-keep</span> class com.google.<span class="k">**</span> <span class="o">{</span>
+    &lt;fields&gt;<span class="p">;</span>
+    &lt;methods&gt;<span class="p">;</span>
+<span class="o">}</span>
+<span class="nt">-keepclassmembers</span> class <span class="k">*</span> implements java.io.Serializable <span class="o">{</span>
+    static final long serialVersionUID<span class="p">;</span>
+    private static final java.io.ObjectStreamField[] serialPersistentFields<span class="p">;</span>
+    private void writeObject<span class="o">(</span>java.io.ObjectOutputStream<span class="o">)</span><span class="p">;</span>
+    private void readObject<span class="o">(</span>java.io.ObjectInputStream<span class="o">)</span><span class="p">;</span>
+    java.lang.Object writeReplace<span class="o">()</span><span class="p">;</span>
+    java.lang.Object readResolve<span class="o">()</span><span class="p">;</span>
+<span class="o">}</span>
+<span class="nt">-dontwarn</span> com.google.gson.<span class="k">**</span>
+
+<span class="c">################httpmime/httpcore##########</span>
+<span class="nt">-libraryjars</span> libs/httpcore-4.3.2.jar
+<span class="nt">-libraryjars</span> libs/httpmime-4.3.5.jar
+<span class="nt">-keep</span> class org.apache.http.<span class="k">**</span> <span class="o">{</span><span class="k">*</span><span class="p">;</span><span class="o">}</span>
+<span class="nt">-dontwarn</span> org.apache.http.<span class="k">**</span>
+
+<span class="c">####################jpush##################</span>
+<span class="nt">-libraryjars</span> libs/jpush-sdk-release1.7.1.jar
+<span class="nt">-keep</span> class cn.jpush.<span class="k">**</span> <span class="o">{</span> <span class="k">*</span><span class="p">;</span> <span class="o">}</span>
+<span class="nt">-keep</span> public class com.umeng.fb.ui.ThreadView <span class="o">{</span> <span class="o">}</span> <span class="c">#双向反馈功能代码不混淆</span>
+<span class="nt">-dontwarn</span> cn.jpush.<span class="k">**</span>
+<span class="nt">-keepclassmembers</span> class <span class="k">*</span> <span class="o">{</span>
+    public &lt;init&gt;<span class="o">(</span>org.json.JSONObject<span class="o">)</span><span class="p">;</span>
+<span class="o">}</span>
+ <span class="c">#不混淆R类</span>
+<span class="nt">-keep</span> public class com.jph.android.R<span class="nv">$*</span><span class="o">{</span> 
+    public static final int <span class="k">*</span><span class="p">;</span>
+<span class="o">}</span>
+<span class="nt">-keepclassmembers</span> enum <span class="k">*</span> <span class="o">{</span>
+    public static <span class="k">**</span><span class="o">[]</span> values<span class="o">()</span><span class="p">;</span>
+    public static <span class="k">**</span> valueOf<span class="o">(</span>java.lang.String<span class="o">)</span><span class="p">;</span>
+<span class="o">}</span>
+
+<span class="c">####################umeng##################</span>
+<span class="nt">-libraryjars</span> libs/umeng-analytics-v5.2.4.jar
+<span class="nt">-keep</span> class com.umeng.analytics.<span class="k">**</span> <span class="o">{</span><span class="k">*</span><span class="p">;</span><span class="o">}</span>
+<span class="nt">-dontwarn</span> com.umeng.analytics.<span class="k">**</span>
+
+<span class="c">#-keep public class * extends com.umeng.**  </span>
+<span class="c">#-keep public class * extends com.umeng.analytics.**  </span>
+<span class="c">#-keep public class * extends com.umeng.common.**  </span>
+<span class="c">#-keep public class * extends com.umeng.newxp.** </span>
+<span class="nt">-keep</span> class com.umeng.<span class="k">**</span> <span class="o">{</span> <span class="k">*</span><span class="p">;</span> <span class="o">}</span>  
+<span class="nt">-keep</span> class com.umeng.analytics.<span class="k">**</span> <span class="o">{</span> <span class="k">*</span><span class="p">;</span> <span class="o">}</span>  
+<span class="nt">-keep</span> class com.umeng.common.<span class="k">**</span> <span class="o">{</span> <span class="k">*</span><span class="p">;</span> <span class="o">}</span>  
+<span class="nt">-keep</span> class com.umeng.newxp.<span class="k">**</span> <span class="o">{</span> <span class="k">*</span><span class="p">;</span> <span class="o">}</span> 
+
+<span class="nt">-keepclassmembers</span> class <span class="k">*</span> <span class="o">{</span>
+   public &lt;init&gt;<span class="o">(</span>org.json.JSONObject<span class="o">)</span><span class="p">;</span>
+<span class="o">}</span>
+<span class="nt">-keep</span> class com.umeng.<span class="k">**</span>
+
+<span class="nt">-keep</span> public class com.idea.fifaalarmclock.app.R<span class="nv">$*</span><span class="o">{</span>
+    public static final int <span class="k">*</span><span class="p">;</span>
+<span class="o">}</span>
+
+<span class="nt">-keep</span> public class com.umeng.fb.ui.ThreadView <span class="o">{</span>
+<span class="o">}</span>
+
+<span class="nt">-dontwarn</span> com.umeng.<span class="k">**</span>
+
+<span class="nt">-dontwarn</span> org.apache.commons.<span class="k">**</span>
+
+<span class="nt">-keep</span> public class <span class="k">*</span> extends com.umeng.<span class="k">**</span>
+
+<span class="nt">-keep</span> class com.umeng.<span class="k">**</span> <span class="o">{</span><span class="k">*</span><span class="p">;</span> <span class="o">}</span>
+
+<span class="c">####################universal-image-loader########</span>
+<span class="nt">-libraryjars</span> libs/universal-image-loader-1.9.3.jar
+<span class="nt">-keep</span> class com.nostra13.universalimageloader.<span class="k">**</span> <span class="o">{</span><span class="k">*</span><span class="p">;</span><span class="o">}</span>
+<span class="nt">-dontwarn</span> com.nostra13.universalimageloader.<span class="k">**</span>
+
+<span class="c">####################zxing#####################</span>
+<span class="nt">-libraryjars</span> libs/zxing.jar
+<span class="nt">-libraryjars</span> libs/zxing_apply.jar
+<span class="nt">-keep</span> class com.google.zxing.<span class="k">**</span> <span class="o">{</span><span class="k">*</span><span class="p">;</span><span class="o">}</span>
+<span class="nt">-dontwarn</span> com.google.zxing.<span class="k">**</span>
+
+<span class="c">####################BASE64Decoder##################</span>
+<span class="nt">-libraryjars</span> libs/sun.misc.BASE64Decoder.jar
+
+<span class="c">####################support.v4#####################</span>
+<span class="nt">-libraryjars</span> libs/android-support-v4.jar
+<span class="nt">-keep</span> class android.support.v4.<span class="k">**</span> <span class="o">{</span> <span class="k">*</span><span class="p">;</span> <span class="o">}</span>
+<span class="nt">-dontwarn</span> android.support.v4.<span class="k">**</span>
+
+<span class="c">###################other####################</span>
+<span class="c"># slidingmenu 的混淆</span>
+<span class="nt">-dontwarn</span> com.jeremyfeinstein.slidingmenu.lib.<span class="k">**</span>
+<span class="nt">-keep</span> class com.jeremyfeinstein.slidingmenu.lib.<span class="k">**</span> <span class="o">{</span> <span class="k">*</span><span class="p">;</span> <span class="o">}</span>
+<span class="c"># ActionBarSherlock混淆</span>
+<span class="nt">-dontwarn</span> com.actionbarsherlock.<span class="k">**</span>
+<span class="nt">-keep</span> class com.actionbarsherlock.<span class="k">**</span> <span class="o">{</span> <span class="k">*</span><span class="p">;</span> <span class="o">}</span>
+<span class="nt">-keep</span> interface com.actionbarsherlock.<span class="k">**</span> <span class="o">{</span> <span class="k">*</span><span class="p">;</span> <span class="o">}</span>
+<span class="nt">-keep</span> class <span class="k">*</span> extends java.lang.annotation.Annotation <span class="o">{</span> <span class="k">*</span><span class="p">;</span> <span class="o">}</span>
+<span class="nt">-keepclasseswithmembernames</span> class <span class="k">*</span> <span class="o">{</span>
+    native &lt;methods&gt;<span class="p">;</span>
+<span class="o">}</span>
+
+<span class="nt">-keep</span> class com.jph.android.entity.<span class="k">**</span> <span class="o">{</span>
+    &lt;fields&gt;<span class="p">;</span>
+    &lt;methods&gt;<span class="p">;</span>
+<span class="o">}</span>
+
+<span class="nt">-dontwarn</span> android.support.<span class="k">**</span>
+<span class="nt">-dontwarn</span> com.slidingmenu.lib.app.SlidingMapActivity
+<span class="nt">-keep</span> class android.support.<span class="k">**</span> <span class="o">{</span> <span class="k">*</span><span class="p">;</span> <span class="o">}</span>
+<span class="nt">-keep</span> class com.actionbarsherlock.<span class="k">**</span> <span class="o">{</span> <span class="k">*</span><span class="p">;</span> <span class="o">}</span>
+<span class="nt">-keep</span> interface com.actionbarsherlock.<span class="k">**</span> <span class="o">{</span> <span class="k">*</span><span class="p">;</span> <span class="o">}</span>
+<span class="nt">-keep</span> class com.slidingmenu.<span class="k">**</span> <span class="o">{</span> <span class="k">*</span><span class="p">;</span> <span class="o">}</span>
+<span class="nt">-keep</span> interface com.slidingmenu.<span class="k">**</span> <span class="o">{</span> <span class="k">*</span><span class="p">;</span> <span class="o">}</span>
+</code></pre></div></div>
+
+<h4 id="第五步输出文件说明">第五步：输出文件说明</h4>
+
+<p>混淆之后，会给我们输出一些文件，android studio 在目录/build/proguard/下有以下文件：</p>
+
+<ul>
+  <li>
+    <p>dump.txt 描述apk文件中所有类文件间的内部结构</p>
+  </li>
+  <li>
+    <p>mapping.txt 列出了原始的类，方法，和字段名与混淆后代码之间的映射</p>
+  </li>
+  <li>
+    <p>seeds.txt 列出了未被混淆的类和成员</p>
+  </li>
+  <li>
+    <p>usage.txt 列出了从apk中删除的代码</p>
+  </li>
+</ul>
+
+<p>当我们发布的release版本的程序出现bug时，可以通过以上文件（特别是mapping.txt）找到错误原始的位置，进行bug修改。同时，可能一开始的proguard配置有错误，也可以通过错误日志，根据这些文件，找到哪些文件不应该混淆，从而修改proguard的配置。</p>
+
+<p>sdk\tools\proguard\bin 目录下有个retrace工具可以将混淆后的报错堆栈解码成正常的类名window下为retrace.bat，linux和mac为retrace.sh，使用方法如下：</p>
+
+<ol>
+  <li>将crash log保存为yourfilename.txt</li>
+  <li>拿到版本发布时生成的mapping.txt</li>
+  <li>执行命令retrace.bat -verbose mapping.txt yourfilename.txt</li>
+</ol>
+
+<p>值得注意的是，重新release编译后，这些文件会被覆盖，所以每发布一次程序，都要保存一份配置文件。不过，可以通过配置gradle进行自动保存，具体方法如下：</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>android <span class="o">{</span>
+applicationVariants.all <span class="o">{</span> variant -&gt;
+        variant.outputs.each <span class="o">{</span> output -&gt;
+            <span class="k">if</span> <span class="o">(</span>variant.getBuildType<span class="o">()</span>.isMinifyEnabled<span class="o">())</span> <span class="o">{</span>
+                variant.assemble.doLast<span class="o">{</span>
+                        copy <span class="o">{</span>
+                            from variant.mappingFile
+                            into <span class="s2">"</span><span class="k">${</span><span class="nv">projectDir</span><span class="k">}</span><span class="s2">/mappings"</span>
+                            rename <span class="o">{</span> String fileName -&gt;
+                                <span class="s2">"mapping-</span><span class="k">${</span><span class="nv">variant</span><span class="p">.name</span><span class="k">}</span><span class="s2">.txt"</span>
+                            <span class="o">}</span>
+                        <span class="o">}</span>
+                <span class="o">}</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+        ......
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h3 id="签名比对技术">签名比对技术</h3>
+
+<p>该技术主要防止加壳技术进行加壳，但代码逆向分析风险依然存在。而且该技术并不能根本解决被加壳问题，如果破解者将签名比对代码注释掉，再编译回来，该技术就被破解了。</p>
+
+<p>Android APK的发布是需要签名的。签名机制在Android应用和框架中有着十分重要的作用。</p>
+
+<p>例如，Android系统禁止更新安装签名不一致的APK；如果应用需要使用system权限，必须保证APK签名与Framework签名一致。要破解一个APK，必然需要重新对APK进行签名。而这个签名，一般情况无法再与APK原先的签名保持一致。</p>
+
+<p>简单地说，签名机制标明了APK的发行机构。因此，站在软件安全的角度，我们就可以通过比对APK的签名情况，判断此APK是否由“官方”发行，而不是被破解篡改过重新签名打包的“盗版软件”。</p>
+
+<h3 id="ndk-so-动态库技术">NDK  .so 动态库技术</h3>
+
+<p>该技术实现是将重要核心代码全部放在C文件中，利用NDK技术，将核心代码编译成.so动态库，再用JNI进行调用。该技术虽然能将核心代码保护起来，但被加壳风险依然存在。</p>
+
+<h3 id="动态加载技术">动态加载技术</h3>
+
+<p>该技术在Java中是一个比较成熟的技术，而Android中该技术还没有被大家充分利用起来。该技术思想主要分为以下几步：</p>
+
+<ol>
+  <li>将核心代码编译成dex文件的Jar包</li>
+  <li>对jar包进行加密处理</li>
+  <li>在程序主入口利用NDK进行解密</li>
+  <li>再利用ClassLoader将jar包进行动态加载</li>
+  <li>利用反射技术将ClassLoader 设置成系统的ClassLoader</li>
+</ol>
+
+<p>该技术可以有效的防止逆向分析、被破解、被加壳等问题。主要优点有：</p>
+
+<ol>
+  <li>核心代码在被加密的jar中，所以破解者无法解压出class文件，如果加密秘钥被破解者拿到，那将是另外一层面的安全问题了。</li>
+  <li>该技术也可以有效防止加壳技术，代码是动态加载上来的，破解者的壳程序无法加入到已加密的jar包中，及时破解者注入壳程序入口，壳程序因为不在ClassLoader 的jar包中，所以也无法被执行起来，除非破解者替换ClassLoader的jar包，关掉NDK解密代码。但这种安装到手机上，已经不在是我们的应用，用户一定会将其卸载掉。</li>
+</ol>
+
+<p>由于后面三种技术知识点比较深，所以此文没有作详细介绍，需要的朋友可以自行Google。</p>
+
+<p>软件安全是计算机领域一个重要的版块，也希望通过这篇文章，让大家的开发安全意识有所提高。</p>
+
+    </article>
+    <div class="share">
+      <div class="share-component"></div>
+    </div>
+    <div class="comment">
+      
+  
+        <div id="container"></div>
+        <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+        <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+        <script>
+        var gitment = new Gitment({
+            id: '/android/2016/10/07/AndroidSafe/',
+            owner: 'lpq29743',
+            repo: 'blog-comments',
+            oauth: {
+                client_id: '5818ceff784afe05d31c',
+                client_secret: 'dc7e8efc044c7194cf453740f82c646aa998f206',
+            },
+        })
+        gitment.render('container')
+        </script>
+  
+
+
+    </div>
+	<ul class="pager">
+		
+		<li class="previous">
+			<a href="/blog/2016/10/06/ComputerCelebrity/" data-toggle="tooltip" data-placement="top" title="盘点 IT 领域的大神">
+				Previous<br>
+				<span>盘点 IT 领域的大神</span>
+			</a>
+		</li>
+		
+		
+		<li class="next">
+			<a href="/android/2016/10/22/AndroidCustomView/" data-toggle="tooltip" data-placement="top" title="Android 自定义 View">
+				Next<br>
+				<span>Android 自定义 View</span>
+			</a>
+		</li>
+		
+	</ul>
+  </div>
+  <div class="column one-fourth">
+    
+<h3>Search</h3>
+<div id="site_search">
+    <input type="text" id="search_box" placeholder="Search">
+</div>
+
+<ul id="search_results"></ul>
+
+<link rel="stylesheet" type="text/css" href="http://localhost:4000/assets/css/modules/sidebar-search.css">
+<script src="http://localhost:4000/assets/js/jekyll-search.min.js"></script>
+<script src="http://localhost:4000/assets/js/search.js"></script>
+
+<script type="text/javascript">
+SimpleJekyllSearch({
+    searchInput: document.getElementById('search_box'),
+    resultsContainer: document.getElementById('search_results'),
+    json: 'http://localhost:4000/assets/search_data.json',
+    searchResultTemplate: '<li><a href="{url}" title="{desc}">{title}</a></li>',
+    noResultsText: 'No results found',
+    limit: 10,
+    fuzzy: false,
+    exclude: ['Welcome']
+})
+</script>
+
+    
+<h3 class="post-directory-title mobile-hidden">Table of Contents</h3>
+<div id="post-directory-module" class="mobile-hidden">
+  <section class="post-directory">
+  <!-- Links that trigger the jumping -->
+  <!-- Added by javascript below -->
+  <dl></dl>
+  </section>
+</div>
+
+<script src="http://localhost:4000/assets/js/jquery.toc.js"></script>
+
+  </div>
+</div>
+</section>
+<!-- /section.content -->
+
+    <footer class="container">
+        <div class="site-footer" role="contentinfo">
+            <div class="copyright left mobile-block">
+                <a href="javascript:window.scrollTo(0,0)" class="right mobile-visible">TOP</a>
+            </div>
+
+            <ul class="site-footer-links right mobile-hidden">
+                <li>
+                    <a href="javascript:window.scrollTo(0,0)" >TOP</a>
+                </li>
+            </ul>
+            <a href="https://github.com/lpq29743/lpq29743.github.io" target="_blank" aria-label="view source code">
+                <span class="mega-octicon octicon-mark-github" title="GitHub"></span>
+            </a>
+            <ul class="site-footer-links mobile-hidden">
+                
+            </ul>
+
+        </div>
+    </footer>
+    <!-- / footer -->
+    <script src="http://localhost:4000/assets/vendor/share.js/dist/js/share.min.js"></script>
+    <script src="http://localhost:4000/assets/js/geopattern.js"></script>
+    <script src="http://localhost:4000/assets/js/prism.js"></script>
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/globals/prism.css">
+    <script>
+      jQuery(document).ready(function($) {
+        // geopattern
+        $('.geopattern').each(function(){
+          $(this).geopattern($(this).data('pattern-id'));
+        });
+       // hljs.initHighlightingOnLoad();
+      });
+    </script>
+    
+</body>
+</html>

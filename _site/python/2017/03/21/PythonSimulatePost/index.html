@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans" prefix="og: http://ogp.me/ns#" class="han-init">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <title>Python 历险记第五站——利用 Python 模拟 Post 请求 &mdash; Peiqin Lin's Homepage</title>
+    <link rel="stylesheet" href="http://localhost:4000/assets/vendor/primer-css/css/primer.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/vendor/primer-markdown/dist/user-content.min.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/vendor/octicons/octicons/octicons.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/components/collection.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/components/repo-card.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/repo-list.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/mini-repo-list.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/profile.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/contact.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/news.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/components/boxed-group.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/globals/common.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/vendor/share.js/dist/css/share.min.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/globals/responsive.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/posts/index.css">
+    <!-- Latest compiled and minified CSS -->
+    
+
+    
+    <link rel="canonical" href="http://localhost:4000/python/2017/03/21/PythonSimulatePost/">
+    <link rel="alternate" type="application/atom+xml" title="Peiqin Lin's Homepage" href="/feed.xml">
+    <link rel="shortcut icon" href="http://localhost:4000/favicon.ico">
+    
+    <meta property="og:title" content="Python 历险记第五站——利用 Python 模拟 Post 请求">
+      
+    <meta name="keywords" content="Python">
+    <meta name="og:keywords" content="Python">
+      
+    <meta name="description" content="这篇文章的源头来源于一个同学让我帮忙写一个刷参与量的程序，这里需要强调，这个程序所解决的刷参与量只是面对一个娱乐性的活动，并不会造成不良影响。另外，这篇文章也不会明确给出该网址">
+    <meta name="og:description" content="这篇文章的源头来源于一个同学让我帮忙写一个刷参与量的程序，这里需要强调，这个程序所解决的刷参与量只是面对一个娱乐性的活动，并不会造成不良影响。另外，这篇文章也不会明确给出该网址">
+      
+    
+    
+        
+    
+    <meta property="og:url" content="http://localhost:4000/python/2017/03/21/PythonSimulatePost/">
+    <meta property="og:site_name" content="Peiqin Lin's Homepage">
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="zh_CN" />
+    
+    <meta property="article:published_time" content="2017-03-21">
+    
+    <script src="http://localhost:4000/assets/vendor/jquery/dist/jquery.min.js"></script>
+    <script src="http://localhost:4000/assets/js/jquery-ui.js"></script>
+    <script type="text/javascript">
+    function toggleMenu() {
+        var nav = document.getElementsByClassName("site-header-nav")[0];
+        if (nav.style.display == "inline-flex") {
+          nav.style.display = "none";
+        } else {
+          nav.style.display = "inline-flex";
+        }
+    }
+    </script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-114643083-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-114643083-1');
+    </script>
+</head>
+<body class="" data-mz="">
+    <header class="site-header">
+        <div class="container">
+            <h1><a href="http://localhost:4000/" title="Peiqin Lin's Homepage">Peiqin Lin's Homepage</a></h1>
+            <button class="collapsed mobile-visible" type="button" onclick="toggleMenu();">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <nav class="site-header-nav" role="navigation">
+                
+            </nav>
+        </div>
+    </header>
+    <!-- / header -->
+
+    <section class="collection-head small geopattern" data-pattern-id="Python 历险记第五站——">
+<div class="container">
+  <div class="columns">
+    <div class="column three-fourths">
+      <div class="collection-title">
+        <h1 class="collection-header">Python 历险记第五站——利用 Python 模拟 Post 请求</h1>
+        <div class="collection-info">
+          
+          <span class="meta-info">
+            <span class="octicon octicon-calendar"></span> 2017/03/21
+          </span>
+          
+          
+          <span class="meta-info">
+            <span class="octicon octicon-file-directory"></span>
+            <a href="http://localhost:4000/categories/#Python" title="Python">Python</a>
+          </span>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+<!-- / .banner -->
+<section class="container content">
+<div class="columns">
+  <div class="column three-fourths" >
+    <article class="article-content markdown-body">
+    <p>这篇文章的源头来源于一个同学让我帮忙写一个刷参与量的程序，这里需要强调，这个程序所解决的刷参与量只是面对一个娱乐性的活动，并不会造成不良影响。另外，这篇文章也不会明确给出该网址</p>
+
+<p>模拟POST请求主要有两种方法，一种是用模拟器进行POST请求，另一种是用代码进行POST请求，一开始我打算用后者实现，但是遇到了一点小问题，于是先试了一下第一种方法，很快代码就写出来了：</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">from</span> <span class="nn">openpyxl</span> <span class="kn">import</span> <span class="n">load_workbook</span>
+<span class="kn">from</span> <span class="nn">selenium</span> <span class="kn">import</span> <span class="n">webdriver</span>
+
+<span class="c1"># 打开excel
+</span><span class="n">wb</span> <span class="o">=</span> <span class="n">load_workbook</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="sa">r</span><span class="s">'test.xlsx'</span><span class="p">)</span>
+
+<span class="c1"># 获取所有表格(worksheet)的名字
+</span><span class="n">sheets</span> <span class="o">=</span> <span class="n">wb</span><span class="p">.</span><span class="n">get_sheet_names</span><span class="p">()</span>
+<span class="c1"># 第一个表格的名称
+</span><span class="n">sheet0</span> <span class="o">=</span> <span class="n">sheets</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="c1"># 获取特定的 worksheet
+</span><span class="n">ws</span> <span class="o">=</span> <span class="n">wb</span><span class="p">.</span><span class="n">get_sheet_by_name</span><span class="p">(</span><span class="s">'test'</span><span class="p">)</span>
+<span class="c1"># 打开模拟器
+</span><span class="n">driver</span> <span class="o">=</span> <span class="n">webdriver</span><span class="p">.</span><span class="n">Firefox</span><span class="p">()</span>
+<span class="n">hosturl</span> <span class="o">=</span> <span class="s">"XXX"</span>
+<span class="c1"># 访问hosturl
+</span><span class="n">driver</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="n">hosturl</span><span class="p">)</span>
+<span class="c1"># 记录开始时间
+</span><span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="p">.</span><span class="n">clock</span><span class="p">()</span>
+
+<span class="c1"># 遍历excel的行
+</span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">ws</span><span class="p">.</span><span class="n">max_row</span><span class="p">):</span>
+    <span class="c1"># 获取第i+1行的电话号码
+</span>    <span class="n">phone_num</span> <span class="o">=</span> <span class="n">ws</span><span class="p">.</span><span class="n">cell</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">column</span><span class="o">=</span><span class="mi">1</span><span class="p">).</span><span class="n">value</span>
+    <span class="c1"># 获取号码输入框
+</span>    <span class="n">elem</span> <span class="o">=</span> <span class="n">driver</span><span class="p">.</span><span class="n">find_element_by_id</span><span class="p">(</span><span class="s">"telephone"</span><span class="p">)</span>
+    <span class="c1"># 输入号码
+</span>    <span class="n">elem</span><span class="p">.</span><span class="n">send_keys</span><span class="p">(</span><span class="n">phone_num</span><span class="p">)</span>
+    <span class="c1"># 获取参与按钮
+</span>    <span class="n">elem0</span> <span class="o">=</span> <span class="n">driver</span><span class="p">.</span><span class="n">find_element_by_id</span><span class="p">(</span><span class="s">"attend"</span><span class="p">)</span>
+    <span class="c1"># 点击按钮
+</span>    <span class="n">elem0</span><span class="p">.</span><span class="n">click</span><span class="p">()</span>
+    <span class="c1"># 页面刷新
+</span>    <span class="n">driver</span><span class="p">.</span><span class="n">refresh</span><span class="p">()</span>
+    <span class="c1"># 休眠1s
+</span>    <span class="n">time</span><span class="p">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># 记录结束时间
+</span><span class="n">end</span> <span class="o">=</span> <span class="n">time</span><span class="p">.</span><span class="n">clock</span><span class="p">()</span>
+<span class="c1"># 输出程序所用时间
+</span><span class="k">print</span><span class="p">(</span><span class="n">end</span><span class="o">-</span><span class="n">start</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>虽然这种方法较为简单，但所用的时间实在太久了，特别是由于该网页的原因需要休眠1s，更是占用了额外的时间，所以没办法，我只能尝试第二种方法了，通过查询一些资料，很快代码也写出来了：</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">from</span> <span class="nn">openpyxl</span> <span class="kn">import</span> <span class="n">load_workbook</span>
+
+<span class="c1"># 打开excel
+</span><span class="n">wb</span> <span class="o">=</span> <span class="n">load_workbook</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="sa">r</span><span class="s">'test.xlsx'</span><span class="p">)</span>
+ 
+<span class="c1"># 获取所有表格(worksheet)的名字
+</span><span class="n">sheets</span> <span class="o">=</span> <span class="n">wb</span><span class="p">.</span><span class="n">get_sheet_names</span><span class="p">()</span>
+<span class="c1"># 第一个表格的名称
+</span><span class="n">sheet0</span> <span class="o">=</span> <span class="n">sheets</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="c1"># 获取特定的 worksheet
+</span><span class="n">ws</span> <span class="o">=</span> <span class="n">wb</span><span class="p">.</span><span class="n">get_sheet_by_name</span><span class="p">(</span><span class="s">'test'</span><span class="p">)</span>
+<span class="c1"># 记录开始时间
+</span><span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="p">.</span><span class="n">clock</span><span class="p">()</span>
+
+<span class="c1"># 遍历excel的行
+</span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">ws</span><span class="p">.</span><span class="n">max_row</span><span class="p">):</span>
+    <span class="c1"># 获取第i+1行的电话号码
+</span>    <span class="n">phone_num</span> <span class="o">=</span> <span class="n">ws</span><span class="p">.</span><span class="n">cell</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">column</span><span class="o">=</span><span class="mi">1</span><span class="p">).</span><span class="n">value</span>
+    <span class="c1"># 设置提交数据，其中articleId是文章id，可动态修改
+</span>    <span class="n">postData</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s">'articleId'</span><span class="p">:</span> <span class="s">'xxx'</span><span class="p">,</span>
+        <span class="s">'studentId'</span><span class="p">:</span> <span class="s">'xxx'</span><span class="p">,</span>
+        <span class="s">'telephone'</span><span class="p">:</span> <span class="n">phone_num</span>
+    <span class="p">}</span>
+    <span class="c1"># 模拟post请求
+</span>    <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="s">"postUrl"</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">postData</span><span class="p">)</span>
+    <span class="c1"># 输出response信息
+</span>    <span class="k">print</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="n">text</span><span class="p">)</span>
+
+<span class="c1"># 记录结束时间
+</span><span class="n">end</span> <span class="o">=</span> <span class="n">time</span><span class="p">.</span><span class="n">clock</span><span class="p">()</span>
+<span class="c1"># 输出程序所用时间
+</span><span class="k">print</span><span class="p">(</span><span class="n">end</span><span class="o">-</span><span class="n">start</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>值得一提的是，这里的postUrl和postData需要借助开发者工具才能得到。</p>
+
+<p>关于这两个程序，还有一个小知识点，那就是openpyxl的使用，之前笔者在另一个程序中用的是xlsxwriter，但该库只支持写不支持读，所以笔者换成了这个，如果想要了解更多它的使用可以查看它的<a href="http://openpyxl.readthedocs.io/en/default/">官方文档</a>。</p>
+
+    </article>
+    <div class="share">
+      <div class="share-component"></div>
+    </div>
+    <div class="comment">
+      
+  
+        <div id="container"></div>
+        <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+        <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+        <script>
+        var gitment = new Gitment({
+            id: '/python/2017/03/21/PythonSimulatePost/',
+            owner: 'lpq29743',
+            repo: 'blog-comments',
+            oauth: {
+                client_id: '5818ceff784afe05d31c',
+                client_secret: 'dc7e8efc044c7194cf453740f82c646aa998f206',
+            },
+        })
+        gitment.render('container')
+        </script>
+  
+
+
+    </div>
+	<ul class="pager">
+		
+		<li class="previous">
+			<a href="/c/c++/2017/03/20/TinyWeb/" data-toggle="tooltip" data-placement="top" title="Tiny Web 服务器源码学习">
+				Previous<br>
+				<span>Tiny Web 服务器源码学习</span>
+			</a>
+		</li>
+		
+		
+		<li class="next">
+			<a href="/python/2017/03/25/PythonModule/" data-toggle="tooltip" data-placement="top" title="Python 模块——有逻辑地组织 Python 代码">
+				Next<br>
+				<span>Python 模块——有逻辑地组织 Python 代码</span>
+			</a>
+		</li>
+		
+	</ul>
+  </div>
+  <div class="column one-fourth">
+    
+<h3>Search</h3>
+<div id="site_search">
+    <input type="text" id="search_box" placeholder="Search">
+</div>
+
+<ul id="search_results"></ul>
+
+<link rel="stylesheet" type="text/css" href="http://localhost:4000/assets/css/modules/sidebar-search.css">
+<script src="http://localhost:4000/assets/js/jekyll-search.min.js"></script>
+<script src="http://localhost:4000/assets/js/search.js"></script>
+
+<script type="text/javascript">
+SimpleJekyllSearch({
+    searchInput: document.getElementById('search_box'),
+    resultsContainer: document.getElementById('search_results'),
+    json: 'http://localhost:4000/assets/search_data.json',
+    searchResultTemplate: '<li><a href="{url}" title="{desc}">{title}</a></li>',
+    noResultsText: 'No results found',
+    limit: 10,
+    fuzzy: false,
+    exclude: ['Welcome']
+})
+</script>
+
+    
+<h3 class="post-directory-title mobile-hidden">Table of Contents</h3>
+<div id="post-directory-module" class="mobile-hidden">
+  <section class="post-directory">
+  <!-- Links that trigger the jumping -->
+  <!-- Added by javascript below -->
+  <dl></dl>
+  </section>
+</div>
+
+<script src="http://localhost:4000/assets/js/jquery.toc.js"></script>
+
+  </div>
+</div>
+</section>
+<!-- /section.content -->
+
+    <footer class="container">
+        <div class="site-footer" role="contentinfo">
+            <div class="copyright left mobile-block">
+                <a href="javascript:window.scrollTo(0,0)" class="right mobile-visible">TOP</a>
+            </div>
+
+            <ul class="site-footer-links right mobile-hidden">
+                <li>
+                    <a href="javascript:window.scrollTo(0,0)" >TOP</a>
+                </li>
+            </ul>
+            <a href="https://github.com/lpq29743/lpq29743.github.io" target="_blank" aria-label="view source code">
+                <span class="mega-octicon octicon-mark-github" title="GitHub"></span>
+            </a>
+            <ul class="site-footer-links mobile-hidden">
+                
+            </ul>
+
+        </div>
+    </footer>
+    <!-- / footer -->
+    <script src="http://localhost:4000/assets/vendor/share.js/dist/js/share.min.js"></script>
+    <script src="http://localhost:4000/assets/js/geopattern.js"></script>
+    <script src="http://localhost:4000/assets/js/prism.js"></script>
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/globals/prism.css">
+    <script>
+      jQuery(document).ready(function($) {
+        // geopattern
+        $('.geopattern').each(function(){
+          $(this).geopattern($(this).data('pattern-id'));
+        });
+       // hljs.initHighlightingOnLoad();
+      });
+    </script>
+    
+</body>
+</html>

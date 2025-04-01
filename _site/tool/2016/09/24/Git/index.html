@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans" prefix="og: http://ogp.me/ns#" class="han-init">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <title>找个地方放放 Git 命令 &mdash; Peiqin Lin's Homepage</title>
+    <link rel="stylesheet" href="http://localhost:4000/assets/vendor/primer-css/css/primer.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/vendor/primer-markdown/dist/user-content.min.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/vendor/octicons/octicons/octicons.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/components/collection.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/components/repo-card.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/repo-list.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/mini-repo-list.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/profile.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/contact.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/news.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/components/boxed-group.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/globals/common.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/vendor/share.js/dist/css/share.min.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/globals/responsive.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/posts/index.css">
+    <!-- Latest compiled and minified CSS -->
+    
+
+    
+    <link rel="canonical" href="http://localhost:4000/tool/2016/09/24/Git/">
+    <link rel="alternate" type="application/atom+xml" title="Peiqin Lin's Homepage" href="/feed.xml">
+    <link rel="shortcut icon" href="http://localhost:4000/favicon.ico">
+    
+    <meta property="og:title" content="找个地方放放 Git 命令">
+      
+    <meta name="keywords" content="Git, Git命令">
+    <meta name="og:keywords" content="Git, Git命令">
+      
+    <meta name="description" content="Git 在程序员的学习工作中使用非常频繁。对于一些常用的命令，有时候会脑子短路，记不起来，每次都要去百度谷歌一下，才能找到答案。所以把常用的命令记录一下，方便查找。">
+    <meta name="og:description" content="Git 在程序员的学习工作中使用非常频繁。对于一些常用的命令，有时候会脑子短路，记不起来，每次都要去百度谷歌一下，才能找到答案。所以把常用的命令记录一下，方便查找。">
+      
+    
+    
+        
+    
+    <meta property="og:url" content="http://localhost:4000/tool/2016/09/24/Git/">
+    <meta property="og:site_name" content="Peiqin Lin's Homepage">
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="zh_CN" />
+    
+    <meta property="article:published_time" content="2016-09-24">
+    
+    <script src="http://localhost:4000/assets/vendor/jquery/dist/jquery.min.js"></script>
+    <script src="http://localhost:4000/assets/js/jquery-ui.js"></script>
+    <script type="text/javascript">
+    function toggleMenu() {
+        var nav = document.getElementsByClassName("site-header-nav")[0];
+        if (nav.style.display == "inline-flex") {
+          nav.style.display = "none";
+        } else {
+          nav.style.display = "inline-flex";
+        }
+    }
+    </script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-114643083-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-114643083-1');
+    </script>
+</head>
+<body class="" data-mz="">
+    <header class="site-header">
+        <div class="container">
+            <h1><a href="http://localhost:4000/" title="Peiqin Lin's Homepage">Peiqin Lin's Homepage</a></h1>
+            <button class="collapsed mobile-visible" type="button" onclick="toggleMenu();">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <nav class="site-header-nav" role="navigation">
+                
+            </nav>
+        </div>
+    </header>
+    <!-- / header -->
+
+    <section class="collection-head small geopattern" data-pattern-id="找个地方放放 Git 命令">
+<div class="container">
+  <div class="columns">
+    <div class="column three-fourths">
+      <div class="collection-title">
+        <h1 class="collection-header">找个地方放放 Git 命令</h1>
+        <div class="collection-info">
+          
+          <span class="meta-info">
+            <span class="octicon octicon-calendar"></span> 2016/09/24
+          </span>
+          
+          
+          <span class="meta-info">
+            <span class="octicon octicon-file-directory"></span>
+            <a href="http://localhost:4000/categories/#Tool" title="Tool">Tool</a>
+          </span>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+<!-- / .banner -->
+<section class="container content">
+<div class="columns">
+  <div class="column three-fourths" >
+    <article class="article-content markdown-body">
+    <p>Git 在程序员的学习工作中使用非常频繁。对于一些常用的命令，有时候会脑子短路，记不起来，每次都要去百度谷歌一下，才能找到答案。所以把常用的命令记录一下，方便查找。</p>
+
+<p><strong>Git 配置</strong></p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 配置用户名</span>
+git config <span class="nt">--global</span> user.name <span class="s2">"your_name"</span>
+<span class="c"># 配置邮箱</span>
+git config <span class="nt">--global</span> user.email youremail@example.com
+<span class="c"># 查看配置信息</span>
+git config <span class="nt">--list</span>
+<span class="c"># 配置记住密码</span>
+git config <span class="nt">--global</span> credential.helper store
+<span class="c"># 删除某一项配置</span>
+git config --unset --global credential.helper store
+</code></pre></div></div>
+
+<p><strong>基本操作</strong></p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># git 项目初始化</span>
+git init
+<span class="c"># 查看文件 git 状态</span>
+git status
+<span class="c"># 添加文件</span>
+git add 文件名或目录名
+<span class="c"># 提交 git 更改（引号内为此版本描述信息，可更改)</span>
+git commit <span class="nt">-m</span> <span class="s2">"modified"</span>
+<span class="c"># 修改 commit 描述信息</span>
+git commit <span class="nt">--amend</span> <span class="nt">-m</span> <span class="s2">"New commit message"</span>
+<span class="c"># 将新添加的修改也放到上一版本中</span>
+git commit <span class="nt">--amend</span> <span class="nt">--no-edit</span>
+<span class="c"># 不删除工作空间改动代码，撤销 commit 和 add。相当于 git reset --mixed HEAD^ 或 git reset --mixed HEAD～1。若要撤销两次，则为 HEAD～2</span>
+git reset
+<span class="c"># 不删除工作空间改动代码，撤销 commit，不撤销 add。</span>
+git reset <span class="nt">--soft</span> HEAD^
+<span class="c"># 删除工作空间改动代码，撤销 commit 和 add。</span>
+git reset <span class="nt">--hard</span> HEAD^
+<span class="c"># 针对每个文件或文件夹撤销 commit</span>
+git reset <span class="nt">--</span> exclude_files
+<span class="c"># 将远程库文件提取下来（origin 为远程库连接别名，master 为远程库分支）</span>
+git pull origin master
+<span class="c"># 将本地改动添加到远程库分支（origin 为远程库连接别名，master 为远程库分支）</span>
+git push origin master
+<span class="c"># 将本地改动强制添加到远程库分支（origin 为远程库连接别名，master 为远程库分支）</span>
+git push <span class="nt">-f</span> origin master
+<span class="c"># 克隆仓库</span>
+git clone git://github.com/xxx/xxx.git
+<span class="c"># 克隆具体分支</span>
+git clone git://github.com/xxx/xxx.git <span class="nt">-b</span> master
+<span class="c"># 仅获取最新版和一个历史版本，即最后 2 个版本（--depth 参数最小为1）</span>
+git clone git://github.com/xxx/xxx.git <span class="nt">--depth</span><span class="o">=</span>1
+<span class="c"># 列出现有标签</span>
+git tag
+<span class="c"># 列出特有标签</span>
+git tag <span class="nt">-l</span> <span class="s1">'v1.4.2.*'</span>
+<span class="c"># 查看具体标签</span>
+git show v1.4
+<span class="c"># 创建一个轻量级标签</span>
+git tag v1.4-lw
+<span class="c"># 创建一个含附注的标签</span>
+git tag <span class="nt">-a</span> v1.4 <span class="nt">-m</span> <span class="s1">'my version 1.4'</span>
+<span class="c"># 创建一个签署标签</span>
+git tag <span class="nt">-s</span> v1.5 <span class="nt">-m</span> <span class="s1">'my signed 1.5 tag'</span>
+<span class="c"># 验证标签</span>
+git tag <span class="nt">-v</span> v1.4.2.1
+<span class="c"># 推送特定标签</span>
+git push origin v1.5
+<span class="c"># 推送所有标签</span>
+git push origin <span class="nt">--tags</span>
+</code></pre></div></div>
+
+<p><strong>远程仓库</strong></p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 查看远程仓库的网址</span>
+git remote <span class="nt">-v</span>
+<span class="c"># 添加远程库（origin 为远程库连接别名，address 为远程库的地址）</span>
+git remote add 主机名 网址
+<span class="c"># 删除远程主机</span>
+git remote <span class="nb">rm </span>主机名
+</code></pre></div></div>
+
+<p><strong>分支操作</strong></p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 创建分支</span>
+git branch gh-pages
+<span class="c"># 切换分支</span>
+git checkout gh-pages
+<span class="c"># 创建分支并切换到该分支，相当于以上两句</span>
+git checkout <span class="nt">-b</span> gh-pages
+<span class="c"># 删除分支</span>
+git branch <span class="nt">-d</span> gh-pages
+</code></pre></div></div>
+
+<p><strong>特殊情况</strong></p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 强制pull</span>
+git fetch <span class="nt">--all</span>
+git reset <span class="nt">--hard</span> origin/master
+<span class="c"># 回退某一版本</span>
+get reflog
+git reset <span class="nt">--hard</span> commit_id
+<span class="c"># 删除.gitignore中忽略文件的记录</span>
+git <span class="nb">rm</span> <span class="nt">-r</span> <span class="nt">--cached</span> <span class="nb">.</span>
+</code></pre></div></div>
+
+<p><strong>Git 进阶使用</strong></p>
+
+<ul>
+  <li><a href="https://baurine.github.io/2015/08/22/git_update_author.html">修改 git repo 历史提交的 author</a></li>
+</ul>
+
+<p><strong>Github 使用</strong></p>
+
+<ul>
+  <li><a href="https://segmentfault.com/a/1190000008435592">解决向 github 提交代码不用输入帐号密码</a></li>
+  <li><a href="http://www.ruanyifeng.com/blog/2011/05/how_to_choose_free_software_licenses.html">如何选择开源许可证</a></li>
+  <li><a href="http://stackoverflow.com/questions/5318580/how-does-github-figure-out-a-projects-language">Github 是怎么检测项目语言的</a></li>
+  <li><a href="http://stackoverflow.com/questions/13597892/how-to-change-the-language-of-a-repository-on-github/27099628#27099628">怎么修改 Github 项目的语言</a></li>
+  <li><a href="https://zhuanlan.zhihu.com/p/20490947">Github 为什么没有记录你的 Contributions</a></li>
+  <li><a href="https://site.douban.com/196781/widget/notes/12161495/note/269163206/?">大白话讲解如何给 github 上项目贡献代码</a></li>
+  <li><a href="http://www.jianshu.com/p/f2483bd8da43">如何推广自己的 GitHub 项目</a></li>
+  <li><a href="https://www.zhihu.com/question/27410763">GitHub 上有哪些好的英文文章或书籍的翻译项目</a></li>
+</ul>
+
+<p>一开始用 git 的时候，还很怀疑它的用途，真正用起来才感受到它的强大。所以，当大家了解到某样技术很流行但自己却没有感觉的到的话，最好的方法就是使用它。</p>
+
+<p>对于 git 这种主要是以命令行为主的工具，经常会出现命令忘记的情况，所以最好做个记录，以方便自己查找。当然，最可靠的方式还是经常敲敲命令！</p>
+
+    </article>
+    <div class="share">
+      <div class="share-component"></div>
+    </div>
+    <div class="comment">
+      
+  
+        <div id="container"></div>
+        <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+        <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+        <script>
+        var gitment = new Gitment({
+            id: '/tool/2016/09/24/Git/',
+            owner: 'lpq29743',
+            repo: 'blog-comments',
+            oauth: {
+                client_id: '5818ceff784afe05d31c',
+                client_secret: 'dc7e8efc044c7194cf453740f82c646aa998f206',
+            },
+        })
+        gitment.render('container')
+        </script>
+  
+
+
+    </div>
+	<ul class="pager">
+		
+		<li class="previous">
+			<a href="/blog/2016/09/22/BasicSkill/" data-toggle="tooltip" data-placement="top" title="普通人必须掌握的基本 IT 技能">
+				Previous<br>
+				<span>普通人必须掌握的基本 IT 技能</span>
+			</a>
+		</li>
+		
+		
+		<li class="next">
+			<a href="/android/2016/09/26/ButterKnife/" data-toggle="tooltip" data-placement="top" title="Android 依赖注入框架 ButterKnife">
+				Next<br>
+				<span>Android 依赖注入框架 ButterKnife</span>
+			</a>
+		</li>
+		
+	</ul>
+  </div>
+  <div class="column one-fourth">
+    
+<h3>Search</h3>
+<div id="site_search">
+    <input type="text" id="search_box" placeholder="Search">
+</div>
+
+<ul id="search_results"></ul>
+
+<link rel="stylesheet" type="text/css" href="http://localhost:4000/assets/css/modules/sidebar-search.css">
+<script src="http://localhost:4000/assets/js/jekyll-search.min.js"></script>
+<script src="http://localhost:4000/assets/js/search.js"></script>
+
+<script type="text/javascript">
+SimpleJekyllSearch({
+    searchInput: document.getElementById('search_box'),
+    resultsContainer: document.getElementById('search_results'),
+    json: 'http://localhost:4000/assets/search_data.json',
+    searchResultTemplate: '<li><a href="{url}" title="{desc}">{title}</a></li>',
+    noResultsText: 'No results found',
+    limit: 10,
+    fuzzy: false,
+    exclude: ['Welcome']
+})
+</script>
+
+    
+<h3 class="post-directory-title mobile-hidden">Table of Contents</h3>
+<div id="post-directory-module" class="mobile-hidden">
+  <section class="post-directory">
+  <!-- Links that trigger the jumping -->
+  <!-- Added by javascript below -->
+  <dl></dl>
+  </section>
+</div>
+
+<script src="http://localhost:4000/assets/js/jquery.toc.js"></script>
+
+  </div>
+</div>
+</section>
+<!-- /section.content -->
+
+    <footer class="container">
+        <div class="site-footer" role="contentinfo">
+            <div class="copyright left mobile-block">
+                <a href="javascript:window.scrollTo(0,0)" class="right mobile-visible">TOP</a>
+            </div>
+
+            <ul class="site-footer-links right mobile-hidden">
+                <li>
+                    <a href="javascript:window.scrollTo(0,0)" >TOP</a>
+                </li>
+            </ul>
+            <a href="https://github.com/lpq29743/lpq29743.github.io" target="_blank" aria-label="view source code">
+                <span class="mega-octicon octicon-mark-github" title="GitHub"></span>
+            </a>
+            <ul class="site-footer-links mobile-hidden">
+                
+            </ul>
+
+        </div>
+    </footer>
+    <!-- / footer -->
+    <script src="http://localhost:4000/assets/vendor/share.js/dist/js/share.min.js"></script>
+    <script src="http://localhost:4000/assets/js/geopattern.js"></script>
+    <script src="http://localhost:4000/assets/js/prism.js"></script>
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/globals/prism.css">
+    <script>
+      jQuery(document).ready(function($) {
+        // geopattern
+        $('.geopattern').each(function(){
+          $(this).geopattern($(this).data('pattern-id'));
+        });
+       // hljs.initHighlightingOnLoad();
+      });
+    </script>
+    
+</body>
+</html>

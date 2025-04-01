@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans" prefix="og: http://ogp.me/ns#" class="han-init">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <title>找个地方放放 Vim 命令 &mdash; Peiqin Lin's Homepage</title>
+    <link rel="stylesheet" href="http://localhost:4000/assets/vendor/primer-css/css/primer.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/vendor/primer-markdown/dist/user-content.min.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/vendor/octicons/octicons/octicons.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/components/collection.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/components/repo-card.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/repo-list.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/mini-repo-list.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/profile.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/contact.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/news.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/components/boxed-group.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/globals/common.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/vendor/share.js/dist/css/share.min.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/globals/responsive.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/posts/index.css">
+    <!-- Latest compiled and minified CSS -->
+    
+
+    
+    <link rel="canonical" href="http://localhost:4000/tool/2017/02/10/Vim/">
+    <link rel="alternate" type="application/atom+xml" title="Peiqin Lin's Homepage" href="/feed.xml">
+    <link rel="shortcut icon" href="http://localhost:4000/favicon.ico">
+    
+    <meta property="og:title" content="找个地方放放 Vim 命令">
+      
+    <meta name="keywords" content="Vim, Vim">
+    <meta name="og:keywords" content="Vim, Vim">
+      
+    <meta name="description" content="之前写过一篇类似的记录 Git 命令的文章，这篇文章则是将注意力放在 Vim 上，Vim 是最便捷的编辑器之一，经常在 Linux 系统下使用到，本人也是希望通过这篇文章将记忆中零散的 Vim 命令整理一下，顺便感受一下这个编辑器的神秘力量。">
+    <meta name="og:description" content="之前写过一篇类似的记录 Git 命令的文章，这篇文章则是将注意力放在 Vim 上，Vim 是最便捷的编辑器之一，经常在 Linux 系统下使用到，本人也是希望通过这篇文章将记忆中零散的 Vim 命令整理一下，顺便感受一下这个编辑器的神秘力量。">
+      
+    
+    
+        
+    
+    <meta property="og:url" content="http://localhost:4000/tool/2017/02/10/Vim/">
+    <meta property="og:site_name" content="Peiqin Lin's Homepage">
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="zh_CN" />
+    
+    <meta property="article:published_time" content="2017-02-10">
+    
+    <script src="http://localhost:4000/assets/vendor/jquery/dist/jquery.min.js"></script>
+    <script src="http://localhost:4000/assets/js/jquery-ui.js"></script>
+    <script type="text/javascript">
+    function toggleMenu() {
+        var nav = document.getElementsByClassName("site-header-nav")[0];
+        if (nav.style.display == "inline-flex") {
+          nav.style.display = "none";
+        } else {
+          nav.style.display = "inline-flex";
+        }
+    }
+    </script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-114643083-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-114643083-1');
+    </script>
+</head>
+<body class="" data-mz="">
+    <header class="site-header">
+        <div class="container">
+            <h1><a href="http://localhost:4000/" title="Peiqin Lin's Homepage">Peiqin Lin's Homepage</a></h1>
+            <button class="collapsed mobile-visible" type="button" onclick="toggleMenu();">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <nav class="site-header-nav" role="navigation">
+                
+            </nav>
+        </div>
+    </header>
+    <!-- / header -->
+
+    <section class="collection-head small geopattern" data-pattern-id="找个地方放放 Vim 命令">
+<div class="container">
+  <div class="columns">
+    <div class="column three-fourths">
+      <div class="collection-title">
+        <h1 class="collection-header">找个地方放放 Vim 命令</h1>
+        <div class="collection-info">
+          
+          <span class="meta-info">
+            <span class="octicon octicon-calendar"></span> 2017/02/10
+          </span>
+          
+          
+          <span class="meta-info">
+            <span class="octicon octicon-file-directory"></span>
+            <a href="http://localhost:4000/categories/#Tool" title="Tool">Tool</a>
+          </span>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+<!-- / .banner -->
+<section class="container content">
+<div class="columns">
+  <div class="column three-fourths" >
+    <article class="article-content markdown-body">
+    <p>之前写过一篇类似的记录 Git 命令的文章，这篇文章则是将注意力放在 Vim 上，Vim 是最便捷的编辑器之一，经常在 Linux 系统下使用到，本人也是希望通过这篇文章将记忆中零散的 Vim 命令整理一下，顺便感受一下这个编辑器的神秘力量。</p>
+
+<p>Vim 有三种工作模式，由于本文主要是为了己用，所以只记录一些本人经常需要用到且认为有必要一提的命令，这些命令大部分都是交互模式下的命令。下面的这些命令是我结合本人的使用习惯、Vimtutor 文档以及《Vim 实用技巧》一书进行总结的。废话不多说，就让我们开始盘点这些命令。</p>
+
+<p><strong>切换到插入模式</strong></p>
+
+<ul>
+  <li><strong>i</strong>：光标前面进入</li>
+  <li><strong>I</strong>：光标所在行行首进入</li>
+  <li><strong>a</strong>：光标后面进入</li>
+  <li><strong>A</strong>：光标所在行行末进入</li>
+  <li><strong>o</strong>：光标下方插入空行并切换到插入模式</li>
+  <li><strong>O</strong>：光标上方插入空行并切换到插入模式</li>
+  <li><strong>s</strong>：删除光标指定字符并切换到插入模式</li>
+  <li><strong>S</strong>：删除光标所在行并切换到插入模式</li>
+</ul>
+
+<p><strong>保存和退出</strong></p>
+
+<ul>
+  <li><strong>shift + zz</strong>：保存退出</li>
+  <li><strong>shift + zq</strong>：不保存退出</li>
+  <li><strong>:q</strong>：不保存退出</li>
+  <li><strong>:qa</strong>：退出全部文件</li>
+  <li><strong>:q!</strong>：不保存强制退出</li>
+  <li><strong>:wq</strong>：保存退出</li>
+  <li><strong>:w file_name</strong>：另存为</li>
+  <li><strong>:w! file_name</strong>：覆盖另存为</li>
+</ul>
+
+<p><strong>移动</strong></p>
+
+<ul>
+  <li><strong>h</strong>：向左移动</li>
+  <li><strong>j</strong>：向下移动</li>
+  <li><strong>k</strong>：向上移动</li>
+  <li><strong>l</strong>：向右移动</li>
+  <li><strong>10h</strong>：向左移动 10 格</li>
+  <li><strong>Ctrl + f</strong>：PageDown 翻页</li>
+  <li><strong>Ctrl + b</strong>：PageUp 翻页</li>
+  <li><strong>0</strong>：移动至行首</li>
+  <li><strong>$</strong>：移动至行末</li>
+  <li><strong>w</strong>：移动到下一个单词的开头，认空白字符（空格、Tab）以及“-”等其他字符为单词分隔符</li>
+  <li><strong>W</strong>：移动到下一个单词的开头，只认空白字符（空格、Tab）为单词分隔符</li>
+  <li><strong>b</strong>：移动到上一个单词的开头，认空白字符（空格、Tab）以及“-”等其他字符为单词分隔符</li>
+  <li><strong>B</strong>：移动到上一个单词的开头，只认空白字符（空格、Tab）为单词分隔符</li>
+  <li><strong>e</strong>：移动到当前光标单词的结尾，认空白字符（空格、Tab）以及“-”等其他字符为单词分隔符</li>
+  <li><strong>E</strong>：移动到当前光标单词的结尾，只认空白字符（空格、Tab）为单词分隔符</li>
+  <li><strong>7gg</strong>：跳到第七行</li>
+  <li><strong>7G</strong>：跳到第七行</li>
+  <li><strong>gg</strong>：跳到第一行</li>
+  <li><strong>G</strong>：跳到最后一行</li>
+  <li><strong>:100</strong>：跳转到第 100 行</li>
+  <li><strong>%</strong>：在一组开闭括号上跳转</li>
+</ul>
+
+<p><strong>选择</strong></p>
+
+<ul>
+  <li><strong>v</strong>：光标或命令移动（按字符选择）</li>
+  <li><strong>V</strong>：光标或命令移动（按行选择）</li>
+  <li><strong>vi}</strong>：选择在 “{” 和 “}” 之间的内容（不包括 “{” 和 “}”）</li>
+  <li><strong>va}</strong>：选择在 “{” 和 “}” 之间的内容（包括 “{” 和 “}”）</li>
+  <li><strong>v + 选中的内容 + c</strong>：更改选中的文字</li>
+</ul>
+
+<p><strong>删除</strong></p>
+
+<ul>
+  <li><strong>x</strong>：删除一个字符</li>
+  <li><strong>dd</strong>：删除一行，也有剪切的作用</li>
+  <li><strong>dw</strong>：删除从当前光标开始的一个单词</li>
+  <li><strong>diw</strong>：删除从当前光标所在的一个单词（不包括一个空格）</li>
+  <li><strong>daw</strong>：删除从当前光标所在的一个单词（包括一个空格）</li>
+  <li><strong>d5w</strong>：删除五个单词</li>
+  <li><strong>d0</strong>：删除至行首</li>
+  <li><strong>d$</strong>：删除至行末</li>
+  <li><strong>dt.</strong>：删除当前光标到下一个“.”之间的内容</li>
+  <li><strong>dis</strong>：删除整个句子（不包括一个空格）</li>
+  <li><strong>das</strong>：删除整个句子（包括一个空格）</li>
+  <li><strong>dip</strong>：删除整个段落（不包括一个空行）</li>
+  <li><strong>dap</strong>：删除整个段落（包括一个空行）</li>
+  <li><strong>dL</strong>：删除直到屏幕上最后一行的内容</li>
+  <li><strong>dH</strong>：删除直到屏幕上第一行的内容</li>
+  <li><strong>dG</strong>：删除直到工作缓存区结尾的内容</li>
+  <li><strong>d1G</strong>：删除直到工作缓存区开始的内容</li>
+  <li><strong>Ctrl + h</strong>：插入模式下删除前一个字符</li>
+  <li><strong>Ctrl + w</strong>：插入模式下删除前一个单词</li>
+  <li><strong>Ctrl + u</strong>：插入模式下删除至行首</li>
+  <li><strong>.</strong>：重复上次修改，包括删除、粘贴和缩进等</li>
+</ul>
+
+<p><strong>修改</strong></p>
+
+<ul>
+  <li><strong>cw</strong>：删除当前单词从光标开始的部分并进入插入模式，<strong>c</strong> 命令等价于删除 + 进入插入模式</li>
+  <li><strong>guw</strong>：将光标开始的单词变为小写</li>
+  <li><strong>guw</strong>：将光标开始的单词变为小写</li>
+  <li><strong>gUw</strong>：将光标开始的单词变为大写</li>
+  <li><strong>g~~</strong>：光标所在的行所有字符大小写反向转换</li>
+</ul>
+
+<p><strong>复制、粘贴和撤销</strong></p>
+
+<ul>
+  <li><strong>yy</strong>：复制游标所在行整行</li>
+  <li><strong>Y</strong>：复制游标所在行整行</li>
+  <li><strong>2yy</strong>：复制两行</li>
+  <li><strong>y2y</strong>：复制两行</li>
+  <li><strong>y^</strong>：复制至行首，不含游标所在处字元</li>
+  <li><strong>y0</strong>：复制至行首，不含游标所在处字元</li>
+  <li><strong>y$</strong>：复制至行尾，含游标所在处字元</li>
+  <li><strong>yw</strong>：复制一个word</li>
+  <li><strong>y2w</strong>：复制两个word</li>
+  <li><strong>“+y</strong>：复制到系统剪贴板</li>
+  <li><strong>p</strong>：粘贴至游标后</li>
+  <li><strong>P</strong>：粘贴至游标前</li>
+  <li><strong>“+p</strong>：从系统剪贴板粘贴</li>
+  <li><strong>Shift + Insert</strong>：粘贴系统粘贴板内容</li>
+  <li><strong>u</strong>：撤销</li>
+  <li><strong>U</strong>：撤销对整行的修改</li>
+  <li><strong>Ctrl + r</strong>：恢复上一步被撤销的操作</li>
+</ul>
+
+<p><strong>缩进</strong></p>
+
+<ul>
+  <li><strong>»</strong>：当前行增加缩进</li>
+  <li><strong>«</strong>：当前行减少缩进</li>
+  <li><strong>&gt;G</strong>：当前行到末尾增加缩进</li>
+  <li><strong>:10,100&gt;</strong>：第10行至第100行缩进</li>
+  <li><strong>:20,80&lt;</strong>：第20行至第80行反缩进</li>
+</ul>
+
+<p><strong>查找、替换和合并</strong></p>
+
+<ul>
+  <li><strong>/</strong>：查找，输入查找字符串，按下回车键即可查找。查找下一个匹配项按 n。反向查找按 N。默认从当前光标处开始。如果要反向查找，则将斜杠（/）替换为问号（?）即可</li>
+  <li><strong>f</strong>： 向前搜索并将光标停留在目标字符上</li>
+  <li><strong>F</strong>：向后搜索并将光标停留在目标字符上</li>
+  <li><strong>;</strong>：重复查找</li>
+  <li><strong>,</strong>：反向重复查找</li>
+  <li><strong>rs</strong>：替换一个字符。r 是替换的意思，此命令是将该字符替换为 s</li>
+  <li><strong>3rs</strong>：替换三个字符。r 是替换的意思，此命令是将三个字符替换为 s</li>
+  <li><strong>R</strong>：进入替代模式，可一次性替换多个字符</li>
+  <li><strong>:s/旧字符串/新字符串</strong>：替换光标所在行的第一个匹配的字符串</li>
+  <li><strong>:s/旧字符串/新字符串/g</strong>：替换光标所在行的所有匹配的字符串</li>
+  <li><strong>:#,#s/旧字符串/新字符串/g</strong>：替换文件中第#行到第#行的所有匹配的字符串</li>
+  <li><strong>:%s/旧字符串/新字符串/g</strong>：替换文件中所有匹配的字符串</li>
+  <li><strong>:r 文件名</strong>：在光标后插入一个文件的内容，可以用 Tab 键来自动补全另一个文件的路径</li>
+</ul>
+
+<blockquote>
+  <p>注：以上的替换和查找既可以使用简单字符串，也可以使用正则表达式</p>
+</blockquote>
+
+<p><strong>分屏</strong></p>
+
+<ul>
+  <li><strong>vim -o file1 file1</strong>：垂直分屏打开两个文件</li>
+  <li><strong>vim -O file1 file2</strong>：水平分屏打开两个文件</li>
+  <li><strong>:sp</strong>：横向分屏</li>
+  <li><strong>:sp 文件名</strong>：横向分屏，并在新的一块屏幕中打开该文件</li>
+  <li><strong>:vsp</strong>：垂直分屏</li>
+  <li><strong>Ctrl + w</strong>：跳转 viewport</li>
+  <li><strong>Ctrl + w + j</strong>：跳转到下方的 viewport，而h、k和l分别对应的是左、上和右</li>
+  <li><strong>Ctrl + w 然后按 +</strong>：扩大当前 viewport</li>
+  <li><strong>Ctrl + w 然后按 -</strong>：缩小当前 viewport</li>
+  <li><strong>Ctrl + w 然后按 =</strong>：重新均匀分配各个 viewport 的占比</li>
+  <li><strong>Ctrl + w 然后按 r</strong>：调换各个 viewport 的位置。用 R 的话是反向调换</li>
+  <li><strong>Ctrl + w 然后按 q 或按 c</strong>：关闭当前 viewport</li>
+  <li><strong>Ctrl + o 或者 :only</strong>：只保留当前所在 viewport，关闭其他 viewport</li>
+</ul>
+
+<p><strong>其他</strong></p>
+
+<ul>
+  <li><strong>:set number</strong>：显示行号</li>
+  <li><strong>:set nonnumber</strong>：不显示行号</li>
+  <li><strong>:nohl</strong>：取消高亮</li>
+  <li><strong>Ctrl + g</strong>：显示文件信息</li>
+  <li><strong>:!ls</strong>：在 Vim 打开文件的所在目录运行 ls 命令</li>
+</ul>
+
+    </article>
+    <div class="share">
+      <div class="share-component"></div>
+    </div>
+    <div class="comment">
+      
+  
+        <div id="container"></div>
+        <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+        <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+        <script>
+        var gitment = new Gitment({
+            id: '/tool/2017/02/10/Vim/',
+            owner: 'lpq29743',
+            repo: 'blog-comments',
+            oauth: {
+                client_id: '5818ceff784afe05d31c',
+                client_secret: 'dc7e8efc044c7194cf453740f82c646aa998f206',
+            },
+        })
+        gitment.render('container')
+        </script>
+  
+
+
+    </div>
+	<ul class="pager">
+		
+		<li class="previous">
+			<a href="/android/2017/01/23/AndroidTest/" data-toggle="tooltip" data-placement="top" title="Android 测试">
+				Previous<br>
+				<span>Android 测试</span>
+			</a>
+		</li>
+		
+		
+		<li class="next">
+			<a href="/android/2017/02/12/AndroidActivity/" data-toggle="tooltip" data-placement="top" title="Android 四大组件之 Activity">
+				Next<br>
+				<span>Android 四大组件之 Activity</span>
+			</a>
+		</li>
+		
+	</ul>
+  </div>
+  <div class="column one-fourth">
+    
+<h3>Search</h3>
+<div id="site_search">
+    <input type="text" id="search_box" placeholder="Search">
+</div>
+
+<ul id="search_results"></ul>
+
+<link rel="stylesheet" type="text/css" href="http://localhost:4000/assets/css/modules/sidebar-search.css">
+<script src="http://localhost:4000/assets/js/jekyll-search.min.js"></script>
+<script src="http://localhost:4000/assets/js/search.js"></script>
+
+<script type="text/javascript">
+SimpleJekyllSearch({
+    searchInput: document.getElementById('search_box'),
+    resultsContainer: document.getElementById('search_results'),
+    json: 'http://localhost:4000/assets/search_data.json',
+    searchResultTemplate: '<li><a href="{url}" title="{desc}">{title}</a></li>',
+    noResultsText: 'No results found',
+    limit: 10,
+    fuzzy: false,
+    exclude: ['Welcome']
+})
+</script>
+
+    
+<h3 class="post-directory-title mobile-hidden">Table of Contents</h3>
+<div id="post-directory-module" class="mobile-hidden">
+  <section class="post-directory">
+  <!-- Links that trigger the jumping -->
+  <!-- Added by javascript below -->
+  <dl></dl>
+  </section>
+</div>
+
+<script src="http://localhost:4000/assets/js/jquery.toc.js"></script>
+
+  </div>
+</div>
+</section>
+<!-- /section.content -->
+
+    <footer class="container">
+        <div class="site-footer" role="contentinfo">
+            <div class="copyright left mobile-block">
+                <a href="javascript:window.scrollTo(0,0)" class="right mobile-visible">TOP</a>
+            </div>
+
+            <ul class="site-footer-links right mobile-hidden">
+                <li>
+                    <a href="javascript:window.scrollTo(0,0)" >TOP</a>
+                </li>
+            </ul>
+            <a href="https://github.com/lpq29743/lpq29743.github.io" target="_blank" aria-label="view source code">
+                <span class="mega-octicon octicon-mark-github" title="GitHub"></span>
+            </a>
+            <ul class="site-footer-links mobile-hidden">
+                
+            </ul>
+
+        </div>
+    </footer>
+    <!-- / footer -->
+    <script src="http://localhost:4000/assets/vendor/share.js/dist/js/share.min.js"></script>
+    <script src="http://localhost:4000/assets/js/geopattern.js"></script>
+    <script src="http://localhost:4000/assets/js/prism.js"></script>
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/globals/prism.css">
+    <script>
+      jQuery(document).ready(function($) {
+        // geopattern
+        $('.geopattern').each(function(){
+          $(this).geopattern($(this).data('pattern-id'));
+        });
+       // hljs.initHighlightingOnLoad();
+      });
+    </script>
+    
+</body>
+</html>

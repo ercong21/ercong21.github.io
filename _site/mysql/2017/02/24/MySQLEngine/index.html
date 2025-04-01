@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans" prefix="og: http://ogp.me/ns#" class="han-init">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <title>MySQL 存储引擎 &mdash; Peiqin Lin's Homepage</title>
+    <link rel="stylesheet" href="http://localhost:4000/assets/vendor/primer-css/css/primer.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/vendor/primer-markdown/dist/user-content.min.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/vendor/octicons/octicons/octicons.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/components/collection.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/components/repo-card.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/repo-list.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/mini-repo-list.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/profile.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/contact.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/news.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/components/boxed-group.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/globals/common.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/vendor/share.js/dist/css/share.min.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/globals/responsive.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/posts/index.css">
+    <!-- Latest compiled and minified CSS -->
+    
+
+    
+    <link rel="canonical" href="http://localhost:4000/mysql/2017/02/24/MySQLEngine/">
+    <link rel="alternate" type="application/atom+xml" title="Peiqin Lin's Homepage" href="/feed.xml">
+    <link rel="shortcut icon" href="http://localhost:4000/favicon.ico">
+    
+    <meta property="og:title" content="MySQL 存储引擎">
+      
+    <meta name="keywords" content="MySQL, MySQL存储引擎">
+    <meta name="og:keywords" content="MySQL, MySQL存储引擎">
+      
+    <meta name="description" content="MySQL 存储引擎是 MySQL 学习中十分重要的一部分，今天就让我们一起来学习一下！">
+    <meta name="og:description" content="MySQL 存储引擎是 MySQL 学习中十分重要的一部分，今天就让我们一起来学习一下！">
+      
+    
+    
+        
+    
+    <meta property="og:url" content="http://localhost:4000/mysql/2017/02/24/MySQLEngine/">
+    <meta property="og:site_name" content="Peiqin Lin's Homepage">
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="zh_CN" />
+    
+    <meta property="article:published_time" content="2017-02-24">
+    
+    <script src="http://localhost:4000/assets/vendor/jquery/dist/jquery.min.js"></script>
+    <script src="http://localhost:4000/assets/js/jquery-ui.js"></script>
+    <script type="text/javascript">
+    function toggleMenu() {
+        var nav = document.getElementsByClassName("site-header-nav")[0];
+        if (nav.style.display == "inline-flex") {
+          nav.style.display = "none";
+        } else {
+          nav.style.display = "inline-flex";
+        }
+    }
+    </script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-114643083-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-114643083-1');
+    </script>
+</head>
+<body class="" data-mz="">
+    <header class="site-header">
+        <div class="container">
+            <h1><a href="http://localhost:4000/" title="Peiqin Lin's Homepage">Peiqin Lin's Homepage</a></h1>
+            <button class="collapsed mobile-visible" type="button" onclick="toggleMenu();">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <nav class="site-header-nav" role="navigation">
+                
+            </nav>
+        </div>
+    </header>
+    <!-- / header -->
+
+    <section class="collection-head small geopattern" data-pattern-id="MySQL 存储引擎">
+<div class="container">
+  <div class="columns">
+    <div class="column three-fourths">
+      <div class="collection-title">
+        <h1 class="collection-header">MySQL 存储引擎</h1>
+        <div class="collection-info">
+          
+          <span class="meta-info">
+            <span class="octicon octicon-calendar"></span> 2017/02/24
+          </span>
+          
+          
+          <span class="meta-info">
+            <span class="octicon octicon-file-directory"></span>
+            <a href="http://localhost:4000/categories/#MySQL" title="MySQL">MySQL</a>
+          </span>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+<!-- / .banner -->
+<section class="container content">
+<div class="columns">
+  <div class="column three-fourths" >
+    <article class="article-content markdown-body">
+    <p>MySQL 存储引擎是 MySQL 学习中十分重要的一部分，今天就让我们一起来学习一下！</p>
+
+<h3 id="什么是存储引擎">什么是存储引擎</h3>
+
+<p>存储引擎是如何存储数据、如何为存储的数据建立索引和如何更新、查询数据等技术的实现方法。因为在关系数据库中数据以表的形式存储，所以存储引擎也称为表类型。Oracle、SQL Server等只有一种存储引擎，数据存储管理机制都是一样的，而MySQL供多种存储引擎，可根据不同需求选择存储引擎，也可编写自己的存储引擎。</p>
+
+<h3 id="mysql中有哪些存储引擎">MySQL中有哪些存储引擎</h3>
+
+<h4 id="myisam">MyISAM</h4>
+
+<p>MySQL最早提供的引擎，分为静态MyISAM、动态MyISAM和压缩MyISAM三种：</p>
+
+<ul>
+  <li>静态MyISAM：如果表中各数据列长度预先固定好，服务器将自动选择这种表类型。因为数据表中每条记录所占空间都是一样的，所以这种表存取和更新的效率非常高。当数据受损时，恢复工作也容易做</li>
+  <li>动态MyISAM：如果表中出现varchar、xxxtext或xxxBLOB字段，服务器将自动选择这种表类型。相对静态MyISAM，这种表存储空间小，但由于记录长度不一，所以多次修改后，表中数据可能离散存储在内存中，导致执行效率下降。同时，内存也可能出现碎片。因此，这种表要经常用<code class="language-plaintext highlighter-rouge">optimize table</code>命令或优化工具进行碎片整理</li>
+  <li>压缩MyISAM：以上表都可用myisamchk压缩。这种表减小了占用存储，但压缩后不能再修改，读取也要先解压</li>
+</ul>
+
+<p>但不管是何种MyISAM表，都不支持事务、行级锁和外键约束。</p>
+
+<p>MyISAM表独立于操作系统，可从Windows移植到Linux；每建立一个MyISAM引擎的表tb_Demo，就会在本地磁盘建立三个文件：tb_demo.frm（存储表定义）、tb_demo.MYD（存储数据）和tb_demo.MYI（存储索引）。</p>
+
+<p>MyISAM存储引擎适合以下几种情况：</p>
+
+<ol>
+  <li>选择密集型的表。MyISAM存储引擎在筛选大量数据时非常迅速，这是它最突出的优点</li>
+  <li>插入密集型的表。MyISAM的并发插入特性允许同时选择和插入数据。如管理邮件或Web服务器日志数据</li>
+</ol>
+
+<h4 id="innodb">InnoDB</h4>
+
+<p>InnoDB对MyISAM进一步更新，提供事务、行级锁机制和外键约束的功能，已被很多公司使用。以下场合使用最理想：</p>
+
+<ol>
+  <li>更新密集的表。InnoDB存储引擎特别适合处理多重并发的更新请求</li>
+  <li>事务。InnoDB存储引擎是支持事务的标准MySQL存储引擎</li>
+  <li>自动灾难恢复。与其它存储引擎不同，InnoDB表能自动从灾难中恢复</li>
+  <li>外键约束。MySQL支持外键的存储引擎只有InnoDB</li>
+  <li>支持自动增加列AUTO_INCREMENT属性</li>
+</ol>
+
+<h4 id="memoryheap">MEMORY(Heap)</h4>
+
+<p>这种类型的表只存在于内存，它存取速度快，常用于临时表，但当mysqld守护进程崩溃时，所有Memory数据都会丢失。它要求表里数据使用的是长度不变的格式，故不能用BLOB和TEXT等长度可变的数据类型，VARCHAR是长度可变的类型，但在MySQL被当做长度不变的CHAR，故可使用。以下几种情况下常用Memory存储引擎：</p>
+
+<ol>
+  <li>数据小且频繁访问。内存存放数据会造成内存使用，可通过参数max_heap_table_size控制Memory表最大大小</li>
+  <li>如果数据临时且要求立即可用，那么可存放在内存表</li>
+  <li>存储在Memory表中的数据如果突然丢失，不会对应用服务产生实质的负面影响</li>
+</ol>
+
+<p>Memory支持散列索引和B树索引。B树索引优于散列索引的是，可用部分查询和通配查询，也可用&lt;、&gt;和&gt;=等方便数据挖掘。散列索引相等比较快，但范围比较速度慢，因此散列索引适用=和&lt;&gt;操作符，不适合<或>操作符和order by子句。</或></p>
+
+<h4 id="merge">MERGE</h4>
+
+<p>MERGE是MyISAM表的组合，表结构须相同，Merge表没有数据，对Merge表操作实际是对内部MyISAM表操作。使用场景：如用12个相同表存储服务器日志数据，当基于12个表生成报表，需要编写多表查询。与其这样，不如合并起来使用一条查询，再删除Merge表，而不影响原来数据。</p>
+
+<h4 id="archive">ARCHIVE</h4>
+
+<p>Archive是归档的意思，归档后仅支持插入和查询。MySQL 5.5后，Archive就支持索引了。Archive有很好的压缩机制，它使用zlib压缩库，在记录被请求时会实时压缩，所以常被用来当做仓库使用。</p>
+
+<h3 id="mysql中关于存储引擎的操作">MySql中关于存储引擎的操作</h3>
+
+<p>显示当前数据库支持的存储引擎情况：</p>
+
+<pre><code class="language-mysql">show engines;
+</code></pre>
+
+<p>显示当前所有表的存储引擎情况：</p>
+
+<pre><code class="language-mysql">show table status;
+</code></pre>
+
+<p>创建数据库表时设置存储引擎：</p>
+
+<pre><code class="language-mysql">Create table tableName (
+	columnName(列名1)  type(数据类型)  attri(属性设置),
+	columnName(列名2)  type(数据类型)  attri(属性设置),
+	……..
+) engine = engineName;
+</code></pre>
+
+<p>修改表的存储引擎：</p>
+
+<pre><code class="language-mysql">Alter table tableName engine=engineName;
+</code></pre>
+
+    </article>
+    <div class="share">
+      <div class="share-component"></div>
+    </div>
+    <div class="comment">
+      
+  
+        <div id="container"></div>
+        <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+        <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+        <script>
+        var gitment = new Gitment({
+            id: '/mysql/2017/02/24/MySQLEngine/',
+            owner: 'lpq29743',
+            repo: 'blog-comments',
+            oauth: {
+                client_id: '5818ceff784afe05d31c',
+                client_secret: 'dc7e8efc044c7194cf453740f82c646aa998f206',
+            },
+        })
+        gitment.render('container')
+        </script>
+  
+
+
+    </div>
+	<ul class="pager">
+		
+		<li class="previous">
+			<a href="/mysql/2017/02/24/MySQLBenchmarkingTools/" data-toggle="tooltip" data-placement="top" title="MySQL 基准测试工具">
+				Previous<br>
+				<span>MySQL 基准测试工具</span>
+			</a>
+		</li>
+		
+		
+		<li class="next">
+			<a href="/algorithm/2017/02/25/TailCall/" data-toggle="tooltip" data-placement="top" title="尾调用和尾递归">
+				Next<br>
+				<span>尾调用和尾递归</span>
+			</a>
+		</li>
+		
+	</ul>
+  </div>
+  <div class="column one-fourth">
+    
+<h3>Search</h3>
+<div id="site_search">
+    <input type="text" id="search_box" placeholder="Search">
+</div>
+
+<ul id="search_results"></ul>
+
+<link rel="stylesheet" type="text/css" href="http://localhost:4000/assets/css/modules/sidebar-search.css">
+<script src="http://localhost:4000/assets/js/jekyll-search.min.js"></script>
+<script src="http://localhost:4000/assets/js/search.js"></script>
+
+<script type="text/javascript">
+SimpleJekyllSearch({
+    searchInput: document.getElementById('search_box'),
+    resultsContainer: document.getElementById('search_results'),
+    json: 'http://localhost:4000/assets/search_data.json',
+    searchResultTemplate: '<li><a href="{url}" title="{desc}">{title}</a></li>',
+    noResultsText: 'No results found',
+    limit: 10,
+    fuzzy: false,
+    exclude: ['Welcome']
+})
+</script>
+
+    
+<h3 class="post-directory-title mobile-hidden">Table of Contents</h3>
+<div id="post-directory-module" class="mobile-hidden">
+  <section class="post-directory">
+  <!-- Links that trigger the jumping -->
+  <!-- Added by javascript below -->
+  <dl></dl>
+  </section>
+</div>
+
+<script src="http://localhost:4000/assets/js/jquery.toc.js"></script>
+
+  </div>
+</div>
+</section>
+<!-- /section.content -->
+
+    <footer class="container">
+        <div class="site-footer" role="contentinfo">
+            <div class="copyright left mobile-block">
+                <a href="javascript:window.scrollTo(0,0)" class="right mobile-visible">TOP</a>
+            </div>
+
+            <ul class="site-footer-links right mobile-hidden">
+                <li>
+                    <a href="javascript:window.scrollTo(0,0)" >TOP</a>
+                </li>
+            </ul>
+            <a href="https://github.com/lpq29743/lpq29743.github.io" target="_blank" aria-label="view source code">
+                <span class="mega-octicon octicon-mark-github" title="GitHub"></span>
+            </a>
+            <ul class="site-footer-links mobile-hidden">
+                
+            </ul>
+
+        </div>
+    </footer>
+    <!-- / footer -->
+    <script src="http://localhost:4000/assets/vendor/share.js/dist/js/share.min.js"></script>
+    <script src="http://localhost:4000/assets/js/geopattern.js"></script>
+    <script src="http://localhost:4000/assets/js/prism.js"></script>
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/globals/prism.css">
+    <script>
+      jQuery(document).ready(function($) {
+        // geopattern
+        $('.geopattern').each(function(){
+          $(this).geopattern($(this).data('pattern-id'));
+        });
+       // hljs.initHighlightingOnLoad();
+      });
+    </script>
+    
+</body>
+</html>

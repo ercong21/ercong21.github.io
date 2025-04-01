@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans" prefix="og: http://ogp.me/ns#" class="han-init">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <title>怎样系统地学习 Android 开发 &mdash; Peiqin Lin's Homepage</title>
+    <link rel="stylesheet" href="http://localhost:4000/assets/vendor/primer-css/css/primer.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/vendor/primer-markdown/dist/user-content.min.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/vendor/octicons/octicons/octicons.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/components/collection.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/components/repo-card.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/repo-list.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/mini-repo-list.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/profile.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/contact.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/news.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/components/boxed-group.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/globals/common.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/vendor/share.js/dist/css/share.min.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/globals/responsive.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/posts/index.css">
+    <!-- Latest compiled and minified CSS -->
+    
+
+    
+    <link rel="canonical" href="http://localhost:4000/android/2017/03/03/HowToStudyAndroid/">
+    <link rel="alternate" type="application/atom+xml" title="Peiqin Lin's Homepage" href="/feed.xml">
+    <link rel="shortcut icon" href="http://localhost:4000/favicon.ico">
+    
+    <meta property="og:title" content="怎样系统地学习 Android 开发">
+      
+    <meta name="keywords" content="Android, Android开发">
+    <meta name="og:keywords" content="Android, Android开发">
+      
+    <meta name="description" content="从大一开始接触Android，到现在已经两三年了，不算老鸟，但多多少少有自己的一点收获。这篇文章将会结合本人的学习经验和网络上的资料，总结出一个Android学习的框架。">
+    <meta name="og:description" content="从大一开始接触Android，到现在已经两三年了，不算老鸟，但多多少少有自己的一点收获。这篇文章将会结合本人的学习经验和网络上的资料，总结出一个Android学习的框架。">
+      
+    
+    
+        
+    
+    <meta property="og:url" content="http://localhost:4000/android/2017/03/03/HowToStudyAndroid/">
+    <meta property="og:site_name" content="Peiqin Lin's Homepage">
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="zh_CN" />
+    
+    <meta property="article:published_time" content="2017-03-03">
+    
+    <script src="http://localhost:4000/assets/vendor/jquery/dist/jquery.min.js"></script>
+    <script src="http://localhost:4000/assets/js/jquery-ui.js"></script>
+    <script type="text/javascript">
+    function toggleMenu() {
+        var nav = document.getElementsByClassName("site-header-nav")[0];
+        if (nav.style.display == "inline-flex") {
+          nav.style.display = "none";
+        } else {
+          nav.style.display = "inline-flex";
+        }
+    }
+    </script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-114643083-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-114643083-1');
+    </script>
+</head>
+<body class="" data-mz="">
+    <header class="site-header">
+        <div class="container">
+            <h1><a href="http://localhost:4000/" title="Peiqin Lin's Homepage">Peiqin Lin's Homepage</a></h1>
+            <button class="collapsed mobile-visible" type="button" onclick="toggleMenu();">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <nav class="site-header-nav" role="navigation">
+                
+            </nav>
+        </div>
+    </header>
+    <!-- / header -->
+
+    <section class="collection-head small geopattern" data-pattern-id="怎样系统地学习 Android">
+<div class="container">
+  <div class="columns">
+    <div class="column three-fourths">
+      <div class="collection-title">
+        <h1 class="collection-header">怎样系统地学习 Android 开发</h1>
+        <div class="collection-info">
+          
+          <span class="meta-info">
+            <span class="octicon octicon-calendar"></span> 2017/03/03
+          </span>
+          
+          
+          <span class="meta-info">
+            <span class="octicon octicon-file-directory"></span>
+            <a href="http://localhost:4000/categories/#Android" title="Android">Android</a>
+          </span>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+<!-- / .banner -->
+<section class="container content">
+<div class="columns">
+  <div class="column three-fourths" >
+    <article class="article-content markdown-body">
+    <p>从大一开始接触Android，到现在已经两三年了，不算老鸟，但多多少少有自己的一点收获。这篇文章将会结合本人的学习经验和网络上的资料，总结出一个Android学习的框架。</p>
+
+<h3 id="开发工具">开发工具</h3>
+
+<ul>
+  <li>Android Studio：如果你现在还是在使用Eclipse，还在怀疑迁移AS带来的影响，那我可以很负责任地告诉你，可以换环境了。AS是官方推荐的开发环境，很多方面的体验都要优于Eclipse</li>
+  <li>Git：版本控制工具，有必要的话还可以把代码传到github上</li>
+</ul>
+
+<h3 id="编程语言">编程语言</h3>
+
+<ul>
+  <li>Java：基本很多人学习Android开发之前都要学习Java，因为Android应用是基于Java编写的</li>
+  <li>Kotlin：Android开发的Swift，是对现有Java的增强，可搭配Anko使用（具体看<a href="https://realm.io/cn/news/getting-started-with-kotlin-and-anko/">这里</a>），推荐大家可以试试</li>
+  <li>React Native：跨平台语言，可以同时开发IOS App和Android App</li>
+</ul>
+
+<h3 id="开发框架">开发框架</h3>
+
+<ul>
+  <li>ButterKnife：依赖注入框架，提高代码可读性，具体可参考<a href="https://lpq29743.github.io/redant/android/2016/09/26/ButterKnife/">这里</a>，Kotlin下使用KotterKnife，使用教程可参考<a href="http://blog.csdn.net/jasoncol_521/article/details/49663097">这里</a></li>
+  <li>OkHttp：网络框架，相对成熟的解决方案</li>
+  <li>Retrofit：网络框架，封装了OkHttp，也是相当优秀的框架，项目中可以考虑Retrofit+OkHttp的方案</li>
+  <li>EventBus：事件总线框架，具体学习可以参考<a href="https://lpq29743.github.io/redant/android/2016/09/26/EventBus/">这里</a></li>
+  <li>Glide：Picasso、Glide和Fresco这三大图片加载框架都很不错，前两者适合普通应用，后者适合图片型应用</li>
+  <li>greenDao：数据库操作框架，还算蛮不错的</li>
+  <li>RxJava+RxAndroid：响应式编程框架，具体学习可以查看<a href="https://lpq29743.github.io/redant/android/2016/09/29/RxJava/">这篇文章</a></li>
+  <li>logger：日志输出框架，相当好用</li>
+  <li>bugly：腾讯的崩溃统计平台，地址请点击<a href="https://bugly.qq.com/v2/">这里</a></li>
+  <li>MVVM：Android架构设计方法，使代码更加清晰，实现高内聚低耦合</li>
+  <li>Material Design：Android5.0新特性，使界面更加友好和美观</li>
+  <li>FastJson：阿里开发的Json解析工具，在国内十分流行</li>
+</ul>
+
+<h3 id="相关小技巧">相关小技巧</h3>
+
+<ul>
+  <li>XML Tools：具体使用方法可以查看本人<a href="https://lpq29743.github.io/redant/android/2016/10/04/AndroidXmlTools/">这篇文章</a></li>
+</ul>
+
+<h3 id="优秀项目">优秀项目</h3>
+
+<ul>
+  <li>iosched：Google每年I/O大会都会出一款范例App，这是2016年的App，项目地址在<a href="https://github.com/google/iosched">这里</a></li>
+  <li>u2020：Jake Wharton（ButterKnife等的开发者）的示例项目，项目地址在<a href="https://github.com/JakeWharton/u2020">这里</a></li>
+  <li>android-architecture：Android官方MVP架构示例项目，项目地址在<a href="https://github.com/googlesamples/android-architecture">这里</a></li>
+  <li>Philm：Chris Bannes的开源项目，实现了MVP，项目地址在<a href="https://github.com/chrisbanes/philm">这里</a></li>
+  <li>Meizhi：MVC框架，使用了Picasso+RxJava&amp;Retrofit＋okhttp，项目地址在<a href="https://github.com/drakeet/Meizhi">这里</a></li>
+  <li>plain：谷歌工程师开发，代码量大，但结构清晰，项目地址在<a href="https://github.com/nickbutcher/plaid">这里</a></li>
+</ul>
+
+    </article>
+    <div class="share">
+      <div class="share-component"></div>
+    </div>
+    <div class="comment">
+      
+  
+        <div id="container"></div>
+        <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+        <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+        <script>
+        var gitment = new Gitment({
+            id: '/android/2017/03/03/HowToStudyAndroid/',
+            owner: 'lpq29743',
+            repo: 'blog-comments',
+            oauth: {
+                client_id: '5818ceff784afe05d31c',
+                client_secret: 'dc7e8efc044c7194cf453740f82c646aa998f206',
+            },
+        })
+        gitment.render('container')
+        </script>
+  
+
+
+    </div>
+	<ul class="pager">
+		
+		<li class="previous">
+			<a href="/mysql/2017/02/27/MySQLIndex/" data-toggle="tooltip" data-placement="top" title="MySQL 索引类型">
+				Previous<br>
+				<span>MySQL 索引类型</span>
+			</a>
+		</li>
+		
+		
+		<li class="next">
+			<a href="/python/2017/03/06/PythonWordCloud/" data-toggle="tooltip" data-placement="top" title="Python 历险记第三站——利用 Python 实现词云">
+				Next<br>
+				<span>Python 历险记第三站——利用 Python 实现词云</span>
+			</a>
+		</li>
+		
+	</ul>
+  </div>
+  <div class="column one-fourth">
+    
+<h3>Search</h3>
+<div id="site_search">
+    <input type="text" id="search_box" placeholder="Search">
+</div>
+
+<ul id="search_results"></ul>
+
+<link rel="stylesheet" type="text/css" href="http://localhost:4000/assets/css/modules/sidebar-search.css">
+<script src="http://localhost:4000/assets/js/jekyll-search.min.js"></script>
+<script src="http://localhost:4000/assets/js/search.js"></script>
+
+<script type="text/javascript">
+SimpleJekyllSearch({
+    searchInput: document.getElementById('search_box'),
+    resultsContainer: document.getElementById('search_results'),
+    json: 'http://localhost:4000/assets/search_data.json',
+    searchResultTemplate: '<li><a href="{url}" title="{desc}">{title}</a></li>',
+    noResultsText: 'No results found',
+    limit: 10,
+    fuzzy: false,
+    exclude: ['Welcome']
+})
+</script>
+
+    
+<h3 class="post-directory-title mobile-hidden">Table of Contents</h3>
+<div id="post-directory-module" class="mobile-hidden">
+  <section class="post-directory">
+  <!-- Links that trigger the jumping -->
+  <!-- Added by javascript below -->
+  <dl></dl>
+  </section>
+</div>
+
+<script src="http://localhost:4000/assets/js/jquery.toc.js"></script>
+
+  </div>
+</div>
+</section>
+<!-- /section.content -->
+
+    <footer class="container">
+        <div class="site-footer" role="contentinfo">
+            <div class="copyright left mobile-block">
+                <a href="javascript:window.scrollTo(0,0)" class="right mobile-visible">TOP</a>
+            </div>
+
+            <ul class="site-footer-links right mobile-hidden">
+                <li>
+                    <a href="javascript:window.scrollTo(0,0)" >TOP</a>
+                </li>
+            </ul>
+            <a href="https://github.com/lpq29743/lpq29743.github.io" target="_blank" aria-label="view source code">
+                <span class="mega-octicon octicon-mark-github" title="GitHub"></span>
+            </a>
+            <ul class="site-footer-links mobile-hidden">
+                
+            </ul>
+
+        </div>
+    </footer>
+    <!-- / footer -->
+    <script src="http://localhost:4000/assets/vendor/share.js/dist/js/share.min.js"></script>
+    <script src="http://localhost:4000/assets/js/geopattern.js"></script>
+    <script src="http://localhost:4000/assets/js/prism.js"></script>
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/globals/prism.css">
+    <script>
+      jQuery(document).ready(function($) {
+        // geopattern
+        $('.geopattern').each(function(){
+          $(this).geopattern($(this).data('pattern-id'));
+        });
+       // hljs.initHighlightingOnLoad();
+      });
+    </script>
+    
+</body>
+</html>

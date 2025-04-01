@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans" prefix="og: http://ogp.me/ns#" class="han-init">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <title>Android 依赖注入框架 ButterKnife &mdash; Peiqin Lin's Homepage</title>
+    <link rel="stylesheet" href="http://localhost:4000/assets/vendor/primer-css/css/primer.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/vendor/primer-markdown/dist/user-content.min.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/vendor/octicons/octicons/octicons.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/components/collection.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/components/repo-card.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/repo-list.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/mini-repo-list.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/profile.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/contact.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/news.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/components/boxed-group.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/globals/common.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/vendor/share.js/dist/css/share.min.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/globals/responsive.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/posts/index.css">
+    <!-- Latest compiled and minified CSS -->
+    
+
+    
+    <link rel="canonical" href="http://localhost:4000/android/2016/09/26/ButterKnife/">
+    <link rel="alternate" type="application/atom+xml" title="Peiqin Lin's Homepage" href="/feed.xml">
+    <link rel="shortcut icon" href="http://localhost:4000/favicon.ico">
+    
+    <meta property="og:title" content="Android 依赖注入框架 ButterKnife">
+      
+    <meta name="keywords" content="Android, ButterKnife, 开源框架, 依赖注入">
+    <meta name="og:keywords" content="Android, ButterKnife, 开源框架, 依赖注入">
+      
+    <meta name="description" content="依赖注入框架在Android项目开发过程中极为方便，本位主要围绕这ButterKnife进行讲述。">
+    <meta name="og:description" content="依赖注入框架在Android项目开发过程中极为方便，本位主要围绕这ButterKnife进行讲述。">
+      
+    
+    
+        
+    
+    <meta property="og:url" content="http://localhost:4000/android/2016/09/26/ButterKnife/">
+    <meta property="og:site_name" content="Peiqin Lin's Homepage">
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="zh_CN" />
+    
+    <meta property="article:published_time" content="2016-09-26">
+    
+    <script src="http://localhost:4000/assets/vendor/jquery/dist/jquery.min.js"></script>
+    <script src="http://localhost:4000/assets/js/jquery-ui.js"></script>
+    <script type="text/javascript">
+    function toggleMenu() {
+        var nav = document.getElementsByClassName("site-header-nav")[0];
+        if (nav.style.display == "inline-flex") {
+          nav.style.display = "none";
+        } else {
+          nav.style.display = "inline-flex";
+        }
+    }
+    </script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-114643083-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-114643083-1');
+    </script>
+</head>
+<body class="" data-mz="">
+    <header class="site-header">
+        <div class="container">
+            <h1><a href="http://localhost:4000/" title="Peiqin Lin's Homepage">Peiqin Lin's Homepage</a></h1>
+            <button class="collapsed mobile-visible" type="button" onclick="toggleMenu();">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <nav class="site-header-nav" role="navigation">
+                
+            </nav>
+        </div>
+    </header>
+    <!-- / header -->
+
+    <section class="collection-head small geopattern" data-pattern-id="Android 依赖注入框架 ">
+<div class="container">
+  <div class="columns">
+    <div class="column three-fourths">
+      <div class="collection-title">
+        <h1 class="collection-header">Android 依赖注入框架 ButterKnife</h1>
+        <div class="collection-info">
+          
+          <span class="meta-info">
+            <span class="octicon octicon-calendar"></span> 2016/09/26
+          </span>
+          
+          
+          <span class="meta-info">
+            <span class="octicon octicon-file-directory"></span>
+            <a href="http://localhost:4000/categories/#Android" title="Android">Android</a>
+          </span>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+<!-- / .banner -->
+<section class="container content">
+<div class="columns">
+  <div class="column three-fourths" >
+    <article class="article-content markdown-body">
+    <p>依赖注入框架在Android项目开发过程中极为方便，本位主要围绕这ButterKnife进行讲述。</p>
+
+<p>本文所介绍的版本是ButterKnife8.0.1（2016/04/29更新的版本），ButterKnife项目由Jake Wharton编写，项目源地址为：<a href="https://github.com/JakeWharton/butterknife">https://github.com/JakeWharton/butterknife</a>，相关博客文章地址为：<a href="http://jakewharton.github.io/butterknife/">http://jakewharton.github.io/butterknife/</a>。ButterKnife的原理只是把我们原先写的代码封装起来，所以在性能方面不会受到任何影响。</p>
+
+<h3 id="配置">配置</h3>
+
+<p><strong>步骤一</strong></p>
+
+<p>Project 的 build.gradle 添加：</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dependencies {
+  classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
+}
+</code></pre></div></div>
+
+<p><strong>步骤二</strong></p>
+
+<p>App 的 build.gradle 添加：</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>apply plugin: 'com.neenbedankt.android-apt'
+
+dependencies {
+  compile 'com.jakewharton:butterknife:8.0.1'
+  apt 'com.jakewharton:butterknife-compiler:8.0.1'
+}
+</code></pre></div></div>
+
+<p>（这里要加入apt插件的原因是：apt是用于编译时扫描和解析 Java 注解的工具，通过它我们可以自己定义注解，并定义解析器来处理它们。它的原理是读入 Java 源代码，解析注解，然后生成新的 Java 代码，新生成的代码最后被编译成 Java 字节码。）</p>
+
+<p><strong>步骤三</strong></p>
+
+<p>安装Android Butterknife Zelezny（一般步骤一二执行完后会添加，没添加的话File–&gt;Settings–&gt;Plugins–&gt;Browse repositories添加），这个插件可以让你在添加Butterkinfe注解时偷偷懒，直接点击几下鼠标既可以完成注解的增加，同时还是图形化的操作。</p>
+
+<h3 id="使用">使用</h3>
+
+<h4 id="bindview-来消除-findviewbyid">@BindView 来消除 findViewById</h4>
+
+<p>使用前：</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">mTextView</span> <span class="o">=</span> <span class="o">(</span><span class="nc">TextView</span><span class="o">)</span> <span class="n">findViewById</span><span class="o">(</span><span class="no">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">text</span><span class="o">);</span>
+</code></pre></div></div>
+
+<p>使用后：</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**单个View控件的绑定*/</span>
+<span class="nd">@BindView</span><span class="o">(</span><span class="no">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">btn_login</span><span class="o">)</span>
+<span class="cm">/**多个控件的绑定可以写在List或者Array中*/</span>
+<span class="nd">@BindViews</span><span class="o">({</span> <span class="no">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">first_name</span><span class="o">,</span> <span class="no">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">middle_name</span><span class="o">,</span> <span class="no">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">last_name</span> <span class="o">})</span>
+<span class="nc">List</span><span class="o">&lt;</span><span class="nc">EditText</span><span class="o">&gt;</span> <span class="n">nameViews</span><span class="o">;</span>
+</code></pre></div></div>
+
+<p>再具体点：</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">ExampleActivity</span> <span class="kd">extends</span> <span class="nc">Activity</span> <span class="o">{</span>
+  <span class="c1">// 声明注解</span>
+  <span class="nd">@BindView</span><span class="o">(</span><span class="no">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">title</span><span class="o">)</span> <span class="nc">TextView</span> <span class="n">title</span><span class="o">;</span>
+  <span class="nd">@BindView</span><span class="o">(</span><span class="no">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">subtitle</span><span class="o">)</span> <span class="nc">TextView</span> <span class="n">subtitle</span><span class="o">;</span>
+  <span class="nd">@BindView</span><span class="o">(</span><span class="no">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">footer</span><span class="o">)</span> <span class="nc">TextView</span> <span class="n">footer</span><span class="o">;</span>
+
+  <span class="nd">@Override</span> <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onCreate</span><span class="o">(</span><span class="nc">Bundle</span> <span class="n">savedInstanceState</span><span class="o">)</span> <span class="o">{</span>
+    <span class="kd">super</span><span class="o">.</span><span class="na">onCreate</span><span class="o">(</span><span class="n">savedInstanceState</span><span class="o">);</span>
+    <span class="n">setContentView</span><span class="o">(</span><span class="no">R</span><span class="o">.</span><span class="na">layout</span><span class="o">.</span><span class="na">simple_activity</span><span class="o">);</span>
+    <span class="c1">// 进行绑定</span>
+    <span class="nc">ButterKnife</span><span class="o">.</span><span class="na">bind</span><span class="o">(</span><span class="k">this</span><span class="o">);</span>
+    <span class="c1">// TODO Use fields...</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>在Fragment中有所区别，但不是很大：</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@BindView</span><span class="o">(</span><span class="no">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">me_about_us</span><span class="o">)</span> <span class="nc">LinearLayout</span> <span class="n">meAboutUs</span><span class="o">;</span>
+
+<span class="nd">@Override</span>
+<span class="kd">public</span> <span class="nc">View</span> <span class="nf">onCreateView</span><span class="o">(</span><span class="nc">LayoutInflater</span> <span class="n">inflater</span><span class="o">,</span> <span class="nc">ViewGroup</span> <span class="n">container</span><span class="o">,</span> <span class="nc">Bundle</span> <span class="n">savedInstanceState</span><span class="o">)</span> <span class="o">{</span>
+	<span class="nc">View</span> <span class="n">view</span> <span class="o">=</span> <span class="n">inflater</span><span class="o">.</span><span class="na">inflate</span><span class="o">(</span><span class="no">R</span><span class="o">.</span><span class="na">layout</span><span class="o">.</span><span class="na">nav_me</span><span class="o">,</span><span class="n">container</span><span class="o">,</span> <span class="kc">false</span><span class="o">);</span>
+	<span class="nc">ButterKnife</span><span class="o">.</span><span class="na">bind</span><span class="o">(</span><span class="k">this</span><span class="o">,</span> <span class="n">view</span><span class="o">);</span>
+	<span class="k">return</span> <span class="n">view</span><span class="o">;</span>
+<span class="o">}</span>
+
+<span class="c1">// onDestroyView()中解绑</span>
+<span class="c1">// Calling unbind() in onDestroyView() is not required, but recommended.</span>
+<span class="kd">private</span> <span class="nc">Unbinder</span> <span class="n">unbinder</span> <span class="o">=</span> <span class="nc">ButterKnife</span><span class="o">.</span><span class="na">bind</span><span class="o">(</span><span class="k">this</span><span class="o">,</span> <span class="n">view</span><span class="o">);</span>
+
+<span class="nd">@Override</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">onDestroyView</span><span class="o">()</span> <span class="o">{</span>
+	<span class="n">unbinder</span><span class="o">.</span><span class="na">unbind</span><span class="o">();</span>
+	<span class="kd">super</span><span class="o">.</span><span class="na">onDestroyView</span><span class="o">();</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>而在ViewHolder中是这样的：</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Override</span>
+<span class="kd">public</span> <span class="nc">View</span> <span class="nf">getView</span><span class="o">(</span><span class="kt">int</span> <span class="n">position</span><span class="o">,</span> <span class="nc">View</span> <span class="n">convertView</span><span class="o">,</span> <span class="nc">ViewGroup</span> <span class="n">parent</span><span class="o">)</span> <span class="o">{</span>
+	<span class="nc">ViewHolder</span> <span class="n">viewHolder</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+	<span class="k">if</span> <span class="o">(</span><span class="n">convertView</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+		<span class="n">convertView</span> <span class="o">=</span> <span class="nc">LayoutInflater</span><span class="o">.</span><span class="na">from</span><span class="o">(</span><span class="n">mContext</span><span class="o">).</span><span class="na">inflate</span><span class="o">(</span><span class="no">R</span><span class="o">.</span><span class="na">layout</span><span class="o">.</span><span class="na">common_laguage_child_item</span><span class="o">,</span> <span class="kc">null</span><span class="o">);</span>
+		<span class="n">viewHolder</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ViewHolder</span><span class="o">(</span><span class="n">convertView</span><span class="o">);</span>
+		<span class="n">convertView</span><span class="o">.</span><span class="na">setTag</span><span class="o">(</span><span class="n">viewHolder</span><span class="o">);</span>
+	<span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+		<span class="n">viewHolder</span><span class="o">=(</span><span class="nc">ViewHolder</span><span class="o">)</span><span class="n">convertView</span><span class="o">.</span><span class="na">getTag</span><span class="o">();</span>
+	<span class="o">}</span>
+	<span class="nc">JSONObject</span> <span class="n">child</span> <span class="o">=</span><span class="n">getItem</span><span class="o">(</span><span class="n">position</span><span class="o">);</span>
+	<span class="n">viewHolder</span><span class="o">.</span><span class="na">tvChildCommon</span><span class="o">.</span><span class="na">setText</span><span class="o">(</span><span class="n">child</span><span class="o">.</span><span class="na">optString</span><span class="o">(</span><span class="s">"content"</span><span class="o">,</span><span class="s">""</span><span class="o">));</span>
+	<span class="k">return</span> <span class="n">convertView</span><span class="o">;</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">ViewHolder</span> <span class="o">{</span>
+	<span class="nd">@BindView</span><span class="o">(</span><span class="no">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">tv_child_common</span><span class="o">)</span>
+	<span class="nc">TextView</span> <span class="n">tvChildCommon</span><span class="o">;</span>
+	<span class="nc">ViewHolder</span><span class="o">(</span><span class="nc">View</span> <span class="n">view</span><span class="o">)</span> <span class="o">{</span>
+		<span class="nc">ButterKnife</span><span class="o">.</span><span class="na">bind</span><span class="o">(</span><span class="k">this</span><span class="o">,</span> <span class="n">view</span><span class="o">);</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<h4 id="onclick消除setonclicklistener">@OnClick消除setOnClickListener</h4>
+
+<p>使用前：</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">button</span><span class="o">.</span><span class="na">setOnClickListener</span><span class="o">(</span><span class="k">this</span><span class="o">);</span>
+</code></pre></div></div>
+
+<p>使用后：</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@OnClick</span><span class="o">({</span><span class="no">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">bt_1</span><span class="o">,</span> <span class="no">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">bt_2</span><span class="o">,</span> <span class="no">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">bt_3</span><span class="o">})</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">buttonClick</span><span class="o">(</span><span class="nc">View</span> <span class="n">v</span><span class="o">)</span> <span class="o">{</span>
+    <span class="nc">Toast</span><span class="o">.</span><span class="na">makeText</span><span class="o">(</span><span class="k">this</span><span class="o">,</span> <span class="s">"view:"</span> <span class="o">+</span> <span class="n">v</span><span class="o">,</span> <span class="nc">Toast</span><span class="o">.</span><span class="na">LENGTH_SHORT</span><span class="o">).</span><span class="na">show</span><span class="o">();</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>监听器的参数是可选的：</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@OnClick(R.id.submit)
+public void sayHi(Button button) { 
+    button.setText("Hello!");
+}
+</code></pre></div></div>
+<h4 id="资源绑定">资源绑定</h4>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@BindString</span><span class="o">(</span><span class="no">R</span><span class="o">.</span><span class="na">string</span><span class="o">.</span><span class="na">title</span><span class="o">)</span> <span class="nc">String</span> <span class="n">title</span><span class="o">;</span> 
+<span class="nd">@BindDrawable</span><span class="o">(</span><span class="no">R</span><span class="o">.</span><span class="na">drawable</span><span class="o">.</span><span class="na">graphic</span><span class="o">)</span> <span class="nc">Drawable</span> <span class="n">graphic</span><span class="o">;</span> 
+<span class="nd">@BindColor</span><span class="o">(</span><span class="no">R</span><span class="o">.</span><span class="na">color</span><span class="o">.</span><span class="na">red</span><span class="o">)</span> <span class="kt">int</span> <span class="n">red</span><span class="o">;</span> <span class="c1">// int or ColorStateList field </span>
+<span class="nd">@BindDimen</span><span class="o">(</span><span class="no">R</span><span class="o">.</span><span class="na">dimen</span><span class="o">.</span><span class="na">spacer</span><span class="o">)</span> <span class="nc">Float</span> <span class="n">spacer</span><span class="o">;</span> <span class="c1">// int (for pixel size) or float (for exact value) field</span>
+</code></pre></div></div>
+<h4 id="action功能批量操作view">action功能，批量操作view</h4>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@BindViews</span><span class="o">({</span><span class="no">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">bt_1</span><span class="o">,</span> <span class="no">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">bt_2</span><span class="o">,</span> <span class="no">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">bt_3</span><span class="o">})</span>
+<span class="nc">List</span><span class="o">&lt;</span><span class="nc">Button</span><span class="o">&gt;</span> <span class="n">buttons</span><span class="o">;</span>
+
+<span class="kd">static</span> <span class="kd">final</span> <span class="nc">ButterKnife</span><span class="o">.</span><span class="na">Action</span><span class="o">&lt;</span><span class="nc">Button</span><span class="o">&gt;</span> <span class="n">disable</span><span class="o">=</span><span class="k">new</span> <span class="nc">ButterKnife</span><span class="o">.</span><span class="na">Action</span><span class="o">&lt;</span><span class="nc">Button</span><span class="o">&gt;()</span> <span class="o">{</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">apply</span><span class="o">(</span><span class="nd">@NonNull</span> <span class="nc">Button</span> <span class="n">view</span><span class="o">,</span> <span class="kt">int</span> <span class="n">index</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">view</span><span class="o">.</span><span class="na">setEnabled</span><span class="o">(</span><span class="kc">false</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">};</span>
+<span class="kd">static</span> <span class="kd">final</span> <span class="nc">ButterKnife</span><span class="o">.</span><span class="na">Action</span><span class="o">&lt;</span><span class="nc">Button</span><span class="o">&gt;</span> <span class="n">enable</span><span class="o">=</span><span class="k">new</span> <span class="nc">ButterKnife</span><span class="o">.</span><span class="na">Action</span><span class="o">&lt;</span><span class="nc">Button</span><span class="o">&gt;()</span> <span class="o">{</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">apply</span><span class="o">(</span><span class="nd">@NonNull</span> <span class="nc">Button</span> <span class="n">view</span><span class="o">,</span> <span class="kt">int</span> <span class="n">index</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">view</span><span class="o">.</span><span class="na">setEnabled</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">};</span>
+
+<span class="c1">// 使用</span>
+<span class="nc">ButterKnife</span><span class="o">.</span><span class="na">apply</span><span class="o">(</span><span class="n">buttons</span><span class="o">,</span><span class="n">disable</span><span class="o">);</span>
+<span class="c1">// ButterKnife.apply(buttons,enable);</span>
+</code></pre></div></div>
+<h3 id="注意">注意</h3>
+
+<ol>
+  <li><code class="language-plaintext highlighter-rouge">Activity ButterKnife.bind(this);</code>必须在<code class="language-plaintext highlighter-rouge">setContentView();</code>之后，且父类 bind 绑定后，子类不需要再 bind</li>
+  <li>ButterKnife 不能再你的 library module 中使用哦！这是因为你的 library 中的 R 字段的 id 值不是 final 类型的，但是你自己的应用 module 中确是 final 类型的</li>
+</ol>
+
+
+    </article>
+    <div class="share">
+      <div class="share-component"></div>
+    </div>
+    <div class="comment">
+      
+  
+        <div id="container"></div>
+        <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+        <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+        <script>
+        var gitment = new Gitment({
+            id: '/android/2016/09/26/ButterKnife/',
+            owner: 'lpq29743',
+            repo: 'blog-comments',
+            oauth: {
+                client_id: '5818ceff784afe05d31c',
+                client_secret: 'dc7e8efc044c7194cf453740f82c646aa998f206',
+            },
+        })
+        gitment.render('container')
+        </script>
+  
+
+
+    </div>
+	<ul class="pager">
+		
+		<li class="previous">
+			<a href="/tool/2016/09/24/Git/" data-toggle="tooltip" data-placement="top" title="找个地方放放 Git 命令">
+				Previous<br>
+				<span>找个地方放放 Git 命令</span>
+			</a>
+		</li>
+		
+		
+		<li class="next">
+			<a href="/android/2016/09/26/EventBus/" data-toggle="tooltip" data-placement="top" title="Android 事件发布/订阅框架 EventBus">
+				Next<br>
+				<span>Android 事件发布/订阅框架 EventBus</span>
+			</a>
+		</li>
+		
+	</ul>
+  </div>
+  <div class="column one-fourth">
+    
+<h3>Search</h3>
+<div id="site_search">
+    <input type="text" id="search_box" placeholder="Search">
+</div>
+
+<ul id="search_results"></ul>
+
+<link rel="stylesheet" type="text/css" href="http://localhost:4000/assets/css/modules/sidebar-search.css">
+<script src="http://localhost:4000/assets/js/jekyll-search.min.js"></script>
+<script src="http://localhost:4000/assets/js/search.js"></script>
+
+<script type="text/javascript">
+SimpleJekyllSearch({
+    searchInput: document.getElementById('search_box'),
+    resultsContainer: document.getElementById('search_results'),
+    json: 'http://localhost:4000/assets/search_data.json',
+    searchResultTemplate: '<li><a href="{url}" title="{desc}">{title}</a></li>',
+    noResultsText: 'No results found',
+    limit: 10,
+    fuzzy: false,
+    exclude: ['Welcome']
+})
+</script>
+
+    
+<h3 class="post-directory-title mobile-hidden">Table of Contents</h3>
+<div id="post-directory-module" class="mobile-hidden">
+  <section class="post-directory">
+  <!-- Links that trigger the jumping -->
+  <!-- Added by javascript below -->
+  <dl></dl>
+  </section>
+</div>
+
+<script src="http://localhost:4000/assets/js/jquery.toc.js"></script>
+
+  </div>
+</div>
+</section>
+<!-- /section.content -->
+
+    <footer class="container">
+        <div class="site-footer" role="contentinfo">
+            <div class="copyright left mobile-block">
+                <a href="javascript:window.scrollTo(0,0)" class="right mobile-visible">TOP</a>
+            </div>
+
+            <ul class="site-footer-links right mobile-hidden">
+                <li>
+                    <a href="javascript:window.scrollTo(0,0)" >TOP</a>
+                </li>
+            </ul>
+            <a href="https://github.com/lpq29743/lpq29743.github.io" target="_blank" aria-label="view source code">
+                <span class="mega-octicon octicon-mark-github" title="GitHub"></span>
+            </a>
+            <ul class="site-footer-links mobile-hidden">
+                
+            </ul>
+
+        </div>
+    </footer>
+    <!-- / footer -->
+    <script src="http://localhost:4000/assets/vendor/share.js/dist/js/share.min.js"></script>
+    <script src="http://localhost:4000/assets/js/geopattern.js"></script>
+    <script src="http://localhost:4000/assets/js/prism.js"></script>
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/globals/prism.css">
+    <script>
+      jQuery(document).ready(function($) {
+        // geopattern
+        $('.geopattern').each(function(){
+          $(this).geopattern($(this).data('pattern-id'));
+        });
+       // hljs.initHighlightingOnLoad();
+      });
+    </script>
+    
+</body>
+</html>

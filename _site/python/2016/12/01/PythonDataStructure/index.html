@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans" prefix="og: http://ogp.me/ns#" class="han-init">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <title>Python 之数据结构 &mdash; Peiqin Lin's Homepage</title>
+    <link rel="stylesheet" href="http://localhost:4000/assets/vendor/primer-css/css/primer.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/vendor/primer-markdown/dist/user-content.min.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/vendor/octicons/octicons/octicons.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/components/collection.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/components/repo-card.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/repo-list.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/mini-repo-list.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/profile.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/contact.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/news.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/components/boxed-group.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/globals/common.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/vendor/share.js/dist/css/share.min.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/globals/responsive.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/posts/index.css">
+    <!-- Latest compiled and minified CSS -->
+    
+
+    
+    <link rel="canonical" href="http://localhost:4000/python/2016/12/01/PythonDataStructure/">
+    <link rel="alternate" type="application/atom+xml" title="Peiqin Lin's Homepage" href="/feed.xml">
+    <link rel="shortcut icon" href="http://localhost:4000/favicon.ico">
+    
+    <meta property="og:title" content="Python 之数据结构">
+      
+    <meta name="keywords" content="Python, Python数据结构">
+    <meta name="og:keywords" content="Python, Python数据结构">
+      
+    <meta name="description" content="十二月份的第一篇文章，献给我的宠妃Python。学习Python是在写博客之前，那时候没有做好笔记，现在也认识到做笔记的重要性了。今天第一篇就讲讲Python的数据结构。">
+    <meta name="og:description" content="十二月份的第一篇文章，献给我的宠妃Python。学习Python是在写博客之前，那时候没有做好笔记，现在也认识到做笔记的重要性了。今天第一篇就讲讲Python的数据结构。">
+      
+    
+    
+        
+    
+    <meta property="og:url" content="http://localhost:4000/python/2016/12/01/PythonDataStructure/">
+    <meta property="og:site_name" content="Peiqin Lin's Homepage">
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="zh_CN" />
+    
+    <meta property="article:published_time" content="2016-12-01">
+    
+    <script src="http://localhost:4000/assets/vendor/jquery/dist/jquery.min.js"></script>
+    <script src="http://localhost:4000/assets/js/jquery-ui.js"></script>
+    <script type="text/javascript">
+    function toggleMenu() {
+        var nav = document.getElementsByClassName("site-header-nav")[0];
+        if (nav.style.display == "inline-flex") {
+          nav.style.display = "none";
+        } else {
+          nav.style.display = "inline-flex";
+        }
+    }
+    </script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-114643083-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-114643083-1');
+    </script>
+</head>
+<body class="" data-mz="">
+    <header class="site-header">
+        <div class="container">
+            <h1><a href="http://localhost:4000/" title="Peiqin Lin's Homepage">Peiqin Lin's Homepage</a></h1>
+            <button class="collapsed mobile-visible" type="button" onclick="toggleMenu();">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <nav class="site-header-nav" role="navigation">
+                
+            </nav>
+        </div>
+    </header>
+    <!-- / header -->
+
+    <section class="collection-head small geopattern" data-pattern-id="Python 之数据结构">
+<div class="container">
+  <div class="columns">
+    <div class="column three-fourths">
+      <div class="collection-title">
+        <h1 class="collection-header">Python 之数据结构</h1>
+        <div class="collection-info">
+          
+          <span class="meta-info">
+            <span class="octicon octicon-calendar"></span> 2016/12/01
+          </span>
+          
+          
+          <span class="meta-info">
+            <span class="octicon octicon-file-directory"></span>
+            <a href="http://localhost:4000/categories/#Python" title="Python">Python</a>
+          </span>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+<!-- / .banner -->
+<section class="container content">
+<div class="columns">
+  <div class="column three-fourths" >
+    <article class="article-content markdown-body">
+    <p>十二月份的第一篇文章，献给我的宠妃Python。学习Python是在写博客之前，那时候没有做好笔记，现在也认识到做笔记的重要性了。今天第一篇就讲讲Python的数据结构。</p>
+
+<p>需要特别说明的是，本博客与Python相关的文章所用的都是Python3版本。</p>
+
+<p>本文主要描述的python数据结构有：</p>
+
+<ul>
+  <li>list</li>
+  <li>dict</li>
+  <li>tuple</li>
+  <li>set</li>
+</ul>
+
+<h3 id="list">list</h3>
+
+<p>list是一种有序的集合，可以随时添加和删除其中的元素。list里面的元素的数据类型也可以不同。具体操作如下：</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">classmates</span> <span class="o">=</span> <span class="p">[</span><span class="s">'Michael'</span><span class="p">,</span> <span class="s">'Bob'</span><span class="p">,</span> <span class="s">'Tracy'</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">classmates</span>
+<span class="p">[</span><span class="s">'Michael'</span><span class="p">,</span> <span class="s">'Bob'</span><span class="p">,</span> <span class="s">'Tracy'</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">classmates</span><span class="p">)</span>
+<span class="mi">3</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">classmates</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="s">'Michael'</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">classmates</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="s">'Tracy'</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">classmates</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="s">'Adam'</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">classmates</span>
+<span class="p">[</span><span class="s">'Michael'</span><span class="p">,</span> <span class="s">'Bob'</span><span class="p">,</span> <span class="s">'Tracy'</span><span class="p">,</span> <span class="s">'Adam'</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">classmates</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s">'Jack'</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">classmates</span>
+<span class="p">[</span><span class="s">'Michael'</span><span class="p">,</span> <span class="s">'Jack'</span><span class="p">,</span> <span class="s">'Bob'</span><span class="p">,</span> <span class="s">'Tracy'</span><span class="p">,</span> <span class="s">'Adam'</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">classmates</span><span class="p">.</span><span class="n">pop</span><span class="p">()</span>
+<span class="s">'Adam'</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">classmates</span>
+<span class="p">[</span><span class="s">'Michael'</span><span class="p">,</span> <span class="s">'Jack'</span><span class="p">,</span> <span class="s">'Bob'</span><span class="p">,</span> <span class="s">'Tracy'</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">classmates</span><span class="p">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="s">'Jack'</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">classmates</span>
+<span class="p">[</span><span class="s">'Michael'</span><span class="p">,</span> <span class="s">'Bob'</span><span class="p">,</span> <span class="s">'Tracy'</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">classmates</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="s">'Sarah'</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">classmates</span>
+<span class="p">[</span><span class="s">'Michael'</span><span class="p">,</span> <span class="s">'Sarah'</span><span class="p">,</span> <span class="s">'Tracy'</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">L</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>
+<span class="mi">0</span>
+</code></pre></div></div>
+
+<h3 id="dict">dict</h3>
+
+<p>dict（字典）使用键-值（key-value）存储，具有极快的查找速度。具体操作如下：</p>
+
+<p>如果用dict实现，只需要一个“名字”-“成绩”的对照表，直接根据名字查找成绩，无论这个表有多大，查找速度都不会变慢。用Python写一个dict如下：</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Michael'</span><span class="p">:</span> <span class="mi">95</span><span class="p">,</span> <span class="s">'Bob'</span><span class="p">:</span> <span class="mi">75</span><span class="p">,</span> <span class="s">'Tracy'</span><span class="p">:</span> <span class="mi">85</span><span class="p">}</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">d</span><span class="p">[</span><span class="s">'Michael'</span><span class="p">]</span>
+<span class="mi">95</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">d</span><span class="p">[</span><span class="s">'Adam'</span><span class="p">]</span> <span class="o">=</span> <span class="mi">67</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">d</span><span class="p">[</span><span class="s">'Adam'</span><span class="p">]</span>
+<span class="mi">67</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="s">'Thomas'</span> <span class="ow">in</span> <span class="n">d</span>
+<span class="bp">False</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">d</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">'Thomas'</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">d</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">'Thomas'</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="o">-</span><span class="mi">1</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">d</span><span class="p">.</span><span class="n">pop</span><span class="p">(</span><span class="s">'Bob'</span><span class="p">)</span>
+<span class="mi">75</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">d</span>
+<span class="p">{</span><span class="s">'Michael'</span><span class="p">:</span> <span class="mi">95</span><span class="p">,</span> <span class="s">'Tracy'</span><span class="p">:</span> <span class="mi">85</span><span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="tuple">tuple</h3>
+
+<p>tuple和list非常类似，但是tuple一旦初始化就不能修改，具体操作如下：</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">classmates</span> <span class="o">=</span> <span class="p">(</span><span class="s">'Michael'</span><span class="p">,</span> <span class="s">'Bob'</span><span class="p">,</span> <span class="s">'Tracy'</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">t</span> <span class="o">=</span> <span class="p">(</span><span class="s">'a'</span><span class="p">,</span> <span class="s">'b'</span><span class="p">,</span> <span class="p">[</span><span class="s">'A'</span><span class="p">,</span> <span class="s">'B'</span><span class="p">])</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">t</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s">'X'</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">t</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="s">'Y'</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">t</span>
+<span class="p">(</span><span class="s">'a'</span><span class="p">,</span> <span class="s">'b'</span><span class="p">,</span> <span class="p">[</span><span class="s">'X'</span><span class="p">,</span> <span class="s">'Y'</span><span class="p">])</span>
+</code></pre></div></div>
+
+<h3 id="set">set</h3>
+
+<p>set和dict类似，也是一组key的集合，但不存储value。由于key不能重复，所以，在set中，没有重复的key。set是无序的。set可以看成数学意义上的无序和无重复元素的集合，因此，两个set可以做数学意义上的交集、并集等操作。具体操作如下：</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">s</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">s</span>
+<span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">}</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">s</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">s</span>
+<span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">}</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">s</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">s</span>
+<span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">}</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">s</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">s</span>
+<span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">}</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">s</span><span class="p">.</span><span class="n">remove</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">s</span>
+<span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">}</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">s1</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">s2</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">s1</span> <span class="o">&amp;</span> <span class="n">s2</span>
+<span class="p">{</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">}</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">s1</span> <span class="o">|</span> <span class="n">s2</span>
+<span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="附可变对象和不可变对象">附：可变对象和不可变对象</h3>
+
+<ul>
+  <li>可变对象：list, dictionary, set, byte array</li>
+  <li>不可变对象：int，long, complex, string, float, tuple, frozen set</li>
+</ul>
+
+<p>可变对象和不可变对象的区别：</p>
+
+<ol>
+  <li>
+    <p>对于不可变对象作为函数参数，相当于C系语言的值传递</p>
+
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">num</span><span class="p">):</span>
+    <span class="n">num</span> <span class="o">=</span> <span class="n">num</span> <span class="o">+</span> <span class="mi">10</span>
+<span class="n">d</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">add</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+<span class="c1"># 2
+</span><span class="k">print</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>对于可变对象作为函数参数，相当于C系语言的引用传递</p>
+
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">change</span><span class="p">(</span><span class="n">num</span><span class="p">):</span>
+    <span class="n">num</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">d</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">change</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+<span class="c1"># [0, 1]
+</span><span class="k">print</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+</code></pre></div>    </div>
+
+    <p>​</p>
+  </li>
+</ol>
+
+    </article>
+    <div class="share">
+      <div class="share-component"></div>
+    </div>
+    <div class="comment">
+      
+  
+        <div id="container"></div>
+        <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+        <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+        <script>
+        var gitment = new Gitment({
+            id: '/python/2016/12/01/PythonDataStructure/',
+            owner: 'lpq29743',
+            repo: 'blog-comments',
+            oauth: {
+                client_id: '5818ceff784afe05d31c',
+                client_secret: 'dc7e8efc044c7194cf453740f82c646aa998f206',
+            },
+        })
+        gitment.render('container')
+        </script>
+  
+
+
+    </div>
+	<ul class="pager">
+		
+		<li class="previous">
+			<a href="/algorithm/2016/11/30/Sort/" data-toggle="tooltip" data-placement="top" title="排序算法的比较和选择">
+				Previous<br>
+				<span>排序算法的比较和选择</span>
+			</a>
+		</li>
+		
+		
+		<li class="next">
+			<a href="/python/2016/12/02/PythonLastFMFV/" data-toggle="tooltip" data-placement="top" title="Python 历险记第一站——爬取 last.fm 热门女歌手">
+				Next<br>
+				<span>Python 历险记第一站——爬取 last.fm 热门女歌手</span>
+			</a>
+		</li>
+		
+	</ul>
+  </div>
+  <div class="column one-fourth">
+    
+<h3>Search</h3>
+<div id="site_search">
+    <input type="text" id="search_box" placeholder="Search">
+</div>
+
+<ul id="search_results"></ul>
+
+<link rel="stylesheet" type="text/css" href="http://localhost:4000/assets/css/modules/sidebar-search.css">
+<script src="http://localhost:4000/assets/js/jekyll-search.min.js"></script>
+<script src="http://localhost:4000/assets/js/search.js"></script>
+
+<script type="text/javascript">
+SimpleJekyllSearch({
+    searchInput: document.getElementById('search_box'),
+    resultsContainer: document.getElementById('search_results'),
+    json: 'http://localhost:4000/assets/search_data.json',
+    searchResultTemplate: '<li><a href="{url}" title="{desc}">{title}</a></li>',
+    noResultsText: 'No results found',
+    limit: 10,
+    fuzzy: false,
+    exclude: ['Welcome']
+})
+</script>
+
+    
+<h3 class="post-directory-title mobile-hidden">Table of Contents</h3>
+<div id="post-directory-module" class="mobile-hidden">
+  <section class="post-directory">
+  <!-- Links that trigger the jumping -->
+  <!-- Added by javascript below -->
+  <dl></dl>
+  </section>
+</div>
+
+<script src="http://localhost:4000/assets/js/jquery.toc.js"></script>
+
+  </div>
+</div>
+</section>
+<!-- /section.content -->
+
+    <footer class="container">
+        <div class="site-footer" role="contentinfo">
+            <div class="copyright left mobile-block">
+                <a href="javascript:window.scrollTo(0,0)" class="right mobile-visible">TOP</a>
+            </div>
+
+            <ul class="site-footer-links right mobile-hidden">
+                <li>
+                    <a href="javascript:window.scrollTo(0,0)" >TOP</a>
+                </li>
+            </ul>
+            <a href="https://github.com/lpq29743/lpq29743.github.io" target="_blank" aria-label="view source code">
+                <span class="mega-octicon octicon-mark-github" title="GitHub"></span>
+            </a>
+            <ul class="site-footer-links mobile-hidden">
+                
+            </ul>
+
+        </div>
+    </footer>
+    <!-- / footer -->
+    <script src="http://localhost:4000/assets/vendor/share.js/dist/js/share.min.js"></script>
+    <script src="http://localhost:4000/assets/js/geopattern.js"></script>
+    <script src="http://localhost:4000/assets/js/prism.js"></script>
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/globals/prism.css">
+    <script>
+      jQuery(document).ready(function($) {
+        // geopattern
+        $('.geopattern').each(function(){
+          $(this).geopattern($(this).data('pattern-id'));
+        });
+       // hljs.initHighlightingOnLoad();
+      });
+    </script>
+    
+</body>
+</html>

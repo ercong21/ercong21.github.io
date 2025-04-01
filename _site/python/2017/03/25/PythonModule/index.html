@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans" prefix="og: http://ogp.me/ns#" class="han-init">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <title>Python 模块——有逻辑地组织 Python 代码 &mdash; Peiqin Lin's Homepage</title>
+    <link rel="stylesheet" href="http://localhost:4000/assets/vendor/primer-css/css/primer.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/vendor/primer-markdown/dist/user-content.min.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/vendor/octicons/octicons/octicons.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/components/collection.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/components/repo-card.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/repo-list.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/mini-repo-list.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/profile.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/contact.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/news.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/components/boxed-group.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/globals/common.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/vendor/share.js/dist/css/share.min.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/globals/responsive.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/posts/index.css">
+    <!-- Latest compiled and minified CSS -->
+    
+
+    
+    <link rel="canonical" href="http://localhost:4000/python/2017/03/25/PythonModule/">
+    <link rel="alternate" type="application/atom+xml" title="Peiqin Lin's Homepage" href="/feed.xml">
+    <link rel="shortcut icon" href="http://localhost:4000/favicon.ico">
+    
+    <meta property="og:title" content="Python 模块——有逻辑地组织 Python 代码">
+      
+    <meta name="keywords" content="Python, Python模块">
+    <meta name="og:keywords" content="Python, Python模块">
+      
+    <meta name="description" content="不知道你是不是经常在python中见到import re或者__init__这些代码，那么这些代码到底是什么？又有什么用呢？今天我们就通过这篇文章来了解一下。">
+    <meta name="og:description" content="不知道你是不是经常在python中见到import re或者__init__这些代码，那么这些代码到底是什么？又有什么用呢？今天我们就通过这篇文章来了解一下。">
+      
+    
+    
+        
+    
+    <meta property="og:url" content="http://localhost:4000/python/2017/03/25/PythonModule/">
+    <meta property="og:site_name" content="Peiqin Lin's Homepage">
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="zh_CN" />
+    
+    <meta property="article:published_time" content="2017-03-25">
+    
+    <script src="http://localhost:4000/assets/vendor/jquery/dist/jquery.min.js"></script>
+    <script src="http://localhost:4000/assets/js/jquery-ui.js"></script>
+    <script type="text/javascript">
+    function toggleMenu() {
+        var nav = document.getElementsByClassName("site-header-nav")[0];
+        if (nav.style.display == "inline-flex") {
+          nav.style.display = "none";
+        } else {
+          nav.style.display = "inline-flex";
+        }
+    }
+    </script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-114643083-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-114643083-1');
+    </script>
+</head>
+<body class="" data-mz="">
+    <header class="site-header">
+        <div class="container">
+            <h1><a href="http://localhost:4000/" title="Peiqin Lin's Homepage">Peiqin Lin's Homepage</a></h1>
+            <button class="collapsed mobile-visible" type="button" onclick="toggleMenu();">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <nav class="site-header-nav" role="navigation">
+                
+            </nav>
+        </div>
+    </header>
+    <!-- / header -->
+
+    <section class="collection-head small geopattern" data-pattern-id="Python 模块——有逻辑地">
+<div class="container">
+  <div class="columns">
+    <div class="column three-fourths">
+      <div class="collection-title">
+        <h1 class="collection-header">Python 模块——有逻辑地组织 Python 代码</h1>
+        <div class="collection-info">
+          
+          <span class="meta-info">
+            <span class="octicon octicon-calendar"></span> 2017/03/25
+          </span>
+          
+          
+          <span class="meta-info">
+            <span class="octicon octicon-file-directory"></span>
+            <a href="http://localhost:4000/categories/#Python" title="Python">Python</a>
+          </span>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+<!-- / .banner -->
+<section class="container content">
+<div class="columns">
+  <div class="column three-fourths" >
+    <article class="article-content markdown-body">
+    <p>不知道你是不是经常在python中见到<code class="language-plaintext highlighter-rouge">import re</code>或者<code class="language-plaintext highlighter-rouge">__init__</code>这些代码，那么这些代码到底是什么？又有什么用呢？今天我们就通过这篇文章来了解一下。</p>
+
+<h3 id="什么是python模块">什么是Python模块</h3>
+
+<p>Python模块，就是一个Python文件，包含了Python对象定义和Python语句，如下例support.py：</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">print_func</span><span class="p">(</span> <span class="n">par</span> <span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"Hello : "</span><span class="p">,</span> <span class="n">par</span><span class="p">)</span>
+    <span class="k">return</span>
+</code></pre></div></div>
+
+<h3 id="怎么使用python模块">怎么使用Python模块</h3>
+
+<p>模块定义好后，可以用import引入模块，语法如下：</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">module1</span><span class="p">[,</span> <span class="n">module2</span><span class="p">[,...</span> <span class="n">moduleN</span><span class="p">]</span>
+</code></pre></div></div>
+
+<p>如要引用模块math，就可以在文件最开始的地方用import math引入。调用math模块的函数时，必须这样引用：</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>模块名.函数名
+</code></pre></div></div>
+
+<p>当解释器遇到import时，如果模块在当前搜索路径就会被导入。对模块位置的搜索顺序是：</p>
+
+<ol>
+  <li>当前目录</li>
+  <li>如果不在当前目录，搜索在shell 变量PYTHONPATH下的目录</li>
+  <li>如果找不到，察看默认路径。UNIX下一般为/usr/local/lib/python/</li>
+</ol>
+
+<p>PYTHONPATH由装在一个列表里的许多目录组成。Windows的PYTHONPATH为 <code class="language-plaintext highlighter-rouge">set PYTHONPATH=c:\python27\lib;</code> ，UNIX的PYTHONPATH为 <code class="language-plaintext highlighter-rouge">set PYTHONPATH=/usr/local/lib/python</code> 。import语句具体使用如下例test.py：</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#!/usr/bin/python
+# -- coding: UTF-8 -- 
+</span>
+<span class="c1"># 导入模块
+</span><span class="kn">import</span> <span class="nn">support</span> 
+<span class="c1"># 现在可以调用模块里包含的函数了
+</span><span class="n">support</span><span class="p">.</span><span class="n">print_func</span><span class="p">(</span><span class="s">"Runoob"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>以上实例输出结果：</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Hello : Runoob
+</code></pre></div></div>
+
+<p>Python的from语句可以从模块中导入指定部分到当前命名空间中。语法如下：</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>from modname import name1[, name2[, ... nameN]]
+</code></pre></div></div>
+
+<p>例如，要导入模块fib的fibonacci函数，使用如下语句可以不把整个fib模块导入，而只导入fibonacci：</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>from fib import fibonacci
+</code></pre></div></div>
+
+<h3 id="几个关于导入模块的方法">几个关于导入模块的方法</h3>
+
+<p><strong>dir()函数</strong></p>
+
+<p>dir()函数返回一个排好序的字符串列表，包含模块定义的所有模块，变量和函数。具体使用如下例：</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#!/usr/bin/python
+# -*- coding: UTF-8 -*-
+</span> 
+<span class="c1"># 导入内置math模块
+</span><span class="kn">import</span> <span class="nn">math</span>
+ 
+<span class="n">content</span> <span class="o">=</span> <span class="nb">dir</span><span class="p">(</span><span class="n">math</span><span class="p">)</span>
+ 
+<span class="k">print</span> <span class="n">content</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>以上实例输出结果：</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>['__doc__', '__file__', '__name__', 'acos', 'asin', 'atan', 
+'atan2', 'ceil', 'cos', 'cosh', 'degrees', 'e', 'exp', 
+'fabs', 'floor', 'fmod', 'frexp', 'hypot', 'ldexp', 'log',
+'log10', 'modf', 'pi', 'pow', 'radians', 'sin', 'sinh', 
+'sqrt', 'tan', 'tanh']
+</code></pre></div></div>
+
+<p><strong>globals()和locals()函数</strong></p>
+
+<p>globals()和locals()用来返回全局和局部命名空间里的名字。如果在函数内部调用locals()，返回所有能在该函数里访问的命名；如果调用globals()，返回所有在该函数里能访问的全局名字。返回类型都是字典。所以能用keys()函数摘取。</p>
+
+<p><strong>reload()函数</strong></p>
+
+<p>当模块被导入，模块顶层部分的代码只执行一次。如果想重新执行模块顶层部分代码，可用reload() 函数，语法如下：</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>reload(module_name)
+</code></pre></div></div>
+
+<h3 id="python中的包">Python中的包</h3>
+
+<p>包是分层次的文件目录结构，简单说就是文件夹，但该文件夹必须存在__init__.py文件，用于标识是包，文件内容可为空。具体使用如下例：</p>
+
+<h4 id="步骤一设置目录结构">步骤一：设置目录结构</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>test.py
+package_runoob
+|-- __init__.py
+|-- runoob1.py
+|-- runoob2.py
+</code></pre></div></div>
+
+<h4 id="步骤二编写package_runoobrunoob1py">步骤二：编写package_runoob/runoob1.py</h4>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#!/usr/bin/python
+# -- coding: UTF-8 -- 
+</span><span class="k">def</span> <span class="nf">runoob1</span><span class="p">():</span>   
+    <span class="k">print</span><span class="p">(</span><span class="s">"I'm in runoob1"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h4 id="步骤二编写package_runoobrunoob2py">步骤二：编写package_runoob/runoob2.py</h4>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#!/usr/bin/python
+# -- coding: UTF-8 -- 
+</span><span class="k">def</span> <span class="nf">runoob1</span><span class="p">():</span>   
+    <span class="k">print</span><span class="p">(</span><span class="s">"I'm in runoob1"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h4 id="步骤三编写__init__py">步骤三：编写__init__.py</h4>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#!/usr/bin/python
+# -- coding: UTF-8 -- 
+</span><span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
+    <span class="k">print</span> <span class="s">'作为主程序运行'</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span> <span class="s">'package_runoob 初始化'</span>
+</code></pre></div></div>
+
+<h4 id="步骤四编写testpy">步骤四：编写test.py</h4>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#!/usr/bin/python
+# -*- coding: UTF-8 -*-
+</span> 
+<span class="c1"># 导入 Phone 包
+</span><span class="kn">from</span> <span class="nn">package_runoob.runoob1</span> <span class="kn">import</span> <span class="n">runoob1</span>
+<span class="kn">from</span> <span class="nn">package_runoob.runoob2</span> <span class="kn">import</span> <span class="n">runoob2</span>
+ 
+<span class="n">runoob1</span><span class="p">()</span>
+<span class="n">runoob2</span><span class="p">()</span>
+</code></pre></div></div>
+
+<h4 id="步骤五查看输出结果">步骤五：查看输出结果</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>package_runoob 初始化
+I'm in runoob1
+I'm in runoob2
+</code></pre></div></div>
+
+<h3 id="python内置属性及特殊模块">Python内置属性及特殊模块</h3>
+
+<ul>
+  <li>__doc__：模块的docstring，如果不知道什么是文档字符串，请点击<a href="http://www.cnblogs.com/jlsme/articles/1394003.html">这里</a></li>
+  <li>__file__：模块文件在磁盘上的绝对路径</li>
+  <li>__name__：模块的名称。独立运行时值是__main__，被import时值是模块的名称</li>
+  <li>__init__：用于初始化的特殊模块</li>
+  <li>__del__：对象销毁时所调用的模块</li>
+  <li>__main__：常用__name__ == ’__main__‘语句来判断是否单独运行</li>
+</ul>
+
+    </article>
+    <div class="share">
+      <div class="share-component"></div>
+    </div>
+    <div class="comment">
+      
+  
+        <div id="container"></div>
+        <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+        <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+        <script>
+        var gitment = new Gitment({
+            id: '/python/2017/03/25/PythonModule/',
+            owner: 'lpq29743',
+            repo: 'blog-comments',
+            oauth: {
+                client_id: '5818ceff784afe05d31c',
+                client_secret: 'dc7e8efc044c7194cf453740f82c646aa998f206',
+            },
+        })
+        gitment.render('container')
+        </script>
+  
+
+
+    </div>
+	<ul class="pager">
+		
+		<li class="previous">
+			<a href="/python/2017/03/21/PythonSimulatePost/" data-toggle="tooltip" data-placement="top" title="Python 历险记第五站——利用 Python 模拟 Post 请求">
+				Previous<br>
+				<span>Python 历险记第五站——利用 Python 模拟 Post 请求</span>
+			</a>
+		</li>
+		
+		
+		<li class="next">
+			<a href="/tool/2017/03/28/Hadoop/" data-toggle="tooltip" data-placement="top" title="CentOS7 下分布式安装 Hadoop">
+				Next<br>
+				<span>CentOS7 下分布式安装 Hadoop</span>
+			</a>
+		</li>
+		
+	</ul>
+  </div>
+  <div class="column one-fourth">
+    
+<h3>Search</h3>
+<div id="site_search">
+    <input type="text" id="search_box" placeholder="Search">
+</div>
+
+<ul id="search_results"></ul>
+
+<link rel="stylesheet" type="text/css" href="http://localhost:4000/assets/css/modules/sidebar-search.css">
+<script src="http://localhost:4000/assets/js/jekyll-search.min.js"></script>
+<script src="http://localhost:4000/assets/js/search.js"></script>
+
+<script type="text/javascript">
+SimpleJekyllSearch({
+    searchInput: document.getElementById('search_box'),
+    resultsContainer: document.getElementById('search_results'),
+    json: 'http://localhost:4000/assets/search_data.json',
+    searchResultTemplate: '<li><a href="{url}" title="{desc}">{title}</a></li>',
+    noResultsText: 'No results found',
+    limit: 10,
+    fuzzy: false,
+    exclude: ['Welcome']
+})
+</script>
+
+    
+<h3 class="post-directory-title mobile-hidden">Table of Contents</h3>
+<div id="post-directory-module" class="mobile-hidden">
+  <section class="post-directory">
+  <!-- Links that trigger the jumping -->
+  <!-- Added by javascript below -->
+  <dl></dl>
+  </section>
+</div>
+
+<script src="http://localhost:4000/assets/js/jquery.toc.js"></script>
+
+  </div>
+</div>
+</section>
+<!-- /section.content -->
+
+    <footer class="container">
+        <div class="site-footer" role="contentinfo">
+            <div class="copyright left mobile-block">
+                <a href="javascript:window.scrollTo(0,0)" class="right mobile-visible">TOP</a>
+            </div>
+
+            <ul class="site-footer-links right mobile-hidden">
+                <li>
+                    <a href="javascript:window.scrollTo(0,0)" >TOP</a>
+                </li>
+            </ul>
+            <a href="https://github.com/lpq29743/lpq29743.github.io" target="_blank" aria-label="view source code">
+                <span class="mega-octicon octicon-mark-github" title="GitHub"></span>
+            </a>
+            <ul class="site-footer-links mobile-hidden">
+                
+            </ul>
+
+        </div>
+    </footer>
+    <!-- / footer -->
+    <script src="http://localhost:4000/assets/vendor/share.js/dist/js/share.min.js"></script>
+    <script src="http://localhost:4000/assets/js/geopattern.js"></script>
+    <script src="http://localhost:4000/assets/js/prism.js"></script>
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/globals/prism.css">
+    <script>
+      jQuery(document).ready(function($) {
+        // geopattern
+        $('.geopattern').each(function(){
+          $(this).geopattern($(this).data('pattern-id'));
+        });
+       // hljs.initHighlightingOnLoad();
+      });
+    </script>
+    
+</body>
+</html>

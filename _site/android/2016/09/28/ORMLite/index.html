@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans" prefix="og: http://ogp.me/ns#" class="han-init">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <title>Android ORM 框架 ORMLite &mdash; Peiqin Lin's Homepage</title>
+    <link rel="stylesheet" href="http://localhost:4000/assets/vendor/primer-css/css/primer.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/vendor/primer-markdown/dist/user-content.min.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/vendor/octicons/octicons/octicons.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/components/collection.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/components/repo-card.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/repo-list.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/mini-repo-list.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/profile.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/contact.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/news.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/components/boxed-group.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/globals/common.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/vendor/share.js/dist/css/share.min.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/globals/responsive.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/posts/index.css">
+    <!-- Latest compiled and minified CSS -->
+    
+
+    
+    <link rel="canonical" href="http://localhost:4000/android/2016/09/28/ORMLite/">
+    <link rel="alternate" type="application/atom+xml" title="Peiqin Lin's Homepage" href="/feed.xml">
+    <link rel="shortcut icon" href="http://localhost:4000/favicon.ico">
+    
+    <meta property="og:title" content="Android ORM 框架 ORMLite">
+      
+    <meta name="keywords" content="Android, ORMLite, 开源框架, ORM框架, Android数据库框架">
+    <meta name="og:keywords" content="Android, ORMLite, 开源框架, ORM框架, Android数据库框架">
+      
+    <meta name="description" content="ORMLite这个框架是在ORM中被采用的比较多的一个。文档，实例，源码都比较多，维护也不错。">
+    <meta name="og:description" content="ORMLite这个框架是在ORM中被采用的比较多的一个。文档，实例，源码都比较多，维护也不错。">
+      
+    
+    
+        
+    
+    <meta property="og:url" content="http://localhost:4000/android/2016/09/28/ORMLite/">
+    <meta property="og:site_name" content="Peiqin Lin's Homepage">
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="zh_CN" />
+    
+    <meta property="article:published_time" content="2016-09-28">
+    
+    <script src="http://localhost:4000/assets/vendor/jquery/dist/jquery.min.js"></script>
+    <script src="http://localhost:4000/assets/js/jquery-ui.js"></script>
+    <script type="text/javascript">
+    function toggleMenu() {
+        var nav = document.getElementsByClassName("site-header-nav")[0];
+        if (nav.style.display == "inline-flex") {
+          nav.style.display = "none";
+        } else {
+          nav.style.display = "inline-flex";
+        }
+    }
+    </script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-114643083-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-114643083-1');
+    </script>
+</head>
+<body class="" data-mz="">
+    <header class="site-header">
+        <div class="container">
+            <h1><a href="http://localhost:4000/" title="Peiqin Lin's Homepage">Peiqin Lin's Homepage</a></h1>
+            <button class="collapsed mobile-visible" type="button" onclick="toggleMenu();">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <nav class="site-header-nav" role="navigation">
+                
+            </nav>
+        </div>
+    </header>
+    <!-- / header -->
+
+    <section class="collection-head small geopattern" data-pattern-id="Android ORM 框架 ">
+<div class="container">
+  <div class="columns">
+    <div class="column three-fourths">
+      <div class="collection-title">
+        <h1 class="collection-header">Android ORM 框架 ORMLite</h1>
+        <div class="collection-info">
+          
+          <span class="meta-info">
+            <span class="octicon octicon-calendar"></span> 2016/09/28
+          </span>
+          
+          
+          <span class="meta-info">
+            <span class="octicon octicon-file-directory"></span>
+            <a href="http://localhost:4000/categories/#Android" title="Android">Android</a>
+          </span>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+<!-- / .banner -->
+<section class="container content">
+<div class="columns">
+  <div class="column three-fourths" >
+    <article class="article-content markdown-body">
+    <p>ORMLite这个框架是在ORM中被采用的比较多的一个。文档，实例，源码都比较多，维护也不错。</p>
+
+<p>本文所介绍的版本是ORMLite。ormlite官网地址：<a href="http://www.jianshu.com/p/www.ormlite.com">www.ormlite.com</a></p>
+
+<h3 id="配置">配置</h3>
+
+<p>添加依赖库：</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>compile 'com.j256.ormlite:ormlite-android:5.0'
+compile 'com.j256.ormlite:ormlite-core:5.0'
+</code></pre></div></div>
+
+<h3 id="使用">使用</h3>
+
+<h4 id="步骤一创建类databasehelper继承ormlitesqliteopenhelper">步骤一：创建类DatabaseHelper继承OrmLiteSqliteOpenHelper</h4>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.sql.SQLException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.HashMap</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Map</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">android.content.Context</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">android.database.sqlite.SQLiteDatabase</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">com.j256.ormlite.android.apptools.OrmLiteSqliteOpenHelper</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">com.j256.ormlite.dao.Dao</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">com.j256.ormlite.support.ConnectionSource</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">com.j256.ormlite.table.TableUtils</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">com.zhy.zhy_ormlite.bean.Article</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">com.zhy.zhy_ormlite.bean.Student</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">com.zhy.zhy_ormlite.bean.User</span><span class="o">;</span>
+
+<span class="kd">public</span>  <span class="kd">class</span> <span class="nc">DatabaseHelper</span> <span class="kd">extends</span> <span class="nc">OrmLiteSqliteOpenHelper</span>
+<span class="o">{</span>
+	<span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="nc">String</span> <span class="no">DB_NAME</span> <span class="o">=</span> <span class="s">"sqlite-test.db"</span><span class="o">;</span>
+
+	<span class="kd">private</span> <span class="nc">Map</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">,</span> <span class="nc">Dao</span><span class="o">&gt;</span> <span class="n">daos</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">HashMap</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">,</span> <span class="nc">Dao</span><span class="o">&gt;();</span>
+
+	<span class="kd">private</span> <span class="nf">DatabaseHelper</span><span class="o">(</span><span class="nc">Context</span> <span class="n">context</span><span class="o">)</span>
+	<span class="o">{</span>
+		<span class="kd">super</span><span class="o">(</span><span class="n">context</span><span class="o">,</span> <span class="no">DB_NAME</span><span class="o">,</span> <span class="kc">null</span><span class="o">,</span> <span class="mi">4</span><span class="o">);</span>
+	<span class="o">}</span>
+
+	<span class="nd">@Override</span>
+	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">onCreate</span><span class="o">(</span><span class="nc">SQLiteDatabase</span> <span class="n">database</span><span class="o">,</span>
+			<span class="nc">ConnectionSource</span> <span class="n">connectionSource</span><span class="o">)</span>
+	<span class="o">{</span>
+		<span class="k">try</span>
+		<span class="o">{</span>
+			<span class="nc">TableUtils</span><span class="o">.</span><span class="na">createTable</span><span class="o">(</span><span class="n">connectionSource</span><span class="o">,</span> <span class="nc">User</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+			<span class="nc">TableUtils</span><span class="o">.</span><span class="na">createTable</span><span class="o">(</span><span class="n">connectionSource</span><span class="o">,</span> <span class="nc">Article</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+			<span class="nc">TableUtils</span><span class="o">.</span><span class="na">createTable</span><span class="o">(</span><span class="n">connectionSource</span><span class="o">,</span> <span class="nc">Student</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+		<span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">SQLException</span> <span class="n">e</span><span class="o">)</span>
+		<span class="o">{</span>
+			<span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
+		<span class="o">}</span>
+	<span class="o">}</span>
+
+	<span class="nd">@Override</span>
+	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">onUpgrade</span><span class="o">(</span><span class="nc">SQLiteDatabase</span> <span class="n">database</span><span class="o">,</span>
+			<span class="nc">ConnectionSource</span> <span class="n">connectionSource</span><span class="o">,</span> <span class="kt">int</span> <span class="n">oldVersion</span><span class="o">,</span> <span class="kt">int</span> <span class="n">newVersion</span><span class="o">)</span>
+	<span class="o">{</span>
+		<span class="k">try</span>
+		<span class="o">{</span>
+			<span class="nc">TableUtils</span><span class="o">.</span><span class="na">dropTable</span><span class="o">(</span><span class="n">connectionSource</span><span class="o">,</span> <span class="nc">User</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="kc">true</span><span class="o">);</span>
+			<span class="nc">TableUtils</span><span class="o">.</span><span class="na">dropTable</span><span class="o">(</span><span class="n">connectionSource</span><span class="o">,</span> <span class="nc">Article</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="kc">true</span><span class="o">);</span>
+			<span class="nc">TableUtils</span><span class="o">.</span><span class="na">dropTable</span><span class="o">(</span><span class="n">connectionSource</span><span class="o">,</span> <span class="nc">Student</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="kc">true</span><span class="o">);</span>
+			<span class="n">onCreate</span><span class="o">(</span><span class="n">database</span><span class="o">,</span> <span class="n">connectionSource</span><span class="o">);</span>
+		<span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">SQLException</span> <span class="n">e</span><span class="o">)</span>
+		<span class="o">{</span>
+			<span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
+		<span class="o">}</span>
+	<span class="o">}</span>
+
+	<span class="kd">private</span> <span class="kd">static</span> <span class="nc">DatabaseHelper</span> <span class="n">instance</span><span class="o">;</span>
+
+	<span class="cm">/**
+	 * 单例获取该Helper
+	 * 
+	 * @param context
+	 * @return
+	 */</span>
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kd">synchronized</span> <span class="nc">DatabaseHelper</span> <span class="nf">getHelper</span><span class="o">(</span><span class="nc">Context</span> <span class="n">context</span><span class="o">)</span>
+	<span class="o">{</span>
+    	<span class="c1">// 如果是自定义Application，应采用以下语句</span>
+    	<span class="c1">// context = MyApplication.getContext();</span>
+		<span class="n">context</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="na">getApplicationContext</span><span class="o">();</span>
+		<span class="k">if</span> <span class="o">(</span><span class="n">instance</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span>
+		<span class="o">{</span>
+			<span class="kd">synchronized</span> <span class="o">(</span><span class="nc">DatabaseHelper</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
+			<span class="o">{</span>
+				<span class="k">if</span> <span class="o">(</span><span class="n">instance</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span>
+					<span class="n">instance</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">DatabaseHelper</span><span class="o">(</span><span class="n">context</span><span class="o">);</span>
+			<span class="o">}</span>
+		<span class="o">}</span>
+
+		<span class="k">return</span> <span class="n">instance</span><span class="o">;</span>
+	<span class="o">}</span>
+
+	<span class="kd">public</span> <span class="kd">synchronized</span> <span class="nc">Dao</span> <span class="nf">getDao</span><span class="o">(</span><span class="nc">Class</span> <span class="n">clazz</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">SQLException</span>
+	<span class="o">{</span>
+		<span class="nc">Dao</span> <span class="n">dao</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+		<span class="nc">String</span> <span class="n">className</span> <span class="o">=</span> <span class="n">clazz</span><span class="o">.</span><span class="na">getSimpleName</span><span class="o">();</span>
+
+		<span class="k">if</span> <span class="o">(</span><span class="n">daos</span><span class="o">.</span><span class="na">containsKey</span><span class="o">(</span><span class="n">className</span><span class="o">))</span>
+		<span class="o">{</span>
+			<span class="n">dao</span> <span class="o">=</span> <span class="n">daos</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">className</span><span class="o">);</span>
+		<span class="o">}</span>
+		<span class="k">if</span> <span class="o">(</span><span class="n">dao</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span>
+		<span class="o">{</span>
+			<span class="n">dao</span> <span class="o">=</span> <span class="kd">super</span><span class="o">.</span><span class="na">getDao</span><span class="o">(</span><span class="n">clazz</span><span class="o">);</span>
+			<span class="n">daos</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">className</span><span class="o">,</span> <span class="n">dao</span><span class="o">);</span>
+		<span class="o">}</span>
+		<span class="k">return</span> <span class="n">dao</span><span class="o">;</span>
+	<span class="o">}</span>
+
+	<span class="cm">/**
+	 * 释放资源
+	 */</span>
+	<span class="nd">@Override</span>
+	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">close</span><span class="o">()</span>
+	<span class="o">{</span>
+		<span class="kd">super</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+
+		<span class="k">for</span> <span class="o">(</span><span class="nc">String</span> <span class="n">key</span> <span class="o">:</span> <span class="n">daos</span><span class="o">.</span><span class="na">keySet</span><span class="o">())</span>
+		<span class="o">{</span>
+			<span class="nc">Dao</span> <span class="n">dao</span> <span class="o">=</span> <span class="n">daos</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">key</span><span class="o">);</span>
+			<span class="n">dao</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+		<span class="o">}</span>
+	<span class="o">}</span>
+
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>注：</p>
+
+<ul>
+  <li>整个DatabaseHelper使用单例只对外公布出一个对象，保证app中只存在一个SQLite Connection 。</li>
+  <li>我们对每个Bean创建一个XXXDao来处理当前Bean的数据库操作，当然真正去和数据库打交道的对象，通过上面代码中的getDao（T t）进行获取getDao为一个泛型方法，会根据传入Class对象进行创建Dao，并且使用一个Map来保持所有的Dao对象，只有第一次调用时才会去调用底层的getDao()。</li>
+</ul>
+
+<h4 id="步骤二创建相应的bean的dao">步骤二：创建相应的Bean的Dao</h4>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.sql.SQLException</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">android.content.Context</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">com.j256.ormlite.dao.Dao</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">com.zhy.zhy_ormlite.bean.User</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">UserDao</span>
+<span class="o">{</span>
+	<span class="kd">private</span> <span class="nc">Context</span> <span class="n">context</span><span class="o">;</span>
+	<span class="kd">private</span> <span class="nc">Dao</span><span class="o">&lt;</span><span class="nc">User</span><span class="o">,</span> <span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">userDaoOpe</span><span class="o">;</span>
+	<span class="kd">private</span> <span class="nc">DatabaseHelper</span> <span class="n">helper</span><span class="o">;</span>
+
+	<span class="kd">public</span> <span class="nf">UserDao</span><span class="o">(</span><span class="nc">Context</span> <span class="n">context</span><span class="o">)</span>
+	<span class="o">{</span>
+		<span class="k">this</span><span class="o">.</span><span class="na">context</span> <span class="o">=</span> <span class="n">context</span><span class="o">;</span>
+		<span class="k">try</span>
+		<span class="o">{</span>
+			<span class="n">helper</span> <span class="o">=</span> <span class="nc">DatabaseHelper</span><span class="o">.</span><span class="na">getHelper</span><span class="o">(</span><span class="n">context</span><span class="o">);</span>
+			<span class="n">userDaoOpe</span> <span class="o">=</span> <span class="n">helper</span><span class="o">.</span><span class="na">getDao</span><span class="o">(</span><span class="nc">User</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+		<span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">SQLException</span> <span class="n">e</span><span class="o">)</span>
+		<span class="o">{</span>
+			<span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
+		<span class="o">}</span>
+	<span class="o">}</span>
+
+	<span class="cm">/**
+	 * 增加一个用户
+	 * @param user
+	 */</span>
+	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">add</span><span class="o">(</span><span class="nc">User</span> <span class="n">user</span><span class="o">)</span>
+	<span class="o">{</span>
+		<span class="k">try</span>
+		<span class="o">{</span>
+			<span class="n">userDaoOpe</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="n">user</span><span class="o">);</span>
+		<span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">SQLException</span> <span class="n">e</span><span class="o">)</span>
+		<span class="o">{</span>
+			<span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
+		<span class="o">}</span>
+
+	<span class="o">}</span><span class="c1">//...other operations</span>
+
+
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>更多的操作如下：</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 增操作</span>
+<span class="c1">// 在表中添加一条记录</span>
+<span class="kd">public</span> <span class="kt">int</span> <span class="nf">create</span><span class="o">(</span><span class="no">T</span> <span class="n">data</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">SQLException</span><span class="o">;</span>
+<span class="c1">// 在表中添加一条记录，如果表不存在这条数据,根据设置的主键来判断是否存在</span>
+<span class="kd">public</span> <span class="no">T</span> <span class="nf">createIfNotExists</span><span class="o">(</span><span class="no">T</span> <span class="n">data</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">SQLException</span><span class="o">;</span>
+<span class="c1">// 在表中添加一条记录，如果存在则更新主键对应的一条记录，</span>
+<span class="kd">public</span> <span class="nc">CreateOrUpdateStatus</span> <span class="nf">createOrUpdate</span><span class="o">(</span><span class="no">T</span> <span class="n">data</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">SQLException</span><span class="o">;</span>
+
+<span class="c1">// 删操作</span>
+<span class="c1">// 根据传入实体删除</span>
+<span class="kd">public</span> <span class="kt">int</span> <span class="nf">delete</span><span class="o">(</span><span class="no">T</span> <span class="n">data</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">SQLException</span><span class="o">;</span>
+<span class="c1">// 根据ID删除</span>
+<span class="kd">public</span> <span class="kt">int</span> <span class="nf">deleteById</span><span class="o">(</span><span class="no">ID</span> <span class="n">id</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">SQLException</span><span class="o">;</span>
+<span class="c1">// 根据集合删除</span>
+<span class="kd">public</span> <span class="kt">int</span> <span class="nf">delete</span><span class="o">(</span><span class="nc">Collection</span><span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;</span> <span class="n">datas</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">SQLException</span><span class="o">;</span>
+<span class="c1">// 根据id集合删除</span>
+<span class="kd">public</span> <span class="kt">int</span> <span class="nf">deleteIds</span><span class="o">(</span><span class="nc">Collection</span><span class="o">&lt;</span><span class="no">ID</span><span class="o">&gt;</span> <span class="n">ids</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">SQLException</span><span class="o">;</span>
+
+<span class="c1">// 改操作</span>
+<span class="c1">// 根据传入的实体更新数据，ID为唯一标志</span>
+<span class="kd">public</span> <span class="kt">int</span> <span class="nf">update</span><span class="o">(</span><span class="no">T</span> <span class="n">data</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">SQLException</span><span class="o">;</span>
+<span class="c1">// 更新ID,其他值不变</span>
+<span class="kd">public</span> <span class="kt">int</span> <span class="nf">updateId</span><span class="o">(</span><span class="no">T</span> <span class="n">data</span><span class="o">,</span> <span class="no">ID</span> <span class="n">newId</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">SQLException</span><span class="o">;</span>
+
+<span class="c1">// 查操作</span>
+<span class="c1">// 根据唯一标志id检索一条记录，如果id为</span>
+<span class="kd">public</span> <span class="no">T</span> <span class="nf">queryForId</span><span class="o">(</span><span class="no">ID</span> <span class="n">id</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">SQLException</span><span class="o">;</span>
+<span class="c1">// 查询匹配到的所有行中的第一个</span>
+<span class="kd">public</span> <span class="no">T</span> <span class="nf">queryForFirst</span><span class="o">(</span><span class="nc">PreparedQuery</span><span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;</span> <span class="n">preparedQuery</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">SQLException</span><span class="o">;</span>
+<span class="c1">// 返回表中所有条目，可导致大量数据导入内存，应该使用iterator方法来代替此方法</span>
+<span class="kd">public</span> <span class="nc">List</span><span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;</span> <span class="nf">queryForAll</span><span class="o">()</span> <span class="kd">throws</span> <span class="nc">SQLException</span><span class="o">;</span>
+<span class="c1">// 查询指定字段value等于查询值的行： where fieldName ＝ value</span>
+<span class="kd">public</span> <span class="nc">List</span><span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;</span> <span class="nf">queryForEq</span><span class="o">(</span><span class="nc">String</span> <span class="n">fieldName</span><span class="o">,</span> <span class="nc">Object</span> <span class="n">value</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">SQLException</span><span class="o">;</span>
+<span class="c1">// 匹配传入实体（字段不能为默认值，null，false，0，0.0等）的每个字段的值，每个条件进行and操作，返回的结果，可能导致SQL quote escaping</span>
+<span class="kd">public</span> <span class="nc">List</span><span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;</span> <span class="nf">queryForMatching</span><span class="o">(</span><span class="no">T</span> <span class="n">matchObj</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">SQLException</span><span class="o">;</span>
+<span class="c1">// 同上述方法，不会导致SQL quote escaping</span>
+<span class="kd">public</span> <span class="nc">List</span><span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;</span> <span class="nf">queryForMatchingArgs</span><span class="o">(</span><span class="no">T</span> <span class="n">matchObj</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">SQLException</span><span class="o">;</span>
+<span class="c1">// 根据传入的字段与value值的map匹配查询</span>
+<span class="kd">public</span> <span class="nc">List</span><span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;</span> <span class="nf">queryForFieldValues</span><span class="o">(</span><span class="nc">Map</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">,</span> <span class="nc">Object</span><span class="o">&gt;</span> <span class="n">fieldValues</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">SQLException</span><span class="o">;</span>
+<span class="c1">// 根据传入的字段与value值的map匹配查询</span>
+<span class="kd">public</span> <span class="nc">List</span><span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;</span> <span class="nf">queryForFieldValuesArgs</span><span class="o">(</span><span class="nc">Map</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">,</span> <span class="nc">Object</span><span class="o">&gt;</span> <span class="n">fieldValues</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">SQLException</span><span class="o">;</span>
+<span class="c1">// 查询与传入实体id相等的数据行</span>
+<span class="kd">public</span> <span class="no">T</span> <span class="nf">queryForSameId</span><span class="o">(</span><span class="no">T</span> <span class="n">data</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">SQLException</span><span class="o">;</span>
+<span class="c1">// 更高级的查询可以使用queryBuilder</span>
+<span class="n">dao</span><span class="o">.</span><span class="na">queryBuilder</span><span class="o">().</span><span class="na">orderBy</span><span class="o">(</span><span class="s">"id"</span><span class="o">,</span> <span class="kc">true</span><span class="o">).</span><span class="na">query</span><span class="o">();</span>
+</code></pre></div></div>
+
+<h4 id="步骤三定义实体类bean代表一张表">步骤三：定义实体类Bean，代表一张表</h4>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">com.j256.ormlite.field.DatabaseField</span><span class="o">;</span>  
+<span class="kn">import</span> <span class="nn">com.j256.ormlite.table.DatabaseTable</span><span class="o">;</span>  
+  
+<span class="nd">@DatabaseTable</span><span class="o">(</span><span class="n">tableName</span> <span class="o">=</span> <span class="s">"tb_user"</span><span class="o">)</span>  
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">User</span>   
+<span class="o">{</span>  
+    <span class="nd">@DatabaseField</span><span class="o">(</span><span class="n">generatedId</span> <span class="o">=</span> <span class="kc">true</span><span class="o">)</span>  
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">id</span><span class="o">;</span>  
+    <span class="nd">@DatabaseField</span><span class="o">(</span><span class="n">columnName</span> <span class="o">=</span> <span class="s">"name"</span><span class="o">)</span>  
+    <span class="kd">private</span> <span class="nc">String</span> <span class="n">name</span><span class="o">;</span>  
+    
+    <span class="kd">public</span> <span class="nf">User</span><span class="o">()</span>  
+    <span class="o">{</span>  
+    <span class="o">}</span>  
+  
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">getId</span><span class="o">()</span>  
+    <span class="o">{</span>  
+        <span class="k">return</span> <span class="n">id</span><span class="o">;</span>  
+    <span class="o">}</span>  
+  
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setId</span><span class="o">(</span><span class="kt">int</span> <span class="n">id</span><span class="o">)</span>  
+    <span class="o">{</span>  
+        <span class="k">this</span><span class="o">.</span><span class="na">id</span> <span class="o">=</span> <span class="n">id</span><span class="o">;</span>  
+    <span class="o">}</span>  
+  
+    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">getName</span><span class="o">()</span>  
+    <span class="o">{</span>  
+        <span class="k">return</span> <span class="n">name</span><span class="o">;</span>  
+    <span class="o">}</span>  
+  
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setName</span><span class="o">(</span><span class="nc">String</span> <span class="n">name</span><span class="o">)</span>  
+    <span class="o">{</span>  
+        <span class="k">this</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="n">name</span><span class="o">;</span>  
+    <span class="o">}</span>  
+  
+    <span class="nd">@Override</span>  
+    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">toString</span><span class="o">()</span>  
+    <span class="o">{</span>  
+        <span class="k">return</span> <span class="s">"User [id="</span> <span class="o">+</span> <span class="n">id</span> <span class="o">+</span> <span class="s">", name="</span> <span class="o">+</span> <span class="n">name</span>   
+                <span class="o">+</span> <span class="s">"]"</span><span class="o">;</span>  
+    <span class="o">}</span>  
+      
+<span class="o">}</span>  
+</code></pre></div></div>
+
+<p>ormLite封装后给Android原先的sqllite的操作方便许多。熟悉掌握此框架，可以给Android项目开发带来很大的方便。</p>
+
+    </article>
+    <div class="share">
+      <div class="share-component"></div>
+    </div>
+    <div class="comment">
+      
+  
+        <div id="container"></div>
+        <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+        <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+        <script>
+        var gitment = new Gitment({
+            id: '/android/2016/09/28/ORMLite/',
+            owner: 'lpq29743',
+            repo: 'blog-comments',
+            oauth: {
+                client_id: '5818ceff784afe05d31c',
+                client_secret: 'dc7e8efc044c7194cf453740f82c646aa998f206',
+            },
+        })
+        gitment.render('container')
+        </script>
+  
+
+
+    </div>
+	<ul class="pager">
+		
+		<li class="previous">
+			<a href="/android/2016/09/26/EventBus/" data-toggle="tooltip" data-placement="top" title="Android 事件发布/订阅框架 EventBus">
+				Previous<br>
+				<span>Android 事件发布/订阅框架 EventBus</span>
+			</a>
+		</li>
+		
+		
+		<li class="next">
+			<a href="/android/2016/09/29/RxJava/" data-toggle="tooltip" data-placement="top" title="Android 响应式编程框架 RxJava">
+				Next<br>
+				<span>Android 响应式编程框架 RxJava</span>
+			</a>
+		</li>
+		
+	</ul>
+  </div>
+  <div class="column one-fourth">
+    
+<h3>Search</h3>
+<div id="site_search">
+    <input type="text" id="search_box" placeholder="Search">
+</div>
+
+<ul id="search_results"></ul>
+
+<link rel="stylesheet" type="text/css" href="http://localhost:4000/assets/css/modules/sidebar-search.css">
+<script src="http://localhost:4000/assets/js/jekyll-search.min.js"></script>
+<script src="http://localhost:4000/assets/js/search.js"></script>
+
+<script type="text/javascript">
+SimpleJekyllSearch({
+    searchInput: document.getElementById('search_box'),
+    resultsContainer: document.getElementById('search_results'),
+    json: 'http://localhost:4000/assets/search_data.json',
+    searchResultTemplate: '<li><a href="{url}" title="{desc}">{title}</a></li>',
+    noResultsText: 'No results found',
+    limit: 10,
+    fuzzy: false,
+    exclude: ['Welcome']
+})
+</script>
+
+    
+<h3 class="post-directory-title mobile-hidden">Table of Contents</h3>
+<div id="post-directory-module" class="mobile-hidden">
+  <section class="post-directory">
+  <!-- Links that trigger the jumping -->
+  <!-- Added by javascript below -->
+  <dl></dl>
+  </section>
+</div>
+
+<script src="http://localhost:4000/assets/js/jquery.toc.js"></script>
+
+  </div>
+</div>
+</section>
+<!-- /section.content -->
+
+    <footer class="container">
+        <div class="site-footer" role="contentinfo">
+            <div class="copyright left mobile-block">
+                <a href="javascript:window.scrollTo(0,0)" class="right mobile-visible">TOP</a>
+            </div>
+
+            <ul class="site-footer-links right mobile-hidden">
+                <li>
+                    <a href="javascript:window.scrollTo(0,0)" >TOP</a>
+                </li>
+            </ul>
+            <a href="https://github.com/lpq29743/lpq29743.github.io" target="_blank" aria-label="view source code">
+                <span class="mega-octicon octicon-mark-github" title="GitHub"></span>
+            </a>
+            <ul class="site-footer-links mobile-hidden">
+                
+            </ul>
+
+        </div>
+    </footer>
+    <!-- / footer -->
+    <script src="http://localhost:4000/assets/vendor/share.js/dist/js/share.min.js"></script>
+    <script src="http://localhost:4000/assets/js/geopattern.js"></script>
+    <script src="http://localhost:4000/assets/js/prism.js"></script>
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/globals/prism.css">
+    <script>
+      jQuery(document).ready(function($) {
+        // geopattern
+        $('.geopattern').each(function(){
+          $(this).geopattern($(this).data('pattern-id'));
+        });
+       // hljs.initHighlightingOnLoad();
+      });
+    </script>
+    
+</body>
+</html>

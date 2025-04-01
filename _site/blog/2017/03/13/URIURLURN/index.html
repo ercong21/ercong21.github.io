@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans" prefix="og: http://ogp.me/ns#" class="han-init">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <title>URI、URL 和 URN &mdash; Peiqin Lin's Homepage</title>
+    <link rel="stylesheet" href="http://localhost:4000/assets/vendor/primer-css/css/primer.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/vendor/primer-markdown/dist/user-content.min.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/vendor/octicons/octicons/octicons.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/components/collection.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/components/repo-card.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/repo-list.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/mini-repo-list.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/profile.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/contact.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/news.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/components/boxed-group.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/globals/common.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/vendor/share.js/dist/css/share.min.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/globals/responsive.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/posts/index.css">
+    <!-- Latest compiled and minified CSS -->
+    
+
+    
+    <link rel="canonical" href="http://localhost:4000/blog/2017/03/13/URIURLURN/">
+    <link rel="alternate" type="application/atom+xml" title="Peiqin Lin's Homepage" href="/feed.xml">
+    <link rel="shortcut icon" href="http://localhost:4000/favicon.ico">
+    
+    <meta property="og:title" content="URI、URL 和 URN">
+      
+    <meta name="keywords" content="URI, URL, URN">
+    <meta name="og:keywords" content="URI, URL, URN">
+      
+    <meta name="description" content="之所以写这篇文章，是因为在网上看到了一个关于URL空格表示的问题，所以想通过这篇文章整理一下编程以及学习过程中经常打交道的URI、URL和URN。">
+    <meta name="og:description" content="之所以写这篇文章，是因为在网上看到了一个关于URL空格表示的问题，所以想通过这篇文章整理一下编程以及学习过程中经常打交道的URI、URL和URN。">
+      
+    
+    
+        
+    
+    <meta property="og:url" content="http://localhost:4000/blog/2017/03/13/URIURLURN/">
+    <meta property="og:site_name" content="Peiqin Lin's Homepage">
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="zh_CN" />
+    
+    <meta property="article:published_time" content="2017-03-13">
+    
+    <script src="http://localhost:4000/assets/vendor/jquery/dist/jquery.min.js"></script>
+    <script src="http://localhost:4000/assets/js/jquery-ui.js"></script>
+    <script type="text/javascript">
+    function toggleMenu() {
+        var nav = document.getElementsByClassName("site-header-nav")[0];
+        if (nav.style.display == "inline-flex") {
+          nav.style.display = "none";
+        } else {
+          nav.style.display = "inline-flex";
+        }
+    }
+    </script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-114643083-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-114643083-1');
+    </script>
+</head>
+<body class="" data-mz="">
+    <header class="site-header">
+        <div class="container">
+            <h1><a href="http://localhost:4000/" title="Peiqin Lin's Homepage">Peiqin Lin's Homepage</a></h1>
+            <button class="collapsed mobile-visible" type="button" onclick="toggleMenu();">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <nav class="site-header-nav" role="navigation">
+                
+            </nav>
+        </div>
+    </header>
+    <!-- / header -->
+
+    <section class="collection-head small geopattern" data-pattern-id="URI、URL 和 URN">
+<div class="container">
+  <div class="columns">
+    <div class="column three-fourths">
+      <div class="collection-title">
+        <h1 class="collection-header">URI、URL 和 URN</h1>
+        <div class="collection-info">
+          
+          <span class="meta-info">
+            <span class="octicon octicon-calendar"></span> 2017/03/13
+          </span>
+          
+          
+          <span class="meta-info">
+            <span class="octicon octicon-file-directory"></span>
+            <a href="http://localhost:4000/categories/#Blog" title="Blog">Blog</a>
+          </span>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+<!-- / .banner -->
+<section class="container content">
+<div class="columns">
+  <div class="column three-fourths" >
+    <article class="article-content markdown-body">
+    <p>之所以写这篇文章，是因为在网上看到了一个关于URL空格表示的问题，所以想通过这篇文章整理一下编程以及学习过程中经常打交道的URI、URL和URN。</p>
+
+<p><strong>URI、URL和URN有什么区别</strong></p>
+
+<p>网上已经有很多围绕这个问题进行讨论的文章，具体可以看stackoverflow上的问题 <a href="http://stackoverflow.com/questions/176264/what-is-the-difference-between-a-uri-a-url-and-a-urn">What is the difference between a URI, a URL and a URN?</a> 或者IBM网站的文章 <a href="https://www.ibm.com/developerworks/cn/xml/x-urlni.html">分清 URI、URL 和 URN</a> 。</p>
+
+<p><strong>各大浏览器规定的URL最长长度是多少</strong></p>
+
+<p>要访问一个网址，我们一般需要输入特定的URL，那么在浏览器中，URL是不是不限字符，可以无限输下去呢？事实上不是这样的，这个问题已经在stackoverflow有了很好的回答，具体可以点击<a href="http://stackoverflow.com/questions/417142/what-is-the-maximum-length-of-a-url-in-different-browsers">这里</a>。</p>
+
+<p><strong>短链接是什么，它能给我们带来什么帮助</strong></p>
+
+<p>短链接是一把双刃剑，它可以把较长的URL缩短，但也会带来安全隐患，想要了解更多，可以查看<a href="https://zh.wikipedia.org/wiki/%E7%B8%AE%E7%95%A5%E7%B6%B2%E5%9D%80%E6%9C%8D%E5%8B%99">维基百科相关字条</a>。现在网上也是出现了各大公司的URL短链接服务，个人推荐<a href="http://dwz.cn/">百度短链接服务</a>。关于短链接的实现，可以查看<a href="https://www.zhihu.com/question/29270034/answer/46446911">知乎相关回答</a>以及<a href="http://stackoverflow.com/questions/742013/how-to-code-a-url-shortener">stackoverflow相关讨论</a>，在Github上也是给出了<a href="https://github.com/delight-im/ShortURL">各个版本的实现方案</a>。</p>
+
+<p><strong>URL中的特殊字符应该怎么表示</strong></p>
+
+<p>URL中不能直接添加空格等特殊字符，这也是很多人在编程中出现问题的主要原因。那么我们应该如何识别或者添加URL中的特殊字符呢？具体可以查看维基百科的<a href="https://en.wikipedia.org/wiki/Percent-encoding">百分号编码词条</a>。实际上，空格的表示方法有<code class="language-plaintext highlighter-rouge">%20</code>和<code class="language-plaintext highlighter-rouge">+</code>两种，但一般推荐前者，关于这个问题，在stackoverflow上也有很好的<a href="http://stackoverflow.com/questions/1634271/url-encoding-the-space-character-or-20">解答</a>。</p>
+
+<p><strong>怎样的字符会让URL无效</strong></p>
+
+<p>这个问题源自stackoverflow，这里直接给出<a href="http://stackoverflow.com/questions/1547899/which-characters-make-a-url-invalid">问题链接</a>。</p>
+
+<p><strong>URL中的 #! 号是什么意思</strong></p>
+
+<p>之前博主在做一个QQ音乐的爬虫实验也遇到过相应的问题，在URL中，#号是不影响访问网页内容的。这个问题也在知乎上被讨论过，具体可以查看<a href="https://www.zhihu.com/question/19946782">这里</a>。</p>
+
+<p><strong>URL大小写敏感吗</strong></p>
+
+<p>这个问题其实蛮有趣的，在现实生活中我们可能很少注意到这个问题，但实际上，在知乎和stackoverflow上都有过相应的讨论，这里我们分别给出它们的相应链接： <a href="https://www.zhihu.com/question/19572705">网址链接是否区分大小写？</a> 和 <a href="http://stackoverflow.com/questions/7996919/should-url-be-case-sensitive">Should URL be case sensitive?</a> 。</p>
+
+    </article>
+    <div class="share">
+      <div class="share-component"></div>
+    </div>
+    <div class="comment">
+      
+  
+        <div id="container"></div>
+        <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+        <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+        <script>
+        var gitment = new Gitment({
+            id: '/blog/2017/03/13/URIURLURN/',
+            owner: 'lpq29743',
+            repo: 'blog-comments',
+            oauth: {
+                client_id: '5818ceff784afe05d31c',
+                client_secret: 'dc7e8efc044c7194cf453740f82c646aa998f206',
+            },
+        })
+        gitment.render('container')
+        </script>
+  
+
+
+    </div>
+	<ul class="pager">
+		
+		<li class="previous">
+			<a href="/python/2017/03/09/PythonSentimentAnalysis/" data-toggle="tooltip" data-placement="top" title="Python 历险记第四站——利用 Python 实现情感分析">
+				Previous<br>
+				<span>Python 历险记第四站——利用 Python 实现情感分析</span>
+			</a>
+		</li>
+		
+		
+		<li class="next">
+			<a href="/c/c++/2017/03/14/GccMakefile/" data-toggle="tooltip" data-placement="top" title="一起来学 GCC 与 Makefile">
+				Next<br>
+				<span>一起来学 GCC 与 Makefile</span>
+			</a>
+		</li>
+		
+	</ul>
+  </div>
+  <div class="column one-fourth">
+    
+<h3>Search</h3>
+<div id="site_search">
+    <input type="text" id="search_box" placeholder="Search">
+</div>
+
+<ul id="search_results"></ul>
+
+<link rel="stylesheet" type="text/css" href="http://localhost:4000/assets/css/modules/sidebar-search.css">
+<script src="http://localhost:4000/assets/js/jekyll-search.min.js"></script>
+<script src="http://localhost:4000/assets/js/search.js"></script>
+
+<script type="text/javascript">
+SimpleJekyllSearch({
+    searchInput: document.getElementById('search_box'),
+    resultsContainer: document.getElementById('search_results'),
+    json: 'http://localhost:4000/assets/search_data.json',
+    searchResultTemplate: '<li><a href="{url}" title="{desc}">{title}</a></li>',
+    noResultsText: 'No results found',
+    limit: 10,
+    fuzzy: false,
+    exclude: ['Welcome']
+})
+</script>
+
+    
+<h3 class="post-directory-title mobile-hidden">Table of Contents</h3>
+<div id="post-directory-module" class="mobile-hidden">
+  <section class="post-directory">
+  <!-- Links that trigger the jumping -->
+  <!-- Added by javascript below -->
+  <dl></dl>
+  </section>
+</div>
+
+<script src="http://localhost:4000/assets/js/jquery.toc.js"></script>
+
+  </div>
+</div>
+</section>
+<!-- /section.content -->
+
+    <footer class="container">
+        <div class="site-footer" role="contentinfo">
+            <div class="copyright left mobile-block">
+                <a href="javascript:window.scrollTo(0,0)" class="right mobile-visible">TOP</a>
+            </div>
+
+            <ul class="site-footer-links right mobile-hidden">
+                <li>
+                    <a href="javascript:window.scrollTo(0,0)" >TOP</a>
+                </li>
+            </ul>
+            <a href="https://github.com/lpq29743/lpq29743.github.io" target="_blank" aria-label="view source code">
+                <span class="mega-octicon octicon-mark-github" title="GitHub"></span>
+            </a>
+            <ul class="site-footer-links mobile-hidden">
+                
+            </ul>
+
+        </div>
+    </footer>
+    <!-- / footer -->
+    <script src="http://localhost:4000/assets/vendor/share.js/dist/js/share.min.js"></script>
+    <script src="http://localhost:4000/assets/js/geopattern.js"></script>
+    <script src="http://localhost:4000/assets/js/prism.js"></script>
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/globals/prism.css">
+    <script>
+      jQuery(document).ready(function($) {
+        // geopattern
+        $('.geopattern').each(function(){
+          $(this).geopattern($(this).data('pattern-id'));
+        });
+       // hljs.initHighlightingOnLoad();
+      });
+    </script>
+    
+</body>
+</html>

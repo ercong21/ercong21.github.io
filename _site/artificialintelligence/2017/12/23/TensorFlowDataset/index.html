@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans" prefix="og: http://ogp.me/ns#" class="han-init">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <title>TensorFlow Dataset API &mdash; Peiqin Lin's Homepage</title>
+    <link rel="stylesheet" href="http://localhost:4000/assets/vendor/primer-css/css/primer.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/vendor/primer-markdown/dist/user-content.min.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/vendor/octicons/octicons/octicons.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/components/collection.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/components/repo-card.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/repo-list.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/mini-repo-list.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/profile.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/contact.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/news.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/components/boxed-group.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/globals/common.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/vendor/share.js/dist/css/share.min.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/globals/responsive.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/posts/index.css">
+    <!-- Latest compiled and minified CSS -->
+    
+
+    
+    <link rel="canonical" href="http://localhost:4000/artificialintelligence/2017/12/23/TensorFlowDataset/">
+    <link rel="alternate" type="application/atom+xml" title="Peiqin Lin's Homepage" href="/feed.xml">
+    <link rel="shortcut icon" href="http://localhost:4000/favicon.ico">
+    
+    <meta property="og:title" content="TensorFlow Dataset API">
+      
+    <meta name="keywords" content="TensorFlow, 深度学习, 深度学习框架, 神经网络">
+    <meta name="og:keywords" content="TensorFlow, 深度学习, 深度学习框架, 神经网络">
+      
+    <meta name="description" content="Dataset API 是在 TensorFlow 1.3 版本中引入，使用的方法为调用tf.contrib.data.Dataset，但在 TensorFlow 1.4 中，改成了tf.data.Dataset。本文以 TensorFlow 1.4 版本为例进行讲解。">
+    <meta name="og:description" content="Dataset API 是在 TensorFlow 1.3 版本中引入，使用的方法为调用tf.contrib.data.Dataset，但在 TensorFlow 1.4 中，改成了tf.data.Dataset。本文以 TensorFlow 1.4 版本为例进行讲解。">
+      
+    
+    
+        
+    
+    <meta property="og:url" content="http://localhost:4000/artificialintelligence/2017/12/23/TensorFlowDataset/">
+    <meta property="og:site_name" content="Peiqin Lin's Homepage">
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="zh_CN" />
+    
+    <meta property="article:published_time" content="2017-12-23">
+    
+    <script src="http://localhost:4000/assets/vendor/jquery/dist/jquery.min.js"></script>
+    <script src="http://localhost:4000/assets/js/jquery-ui.js"></script>
+    <script type="text/javascript">
+    function toggleMenu() {
+        var nav = document.getElementsByClassName("site-header-nav")[0];
+        if (nav.style.display == "inline-flex") {
+          nav.style.display = "none";
+        } else {
+          nav.style.display = "inline-flex";
+        }
+    }
+    </script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-114643083-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-114643083-1');
+    </script>
+</head>
+<body class="" data-mz="">
+    <header class="site-header">
+        <div class="container">
+            <h1><a href="http://localhost:4000/" title="Peiqin Lin's Homepage">Peiqin Lin's Homepage</a></h1>
+            <button class="collapsed mobile-visible" type="button" onclick="toggleMenu();">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <nav class="site-header-nav" role="navigation">
+                
+            </nav>
+        </div>
+    </header>
+    <!-- / header -->
+
+    <section class="collection-head small geopattern" data-pattern-id="TensorFlow Data">
+<div class="container">
+  <div class="columns">
+    <div class="column three-fourths">
+      <div class="collection-title">
+        <h1 class="collection-header">TensorFlow Dataset API</h1>
+        <div class="collection-info">
+          
+          <span class="meta-info">
+            <span class="octicon octicon-calendar"></span> 2017/12/23
+          </span>
+          
+          
+          <span class="meta-info">
+            <span class="octicon octicon-file-directory"></span>
+            <a href="http://localhost:4000/categories/#ArtificialIntelligence" title="ArtificialIntelligence">ArtificialIntelligence</a>
+          </span>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+<!-- / .banner -->
+<section class="container content">
+<div class="columns">
+  <div class="column three-fourths" >
+    <article class="article-content markdown-body">
+    <p>Dataset API 是在 TensorFlow 1.3 版本中引入，使用的方法为调用<code class="language-plaintext highlighter-rouge">tf.contrib.data.Dataset</code>，但在 TensorFlow 1.4 中，改成了<code class="language-plaintext highlighter-rouge">tf.data.Dataset</code>。本文以 TensorFlow 1.4 版本为例进行讲解。</p>
+
+<p>Dataset 可看作是相同类型元素的有序列表，这里的元素可以是向量、字符串、图片、tuple 或 dict 等等。</p>
+
+<p>先看最简单的例子，即当元素是数字的时候。通过语句<code class="language-plaintext highlighter-rouge">dataset = tf.data.Dataset.from_tensor_slices(np.array([1.0, 2.0, 3.0, 4.0, 5.0]))</code>，我们就可以创建一个包含五个数字的 dataset。创建完 dataset 后，下一步毫无疑问就是使用了。在这里我们读取元素的方式是从 dataset 中实例化一个 Iterator，然后通过 Iterator 进行迭代，具体如下：</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 实例化了一个 “one shot iterator”，即只能从头到尾读取一次
+</span><span class="n">iterator</span> <span class="o">=</span> <span class="n">dataset</span><span class="p">.</span><span class="n">make_one_shot_iterator</span><span class="p">()</span>
+<span class="c1"># 从 iterator 里取出一个元素。非 Eager 模式下，one_element 是一个 Tensor，并不是一个值
+</span><span class="n">one_element</span> <span class="o">=</span> <span class="n">iterator</span><span class="p">.</span><span class="n">get_next</span><span class="p">()</span>
+<span class="k">with</span> <span class="n">tf</span><span class="p">.</span><span class="n">Session</span><span class="p">()</span> <span class="k">as</span> <span class="n">sess</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+        <span class="c1"># 取出具体的值
+</span>        <span class="k">print</span><span class="p">(</span><span class="n">sess</span><span class="p">.</span><span class="n">run</span><span class="p">(</span><span class="n">one_element</span><span class="p">))</span>
+</code></pre></div></div>
+
+<p>这里展示的是非 Eager 模式下的迭代方法，关于 Eager 模式的了解学习会留到以后的文章。在 Eager 模式中，传统的读取数据的方式都无法使用，必须使用 Dataset API。</p>
+
+<p>如果 dataset 中元素已读取完，再运行<code class="language-plaintext highlighter-rouge">sess.run(one_element)</code>，会抛出<code class="language-plaintext highlighter-rouge">tf.errors.OutOfRangeError</code>异常。我们可以在外界捕捉这个异常以判断数据是否读取完，具体如下：</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">dataset</span> <span class="o">=</span> <span class="n">tf</span><span class="p">.</span><span class="n">data</span><span class="p">.</span><span class="n">Dataset</span><span class="p">.</span><span class="n">from_tensor_slices</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">]))</span>
+<span class="n">iterator</span> <span class="o">=</span> <span class="n">dataset</span><span class="p">.</span><span class="n">make_one_shot_iterator</span><span class="p">()</span>
+<span class="n">one_element</span> <span class="o">=</span> <span class="n">iterator</span><span class="p">.</span><span class="n">get_next</span><span class="p">()</span>
+<span class="k">with</span> <span class="n">tf</span><span class="p">.</span><span class="n">Session</span><span class="p">()</span> <span class="k">as</span> <span class="n">sess</span><span class="p">:</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="n">sess</span><span class="p">.</span><span class="n">run</span><span class="p">(</span><span class="n">one_element</span><span class="p">))</span>
+    <span class="k">except</span> <span class="n">tf</span><span class="p">.</span><span class="n">errors</span><span class="p">.</span><span class="n">OutOfRangeError</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"end!"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>实际上，tf.data.Dataset.from_tensor_slices 的真正作用是切分传入 Tensor 的第一个维度，生成相应的 dataset。例如在语句<code class="language-plaintext highlighter-rouge">dataset = tf.data.Dataset.from_tensor_slices(np.random.uniform(size=(5, 2)))</code>中，传入的是一个形状为 (5, 2) 的矩阵，tf.data.Dataset.from_tensor_slices 会切分它形状上的第一个维度，最后生成的 dataset 中含有 5 个元素，每个元素的形状是 (2, )，即矩阵的一行。</p>
+
+<p>Dataset 中的元素还可以更复杂，如 tuple 或 dict。如在图像识别中，元素可以是 {“image”: image_tensor, “label”: label_tensor} 的形式，这样处理起来更方便。我们来看下面这个示例：</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">dataset</span> <span class="o">=</span> <span class="n">tf</span><span class="p">.</span><span class="n">data</span><span class="p">.</span><span class="n">Dataset</span><span class="p">.</span><span class="n">from_tensor_slices</span><span class="p">(</span>
+    <span class="p">{</span>
+        <span class="s">"a"</span><span class="p">:</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">]),</span>
+        <span class="s">"b"</span><span class="p">:</span> <span class="n">np</span><span class="p">.</span><span class="n">random</span><span class="p">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+    <span class="p">}</span>
+<span class="p">)</span>
+</code></pre></div></div>
+
+<p>示例中，函数会分别切分 a 中的数值和 b 中的数值，最终 dataset 中形式类似 {“a”: 1.0, “b”: [0.9, 0.1]}。</p>
+
+<p>Dataset 还支持 Transformation 操作。一个 Dataset 可以通过 Transformation 操作变成一个新的Dataset。通常我们通过 Transformation 完成数据变换、打乱、组成 batch 以及生成 epoch 等。常用的 Transformation 有：</p>
+
+<ul>
+  <li>
+    <p>map</p>
+
+    <p>map 接收一个函数，Dataset 中的元素都会被当作函数输入，并将函数返回值作为新的 Dataset，具体如下：</p>
+
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 将原 dataset 的元素值加 1，得到新的 dataset
+</span><span class="n">dataset</span> <span class="o">=</span> <span class="n">dataset</span><span class="p">.</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>batch</p>
+
+    <p>batch 是将多个元素组合成 batch，具体如下：</p>
+
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 将原 dataset 中的元素组成大小为 32 的 batch
+</span><span class="n">dataset</span> <span class="o">=</span> <span class="n">dataset</span><span class="p">.</span><span class="n">batch</span><span class="p">(</span><span class="mi">32</span><span class="p">)</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>shuffle</p>
+
+    <p>shuffle 的功能是打乱 dataset 中的元素，其参数 buffersize 表示打乱时使用的 buffer 大小，具体如下：</p>
+
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">dataset</span> <span class="o">=</span> <span class="n">dataset</span><span class="p">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">buffer_size</span><span class="o">=</span><span class="mi">10000</span><span class="p">)</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>repeat</p>
+
+    <p>repeat 的功能是将整个序列重复多次，主要用来处理 epoch，假设原先数据是一个 epoch，使用 repeat(5) 就可以将之变成 5 个 epoch，具体如下：</p>
+
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">dataset</span> <span class="o">=</span> <span class="n">dataset</span><span class="p">.</span><span class="n">repeat</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</code></pre></div>    </div>
+
+    <p>如果只是单纯调用 repeat() 而不带参数的话，生成序列会无限重复下去，也不会抛出 tf.errors.OutOfRangeError 异常：</p>
+  </li>
+</ul>
+
+<p>除了 tf.data.Dataset.from_tensor_slices，Dataset API 还提供了三种创建 Dataset 的方法：</p>
+
+<ul>
+  <li>tf.data.TextLineDataset()：输入为文件列表，输出为 dataset。dataset 的每个元素对应了文件中的一行，可以用此函数来读入 CSV 文件</li>
+  <li>tf.data.FixedLengthRecordDataset()：输入是文件列表和 record_bytes，输出是 dataset。dataset 的每个元素对应文件中固定字节数 record_bytes 的内容，可以用此函数来读取以二进制形式保存的文件，如 CIFAR10 数据集</li>
+  <li>tf.data.TFRecordDataset()：用来读取 TFRecord 文件。dataset 的每个元素为一个 TFExample</li>
+</ul>
+
+<p>Iterator 的创建也有更丰富的方法，主要有以下三种：</p>
+
+<ul>
+  <li>initializable iterator</li>
+  <li>reinitializable iterator</li>
+  <li>feedable iterator</li>
+</ul>
+
+<p>这里我们主要来了解一下 initializable iterator。initializable iterator 使用前必须通过<code class="language-plaintext highlighter-rouge">sess.run()</code>初始化。使用 initializable iterator，可以将 placeholder 代入 Iterator，从而快速定义新的 Iterator。具体示例如下：</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">limit</span> <span class="o">=</span> <span class="n">tf</span><span class="p">.</span><span class="n">placeholder</span><span class="p">(</span><span class="n">dtype</span><span class="o">=</span><span class="n">tf</span><span class="p">.</span><span class="n">int32</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">[])</span>
+<span class="n">dataset</span> <span class="o">=</span> <span class="n">tf</span><span class="p">.</span><span class="n">data</span><span class="p">.</span><span class="n">Dataset</span><span class="p">.</span><span class="n">from_tensor_slices</span><span class="p">(</span><span class="n">tf</span><span class="p">.</span><span class="nb">range</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="n">limit</span><span class="p">))</span>
+<span class="n">iterator</span> <span class="o">=</span> <span class="n">dataset</span><span class="p">.</span><span class="n">make_initializable_iterator</span><span class="p">()</span>
+<span class="n">next_element</span> <span class="o">=</span> <span class="n">iterator</span><span class="p">.</span><span class="n">get_next</span><span class="p">()</span>
+<span class="k">with</span> <span class="n">tf</span><span class="p">.</span><span class="n">Session</span><span class="p">()</span> <span class="k">as</span> <span class="n">sess</span><span class="p">:</span>
+	<span class="n">sess</span><span class="p">.</span><span class="n">run</span><span class="p">(</span><span class="n">iterator</span><span class="p">.</span><span class="n">initializer</span><span class="p">,</span> <span class="n">feed_dict</span><span class="o">=</span><span class="p">{</span><span class="n">limit</span><span class="p">:</span> <span class="mi">10</span><span class="p">})</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+      <span class="n">value</span> <span class="o">=</span> <span class="n">sess</span><span class="p">.</span><span class="n">run</span><span class="p">(</span><span class="n">next_element</span><span class="p">)</span>
+      <span class="k">assert</span> <span class="n">i</span> <span class="o">==</span> <span class="n">value</span>
+</code></pre></div></div>
+
+<p>initializable iterator 还可以用来读大数组。使用tf.data.Dataset.from_tensor_slices(array) 时，实际上是将 array 作为一个常量保存到计算图中。当 array 很大时，会导致计算图变得很大。这时我们可以用 placeholder 代替 array，并使用 initializable iterator 将 array 传进去，具体如下：</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 从硬盘中读入两个 Numpy 数组
+</span><span class="k">with</span> <span class="n">np</span><span class="p">.</span><span class="n">load</span><span class="p">(</span><span class="s">"/var/data/training_data.npy"</span><span class="p">)</span> <span class="k">as</span> <span class="n">data</span><span class="p">:</span>
+	<span class="n">features</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s">"features"</span><span class="p">]</span>
+    <span class="n">labels</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s">"labels"</span><span class="p">]</span>
+<span class="n">features_placeholder</span> <span class="o">=</span> <span class="n">tf</span><span class="p">.</span><span class="n">placeholder</span><span class="p">(</span><span class="n">features</span><span class="p">.</span><span class="n">dtype</span><span class="p">,</span> <span class="n">features</span><span class="p">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="n">labels_placeholder</span> <span class="o">=</span> <span class="n">tf</span><span class="p">.</span><span class="n">placeholder</span><span class="p">(</span><span class="n">labels</span><span class="p">.</span><span class="n">dtype</span><span class="p">,</span> <span class="n">labels</span><span class="p">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="n">dataset</span> <span class="o">=</span> <span class="n">tf</span><span class="p">.</span><span class="n">data</span><span class="p">.</span><span class="n">Dataset</span><span class="p">.</span><span class="n">from_tensor_slices</span><span class="p">((</span><span class="n">features_placeholder</span><span class="p">,</span> <span class="n">labels_placeholder</span><span class="p">))</span>
+<span class="n">iterator</span> <span class="o">=</span> <span class="n">dataset</span><span class="p">.</span><span class="n">make_initializable_iterator</span><span class="p">()</span>
+<span class="n">sess</span><span class="p">.</span><span class="n">run</span><span class="p">(</span><span class="n">iterator</span><span class="p">.</span><span class="n">initializer</span><span class="p">,</span> <span class="n">feed_dict</span><span class="o">=</span><span class="p">{</span><span class="n">features_placeholder</span><span class="p">:</span> <span class="n">features</span><span class="p">,</span> <span class="n">labels_placeholder</span><span class="p">:</span> <span class="n">labels</span><span class="p">})</span>
+</code></pre></div></div>
+
+<p>关于 Dataset API，我们就讲到这里，这篇文章也会随着我学习的深入进行更新。</p>
+
+    </article>
+    <div class="share">
+      <div class="share-component"></div>
+    </div>
+    <div class="comment">
+      
+  
+        <div id="container"></div>
+        <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+        <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+        <script>
+        var gitment = new Gitment({
+            id: '/artificialintelligence/2017/12/23/TensorFlowDataset/',
+            owner: 'lpq29743',
+            repo: 'blog-comments',
+            oauth: {
+                client_id: '5818ceff784afe05d31c',
+                client_secret: 'dc7e8efc044c7194cf453740f82c646aa998f206',
+            },
+        })
+        gitment.render('container')
+        </script>
+  
+
+
+    </div>
+	<ul class="pager">
+		
+		<li class="previous">
+			<a href="/python/2017/12/23/PythonNumpy/" data-toggle="tooltip" data-placement="top" title="Python 工具库之 Numpy">
+				Previous<br>
+				<span>Python 工具库之 Numpy</span>
+			</a>
+		</li>
+		
+		
+		<li class="next">
+			<a href="/artificialintelligence/2018/02/25/Evaluation/" data-toggle="tooltip" data-placement="top" title="机器学习常用评价标准">
+				Next<br>
+				<span>机器学习常用评价标准</span>
+			</a>
+		</li>
+		
+	</ul>
+  </div>
+  <div class="column one-fourth">
+    
+<h3>Search</h3>
+<div id="site_search">
+    <input type="text" id="search_box" placeholder="Search">
+</div>
+
+<ul id="search_results"></ul>
+
+<link rel="stylesheet" type="text/css" href="http://localhost:4000/assets/css/modules/sidebar-search.css">
+<script src="http://localhost:4000/assets/js/jekyll-search.min.js"></script>
+<script src="http://localhost:4000/assets/js/search.js"></script>
+
+<script type="text/javascript">
+SimpleJekyllSearch({
+    searchInput: document.getElementById('search_box'),
+    resultsContainer: document.getElementById('search_results'),
+    json: 'http://localhost:4000/assets/search_data.json',
+    searchResultTemplate: '<li><a href="{url}" title="{desc}">{title}</a></li>',
+    noResultsText: 'No results found',
+    limit: 10,
+    fuzzy: false,
+    exclude: ['Welcome']
+})
+</script>
+
+    
+<h3 class="post-directory-title mobile-hidden">Table of Contents</h3>
+<div id="post-directory-module" class="mobile-hidden">
+  <section class="post-directory">
+  <!-- Links that trigger the jumping -->
+  <!-- Added by javascript below -->
+  <dl></dl>
+  </section>
+</div>
+
+<script src="http://localhost:4000/assets/js/jquery.toc.js"></script>
+
+  </div>
+</div>
+</section>
+<!-- /section.content -->
+
+    <footer class="container">
+        <div class="site-footer" role="contentinfo">
+            <div class="copyright left mobile-block">
+                <a href="javascript:window.scrollTo(0,0)" class="right mobile-visible">TOP</a>
+            </div>
+
+            <ul class="site-footer-links right mobile-hidden">
+                <li>
+                    <a href="javascript:window.scrollTo(0,0)" >TOP</a>
+                </li>
+            </ul>
+            <a href="https://github.com/lpq29743/lpq29743.github.io" target="_blank" aria-label="view source code">
+                <span class="mega-octicon octicon-mark-github" title="GitHub"></span>
+            </a>
+            <ul class="site-footer-links mobile-hidden">
+                
+            </ul>
+
+        </div>
+    </footer>
+    <!-- / footer -->
+    <script src="http://localhost:4000/assets/vendor/share.js/dist/js/share.min.js"></script>
+    <script src="http://localhost:4000/assets/js/geopattern.js"></script>
+    <script src="http://localhost:4000/assets/js/prism.js"></script>
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/globals/prism.css">
+    <script>
+      jQuery(document).ready(function($) {
+        // geopattern
+        $('.geopattern').each(function(){
+          $(this).geopattern($(this).data('pattern-id'));
+        });
+       // hljs.initHighlightingOnLoad();
+      });
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans" prefix="og: http://ogp.me/ns#" class="han-init">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <title>怎样系统地学习 Python 爬虫 &mdash; Peiqin Lin's Homepage</title>
+    <link rel="stylesheet" href="http://localhost:4000/assets/vendor/primer-css/css/primer.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/vendor/primer-markdown/dist/user-content.min.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/vendor/octicons/octicons/octicons.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/components/collection.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/components/repo-card.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/repo-list.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/mini-repo-list.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/profile.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/contact.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/news.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/components/boxed-group.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/globals/common.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/vendor/share.js/dist/css/share.min.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/globals/responsive.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/posts/index.css">
+    <!-- Latest compiled and minified CSS -->
+    
+
+    
+    <link rel="canonical" href="http://localhost:4000/python/2017/05/22/HowToStudyPythonSpider/">
+    <link rel="alternate" type="application/atom+xml" title="Peiqin Lin's Homepage" href="/feed.xml">
+    <link rel="shortcut icon" href="http://localhost:4000/favicon.ico">
+    
+    <meta property="og:title" content="怎样系统地学习 Python 爬虫">
+      
+    <meta name="keywords" content="Python, Python爬虫, 爬虫">
+    <meta name="og:keywords" content="Python, Python爬虫, 爬虫">
+      
+    <meta name="description" content="已经有一段时间没有写博客了，这段时间主要忙于做课内作业。前阵子写完机器学习实战的读书笔记后，一直想找个机会做一个小Demo，可是对于机器学习实验来说，收集数据是相当关键的一步，这就让我想起了之前学的爬虫。想想接触爬虫到现在也有几个月了，是时候从头回顾，把整个爬虫学习系统整理出来，整理行囊，重新出发了！">
+    <meta name="og:description" content="已经有一段时间没有写博客了，这段时间主要忙于做课内作业。前阵子写完机器学习实战的读书笔记后，一直想找个机会做一个小Demo，可是对于机器学习实验来说，收集数据是相当关键的一步，这就让我想起了之前学的爬虫。想想接触爬虫到现在也有几个月了，是时候从头回顾，把整个爬虫学习系统整理出来，整理行囊，重新出发了！">
+      
+    
+    
+        
+    
+    <meta property="og:url" content="http://localhost:4000/python/2017/05/22/HowToStudyPythonSpider/">
+    <meta property="og:site_name" content="Peiqin Lin's Homepage">
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="zh_CN" />
+    
+    <meta property="article:published_time" content="2017-05-22">
+    
+    <script src="http://localhost:4000/assets/vendor/jquery/dist/jquery.min.js"></script>
+    <script src="http://localhost:4000/assets/js/jquery-ui.js"></script>
+    <script type="text/javascript">
+    function toggleMenu() {
+        var nav = document.getElementsByClassName("site-header-nav")[0];
+        if (nav.style.display == "inline-flex") {
+          nav.style.display = "none";
+        } else {
+          nav.style.display = "inline-flex";
+        }
+    }
+    </script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-114643083-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-114643083-1');
+    </script>
+</head>
+<body class="" data-mz="">
+    <header class="site-header">
+        <div class="container">
+            <h1><a href="http://localhost:4000/" title="Peiqin Lin's Homepage">Peiqin Lin's Homepage</a></h1>
+            <button class="collapsed mobile-visible" type="button" onclick="toggleMenu();">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <nav class="site-header-nav" role="navigation">
+                
+            </nav>
+        </div>
+    </header>
+    <!-- / header -->
+
+    <section class="collection-head small geopattern" data-pattern-id="怎样系统地学习 Python ">
+<div class="container">
+  <div class="columns">
+    <div class="column three-fourths">
+      <div class="collection-title">
+        <h1 class="collection-header">怎样系统地学习 Python 爬虫</h1>
+        <div class="collection-info">
+          
+          <span class="meta-info">
+            <span class="octicon octicon-calendar"></span> 2017/05/22
+          </span>
+          
+          
+          <span class="meta-info">
+            <span class="octicon octicon-file-directory"></span>
+            <a href="http://localhost:4000/categories/#Python" title="Python">Python</a>
+          </span>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+<!-- / .banner -->
+<section class="container content">
+<div class="columns">
+  <div class="column three-fourths" >
+    <article class="article-content markdown-body">
+    <p>已经有一段时间没有写博客了，这段时间主要忙于做课内作业。前阵子写完机器学习实战的读书笔记后，一直想找个机会做一个小Demo，可是对于机器学习实验来说，收集数据是相当关键的一步，这就让我想起了之前学的爬虫。想想接触爬虫到现在也有几个月了，是时候从头回顾，把整个爬虫学习系统整理出来，整理行囊，重新出发了！</p>
+
+<h3 id="阶段一python基础知识学习">阶段一：Python基础知识学习</h3>
+
+<p>这个部分是学习Python爬虫绝对不可以忽略的，如果你连写出漂亮Python代码的能力都没有，更别谈用Python爬虫了。</p>
+
+<p>Python主要有Python2和Python3两个版本，建议大家选择Python3，毕竟技术总是在向前发展，而且Python3相关的资料也越来越多，具体的教程推荐<a href="http://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000">廖雪峰的Python3教程</a>。</p>
+
+<p>如果你只是学习爬虫的话，那么个人有几篇关于Python的文章想要推荐，包括<a href="https://lpq29743.github.io/redant/2016/12/01/PythonDataStructure/">Python之数据结构</a>、<a href="https://lpq29743.github.io/redant/2017/03/25/PythonModule/">Python模块</a>、<a href="https://lpq29743.github.io/redant/2017/04/11/Pythonic/">一起来让Python代码变得Pythonic</a>。</p>
+
+<h3 id="阶段二爬虫入门">阶段二：爬虫入门</h3>
+
+<p>了解了Python的一些基本知识后，我们就可以开始爬取想要的数据了，那么我们需要用到哪些工具呢？具体如下：</p>
+
+<ul>
+  <li>爬取网页：urllib或urllib2</li>
+  <li>解析网页：re（支持正则表达式）</li>
+  <li>JS操作：selenium+phantomjs（直接操作浏览器，获取JS渲染后的页面）</li>
+  <li>数据操作：openpyxl（读写excel）、xlsxwriter（写入excel优选，不支持读excel）、pymysql（MySQL数据库操作）</li>
+</ul>
+
+<p>上面很多库已经能解决基本的问题了，但有些库在遇到要求更高的爬虫时效率很低，所以我们有一些更好的替代库。</p>
+
+<h3 id="阶段三爬虫再入门">阶段三：爬虫再入门</h3>
+
+<p>工欲善其事，必先利其器。有更好的爬虫工具，能够让我们更有效率的实现目的，接下来我们就来认识几个爬虫利器：</p>
+
+<ul>
+  <li>爬取网页：requests</li>
+  <li>解析网页：beautifulsoup4（要求快速开发时优选，HTML解析）、lxml（要求性能时优选，XPath解析）</li>
+  <li>JS操作：F12开发者工具+Python模拟操作（更多内容可参考<a href="https://www.zhihu.com/question/21471960/answer/154098407">这里</a>）</li>
+  <li>数据操作：SQLAlchemy（ORM框架）</li>
+</ul>
+
+<h3 id="阶段四爬虫三入门">阶段四：爬虫三入门</h3>
+
+<p>接触了Python爬虫一段时间后，我们就可以考虑是要造轮子还是用现有框架了，个人的建议是用现有的框架，一方面是因为现有框架相对成熟，能够提高我们的开发效率，另一方面是只有当我们用过别人成熟的框架之后，我们才对框架的作用更加清楚，才可能去造适合我们的轮子。那么Python爬虫有什么框架呢？具体如下：</p>
+
+<ul>
+  <li>scrapy（自定义程度高，文档强，但学习难度较高，需要结合splash进行js渲染，建议优选选择）</li>
+  <li>pyspider（国内大神神作，上手简单，操作简便，内置pyquery选择器，增加了WEB界面并集成了phantomjs）</li>
+</ul>
+
+<h3 id="阶段五爬虫进阶">阶段五：爬虫进阶</h3>
+
+<p>当我们爬取的数据越来越多，对效率的要求越来越高的时候，我们就需要学习一些更深的内容，包括以下几个方面：</p>
+
+<ul>
+  <li>多线程、多进程、分布式：三种方式从左到右，一个比一个强大， 当我们对效率要求高时，可以考虑这些方案</li>
+  <li>IP代理：对于豆瓣等有反爬虫机制的网站，爬没多久就会被封IP，面对这种情况，我们可以选择减缓爬取速度，但这样会导致爬取效率降低，最好的解决方式就是使用IP代理，具体可以参考<a href="https://www.zhihu.com/question/47464143">这里</a></li>
+  <li>布隆过滤器：url去重是爬虫中经常出现的问题之一，而布隆过滤器是解决这个问题的绝佳方式</li>
+</ul>
+
+<h3 id="附一些小技巧">附：一些小技巧</h3>
+
+<ul>
+  <li>所有网站爬虫，优先选择爬移动版，如<a href="http://m.weibo.com">微博移动版</a></li>
+</ul>
+
+<p>在博主初学Python爬虫时，<a href="http://cuiqingcai.com/1052.html">Python爬虫学习系列教程</a>给我带来了很大的帮助，在此也推荐给大家。做完整理之后，发现自己的Python爬虫能力还有很大的提升空间。期间看到了一个关于IP代理库的爬虫，接下来也会找时间做这个实验，敬请期待！</p>
+
+    </article>
+    <div class="share">
+      <div class="share-component"></div>
+    </div>
+    <div class="comment">
+      
+  
+        <div id="container"></div>
+        <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+        <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+        <script>
+        var gitment = new Gitment({
+            id: '/python/2017/05/22/HowToStudyPythonSpider/',
+            owner: 'lpq29743',
+            repo: 'blog-comments',
+            oauth: {
+                client_id: '5818ceff784afe05d31c',
+                client_secret: 'dc7e8efc044c7194cf453740f82c646aa998f206',
+            },
+        })
+        gitment.render('container')
+        </script>
+  
+
+
+    </div>
+	<ul class="pager">
+		
+		<li class="previous">
+			<a href="/java/2017/04/16/HashMap/" data-toggle="tooltip" data-placement="top" title="HashMap 的实现原理">
+				Previous<br>
+				<span>HashMap 的实现原理</span>
+			</a>
+		</li>
+		
+		
+		<li class="next">
+			<a href="/python/2017/05/31/PythonProxy/" data-toggle="tooltip" data-placement="top" title="Python 历险记第七站——搭建 IP 代理库">
+				Next<br>
+				<span>Python 历险记第七站——搭建 IP 代理库</span>
+			</a>
+		</li>
+		
+	</ul>
+  </div>
+  <div class="column one-fourth">
+    
+<h3>Search</h3>
+<div id="site_search">
+    <input type="text" id="search_box" placeholder="Search">
+</div>
+
+<ul id="search_results"></ul>
+
+<link rel="stylesheet" type="text/css" href="http://localhost:4000/assets/css/modules/sidebar-search.css">
+<script src="http://localhost:4000/assets/js/jekyll-search.min.js"></script>
+<script src="http://localhost:4000/assets/js/search.js"></script>
+
+<script type="text/javascript">
+SimpleJekyllSearch({
+    searchInput: document.getElementById('search_box'),
+    resultsContainer: document.getElementById('search_results'),
+    json: 'http://localhost:4000/assets/search_data.json',
+    searchResultTemplate: '<li><a href="{url}" title="{desc}">{title}</a></li>',
+    noResultsText: 'No results found',
+    limit: 10,
+    fuzzy: false,
+    exclude: ['Welcome']
+})
+</script>
+
+    
+<h3 class="post-directory-title mobile-hidden">Table of Contents</h3>
+<div id="post-directory-module" class="mobile-hidden">
+  <section class="post-directory">
+  <!-- Links that trigger the jumping -->
+  <!-- Added by javascript below -->
+  <dl></dl>
+  </section>
+</div>
+
+<script src="http://localhost:4000/assets/js/jquery.toc.js"></script>
+
+  </div>
+</div>
+</section>
+<!-- /section.content -->
+
+    <footer class="container">
+        <div class="site-footer" role="contentinfo">
+            <div class="copyright left mobile-block">
+                <a href="javascript:window.scrollTo(0,0)" class="right mobile-visible">TOP</a>
+            </div>
+
+            <ul class="site-footer-links right mobile-hidden">
+                <li>
+                    <a href="javascript:window.scrollTo(0,0)" >TOP</a>
+                </li>
+            </ul>
+            <a href="https://github.com/lpq29743/lpq29743.github.io" target="_blank" aria-label="view source code">
+                <span class="mega-octicon octicon-mark-github" title="GitHub"></span>
+            </a>
+            <ul class="site-footer-links mobile-hidden">
+                
+            </ul>
+
+        </div>
+    </footer>
+    <!-- / footer -->
+    <script src="http://localhost:4000/assets/vendor/share.js/dist/js/share.min.js"></script>
+    <script src="http://localhost:4000/assets/js/geopattern.js"></script>
+    <script src="http://localhost:4000/assets/js/prism.js"></script>
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/globals/prism.css">
+    <script>
+      jQuery(document).ready(function($) {
+        // geopattern
+        $('.geopattern').each(function(){
+          $(this).geopattern($(this).data('pattern-id'));
+        });
+       // hljs.initHighlightingOnLoad();
+      });
+    </script>
+    
+</body>
+</html>

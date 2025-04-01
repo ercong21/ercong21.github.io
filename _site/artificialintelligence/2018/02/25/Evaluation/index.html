@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans" prefix="og: http://ogp.me/ns#" class="han-init">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <title>机器学习常用评价标准 &mdash; Peiqin Lin's Homepage</title>
+    <link rel="stylesheet" href="http://localhost:4000/assets/vendor/primer-css/css/primer.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/vendor/primer-markdown/dist/user-content.min.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/vendor/octicons/octicons/octicons.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/components/collection.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/components/repo-card.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/repo-list.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/mini-repo-list.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/profile.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/contact.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/news.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/components/boxed-group.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/globals/common.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/vendor/share.js/dist/css/share.min.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/globals/responsive.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/posts/index.css">
+    <!-- Latest compiled and minified CSS -->
+    
+
+    
+    <link rel="canonical" href="http://localhost:4000/artificialintelligence/2018/02/25/Evaluation/">
+    <link rel="alternate" type="application/atom+xml" title="Peiqin Lin's Homepage" href="/feed.xml">
+    <link rel="shortcut icon" href="http://localhost:4000/favicon.ico">
+    
+    <meta property="og:title" content="机器学习常用评价标准">
+      
+    <meta name="keywords" content="机器学习, 深度学习, 自然语言处理">
+    <meta name="og:keywords" content="机器学习, 深度学习, 自然语言处理">
+      
+    <meta name="description" content="在机器学习、深度学习以及自然语言处理等领域，评估方法是经常要考虑到的问题。本文就让我们来一起看一下几类问题的常用评价标准。">
+    <meta name="og:description" content="在机器学习、深度学习以及自然语言处理等领域，评估方法是经常要考虑到的问题。本文就让我们来一起看一下几类问题的常用评价标准。">
+      
+    
+    
+        
+    
+    <meta property="og:url" content="http://localhost:4000/artificialintelligence/2018/02/25/Evaluation/">
+    <meta property="og:site_name" content="Peiqin Lin's Homepage">
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="zh_CN" />
+    
+    <meta property="article:published_time" content="2018-02-25">
+    
+    <script src="http://localhost:4000/assets/vendor/jquery/dist/jquery.min.js"></script>
+    <script src="http://localhost:4000/assets/js/jquery-ui.js"></script>
+    <script type="text/javascript">
+    function toggleMenu() {
+        var nav = document.getElementsByClassName("site-header-nav")[0];
+        if (nav.style.display == "inline-flex") {
+          nav.style.display = "none";
+        } else {
+          nav.style.display = "inline-flex";
+        }
+    }
+    </script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-114643083-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-114643083-1');
+    </script>
+</head>
+<body class="" data-mz="">
+    <header class="site-header">
+        <div class="container">
+            <h1><a href="http://localhost:4000/" title="Peiqin Lin's Homepage">Peiqin Lin's Homepage</a></h1>
+            <button class="collapsed mobile-visible" type="button" onclick="toggleMenu();">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <nav class="site-header-nav" role="navigation">
+                
+            </nav>
+        </div>
+    </header>
+    <!-- / header -->
+
+    <section class="collection-head small geopattern" data-pattern-id="机器学习常用评价标准">
+<div class="container">
+  <div class="columns">
+    <div class="column three-fourths">
+      <div class="collection-title">
+        <h1 class="collection-header">机器学习常用评价标准</h1>
+        <div class="collection-info">
+          
+          <span class="meta-info">
+            <span class="octicon octicon-calendar"></span> 2018/02/25
+          </span>
+          
+          
+          <span class="meta-info">
+            <span class="octicon octicon-file-directory"></span>
+            <a href="http://localhost:4000/categories/#ArtificialIntelligence" title="ArtificialIntelligence">ArtificialIntelligence</a>
+          </span>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+<!-- / .banner -->
+<section class="container content">
+<div class="columns">
+  <div class="column three-fourths" >
+    <article class="article-content markdown-body">
+    <p>在机器学习、深度学习以及自然语言处理等领域，评估方法是经常要考虑到的问题。本文就让我们来一起看一下几类问题的常用评价标准。</p>
+
+<h3 id="分类">分类</h3>
+
+<h4 id="准确率accuracy">准确率（Accuracy）</h4>
+
+<p>准确率为分类问题中最简单的评价标准，也是最常用的评价标准，其计算方式为分类准确的个数除以总个数。</p>
+
+<h4 id="精确率precision召回率recall和-f1-值f1-score">精确率（Precision）、召回率（Recall）和 F1 值（F1 score）</h4>
+
+<p>如果单纯用准确率来评估分类器的话，会显得不够全面。因为在一些样本不平衡的实验中，分类器可能会倾向于数目较多的类别，从而导致准确率虽然偏高，但在各类中准确率相差较大的情况，因此我们引入了精确率和召回率两个概念。</p>
+
+<p>针对某一个类别 \(C\)，我们定义 \(S\) 为分类器预测为该类的集合，\(G\) 为原本数据集中标注为该类的集合，易得 \(S \bigcap G\)是分类器预测该类正确的集合。</p>
+
+<p>精确率指分类器预测某类正确的比例，其计算公式为 \(P = \frac{\vert S \bigcap G \vert}{\vert S \vert}\) ；而召回率指标注数据集中该分类被正确预测的比例，其计算公式为 \(R = \frac{\vert S \bigcap G \vert}{\vert G \vert}\) 。根据精确率和召回率，我们可以得到 F1 值，其公式为 \(F_1 = \frac{2PR}{P + R}\) 。F1 值是 F 值的一种常见情况。F 值的计算公式为 \(F_\beta=\frac{(\beta^2+1)PR}{\beta^2P+R}\)。当 \(\beta=1\) 时，F 值即为 F1 值；当 \(\beta&gt;1\) 时，F 值更看重精确率，反之则更看重召回率。</p>
+
+<p>此外，F1 值可以细分为微平均 F1（micro-averaging）和宏平均 F1（macro-averaging ）两种：</p>
+
+<ul>
+  <li>宏平均 F1 先对每个类别<strong>单独</strong>计算 F1 值，再取这些值的算术平均值作为全局 F1 值。宏平均 F1 平等对待每一个类别，所以它的值主要受到<strong>稀有类别</strong>的影响</li>
+  <li>微平均 F1 对数据集中的每一个实例<strong>不分类别</strong>进行统计建立全局混淆矩阵，然后计算全局 F1 值。微平均 F1 平等考虑文档集中的每一个文档，所以它的值受到<strong>常见类别</strong>的影响比较大</li>
+</ul>
+
+<p>一般情况下，宏平均 F1 值使用更为广泛。</p>
+
+<p><strong>ROC 曲线和 AUC 面积</strong></p>
+
+<p>ROC 曲线（Receiver Operating Characteristic Curve）主要应用于二分类问题。在了解这 ROC 曲线之前，我们先结合上面的精确率和召回率来看以下几个概念：</p>
+
+<ul>
+  <li>真阳性率（True Positive Rate，TPR）：又称灵敏度，其与正类的召回率等价</li>
+  <li>真阴性率（True Negative Rate，TNR）：又称特异度，其与负类的召回率等价</li>
+  <li>假阴性率（False Negative Rate，FNR）：又称漏诊率，等于 1 - 灵敏度</li>
+  <li>假阳性率（False Positive Rate，FPR）：又称误诊率，等于 1 - 特异度</li>
+</ul>
+
+<p>ROC 空间是以假阳性率为横轴，真阳性率为纵轴所组成的坐标图，上面每一个点可看作一个分类器，根据点的坐标可以判断分类器的优劣。</p>
+
+<p>ROC 曲线实际代表了无数个分类器，线上的点代表着同一个分类器在不同阈值下的分类效果。对于 ROC 曲线，一个重要的特征是它下面的面积，即 AUC 面积（Area Under Curve）。AUC 面积的取值范围从 0 到 1，我们一般认为 AUC 面积为 0.5 时为随机分类，识别能力为 0，面积越接近于 1，识别能力越强，面积等于 1 为完全识别。当分类器对应的 ROC 曲线下面积小于 0.5 时，说明这是一个有问题的分类器。</p>
+
+<p><strong>Precision-Recall 曲线</strong></p>
+
+<p>PR 曲线以 Recall 为横轴，Precision 为纵轴，其与 ROC 曲线一样，都是通过取不同阈值来描绘曲线。PR 曲线下面积实际上是 \(E(Precision)\)，即 Precision 的加权平均结果。与 AUC 面积不同，PR 曲线下面积小于 0.5，也不能说明分类器有问题。</p>
+
+<h3 id="回归">回归</h3>
+
+<p>回归问题主要有以下三个评价指标：</p>
+
+<ol>
+  <li>MAE（Mean Absolute Error）：即平均绝对值差，计算公式为\(\frac{1}{n}\sum_{i = 1}^n \vert f_i - y_i \vert\)</li>
+  <li>MSE（Mean Square Error）：即均方误差，计算公式为\(\frac{1}{n}\sum_{i = 1}^n \left( \hat{Y_i} - Y_i \right)^2\)</li>
+  <li>MAE（Root Mean Square Error）：即均方根误差，计算公式为\(\sqrt{MSE}\)</li>
+</ol>
+
+    </article>
+    <div class="share">
+      <div class="share-component"></div>
+    </div>
+    <div class="comment">
+      
+  
+        <div id="container"></div>
+        <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+        <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+        <script>
+        var gitment = new Gitment({
+            id: '/artificialintelligence/2018/02/25/Evaluation/',
+            owner: 'lpq29743',
+            repo: 'blog-comments',
+            oauth: {
+                client_id: '5818ceff784afe05d31c',
+                client_secret: 'dc7e8efc044c7194cf453740f82c646aa998f206',
+            },
+        })
+        gitment.render('container')
+        </script>
+  
+
+
+    </div>
+	<ul class="pager">
+		
+		<li class="previous">
+			<a href="/artificialintelligence/2017/12/23/TensorFlowDataset/" data-toggle="tooltip" data-placement="top" title="TensorFlow Dataset API">
+				Previous<br>
+				<span>TensorFlow Dataset API</span>
+			</a>
+		</li>
+		
+		
+		<li class="next">
+			<a href="/artificialintelligence/2018/05/16/PyTorch/" data-toggle="tooltip" data-placement="top" title="PyTorch 入门">
+				Next<br>
+				<span>PyTorch 入门</span>
+			</a>
+		</li>
+		
+	</ul>
+  </div>
+  <div class="column one-fourth">
+    
+<h3>Search</h3>
+<div id="site_search">
+    <input type="text" id="search_box" placeholder="Search">
+</div>
+
+<ul id="search_results"></ul>
+
+<link rel="stylesheet" type="text/css" href="http://localhost:4000/assets/css/modules/sidebar-search.css">
+<script src="http://localhost:4000/assets/js/jekyll-search.min.js"></script>
+<script src="http://localhost:4000/assets/js/search.js"></script>
+
+<script type="text/javascript">
+SimpleJekyllSearch({
+    searchInput: document.getElementById('search_box'),
+    resultsContainer: document.getElementById('search_results'),
+    json: 'http://localhost:4000/assets/search_data.json',
+    searchResultTemplate: '<li><a href="{url}" title="{desc}">{title}</a></li>',
+    noResultsText: 'No results found',
+    limit: 10,
+    fuzzy: false,
+    exclude: ['Welcome']
+})
+</script>
+
+    
+<h3 class="post-directory-title mobile-hidden">Table of Contents</h3>
+<div id="post-directory-module" class="mobile-hidden">
+  <section class="post-directory">
+  <!-- Links that trigger the jumping -->
+  <!-- Added by javascript below -->
+  <dl></dl>
+  </section>
+</div>
+
+<script src="http://localhost:4000/assets/js/jquery.toc.js"></script>
+
+  </div>
+</div>
+</section>
+<!-- /section.content -->
+
+    <footer class="container">
+        <div class="site-footer" role="contentinfo">
+            <div class="copyright left mobile-block">
+                <a href="javascript:window.scrollTo(0,0)" class="right mobile-visible">TOP</a>
+            </div>
+
+            <ul class="site-footer-links right mobile-hidden">
+                <li>
+                    <a href="javascript:window.scrollTo(0,0)" >TOP</a>
+                </li>
+            </ul>
+            <a href="https://github.com/lpq29743/lpq29743.github.io" target="_blank" aria-label="view source code">
+                <span class="mega-octicon octicon-mark-github" title="GitHub"></span>
+            </a>
+            <ul class="site-footer-links mobile-hidden">
+                
+            </ul>
+
+        </div>
+    </footer>
+    <!-- / footer -->
+    <script src="http://localhost:4000/assets/vendor/share.js/dist/js/share.min.js"></script>
+    <script src="http://localhost:4000/assets/js/geopattern.js"></script>
+    <script src="http://localhost:4000/assets/js/prism.js"></script>
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/globals/prism.css">
+    <script>
+      jQuery(document).ready(function($) {
+        // geopattern
+        $('.geopattern').each(function(){
+          $(this).geopattern($(this).data('pattern-id'));
+        });
+       // hljs.initHighlightingOnLoad();
+      });
+    </script>
+    
+</body>
+</html>

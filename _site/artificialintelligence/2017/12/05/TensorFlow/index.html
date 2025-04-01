@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans" prefix="og: http://ogp.me/ns#" class="han-init">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <title>TensorFlow 入门 &mdash; Peiqin Lin's Homepage</title>
+    <link rel="stylesheet" href="http://localhost:4000/assets/vendor/primer-css/css/primer.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/vendor/primer-markdown/dist/user-content.min.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/vendor/octicons/octicons/octicons.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/components/collection.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/components/repo-card.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/repo-list.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/mini-repo-list.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/profile.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/contact.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/news.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/components/boxed-group.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/globals/common.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/vendor/share.js/dist/css/share.min.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/globals/responsive.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/posts/index.css">
+    <!-- Latest compiled and minified CSS -->
+    
+
+    
+    <link rel="canonical" href="http://localhost:4000/artificialintelligence/2017/12/05/TensorFlow/">
+    <link rel="alternate" type="application/atom+xml" title="Peiqin Lin's Homepage" href="/feed.xml">
+    <link rel="shortcut icon" href="http://localhost:4000/favicon.ico">
+    
+    <meta property="og:title" content="TensorFlow 入门">
+      
+    <meta name="keywords" content="TensorFlow, 深度学习, 深度学习框架, 神经网络">
+    <meta name="og:keywords" content="TensorFlow, 深度学习, 深度学习框架, 神经网络">
+      
+    <meta name="description" content="本文参考斯坦福大学公开课 CS 20SI: Tensorflow for Deep Learning Research 前半部分的内容做了简单的笔记。如果大家想要进一步学习的话，建议参与一些小项目再学习后半部分的内容。">
+    <meta name="og:description" content="本文参考斯坦福大学公开课 CS 20SI: Tensorflow for Deep Learning Research 前半部分的内容做了简单的笔记。如果大家想要进一步学习的话，建议参与一些小项目再学习后半部分的内容。">
+      
+    
+    
+        
+    
+    <meta property="og:url" content="http://localhost:4000/artificialintelligence/2017/12/05/TensorFlow/">
+    <meta property="og:site_name" content="Peiqin Lin's Homepage">
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="zh_CN" />
+    
+    <meta property="article:published_time" content="2017-12-05">
+    
+    <script src="http://localhost:4000/assets/vendor/jquery/dist/jquery.min.js"></script>
+    <script src="http://localhost:4000/assets/js/jquery-ui.js"></script>
+    <script type="text/javascript">
+    function toggleMenu() {
+        var nav = document.getElementsByClassName("site-header-nav")[0];
+        if (nav.style.display == "inline-flex") {
+          nav.style.display = "none";
+        } else {
+          nav.style.display = "inline-flex";
+        }
+    }
+    </script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-114643083-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-114643083-1');
+    </script>
+</head>
+<body class="" data-mz="">
+    <header class="site-header">
+        <div class="container">
+            <h1><a href="http://localhost:4000/" title="Peiqin Lin's Homepage">Peiqin Lin's Homepage</a></h1>
+            <button class="collapsed mobile-visible" type="button" onclick="toggleMenu();">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <nav class="site-header-nav" role="navigation">
+                
+            </nav>
+        </div>
+    </header>
+    <!-- / header -->
+
+    <section class="collection-head small geopattern" data-pattern-id="TensorFlow 入门">
+<div class="container">
+  <div class="columns">
+    <div class="column three-fourths">
+      <div class="collection-title">
+        <h1 class="collection-header">TensorFlow 入门</h1>
+        <div class="collection-info">
+          
+          <span class="meta-info">
+            <span class="octicon octicon-calendar"></span> 2017/12/05
+          </span>
+          
+          
+          <span class="meta-info">
+            <span class="octicon octicon-file-directory"></span>
+            <a href="http://localhost:4000/categories/#ArtificialIntelligence" title="ArtificialIntelligence">ArtificialIntelligence</a>
+          </span>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+<!-- / .banner -->
+<section class="container content">
+<div class="columns">
+  <div class="column three-fourths" >
+    <article class="article-content markdown-body">
+    <p>本文参考斯坦福大学公开课 <a href="http://web.stanford.edu/class/cs20si/index.html">CS 20SI: Tensorflow for Deep Learning Research</a> 前半部分的内容做了简单的笔记。如果大家想要进一步学习的话，建议参与一些小项目再学习后半部分的内容。</p>
+
+<h3 id="图和会话">图和会话</h3>
+
+<p>数据流图的执行分为两个阶段：</p>
+
+<ol>
+  <li>构建一个图</li>
+  <li>用一个会话执行图中的操作</li>
+</ol>
+
+<p>比如执行一个计算加法的图：</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="n">tf</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">tf</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="n">sess</span> <span class="o">=</span> <span class="n">tf</span><span class="p">.</span><span class="n">Session</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="n">sess</span><span class="p">.</span><span class="n">run</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
+<span class="n">sess</span><span class="p">.</span><span class="n">close</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p>更加 Pythonic 的写法如下：</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="n">tf</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">tf</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="k">with</span> <span class="n">tf</span><span class="p">.</span><span class="n">Session</span><span class="p">()</span> <span class="k">as</span> <span class="n">sess</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">sess</span><span class="p">.</span><span class="n">run</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
+</code></pre></div></div>
+
+<p>尝试执行更加复杂的数据流图：</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="n">tf</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">y</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">add_op</span> <span class="o">=</span> <span class="n">tf</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">mul_op</span> <span class="o">=</span> <span class="n">tf</span><span class="p">.</span><span class="n">multiply</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">useless</span> <span class="o">=</span> <span class="n">tf</span><span class="p">.</span><span class="n">multiply</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">add_op</span><span class="p">)</span>
+<span class="n">pow_op</span> <span class="o">=</span> <span class="n">tf</span><span class="p">.</span><span class="nb">pow</span><span class="p">(</span><span class="n">add_op</span><span class="p">,</span> <span class="n">mul_op</span><span class="p">)</span>
+<span class="k">with</span> <span class="n">tf</span><span class="p">.</span><span class="n">Session</span><span class="p">()</span> <span class="k">as</span> <span class="n">sess</span><span class="p">:</span>
+    <span class="n">z</span><span class="p">,</span> <span class="n">not_useless</span> <span class="o">=</span> <span class="n">sess</span><span class="p">.</span><span class="n">run</span><span class="p">([</span><span class="n">pow_op</span><span class="p">,</span> <span class="n">useless</span><span class="p">])</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">not_useless</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>TensorFlow 允许用户建立多个图，但一般不建议这样做。因为一方面多个图需要多个会话，而每个会话都会默认尽最大可能去使用所有可用资源，另一方面，如果要在两个图中传输数据，则必须要使用 numpy 库。因此，我们的建议是在一张图中建立多个互相不连通的子图。</p>
+
+<h3 id="基本操作常量和变量">基本操作、常量和变量</h3>
+
+<p>我们可以通过下面的方式创建常量：</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 语法：创建一个常量
+</span><span class="n">tf</span><span class="p">.</span><span class="n">constant</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s">'Const'</span><span class="p">,</span> <span class="n">verify_shape</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<span class="c1"># 例子：创建一个向量和一个矩阵
+</span><span class="n">a</span> <span class="o">=</span> <span class="n">tf</span><span class="p">.</span><span class="n">constant</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">name</span><span class="o">=</span><span class="s">'a'</span><span class="p">)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">tf</span><span class="p">.</span><span class="n">constant</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]],</span> <span class="n">name</span><span class="o">=</span><span class="s">'b'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>还可以创建一些特殊的常量：</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 语法：创建一个常量，它的所有元素都为 0
+</span><span class="n">tf</span><span class="p">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">shape</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">tf</span><span class="p">.</span><span class="n">float32</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
+<span class="c1"># 例子：创建一个 2 * 3 的矩阵，它的所有元素都为 0
+</span><span class="n">tf</span><span class="p">.</span><span class="n">zeros</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="n">tf</span><span class="p">.</span><span class="n">int32</span><span class="p">)</span> <span class="o">==&gt;</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]]</span>
+<span class="c1"># 语法：创建一个与输入张量类型大小一致的常量，它的所有元素都为 0
+</span><span class="n">tf</span><span class="p">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">input_tensor</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">optimize</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="c1"># 例子：输入向量 input_tensor 为 [0, 1], [2, 3], [4, 5]]
+</span><span class="n">tf</span><span class="p">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">input_tensor</span><span class="p">)</span> <span class="o">==&gt;</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]]</span>
+<span class="c1"># 同样的还有以下两个
+</span><span class="n">tf</span><span class="p">.</span><span class="n">ones</span><span class="p">(</span><span class="n">shape</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">tf</span><span class="p">.</span><span class="n">float32</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
+<span class="n">tf</span><span class="p">.</span><span class="n">ones_like</span><span class="p">(</span><span class="n">input_tensor</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">optimize</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="c1"># 语法：创建一个常量，它的所有元素都为指定值
+</span><span class="n">tf</span><span class="p">.</span><span class="n">fill</span><span class="p">(</span><span class="n">dims</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
+<span class="c1"># 例子：创建一个 2 * 3 的矩阵，它的所有元素都为 8
+</span><span class="n">tf</span><span class="p">.</span><span class="n">fill</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="mi">8</span><span class="p">)</span> <span class="o">==&gt;</span> <span class="p">[[</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">],</span> <span class="p">[</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">]]</span>
+</code></pre></div></div>
+
+<p>也可以创建序列常量：</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 语法：在 [start, stop] 的范围内产生 num 个数的等差数列。注意 start 和 stop 要用浮点数表示
+</span><span class="n">tf</span><span class="p">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">stop</span><span class="p">,</span> <span class="n">num</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
+<span class="c1"># 例子：在 [10.0, 13.0] 的范围内产生 4 个数的等差数列
+</span><span class="n">tf</span><span class="p">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">10.0</span><span class="p">,</span> <span class="mf">13.0</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s">"linspace"</span><span class="p">)</span> <span class="o">==&gt;</span> <span class="p">[</span><span class="mf">10.0</span> <span class="mf">11.0</span> <span class="mf">12.0</span> <span class="mf">13.0</span><span class="p">]</span>
+<span class="c1"># 语法：在 [start, limit) 的范围内以步进值 delta 产生等差数列。注意不包括 limit 在内
+</span><span class="n">tf</span><span class="p">.</span><span class="nb">range</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">delta</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s">'range'</span><span class="p">)</span>
+<span class="c1"># 例子：在 [3, 18) 的范围内以步进值 3 产生等差数列
+</span><span class="n">tf</span><span class="p">.</span><span class="nb">range</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="mi">18</span><span class="p">,</span> <span class="n">delta</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span> <span class="o">==&gt;</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">15</span><span class="p">]</span>
+<span class="c1"># 例子：在 [0, 5) 的范围内以步进值 1 产生等差数列
+</span><span class="n">tf</span><span class="p">.</span><span class="nb">range</span><span class="p">(</span><span class="n">limit</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span> <span class="o">==&gt;</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+</code></pre></div></div>
+
+<p>值得注意的是，这里产生的序列是<strong>不能迭代</strong>的。</p>
+
+<p>另外，TensorFlow 还可以定义随机数常量：</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">tf</span><span class="p">.</span><span class="n">random_normal</span><span class="p">(</span><span class="n">shape</span><span class="p">,</span> <span class="n">mean</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">stddev</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">tf</span><span class="p">.</span><span class="n">float32</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
+<span class="n">tf</span><span class="p">.</span><span class="n">truncated_normal</span><span class="p">(</span><span class="n">shape</span><span class="p">,</span> <span class="n">mean</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">stddev</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">tf</span><span class="p">.</span><span class="n">float32</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
+<span class="n">tf</span><span class="p">.</span><span class="n">random_uniform</span><span class="p">(</span><span class="n">shape</span><span class="p">,</span> <span class="n">minval</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">maxval</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">tf</span><span class="p">.</span><span class="n">float32</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
+<span class="n">tf</span><span class="p">.</span><span class="n">random_shuffle</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
+<span class="n">tf</span><span class="p">.</span><span class="n">random_crop</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
+<span class="n">tf</span><span class="p">.</span><span class="n">multinomial</span><span class="p">(</span><span class="n">logits</span><span class="p">,</span> <span class="n">num_samples</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
+<span class="n">tf</span><span class="p">.</span><span class="n">random_gamma</span><span class="p">(</span><span class="n">shape</span><span class="p">,</span> <span class="n">alpha</span><span class="p">,</span> <span class="n">beta</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">tf</span><span class="p">.</span><span class="n">float32</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>变量的定义方式如下：</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 定义一个标量
+</span><span class="n">a</span> <span class="o">=</span> <span class="n">tf</span><span class="p">.</span><span class="n">Variable</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s">"scalar"</span><span class="p">)</span>
+<span class="c1"># 定义一个向量
+</span><span class="n">b</span> <span class="o">=</span> <span class="n">tf</span><span class="p">.</span><span class="n">Variable</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="n">name</span><span class="o">=</span><span class="s">"vector"</span><span class="p">)</span>
+<span class="c1"># 定义一个矩阵
+</span><span class="n">c</span> <span class="o">=</span> <span class="n">tf</span><span class="p">.</span><span class="n">Variable</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]],</span> <span class="n">name</span><span class="o">=</span><span class="s">"matrix"</span><span class="p">)</span>
+<span class="c1"># 定义一个张量
+</span><span class="n">W</span> <span class="o">=</span> <span class="n">tf</span><span class="p">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">tf</span><span class="p">.</span><span class="n">zeros</span><span class="p">([</span><span class="mi">784</span><span class="p">,</span><span class="mi">10</span><span class="p">]))</span>
+</code></pre></div></div>
+
+<p>这里有一个有意思的地方，定义变量的时候 Variable 首字母大写，而常量 constant 首字母小写。这是因为前者是一个类，而后者是一个操作。作为类，那它必然包含一些操作：</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">x</span> <span class="o">=</span> <span class="n">tf</span><span class="p">.</span><span class="n">Variable</span><span class="p">(...)</span>
+<span class="n">x</span><span class="p">.</span><span class="n">initializer</span> <span class="c1"># 初始化
+</span><span class="n">x</span><span class="p">.</span><span class="n">value</span><span class="p">()</span> <span class="c1"># 读取操作
+</span><span class="n">x</span><span class="p">.</span><span class="n">assign</span><span class="p">(...)</span> <span class="c1"># 写操作
+</span><span class="n">x</span><span class="p">.</span><span class="n">assign_add</span><span class="p">(...)</span> <span class="c1"># 追加操作
+</span></code></pre></div></div>
+
+<p><strong>在使用变量之前必须对其进行初始化。</strong>最简单的初始化方式便是一次性初始化所有的变量：</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">init</span> <span class="o">=</span> <span class="n">tf</span><span class="p">.</span><span class="n">global_variables_initializer</span><span class="p">()</span>
+<span class="k">with</span> <span class="n">tf</span><span class="p">.</span><span class="n">Session</span><span class="p">()</span> <span class="k">as</span> <span class="n">sess</span><span class="p">:</span>
+    <span class="n">sess</span><span class="p">.</span><span class="n">run</span><span class="p">(</span><span class="n">init</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>也可以只对部分变量进行初始化：</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">init_ab</span> <span class="o">=</span> <span class="n">tf</span><span class="p">.</span><span class="n">variable_initializer</span><span class="p">([</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">],</span> <span class="n">name</span><span class="o">=</span><span class="s">'init_ab'</span><span class="p">)</span>
+<span class="k">with</span> <span class="n">tf</span><span class="p">.</span><span class="n">Session</span><span class="p">()</span> <span class="k">as</span> <span class="n">sess</span><span class="p">:</span>
+    <span class="n">sess</span><span class="p">.</span><span class="n">run</span><span class="p">(</span><span class="n">init_ab</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>或是单独对一个变量进行初始化：</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">w</span> <span class="o">=</span> <span class="n">tf</span><span class="p">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">tf</span><span class="p">.</span><span class="n">zeros</span><span class="p">([</span><span class="mi">784</span><span class="p">,</span> <span class="mi">10</span><span class="p">]))</span>
+<span class="k">with</span> <span class="n">tf</span><span class="p">.</span><span class="n">Session</span><span class="p">()</span> <span class="k">as</span> <span class="n">sess</span><span class="p">:</span>
+    <span class="n">sess</span><span class="p">.</span><span class="n">run</span><span class="p">(</span><span class="n">w</span><span class="p">.</span><span class="n">initializer</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>如果要取出变量的值，有以下两种方法：</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">w</span> <span class="o">=</span> <span class="n">tf</span><span class="p">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">tf</span><span class="p">.</span><span class="n">truncated_normal</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span> <span class="n">name</span><span class="o">=</span><span class="s">'normal'</span><span class="p">))</span>
+<span class="k">with</span> <span class="n">tf</span><span class="p">.</span><span class="n">Session</span><span class="p">()</span> <span class="k">as</span> <span class="n">sess</span><span class="p">:</span>
+    <span class="n">sess</span><span class="p">.</span><span class="n">run</span><span class="p">(</span><span class="n">w</span><span class="p">.</span><span class="n">initializer</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">w</span><span class="p">.</span><span class="nb">eval</span><span class="p">())</span> <span class="c1"># 方法一
+</span>    <span class="k">print</span><span class="p">(</span><span class="n">sess</span><span class="p">.</span><span class="n">run</span><span class="p">(</span><span class="n">w</span><span class="p">))</span> <span class="c1"># 方法二
+</span></code></pre></div></div>
+
+<p>下面看看这个程序：</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">w</span> <span class="o">=</span> <span class="n">tf</span><span class="p">.</span><span class="n">Variable</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">w</span><span class="p">.</span><span class="n">assign</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span class="k">with</span> <span class="n">tf</span><span class="p">.</span><span class="n">Session</span><span class="p">()</span> <span class="k">as</span> <span class="n">sess</span><span class="p">:</span>
+    <span class="n">sess</span><span class="p">.</span><span class="n">run</span><span class="p">(</span><span class="n">w</span><span class="p">.</span><span class="n">initializer</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">w</span><span class="p">.</span><span class="nb">eval</span><span class="p">())</span>
+</code></pre></div></div>
+
+<p>上面这个程度会得到10，而不是100。这是因为虽然定义了 assign 操作，但是 TensorFlow 是在 session 中执行操作，所以我们需要执行 assign 操作：</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>w = tf.Variable(10)
+assign_op = w.assign(100)
+with tf.Session() as sess:
+    sess.run(w.initializer)
+    sess.run(assign_op)
+    print(w.eval())
+</code></pre></div></div>
+
+<p>之前我们提过数据流图的执行的两个步骤，但是对于图的定义，我们经常会遇到暂时不知道值的情况。对此，我们可以先定义为占位符，之后再用<code class="language-plaintext highlighter-rouge">feed_dict</code>去赋值。</p>
+
+<p>定义占位符的语法如下：</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">tf</span><span class="p">.</span><span class="n">placeholder</span><span class="p">(</span><span class="n">dtype</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>我们可以用字典的形式进行赋值：</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">a</span> <span class="o">=</span> <span class="n">tf</span><span class="p">.</span><span class="n">placeholder</span><span class="p">(</span><span class="n">tf</span><span class="p">.</span><span class="n">float32</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">tf</span><span class="p">.</span><span class="n">constant</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="n">tf</span><span class="p">.</span><span class="n">float32</span><span class="p">)</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+<span class="k">with</span> <span class="n">tf</span><span class="p">.</span><span class="n">Session</span><span class="p">()</span> <span class="k">as</span> <span class="n">sess</span><span class="p">:</span>
+    <span class="c1"># print(sess.run(c, feed_dict={a: [1, 2, 3]})) 也可以
+</span>    <span class="k">print</span><span class="p">(</span><span class="n">sess</span><span class="p">.</span><span class="n">run</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="p">{</span><span class="n">a</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]}))</span>
+</code></pre></div></div>
+
+<h3 id="一个简单的线性回归例子">一个简单的线性回归例子</h3>
+
+<p>例子：探寻火灾与盗窃之间的线性关系</p>
+
+<p>代码：</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">""" Simple linear regression example in TensorFlow
+This program tries to predict the number of thefts from 
+the number of fire in the city of Chicago
+Author: Chip Huyen
+Prepared for the class CS 20SI: "TensorFlow for Deep Learning Research"
+cs20si.stanford.edu
+"""</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="n">os</span><span class="p">.</span><span class="n">environ</span><span class="p">[</span><span class="s">'TF_CPP_MIN_LOG_LEVEL'</span><span class="p">]</span><span class="o">=</span><span class="s">'2'</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="n">tf</span>
+<span class="kn">import</span> <span class="nn">xlrd</span>
+
+<span class="kn">import</span> <span class="nn">utils</span>
+
+<span class="n">DATA_FILE</span> <span class="o">=</span> <span class="s">'data/fire_theft.xls'</span>
+
+<span class="c1"># Step 1: read in data from the .xls file
+</span><span class="n">book</span> <span class="o">=</span> <span class="n">xlrd</span><span class="p">.</span><span class="n">open_workbook</span><span class="p">(</span><span class="n">DATA_FILE</span><span class="p">,</span> <span class="n">encoding_override</span><span class="o">=</span><span class="s">"utf-8"</span><span class="p">)</span>
+<span class="n">sheet</span> <span class="o">=</span> <span class="n">book</span><span class="p">.</span><span class="n">sheet_by_index</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">asarray</span><span class="p">([</span><span class="n">sheet</span><span class="p">.</span><span class="n">row_values</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">sheet</span><span class="p">.</span><span class="n">nrows</span><span class="p">)])</span>
+<span class="n">n_samples</span> <span class="o">=</span> <span class="n">sheet</span><span class="p">.</span><span class="n">nrows</span> <span class="o">-</span> <span class="mi">1</span>
+
+<span class="c1"># Step 2: create placeholders for input X (number of fire) and label Y (number of theft)
+</span><span class="n">X</span> <span class="o">=</span> <span class="n">tf</span><span class="p">.</span><span class="n">placeholder</span><span class="p">(</span><span class="n">tf</span><span class="p">.</span><span class="n">float32</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s">'X'</span><span class="p">)</span>
+<span class="n">Y</span> <span class="o">=</span> <span class="n">tf</span><span class="p">.</span><span class="n">placeholder</span><span class="p">(</span><span class="n">tf</span><span class="p">.</span><span class="n">float32</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s">'Y'</span><span class="p">)</span>
+
+<span class="c1"># Step 3: create weight and bias, initialized to 0
+</span><span class="n">w</span> <span class="o">=</span> <span class="n">tf</span><span class="p">.</span><span class="n">Variable</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s">'weights'</span><span class="p">)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">tf</span><span class="p">.</span><span class="n">Variable</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s">'bias'</span><span class="p">)</span>
+
+<span class="c1"># Step 4: build model to predict Y
+</span><span class="n">Y_predicted</span> <span class="o">=</span> <span class="n">X</span> <span class="o">*</span> <span class="n">w</span> <span class="o">+</span> <span class="n">b</span> 
+
+<span class="c1"># Step 5: use the square error as the loss function
+</span><span class="n">loss</span> <span class="o">=</span> <span class="n">tf</span><span class="p">.</span><span class="n">square</span><span class="p">(</span><span class="n">Y</span> <span class="o">-</span> <span class="n">Y_predicted</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s">'loss'</span><span class="p">)</span>
+<span class="c1"># loss = utils.huber_loss(Y, Y_predicted)
+</span>
+<span class="c1"># Step 6: using gradient descent with learning rate of 0.01 to minimize loss
+</span><span class="n">optimizer</span> <span class="o">=</span> <span class="n">tf</span><span class="p">.</span><span class="n">train</span><span class="p">.</span><span class="n">GradientDescentOptimizer</span><span class="p">(</span><span class="n">learning_rate</span><span class="o">=</span><span class="mf">0.001</span><span class="p">).</span><span class="n">minimize</span><span class="p">(</span><span class="n">loss</span><span class="p">)</span>
+
+<span class="k">with</span> <span class="n">tf</span><span class="p">.</span><span class="n">Session</span><span class="p">()</span> <span class="k">as</span> <span class="n">sess</span><span class="p">:</span>
+	<span class="c1"># Step 7: initialize the necessary variables, in this case, w and b
+</span>	<span class="n">sess</span><span class="p">.</span><span class="n">run</span><span class="p">(</span><span class="n">tf</span><span class="p">.</span><span class="n">global_variables_initializer</span><span class="p">())</span> 
+	
+	<span class="n">writer</span> <span class="o">=</span> <span class="n">tf</span><span class="p">.</span><span class="n">summary</span><span class="p">.</span><span class="n">FileWriter</span><span class="p">(</span><span class="s">'./graphs/linear_reg'</span><span class="p">,</span> <span class="n">sess</span><span class="p">.</span><span class="n">graph</span><span class="p">)</span>
+	
+	<span class="c1"># Step 8: train the model
+</span>	<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">50</span><span class="p">):</span> <span class="c1"># train the model 100 epochs
+</span>		<span class="n">total_loss</span> <span class="o">=</span> <span class="mi">0</span>
+		<span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+			<span class="c1"># Session runs train_op and fetch values of loss
+</span>			<span class="n">_</span><span class="p">,</span> <span class="n">l</span> <span class="o">=</span> <span class="n">sess</span><span class="p">.</span><span class="n">run</span><span class="p">([</span><span class="n">optimizer</span><span class="p">,</span> <span class="n">loss</span><span class="p">],</span> <span class="n">feed_dict</span><span class="o">=</span><span class="p">{</span><span class="n">X</span><span class="p">:</span> <span class="n">x</span><span class="p">,</span> <span class="n">Y</span><span class="p">:</span><span class="n">y</span><span class="p">})</span> 
+			<span class="n">total_loss</span> <span class="o">+=</span> <span class="n">l</span>
+		<span class="k">print</span><span class="p">(</span><span class="s">'Epoch {0}: {1}'</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">total_loss</span><span class="o">/</span><span class="n">n_samples</span><span class="p">))</span>
+
+	<span class="c1"># close the writer when you're done using it
+</span>	<span class="n">writer</span><span class="p">.</span><span class="n">close</span><span class="p">()</span> 
+	
+	<span class="c1"># Step 9: output the values of w and b
+</span>	<span class="n">w</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">sess</span><span class="p">.</span><span class="n">run</span><span class="p">([</span><span class="n">w</span><span class="p">,</span> <span class="n">b</span><span class="p">])</span> 
+
+<span class="c1"># plot the results
+</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">data</span><span class="p">.</span><span class="n">T</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">data</span><span class="p">.</span><span class="n">T</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="s">'bo'</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">'Real data'</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">X</span> <span class="o">*</span> <span class="n">w</span> <span class="o">+</span> <span class="n">b</span><span class="p">,</span> <span class="s">'r'</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">'Predicted data'</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div></div>
+
+<h3 id="结构化你的-tensorflow-模型">结构化你的 TensorFlow 模型</h3>
+
+<p>之前我们讲过模型实现的两个主要步骤：构建计算图和执行计算图。</p>
+
+<p>这里我们把构建计算图的过程进行细化：</p>
+
+<ol>
+  <li>定义输入和输出的占位符</li>
+  <li>定义模型中需要用到的权重</li>
+  <li>定义推断模型，构建网络</li>
+  <li>定义损失函数作为优化对象</li>
+  <li>定义优化器进行优化</li>
+</ol>
+
+<p>再把执行计算图的步骤进行细化：</p>
+
+<ol>
+  <li>第一次进行运算的时候，初始化模型的所有参数</li>
+  <li>传入训练数据，可以打乱顺序</li>
+  <li>网络前向传播，计算出当前参数下的网络输出</li>
+  <li>根据网络输出和目标计算出 loss</li>
+  <li>通过 loss 方向传播更新网络中的参数</li>
+</ol>
+
+    </article>
+    <div class="share">
+      <div class="share-component"></div>
+    </div>
+    <div class="comment">
+      
+  
+        <div id="container"></div>
+        <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+        <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+        <script>
+        var gitment = new Gitment({
+            id: '/artificialintelligence/2017/12/05/TensorFlow/',
+            owner: 'lpq29743',
+            repo: 'blog-comments',
+            oauth: {
+                client_id: '5818ceff784afe05d31c',
+                client_secret: 'dc7e8efc044c7194cf453740f82c646aa998f206',
+            },
+        })
+        gitment.render('container')
+        </script>
+  
+
+
+    </div>
+	<ul class="pager">
+		
+		<li class="previous">
+			<a href="/algorithm/2017/08/25/Pack3/" data-toggle="tooltip" data-placement="top" title="《背包九讲》笔记（三）——物品冲突问题">
+				Previous<br>
+				<span>《背包九讲》笔记（三）——物品冲突问题</span>
+			</a>
+		</li>
+		
+		
+		<li class="next">
+			<a href="/artificialintelligence/2017/12/16/TensorFlowInitialization/" data-toggle="tooltip" data-placement="top" title="TensorFlow 参数初始化">
+				Next<br>
+				<span>TensorFlow 参数初始化</span>
+			</a>
+		</li>
+		
+	</ul>
+  </div>
+  <div class="column one-fourth">
+    
+<h3>Search</h3>
+<div id="site_search">
+    <input type="text" id="search_box" placeholder="Search">
+</div>
+
+<ul id="search_results"></ul>
+
+<link rel="stylesheet" type="text/css" href="http://localhost:4000/assets/css/modules/sidebar-search.css">
+<script src="http://localhost:4000/assets/js/jekyll-search.min.js"></script>
+<script src="http://localhost:4000/assets/js/search.js"></script>
+
+<script type="text/javascript">
+SimpleJekyllSearch({
+    searchInput: document.getElementById('search_box'),
+    resultsContainer: document.getElementById('search_results'),
+    json: 'http://localhost:4000/assets/search_data.json',
+    searchResultTemplate: '<li><a href="{url}" title="{desc}">{title}</a></li>',
+    noResultsText: 'No results found',
+    limit: 10,
+    fuzzy: false,
+    exclude: ['Welcome']
+})
+</script>
+
+    
+<h3 class="post-directory-title mobile-hidden">Table of Contents</h3>
+<div id="post-directory-module" class="mobile-hidden">
+  <section class="post-directory">
+  <!-- Links that trigger the jumping -->
+  <!-- Added by javascript below -->
+  <dl></dl>
+  </section>
+</div>
+
+<script src="http://localhost:4000/assets/js/jquery.toc.js"></script>
+
+  </div>
+</div>
+</section>
+<!-- /section.content -->
+
+    <footer class="container">
+        <div class="site-footer" role="contentinfo">
+            <div class="copyright left mobile-block">
+                <a href="javascript:window.scrollTo(0,0)" class="right mobile-visible">TOP</a>
+            </div>
+
+            <ul class="site-footer-links right mobile-hidden">
+                <li>
+                    <a href="javascript:window.scrollTo(0,0)" >TOP</a>
+                </li>
+            </ul>
+            <a href="https://github.com/lpq29743/lpq29743.github.io" target="_blank" aria-label="view source code">
+                <span class="mega-octicon octicon-mark-github" title="GitHub"></span>
+            </a>
+            <ul class="site-footer-links mobile-hidden">
+                
+            </ul>
+
+        </div>
+    </footer>
+    <!-- / footer -->
+    <script src="http://localhost:4000/assets/vendor/share.js/dist/js/share.min.js"></script>
+    <script src="http://localhost:4000/assets/js/geopattern.js"></script>
+    <script src="http://localhost:4000/assets/js/prism.js"></script>
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/globals/prism.css">
+    <script>
+      jQuery(document).ready(function($) {
+        // geopattern
+        $('.geopattern').each(function(){
+          $(this).geopattern($(this).data('pattern-id'));
+        });
+       // hljs.initHighlightingOnLoad();
+      });
+    </script>
+    
+</body>
+</html>

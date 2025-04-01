@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans" prefix="og: http://ogp.me/ns#" class="han-init">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <title>递归方程求解方法 &mdash; Peiqin Lin's Homepage</title>
+    <link rel="stylesheet" href="http://localhost:4000/assets/vendor/primer-css/css/primer.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/vendor/primer-markdown/dist/user-content.min.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/vendor/octicons/octicons/octicons.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/components/collection.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/components/repo-card.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/repo-list.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/mini-repo-list.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/profile.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/contact.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/news.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/components/boxed-group.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/globals/common.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/vendor/share.js/dist/css/share.min.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/globals/responsive.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/posts/index.css">
+    <!-- Latest compiled and minified CSS -->
+    
+
+    
+    <link rel="canonical" href="http://localhost:4000/algorithm/2018/09/12/RecursiveEquationSolving/">
+    <link rel="alternate" type="application/atom+xml" title="Peiqin Lin's Homepage" href="/feed.xml">
+    <link rel="shortcut icon" href="http://localhost:4000/favicon.ico">
+    
+    <meta property="og:title" content="递归方程求解方法">
+      
+    <meta name="keywords" content="算法, 递归">
+    <meta name="og:keywords" content="算法, 递归">
+      
+    <meta name="description" content="递推法">
+    <meta name="og:description" content="递推法">
+      
+    
+    
+        
+    
+    <meta property="og:url" content="http://localhost:4000/algorithm/2018/09/12/RecursiveEquationSolving/">
+    <meta property="og:site_name" content="Peiqin Lin's Homepage">
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="zh_CN" />
+    
+    <meta property="article:published_time" content="2018-09-12">
+    
+    <script src="http://localhost:4000/assets/vendor/jquery/dist/jquery.min.js"></script>
+    <script src="http://localhost:4000/assets/js/jquery-ui.js"></script>
+    <script type="text/javascript">
+    function toggleMenu() {
+        var nav = document.getElementsByClassName("site-header-nav")[0];
+        if (nav.style.display == "inline-flex") {
+          nav.style.display = "none";
+        } else {
+          nav.style.display = "inline-flex";
+        }
+    }
+    </script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-114643083-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-114643083-1');
+    </script>
+</head>
+<body class="" data-mz="">
+    <header class="site-header">
+        <div class="container">
+            <h1><a href="http://localhost:4000/" title="Peiqin Lin's Homepage">Peiqin Lin's Homepage</a></h1>
+            <button class="collapsed mobile-visible" type="button" onclick="toggleMenu();">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <nav class="site-header-nav" role="navigation">
+                
+            </nav>
+        </div>
+    </header>
+    <!-- / header -->
+
+    <section class="collection-head small geopattern" data-pattern-id="递归方程求解方法">
+<div class="container">
+  <div class="columns">
+    <div class="column three-fourths">
+      <div class="collection-title">
+        <h1 class="collection-header">递归方程求解方法</h1>
+        <div class="collection-info">
+          
+          <span class="meta-info">
+            <span class="octicon octicon-calendar"></span> 2018/09/12
+          </span>
+          
+          
+          <span class="meta-info">
+            <span class="octicon octicon-file-directory"></span>
+            <a href="http://localhost:4000/categories/#Algorithm" title="Algorithm">Algorithm</a>
+          </span>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+<!-- / .banner -->
+<section class="container content">
+<div class="columns">
+  <div class="column three-fourths" >
+    <article class="article-content markdown-body">
+    <h4 id="递推法">递推法</h4>
+
+<h5 id="简单递推">简单递推</h5>
+
+<p>思路：扩展递推式，将其转换为一个和式，然后计算该和式。</p>
+
+<p>例 1：\(T(n) = 2T(n-1) + 4\)</p>
+
+<p>解答：<a href="https://stackoverflow.com/questions/22741590/what-is-the-time-complexity-of-the-recurrence-tn-2tn-1-4">https://stackoverflow.com/questions/22741590/what-is-the-time-complexity-of-the-recurrence-tn-2tn-1-4</a></p>
+
+<p>例 2：\(T(n) = 2T(n-1) + n\)</p>
+
+<p>解答：<a href="https://math.stackexchange.com/questions/239974/solve-the-recurrence-tn-2tn-1-n">https://math.stackexchange.com/questions/239974/solve-the-recurrence-tn-2tn-1-n</a></p>
+
+<h5 id="递推树辅助递推">递推树辅助递推</h5>
+
+<p>思路：将递推式表示为一棵递归树，然后计算所有结点上表示的数之和。</p>
+
+<p>例 3：\(T(n) = 2T(n-1) + \log_{}n\)</p>
+
+<p>解答：<a href="https://cs.stackexchange.com/questions/57424/solving-tn-2tn-2-log-n-with-the-recurrence-tree-method?newreg=13ed0f2ed91f46d8b69559031a3a6cbf">https://cs.stackexchange.com/questions/57424/solving-tn-2tn-2-log-n-with-the-recurrence-tree-method?newreg=13ed0f2ed91f46d8b69559031a3a6cbf</a></p>
+
+<p>例 4：\(T(n) = T(n/3) + T(2n/3) + cn\)</p>
+
+<p>解答：<a href="https://math.stackexchange.com/questions/1112012/recursion-tree-tn-tn-3-t2n-3-cn">https://math.stackexchange.com/questions/1112012/recursion-tree-tn-tn-3-t2n-3-cn</a></p>
+
+<h4 id="替换法">替换法</h4>
+
+<p>思路：试扩展几个 n 比较小的递推式求值，发现规律，然后猜测并用数学归纳法证明。</p>
+
+<h4 id="换元法">换元法</h4>
+
+<p>思路：对函数的定义域进行转换，并在新的定义域里，定义一个新的递归方程；把问题转换为对新的递归方程的求解；然后再把所得的解转换回原方程的解</p>
+
+<h4 id="生成函数法">生成函数法</h4>
+
+<p>例 5：\(a_n = a_{n - 1} + a_{n-2}\)</p>
+
+<p>解答：<a href="https://math.stackexchange.com/questions/371714/solving-recursive-sequence-using-generating-functions">https://math.stackexchange.com/questions/371714/solving-recursive-sequence-using-generating-functions</a></p>
+
+<h4 id="特征方程法">特征方程法</h4>
+
+<p>例 6：\(T(n) = T(n - 1) + T(n - 2)\)</p>
+
+<p>解答：<a href="https://math.stackexchange.com/questions/2292707/fibonacci-recurrence-relations">https://math.stackexchange.com/questions/2292707/fibonacci-recurrence-relations</a></p>
+
+    </article>
+    <div class="share">
+      <div class="share-component"></div>
+    </div>
+    <div class="comment">
+      
+  
+        <div id="container"></div>
+        <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+        <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+        <script>
+        var gitment = new Gitment({
+            id: '/algorithm/2018/09/12/RecursiveEquationSolving/',
+            owner: 'lpq29743',
+            repo: 'blog-comments',
+            oauth: {
+                client_id: '5818ceff784afe05d31c',
+                client_secret: 'dc7e8efc044c7194cf453740f82c646aa998f206',
+            },
+        })
+        gitment.render('container')
+        </script>
+  
+
+
+    </div>
+	<ul class="pager">
+		
+		<li class="previous">
+			<a href="/python/2018/05/16/PythonOOP/" data-toggle="tooltip" data-placement="top" title="Python 面向对象编程">
+				Previous<br>
+				<span>Python 面向对象编程</span>
+			</a>
+		</li>
+		
+		
+		<li class="next">
+			<a href="/artificialintelligence/2018/09/12/SVM/" data-toggle="tooltip" data-placement="top" title="支持向量机 SVM">
+				Next<br>
+				<span>支持向量机 SVM</span>
+			</a>
+		</li>
+		
+	</ul>
+  </div>
+  <div class="column one-fourth">
+    
+<h3>Search</h3>
+<div id="site_search">
+    <input type="text" id="search_box" placeholder="Search">
+</div>
+
+<ul id="search_results"></ul>
+
+<link rel="stylesheet" type="text/css" href="http://localhost:4000/assets/css/modules/sidebar-search.css">
+<script src="http://localhost:4000/assets/js/jekyll-search.min.js"></script>
+<script src="http://localhost:4000/assets/js/search.js"></script>
+
+<script type="text/javascript">
+SimpleJekyllSearch({
+    searchInput: document.getElementById('search_box'),
+    resultsContainer: document.getElementById('search_results'),
+    json: 'http://localhost:4000/assets/search_data.json',
+    searchResultTemplate: '<li><a href="{url}" title="{desc}">{title}</a></li>',
+    noResultsText: 'No results found',
+    limit: 10,
+    fuzzy: false,
+    exclude: ['Welcome']
+})
+</script>
+
+    
+<h3 class="post-directory-title mobile-hidden">Table of Contents</h3>
+<div id="post-directory-module" class="mobile-hidden">
+  <section class="post-directory">
+  <!-- Links that trigger the jumping -->
+  <!-- Added by javascript below -->
+  <dl></dl>
+  </section>
+</div>
+
+<script src="http://localhost:4000/assets/js/jquery.toc.js"></script>
+
+  </div>
+</div>
+</section>
+<!-- /section.content -->
+
+    <footer class="container">
+        <div class="site-footer" role="contentinfo">
+            <div class="copyright left mobile-block">
+                <a href="javascript:window.scrollTo(0,0)" class="right mobile-visible">TOP</a>
+            </div>
+
+            <ul class="site-footer-links right mobile-hidden">
+                <li>
+                    <a href="javascript:window.scrollTo(0,0)" >TOP</a>
+                </li>
+            </ul>
+            <a href="https://github.com/lpq29743/lpq29743.github.io" target="_blank" aria-label="view source code">
+                <span class="mega-octicon octicon-mark-github" title="GitHub"></span>
+            </a>
+            <ul class="site-footer-links mobile-hidden">
+                
+            </ul>
+
+        </div>
+    </footer>
+    <!-- / footer -->
+    <script src="http://localhost:4000/assets/vendor/share.js/dist/js/share.min.js"></script>
+    <script src="http://localhost:4000/assets/js/geopattern.js"></script>
+    <script src="http://localhost:4000/assets/js/prism.js"></script>
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/globals/prism.css">
+    <script>
+      jQuery(document).ready(function($) {
+        // geopattern
+        $('.geopattern').each(function(){
+          $(this).geopattern($(this).data('pattern-id'));
+        });
+       // hljs.initHighlightingOnLoad();
+      });
+    </script>
+    
+</body>
+</html>

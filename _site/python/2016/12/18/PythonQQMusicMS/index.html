@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans" prefix="og: http://ogp.me/ns#" class="han-init">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <title>Python 历险记第二站——爬取 QQ 音乐热门华语男歌手 &mdash; Peiqin Lin's Homepage</title>
+    <link rel="stylesheet" href="http://localhost:4000/assets/vendor/primer-css/css/primer.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/vendor/primer-markdown/dist/user-content.min.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/vendor/octicons/octicons/octicons.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/components/collection.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/components/repo-card.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/repo-list.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/mini-repo-list.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/profile.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/contact.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/news.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/components/boxed-group.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/globals/common.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/vendor/share.js/dist/css/share.min.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/globals/responsive.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/posts/index.css">
+    <!-- Latest compiled and minified CSS -->
+    
+
+    
+    <link rel="canonical" href="http://localhost:4000/python/2016/12/18/PythonQQMusicMS/">
+    <link rel="alternate" type="application/atom+xml" title="Peiqin Lin's Homepage" href="/feed.xml">
+    <link rel="shortcut icon" href="http://localhost:4000/favicon.ico">
+    
+    <meta property="og:title" content="Python 历险记第二站——爬取 QQ 音乐热门华语男歌手">
+      
+    <meta name="keywords" content="Python, Python爬虫, 爬虫">
+    <meta name="og:keywords" content="Python, Python爬虫, 爬虫">
+      
+    <meta name="description" content="距离上一篇Python主题文章Python历险记第一站已经过去将近半个月的时间了，这一篇文章依旧以音乐为主题，我们将爬取的是QQ音乐的热门华语男歌手及其粉丝量。之所以选择QQ音乐，一方面是因为QQ音乐相对国内其他音乐软件，歌手信息比较集中，容易找到爬虫入口，另一方面是因为QQ音乐相比较Last.fm，数据更具有意义，并且难度会适当增大，有利于博主对Python爬虫的学习。">
+    <meta name="og:description" content="距离上一篇Python主题文章Python历险记第一站已经过去将近半个月的时间了，这一篇文章依旧以音乐为主题，我们将爬取的是QQ音乐的热门华语男歌手及其粉丝量。之所以选择QQ音乐，一方面是因为QQ音乐相对国内其他音乐软件，歌手信息比较集中，容易找到爬虫入口，另一方面是因为QQ音乐相比较Last.fm，数据更具有意义，并且难度会适当增大，有利于博主对Python爬虫的学习。">
+      
+    
+    
+        
+    
+    <meta property="og:url" content="http://localhost:4000/python/2016/12/18/PythonQQMusicMS/">
+    <meta property="og:site_name" content="Peiqin Lin's Homepage">
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="zh_CN" />
+    
+    <meta property="article:published_time" content="2016-12-18">
+    
+    <script src="http://localhost:4000/assets/vendor/jquery/dist/jquery.min.js"></script>
+    <script src="http://localhost:4000/assets/js/jquery-ui.js"></script>
+    <script type="text/javascript">
+    function toggleMenu() {
+        var nav = document.getElementsByClassName("site-header-nav")[0];
+        if (nav.style.display == "inline-flex") {
+          nav.style.display = "none";
+        } else {
+          nav.style.display = "inline-flex";
+        }
+    }
+    </script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-114643083-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-114643083-1');
+    </script>
+</head>
+<body class="" data-mz="">
+    <header class="site-header">
+        <div class="container">
+            <h1><a href="http://localhost:4000/" title="Peiqin Lin's Homepage">Peiqin Lin's Homepage</a></h1>
+            <button class="collapsed mobile-visible" type="button" onclick="toggleMenu();">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <nav class="site-header-nav" role="navigation">
+                
+            </nav>
+        </div>
+    </header>
+    <!-- / header -->
+
+    <section class="collection-head small geopattern" data-pattern-id="Python 历险记第二站——">
+<div class="container">
+  <div class="columns">
+    <div class="column three-fourths">
+      <div class="collection-title">
+        <h1 class="collection-header">Python 历险记第二站——爬取 QQ 音乐热门华语男歌手</h1>
+        <div class="collection-info">
+          
+          <span class="meta-info">
+            <span class="octicon octicon-calendar"></span> 2016/12/18
+          </span>
+          
+          
+          <span class="meta-info">
+            <span class="octicon octicon-file-directory"></span>
+            <a href="http://localhost:4000/categories/#Python" title="Python">Python</a>
+          </span>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+<!-- / .banner -->
+<section class="container content">
+<div class="columns">
+  <div class="column three-fourths" >
+    <article class="article-content markdown-body">
+    <p>距离上一篇Python主题文章<a href="https://lpq29743.github.io/redant/python/2016/12/02/PythonLastFMFV/">Python历险记第一站</a>已经过去将近半个月的时间了，这一篇文章依旧以音乐为主题，我们将爬取的是QQ音乐的热门华语男歌手及其粉丝量。之所以选择QQ音乐，一方面是因为QQ音乐相对国内其他音乐软件，歌手信息比较集中，容易找到爬虫入口，另一方面是因为QQ音乐相比较Last.fm，数据更具有意义，并且难度会适当增大，有利于博主对Python爬虫的学习。</p>
+
+<p>第一步还是选择爬虫入口，博主选择的是<a href="https://y.qq.com/portal/singerlist.html">QQ音乐歌手列表</a>，总共爬取10页，共1000个华语男歌手的关注信息，经过一个下午的时间，总算是把程序第一版写出来了：</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">from</span> <span class="nn">selenium</span> <span class="kn">import</span> <span class="n">webdriver</span>
+<span class="kn">from</span> <span class="nn">selenium.webdriver.common.by</span> <span class="kn">import</span> <span class="n">By</span>
+<span class="kn">from</span> <span class="nn">selenium.webdriver.support.ui</span> <span class="kn">import</span> <span class="n">WebDriverWait</span>
+<span class="kn">from</span> <span class="nn">selenium.webdriver.support</span> <span class="kn">import</span> <span class="n">expected_conditions</span> <span class="k">as</span> <span class="n">EC</span>
+
+<span class="k">class</span> <span class="nc">QQMusic</span><span class="p">:</span>
+
+    <span class="c1">#初始化方法
+</span>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">pagenum</span> <span class="o">=</span> <span class="mi">10</span>
+        <span class="c1">#获取时间
+</span>        <span class="n">date</span> <span class="o">=</span> <span class="n">time</span><span class="p">.</span><span class="n">strftime</span><span class="p">(</span><span class="s">"%Y-%m-%d"</span><span class="p">,</span> <span class="n">time</span><span class="p">.</span><span class="n">localtime</span><span class="p">())</span>
+        <span class="c1">#创建浏览器引擎
+</span>        <span class="bp">self</span><span class="p">.</span><span class="n">driver</span> <span class="o">=</span> <span class="n">webdriver</span><span class="p">.</span><span class="n">Firefox</span><span class="p">()</span>
+        <span class="c1">#self.driver = webdriver.PhantomJS()
+</span>
+    <span class="c1">#点击下一页
+</span>    <span class="k">def</span> <span class="nf">clickNext</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">time</span><span class="p">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">element</span> <span class="o">=</span> <span class="n">WebDriverWait</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">driver</span><span class="p">,</span> <span class="mi">10</span><span class="p">).</span><span class="n">until</span><span class="p">(</span>
+            <span class="n">EC</span><span class="p">.</span><span class="n">presence_of_element_located</span><span class="p">((</span><span class="n">By</span><span class="p">.</span><span class="n">CLASS_NAME</span><span class="p">,</span> <span class="s">"next"</span><span class="p">))</span>
+        <span class="p">)</span>
+        <span class="n">element</span><span class="p">.</span><span class="n">click</span><span class="p">()</span>
+
+    <span class="c1">#打印数据
+</span>    <span class="k">def</span> <span class="nf">printItem</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">):</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">driver</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+        <span class="n">innerreg</span> <span class="o">=</span> <span class="p">(</span><span class="sa">r</span><span class="s">'class="data__name_txt js_index" title="(.*?)"&gt;.*?[\r\n]+.*?'</span>
+                        <span class="o">+</span> <span class="s">'mod_btn__icon_more.*?&lt;/i&gt;关注\s(.*?)&lt;/a&gt;'</span><span class="p">)</span>
+        <span class="n">innerpattern</span> <span class="o">=</span> <span class="n">re</span><span class="p">.</span><span class="nb">compile</span><span class="p">(</span><span class="n">innerreg</span><span class="p">,</span> <span class="n">re</span><span class="p">.</span><span class="n">S</span><span class="p">)</span>
+        <span class="n">inneritems</span> <span class="o">=</span> <span class="n">innerpattern</span><span class="p">.</span><span class="n">findall</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">driver</span><span class="p">.</span><span class="n">page_source</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">inneritem</span> <span class="ow">in</span> <span class="n">inneritems</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="n">inneritem</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">inneritem</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+
+    <span class="c1">#获取数据
+</span>    <span class="k">def</span> <span class="nf">getItem</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="p">.</span><span class="n">clock</span><span class="p">()</span>
+        <span class="c1">#获取带有图像的歌手信息
+</span>        <span class="n">url0</span> <span class="o">=</span> <span class="s">"https://y.qq.com/portal/singerlist.html#t4=1&amp;t3=all&amp;t2=man&amp;t1=cn&amp;"</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">driver</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="n">url0</span><span class="p">)</span>
+        <span class="n">reg</span> <span class="o">=</span> <span class="p">(</span><span class="sa">r</span><span class="s">'singer_list__item_box"&gt;[\r\n]+.*?&lt;a href="(.*?)" class="singer_list__cover'</span><span class="p">)</span>
+        <span class="n">pattern</span> <span class="o">=</span> <span class="n">re</span><span class="p">.</span><span class="nb">compile</span><span class="p">(</span><span class="n">reg</span><span class="p">,</span> <span class="n">re</span><span class="p">.</span><span class="n">S</span><span class="p">)</span>
+        <span class="n">items</span> <span class="o">=</span> <span class="n">pattern</span><span class="p">.</span><span class="n">findall</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">driver</span><span class="p">.</span><span class="n">page_source</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">items</span><span class="p">:</span>
+            <span class="bp">self</span><span class="p">.</span><span class="n">printItem</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+            <span class="c1">#break
+</span>        <span class="c1">#获取不带图像的歌手信息
+</span>        <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">pagenum</span><span class="p">):</span>
+            <span class="n">url</span> <span class="o">=</span> <span class="s">"https://y.qq.com/portal/singerlist.html#t4=1&amp;t3=all&amp;t2=man&amp;t1=cn&amp;"</span>
+            <span class="bp">self</span><span class="p">.</span><span class="n">driver</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+            <span class="n">element</span> <span class="o">=</span> <span class="n">WebDriverWait</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">driver</span><span class="p">,</span> <span class="mi">10</span><span class="p">).</span><span class="n">until</span><span class="p">(</span>
+                <span class="n">EC</span><span class="p">.</span><span class="n">presence_of_all_elements_located</span><span class="p">((</span><span class="n">By</span><span class="p">.</span><span class="n">CLASS_NAME</span><span class="p">,</span> <span class="s">"js_pageindex"</span><span class="p">))</span>
+            <span class="p">)</span>
+            <span class="k">if</span> <span class="n">x</span><span class="o">!=</span><span class="mi">0</span> <span class="ow">and</span> <span class="n">x</span><span class="o">&lt;</span><span class="mi">4</span><span class="p">:</span>
+                <span class="n">element</span><span class="p">[</span><span class="n">x</span><span class="o">-</span><span class="mi">1</span><span class="p">].</span><span class="n">click</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">x</span><span class="o">==</span><span class="mi">4</span><span class="p">:</span>
+                <span class="n">element</span><span class="p">[</span><span class="mi">2</span><span class="p">].</span><span class="n">click</span><span class="p">()</span>
+                <span class="bp">self</span><span class="p">.</span><span class="n">clickNext</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">x</span><span class="o">==</span><span class="mi">5</span><span class="p">:</span>
+                <span class="n">element</span><span class="p">[</span><span class="mi">2</span><span class="p">].</span><span class="n">click</span><span class="p">()</span>
+                <span class="bp">self</span><span class="p">.</span><span class="n">clickNext</span><span class="p">()</span>
+                <span class="bp">self</span><span class="p">.</span><span class="n">clickNext</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">x</span><span class="o">==</span><span class="mi">6</span><span class="p">:</span>
+                <span class="n">element</span><span class="p">[</span><span class="mi">2</span><span class="p">].</span><span class="n">click</span><span class="p">()</span>
+                <span class="bp">self</span><span class="p">.</span><span class="n">clickNext</span><span class="p">()</span>
+                <span class="bp">self</span><span class="p">.</span><span class="n">clickNext</span><span class="p">()</span>
+                <span class="bp">self</span><span class="p">.</span><span class="n">clickNext</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">x</span><span class="o">==</span><span class="mi">7</span><span class="p">:</span>
+                <span class="n">element</span><span class="p">[</span><span class="mi">2</span><span class="p">].</span><span class="n">click</span><span class="p">()</span>
+                <span class="bp">self</span><span class="p">.</span><span class="n">clickNext</span><span class="p">()</span>
+                <span class="bp">self</span><span class="p">.</span><span class="n">clickNext</span><span class="p">()</span>
+                <span class="bp">self</span><span class="p">.</span><span class="n">clickNext</span><span class="p">()</span>
+                <span class="bp">self</span><span class="p">.</span><span class="n">clickNext</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">x</span><span class="o">==</span><span class="mi">8</span><span class="p">:</span>
+                <span class="n">element</span><span class="p">[</span><span class="mi">2</span><span class="p">].</span><span class="n">click</span><span class="p">()</span>
+                <span class="bp">self</span><span class="p">.</span><span class="n">clickNext</span><span class="p">()</span>
+                <span class="bp">self</span><span class="p">.</span><span class="n">clickNext</span><span class="p">()</span>
+                <span class="bp">self</span><span class="p">.</span><span class="n">clickNext</span><span class="p">()</span>
+                <span class="bp">self</span><span class="p">.</span><span class="n">clickNext</span><span class="p">()</span>
+                <span class="bp">self</span><span class="p">.</span><span class="n">clickNext</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">x</span><span class="o">==</span><span class="mi">9</span><span class="p">:</span>
+                <span class="n">element</span><span class="p">[</span><span class="mi">2</span><span class="p">].</span><span class="n">click</span><span class="p">()</span>
+                <span class="bp">self</span><span class="p">.</span><span class="n">clickNext</span><span class="p">()</span>
+                <span class="bp">self</span><span class="p">.</span><span class="n">clickNext</span><span class="p">()</span>
+                <span class="bp">self</span><span class="p">.</span><span class="n">clickNext</span><span class="p">()</span>
+                <span class="bp">self</span><span class="p">.</span><span class="n">clickNext</span><span class="p">()</span>
+                <span class="bp">self</span><span class="p">.</span><span class="n">clickNext</span><span class="p">()</span>
+                <span class="bp">self</span><span class="p">.</span><span class="n">clickNext</span><span class="p">()</span>
+            <span class="n">time</span><span class="p">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+            <span class="n">reg</span> <span class="o">=</span> <span class="p">(</span><span class="sa">r</span><span class="s">'singer_list_txt__item"&gt;&lt;a href="(.*?)" class="singer_list_txt__link'</span><span class="p">)</span>
+            <span class="n">pattern</span> <span class="o">=</span> <span class="n">re</span><span class="p">.</span><span class="nb">compile</span><span class="p">(</span><span class="n">reg</span><span class="p">,</span> <span class="n">re</span><span class="p">.</span><span class="n">S</span><span class="p">)</span>
+            <span class="n">items</span> <span class="o">=</span> <span class="n">pattern</span><span class="p">.</span><span class="n">findall</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">driver</span><span class="p">.</span><span class="n">page_source</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">items</span><span class="p">:</span>
+                <span class="bp">self</span><span class="p">.</span><span class="n">printItem</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+                <span class="c1">#break
+</span>        <span class="n">end</span> <span class="o">=</span> <span class="n">time</span><span class="p">.</span><span class="n">clock</span><span class="p">()</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">end</span><span class="o">-</span><span class="n">start</span><span class="p">)</span>
+        <span class="c1">#self.driver.quit()
+</span>        
+<span class="n">spider</span> <span class="o">=</span> <span class="n">QQMusic</span><span class="p">()</span>
+<span class="n">spider</span><span class="p">.</span><span class="n">getItem</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p>同样是爬取歌手信息，但在QQ音乐的数据爬取却比Last.fm复杂得多，博主在完成这个程序中也遇到了很多问题，现总结如下：</p>
+
+<p>一开始博主选择爬取的url是https://y.qq.com/portal/singerlist.html#t4=1&amp;t3=all&amp;t2=man&amp;t1=cn&amp;，可是用原先的方法发现爬取到的是全部歌手的信息，而不是华语男歌手的信息，但是在浏览器打开此链接却是华语男歌手的信息，这就让我感到纳闷了，难道#号后面的数据没有传过去吗？于是楼主一番谷歌百度，最终终于在阮一峰的博客文章<a href="http://www.ruanyifeng.com/blog/2011/03/url_hash.html">URL的井号</a>下找到了答案，知道了原因，接下来就是怎么解决了！</p>
+
+<p>博主最终使用了selenium+phantomjs的解决方案，这里的selenium是一个自动化测试工具，可以用pip安装，而phantomjs是一个浏览器引擎，除了phantomjs，也可以选择chrome浏览器或firefox浏览器等等，博主最后因为一些phantomjs上的bug而暂时采用了firefox作为实验的浏览器。无论使用哪一种浏览器，都需要进行环境变量的配置。</p>
+
+<p>关于phantomjs的下载和使用可以参考<a href="http://phantomjs.org/download.html">这里</a>，对这个工具的学习几乎可以先跳过，重点在于selenium的使用。selenium的用法可以参考<a href="http://cuiqingcai.com/2599.html">这里</a>，其中页面等待是一个很重要的问题，因为selenium经常用来模拟js操作，如界面渲染就经常要使用到显式等待，而标签点击有时候则要用<code class="language-plaintext highlighter-rouge">time.sleep(secs)</code>来进行处理。关于selenium文档的查看方法可以参考<a href="http://blog.csdn.net/freesigefei/article/details/50541413">这篇文章</a>。除此之外，python还有个查看文档的小技巧，直接使用<code class="language-plaintext highlighter-rouge">help()</code>就能查看某个对象的帮助文档。比如<code class="language-plaintext highlighter-rouge">help(driver)</code>即可直接查看driver这个对象的文档，包括其内部函数、变量的说明。selenium+phantomjs这个方案总体上还是存在一些问题的，<a href="http://www.jianshu.com/p/9d408e21dc3a">这篇文章</a>针对这些问题有很不错的讲解。</p>
+
+<p>解决了这些问题之后，程序终于运行出了满意的结果，只不过这运行时间真的有点难以接受，记录了一下运行时间（获取运行时间的方法可以参考<a href="http://www.cnblogs.com/BeginMan/p/3178223.html">这里</a>，返回的值以秒为单位），总共占用CPU的时间是1952.0409713350145，也就是半个小时左右。虽然说半个小时对于大部分爬虫程序来讲算是正常，但博主觉得问题是出现在自己身上，于是打算再改进改进。</p>
+
+<p>博主尝试过采用scrapy+splash，也尝试过采用pyspider，但后面都因为这个链接地址中可恶的#号而受挫了，于是改进后的代码依旧没有采用这两个框架，不过博主也是通过这一次实验对这两个框架有了初步的了解，并且对css选择器以及xpath有了一定的掌握。</p>
+
+<p>通过在知乎看到的问题<a href="https://www.zhihu.com/question/27734572">《如果网页内容是由javascript生成的，应该怎么实现爬虫呢？》</a>，博主打算模拟js操作来避免使用浏览器带来的开销，可依旧是#号堵住了我的去路，后面如果有新的突破，博主也会回来修改这一部分的内容。</p>
+
+<p>总而言之，博主改进后的代码只实现了mysql的操作，具体代码如下：</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#encoding=utf-8
+</span><span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">pymysql</span>
+<span class="kn">from</span> <span class="nn">pymysql</span> <span class="kn">import</span> <span class="n">MySQLError</span>
+<span class="kn">from</span> <span class="nn">selenium</span> <span class="kn">import</span> <span class="n">webdriver</span>
+<span class="kn">from</span> <span class="nn">selenium.webdriver.common.by</span> <span class="kn">import</span> <span class="n">By</span>
+<span class="kn">from</span> <span class="nn">selenium.webdriver.support.ui</span> <span class="kn">import</span> <span class="n">WebDriverWait</span>
+<span class="kn">from</span> <span class="nn">selenium.webdriver.support</span> <span class="kn">import</span> <span class="n">expected_conditions</span> <span class="k">as</span> <span class="n">EC</span>
+
+<span class="k">class</span> <span class="nc">QQMusic</span><span class="p">:</span>
+
+    <span class="c1">#初始化方法
+</span>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">pagenum</span> <span class="o">=</span> <span class="mi">10</span>
+        <span class="c1">#打开数据库连接
+</span>        <span class="bp">self</span><span class="p">.</span><span class="n">db</span> <span class="o">=</span> <span class="n">pymysql</span><span class="p">.</span><span class="n">connect</span><span class="p">(</span><span class="s">"localhost"</span><span class="p">,</span><span class="s">"root"</span><span class="p">,</span><span class="s">""</span><span class="p">,</span><span class="s">"qqmusic_spider"</span><span class="p">,</span><span class="n">charset</span><span class="o">=</span><span class="s">"utf8"</span><span class="p">)</span>
+        <span class="c1">#获取操作游标
+</span>        <span class="bp">self</span><span class="p">.</span><span class="n">cursor</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">db</span><span class="p">.</span><span class="n">cursor</span><span class="p">()</span>
+        <span class="c1">#创建浏览器引擎
+</span>        <span class="bp">self</span><span class="p">.</span><span class="n">driver</span> <span class="o">=</span> <span class="n">webdriver</span><span class="p">.</span><span class="n">Firefox</span><span class="p">()</span>
+        <span class="c1">#self.driver = webdriver.PhantomJS()
+</span>
+    <span class="c1">#点击下一页
+</span>    <span class="k">def</span> <span class="nf">clickNext</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">time</span><span class="p">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">element</span> <span class="o">=</span> <span class="n">WebDriverWait</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">driver</span><span class="p">,</span> <span class="mi">10</span><span class="p">).</span><span class="n">until</span><span class="p">(</span>
+            <span class="n">EC</span><span class="p">.</span><span class="n">presence_of_element_located</span><span class="p">((</span><span class="n">By</span><span class="p">.</span><span class="n">CLASS_NAME</span><span class="p">,</span> <span class="s">"next"</span><span class="p">))</span>
+        <span class="p">)</span>
+        <span class="n">element</span><span class="p">.</span><span class="n">click</span><span class="p">()</span>
+
+    <span class="c1">#保存数据
+</span>    <span class="k">def</span> <span class="nf">printItem</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">):</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">driver</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+        <span class="n">innerreg</span> <span class="o">=</span> <span class="p">(</span><span class="sa">r</span><span class="s">'class="data__name_txt js_index" title="(.*?)"&gt;.*?[\r\n]+.*?'</span>
+                        <span class="o">+</span> <span class="s">'mod_btn__icon_more.*?&lt;/i&gt;关注\s(.*?)&lt;/a&gt;'</span><span class="p">)</span>
+        <span class="n">innerpattern</span> <span class="o">=</span> <span class="n">re</span><span class="p">.</span><span class="nb">compile</span><span class="p">(</span><span class="n">innerreg</span><span class="p">,</span> <span class="n">re</span><span class="p">.</span><span class="n">S</span><span class="p">)</span>
+        <span class="n">inneritems</span> <span class="o">=</span> <span class="n">innerpattern</span><span class="p">.</span><span class="n">findall</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">driver</span><span class="p">.</span><span class="n">page_source</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">inneritem</span> <span class="ow">in</span> <span class="n">inneritems</span><span class="p">:</span>
+            <span class="n">pos</span> <span class="o">=</span> <span class="n">inneritem</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="n">find</span><span class="p">(</span><span class="s">"万"</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">pos</span><span class="o">!=-</span><span class="mi">1</span><span class="p">:</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="p">.</span><span class="n">cursor</span><span class="p">.</span><span class="n">execute</span><span class="p">(</span><span class="s">'insert into malesinger(name,fans_num) values ("%s","%f")'</span> <span class="o">%</span> \
+                                        <span class="p">(</span><span class="n">inneritem</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nb">float</span><span class="p">(</span><span class="n">inneritem</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">:</span><span class="n">pos</span><span class="p">])))</span>
+                    <span class="bp">self</span><span class="p">.</span><span class="n">db</span><span class="p">.</span><span class="n">commit</span><span class="p">()</span>
+                    <span class="k">print</span><span class="p">(</span><span class="s">"success"</span><span class="p">)</span>
+                <span class="k">except</span> <span class="n">MySQLError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                    <span class="k">print</span><span class="p">(</span><span class="s">'Got error {!r}, errno is {}'</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="n">e</span><span class="p">.</span><span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+                    <span class="bp">self</span><span class="p">.</span><span class="n">db</span><span class="p">.</span><span class="n">rollback</span><span class="p">()</span>
+
+    <span class="c1">#获取数据
+</span>    <span class="k">def</span> <span class="nf">getItem</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="p">.</span><span class="n">clock</span><span class="p">()</span>
+        <span class="c1">#获取带有图像的歌手信息
+</span>        <span class="n">url0</span> <span class="o">=</span> <span class="s">"https://y.qq.com/portal/singerlist.html#t4=1&amp;t3=all&amp;t2=man&amp;t1=cn&amp;"</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">driver</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="n">url0</span><span class="p">)</span>
+        <span class="n">reg</span> <span class="o">=</span> <span class="p">(</span><span class="sa">r</span><span class="s">'singer_list__item_box"&gt;[\r\n]+.*?&lt;a href="(.*?)" class="singer_list__cover'</span><span class="p">)</span>
+        <span class="n">pattern</span> <span class="o">=</span> <span class="n">re</span><span class="p">.</span><span class="nb">compile</span><span class="p">(</span><span class="n">reg</span><span class="p">,</span> <span class="n">re</span><span class="p">.</span><span class="n">S</span><span class="p">)</span>
+        <span class="n">items</span> <span class="o">=</span> <span class="n">pattern</span><span class="p">.</span><span class="n">findall</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">driver</span><span class="p">.</span><span class="n">page_source</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">items</span><span class="p">:</span>
+            <span class="bp">self</span><span class="p">.</span><span class="n">printItem</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+            <span class="c1">#break
+</span>        <span class="c1">#获取不带图像的歌手信息
+</span>        <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">pagenum</span><span class="p">):</span>
+            <span class="n">url</span> <span class="o">=</span> <span class="s">"https://y.qq.com/portal/singerlist.html#t4=1&amp;t3=all&amp;t2=man&amp;t1=cn&amp;"</span>
+            <span class="bp">self</span><span class="p">.</span><span class="n">driver</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+            <span class="n">element</span> <span class="o">=</span> <span class="n">WebDriverWait</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">driver</span><span class="p">,</span> <span class="mi">10</span><span class="p">).</span><span class="n">until</span><span class="p">(</span>
+                <span class="n">EC</span><span class="p">.</span><span class="n">presence_of_all_elements_located</span><span class="p">((</span><span class="n">By</span><span class="p">.</span><span class="n">CLASS_NAME</span><span class="p">,</span> <span class="s">"js_pageindex"</span><span class="p">))</span>
+            <span class="p">)</span>
+            <span class="k">if</span> <span class="n">x</span><span class="o">!=</span><span class="mi">0</span> <span class="ow">and</span> <span class="n">x</span><span class="o">&lt;</span><span class="mi">4</span><span class="p">:</span>
+                <span class="n">element</span><span class="p">[</span><span class="n">x</span><span class="o">-</span><span class="mi">1</span><span class="p">].</span><span class="n">click</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">x</span><span class="o">==</span><span class="mi">4</span><span class="p">:</span>
+                <span class="n">element</span><span class="p">[</span><span class="mi">2</span><span class="p">].</span><span class="n">click</span><span class="p">()</span>
+                <span class="bp">self</span><span class="p">.</span><span class="n">clickNext</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">x</span><span class="o">==</span><span class="mi">5</span><span class="p">:</span>
+                <span class="n">element</span><span class="p">[</span><span class="mi">2</span><span class="p">].</span><span class="n">click</span><span class="p">()</span>
+                <span class="bp">self</span><span class="p">.</span><span class="n">clickNext</span><span class="p">()</span>
+                <span class="bp">self</span><span class="p">.</span><span class="n">clickNext</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">x</span><span class="o">==</span><span class="mi">6</span><span class="p">:</span>
+                <span class="n">element</span><span class="p">[</span><span class="mi">2</span><span class="p">].</span><span class="n">click</span><span class="p">()</span>
+                <span class="bp">self</span><span class="p">.</span><span class="n">clickNext</span><span class="p">()</span>
+                <span class="bp">self</span><span class="p">.</span><span class="n">clickNext</span><span class="p">()</span>
+                <span class="bp">self</span><span class="p">.</span><span class="n">clickNext</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">x</span><span class="o">==</span><span class="mi">7</span><span class="p">:</span>
+                <span class="n">element</span><span class="p">[</span><span class="mi">2</span><span class="p">].</span><span class="n">click</span><span class="p">()</span>
+                <span class="bp">self</span><span class="p">.</span><span class="n">clickNext</span><span class="p">()</span>
+                <span class="bp">self</span><span class="p">.</span><span class="n">clickNext</span><span class="p">()</span>
+                <span class="bp">self</span><span class="p">.</span><span class="n">clickNext</span><span class="p">()</span>
+                <span class="bp">self</span><span class="p">.</span><span class="n">clickNext</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">x</span><span class="o">==</span><span class="mi">8</span><span class="p">:</span>
+                <span class="n">element</span><span class="p">[</span><span class="mi">2</span><span class="p">].</span><span class="n">click</span><span class="p">()</span>
+                <span class="bp">self</span><span class="p">.</span><span class="n">clickNext</span><span class="p">()</span>
+                <span class="bp">self</span><span class="p">.</span><span class="n">clickNext</span><span class="p">()</span>
+                <span class="bp">self</span><span class="p">.</span><span class="n">clickNext</span><span class="p">()</span>
+                <span class="bp">self</span><span class="p">.</span><span class="n">clickNext</span><span class="p">()</span>
+                <span class="bp">self</span><span class="p">.</span><span class="n">clickNext</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">x</span><span class="o">==</span><span class="mi">9</span><span class="p">:</span>
+                <span class="n">element</span><span class="p">[</span><span class="mi">2</span><span class="p">].</span><span class="n">click</span><span class="p">()</span>
+                <span class="bp">self</span><span class="p">.</span><span class="n">clickNext</span><span class="p">()</span>
+                <span class="bp">self</span><span class="p">.</span><span class="n">clickNext</span><span class="p">()</span>
+                <span class="bp">self</span><span class="p">.</span><span class="n">clickNext</span><span class="p">()</span>
+                <span class="bp">self</span><span class="p">.</span><span class="n">clickNext</span><span class="p">()</span>
+                <span class="bp">self</span><span class="p">.</span><span class="n">clickNext</span><span class="p">()</span>
+                <span class="bp">self</span><span class="p">.</span><span class="n">clickNext</span><span class="p">()</span>
+            <span class="n">time</span><span class="p">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+            <span class="n">reg</span> <span class="o">=</span> <span class="p">(</span><span class="sa">r</span><span class="s">'singer_list_txt__item"&gt;&lt;a href="(.*?)" class="singer_list_txt__link'</span><span class="p">)</span>
+            <span class="n">pattern</span> <span class="o">=</span> <span class="n">re</span><span class="p">.</span><span class="nb">compile</span><span class="p">(</span><span class="n">reg</span><span class="p">,</span> <span class="n">re</span><span class="p">.</span><span class="n">S</span><span class="p">)</span>
+            <span class="n">items</span> <span class="o">=</span> <span class="n">pattern</span><span class="p">.</span><span class="n">findall</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">driver</span><span class="p">.</span><span class="n">page_source</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">items</span><span class="p">:</span>
+                <span class="bp">self</span><span class="p">.</span><span class="n">printItem</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+                <span class="c1">#break
+</span>        <span class="n">end</span> <span class="o">=</span> <span class="n">time</span><span class="p">.</span><span class="n">clock</span><span class="p">()</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">end</span><span class="o">-</span><span class="n">start</span><span class="p">)</span>
+        <span class="c1">#self.driver.quit()
+</span>        <span class="bp">self</span><span class="p">.</span><span class="n">db</span><span class="p">.</span><span class="n">close</span><span class="p">()</span>
+        
+<span class="n">spider</span> <span class="o">=</span> <span class="n">QQMusic</span><span class="p">()</span>
+<span class="n">spider</span><span class="p">.</span><span class="n">getItem</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p>数据库相关sql语句如下：</p>
+
+<pre><code class="language-mysql">create database qqmusic_spider;
+use qqmusic_spider;
+create table malesinger (
+	id int not null auto_increment primary key,
+    name varchar(20) not null,
+    fans_num float not null
+);
+</code></pre>
+
+<p>这个程序总共花了1584.1502326928423，总体开销比之前小。在这一版的代码博主遇到的主要问题是编码的问题，所以博主也提醒大家要注意编码问题，从数据库的编码到表的编码，从字段编码到抓取数据的编码，都要保持统一，最好都是utf-8。此外，mysql数据库操作最好都要附带捕获MySQLError的操作代码，这样可以很清晰地判断自己的sql语句有没有写错。</p>
+
+<p>总而言之，这次爬虫实验的情况还是蛮不错的，上一个实验很适合入门，这一个则很适合进阶。博主从中学到了很多东西，包括这一篇文章中还没有提及的<a href="https://segmentfault.com/a/1190000005840672">反爬虫</a>、<a href="https://www.zhihu.com/question/19890668">robots.txt</a>等等。希望接下来继续努力，不断提高自己的水平！</p>
+
+    </article>
+    <div class="share">
+      <div class="share-component"></div>
+    </div>
+    <div class="comment">
+      
+  
+        <div id="container"></div>
+        <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+        <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+        <script>
+        var gitment = new Gitment({
+            id: '/python/2016/12/18/PythonQQMusicMS/',
+            owner: 'lpq29743',
+            repo: 'blog-comments',
+            oauth: {
+                client_id: '5818ceff784afe05d31c',
+                client_secret: 'dc7e8efc044c7194cf453740f82c646aa998f206',
+            },
+        })
+        gitment.render('container')
+        </script>
+  
+
+
+    </div>
+	<ul class="pager">
+		
+		<li class="previous">
+			<a href="/algorithm/2016/12/04/Quicksort/" data-toggle="tooltip" data-placement="top" title="快速排序法及其优化">
+				Previous<br>
+				<span>快速排序法及其优化</span>
+			</a>
+		</li>
+		
+		
+		<li class="next">
+			<a href="/android/2017/01/23/AndroidTest/" data-toggle="tooltip" data-placement="top" title="Android 测试">
+				Next<br>
+				<span>Android 测试</span>
+			</a>
+		</li>
+		
+	</ul>
+  </div>
+  <div class="column one-fourth">
+    
+<h3>Search</h3>
+<div id="site_search">
+    <input type="text" id="search_box" placeholder="Search">
+</div>
+
+<ul id="search_results"></ul>
+
+<link rel="stylesheet" type="text/css" href="http://localhost:4000/assets/css/modules/sidebar-search.css">
+<script src="http://localhost:4000/assets/js/jekyll-search.min.js"></script>
+<script src="http://localhost:4000/assets/js/search.js"></script>
+
+<script type="text/javascript">
+SimpleJekyllSearch({
+    searchInput: document.getElementById('search_box'),
+    resultsContainer: document.getElementById('search_results'),
+    json: 'http://localhost:4000/assets/search_data.json',
+    searchResultTemplate: '<li><a href="{url}" title="{desc}">{title}</a></li>',
+    noResultsText: 'No results found',
+    limit: 10,
+    fuzzy: false,
+    exclude: ['Welcome']
+})
+</script>
+
+    
+<h3 class="post-directory-title mobile-hidden">Table of Contents</h3>
+<div id="post-directory-module" class="mobile-hidden">
+  <section class="post-directory">
+  <!-- Links that trigger the jumping -->
+  <!-- Added by javascript below -->
+  <dl></dl>
+  </section>
+</div>
+
+<script src="http://localhost:4000/assets/js/jquery.toc.js"></script>
+
+  </div>
+</div>
+</section>
+<!-- /section.content -->
+
+    <footer class="container">
+        <div class="site-footer" role="contentinfo">
+            <div class="copyright left mobile-block">
+                <a href="javascript:window.scrollTo(0,0)" class="right mobile-visible">TOP</a>
+            </div>
+
+            <ul class="site-footer-links right mobile-hidden">
+                <li>
+                    <a href="javascript:window.scrollTo(0,0)" >TOP</a>
+                </li>
+            </ul>
+            <a href="https://github.com/lpq29743/lpq29743.github.io" target="_blank" aria-label="view source code">
+                <span class="mega-octicon octicon-mark-github" title="GitHub"></span>
+            </a>
+            <ul class="site-footer-links mobile-hidden">
+                
+            </ul>
+
+        </div>
+    </footer>
+    <!-- / footer -->
+    <script src="http://localhost:4000/assets/vendor/share.js/dist/js/share.min.js"></script>
+    <script src="http://localhost:4000/assets/js/geopattern.js"></script>
+    <script src="http://localhost:4000/assets/js/prism.js"></script>
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/globals/prism.css">
+    <script>
+      jQuery(document).ready(function($) {
+        // geopattern
+        $('.geopattern').each(function(){
+          $(this).geopattern($(this).data('pattern-id'));
+        });
+       // hljs.initHighlightingOnLoad();
+      });
+    </script>
+    
+</body>
+</html>

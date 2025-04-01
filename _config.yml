@@ -1,0 +1,51 @@
+# Site Settings
+url: https://lpq29743.github.io
+title: Peiqin Lin's Homepage
+subtitle: "Software is like sex: it's better when it's free."
+description: "Peiqin Lin's Homepage"
+keywords: 林佩勤, Peiqin Lin, 半截小丑, lpq29743
+timezone: Asia/Shanghai
+encoding: "utf-8"
+SEOTitle: Peiqin Lin's Homepage
+repository: lpq29743/lpq29743.github.io
+
+# Author Settings
+author: Peiqin Lin
+github_username: lpq29743
+location: Guangdong, China
+email: lpq29743@gmail.com
+
+# Navigation Settings
+# navs:
+#   -
+#     href: 
+#     label: Home
+
+# RSS Settings
+RSS: true
+subscribe_rss: /feed.xml
+
+# Build Settings
+highlighter: rouge
+paginate: 10
+permalink: pretty
+gems: [jekyll-paginate]
+collections:
+    wiki:
+        output: true
+        permalink: /wiki/:path/
+        
+# Markdown Settings
+markdown: kramdown
+kramdown:
+    input: GFM
+mathjax: true
+
+# Comments Settings
+comments_provider: gitment
+gitment:
+    owner: lpq29743
+    repo: blog-comments
+    oauth:
+        client_id: 5818ceff784afe05d31c
+        client_secret: dc7e8efc044c7194cf453740f82c646aa998f206

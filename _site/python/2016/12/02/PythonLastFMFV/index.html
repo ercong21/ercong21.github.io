@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans" prefix="og: http://ogp.me/ns#" class="han-init">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <title>Python 历险记第一站——爬取 last.fm 热门女歌手 &mdash; Peiqin Lin's Homepage</title>
+    <link rel="stylesheet" href="http://localhost:4000/assets/vendor/primer-css/css/primer.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/vendor/primer-markdown/dist/user-content.min.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/vendor/octicons/octicons/octicons.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/components/collection.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/components/repo-card.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/repo-list.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/mini-repo-list.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/profile.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/contact.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/news.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/components/boxed-group.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/globals/common.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/vendor/share.js/dist/css/share.min.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/globals/responsive.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/posts/index.css">
+    <!-- Latest compiled and minified CSS -->
+    
+
+    
+    <link rel="canonical" href="http://localhost:4000/python/2016/12/02/PythonLastFMFV/">
+    <link rel="alternate" type="application/atom+xml" title="Peiqin Lin's Homepage" href="/feed.xml">
+    <link rel="shortcut icon" href="http://localhost:4000/favicon.ico">
+    
+    <meta property="og:title" content="Python 历险记第一站——爬取 last.fm 热门女歌手">
+      
+    <meta name="keywords" content="Python, Python爬虫, 爬虫">
+    <meta name="og:keywords" content="Python, Python爬虫, 爬虫">
+      
+    <meta name="description" content="紧接着上一篇文章，这一篇就讲一个Python爬虫实验。博主一直想要在网易云音乐上建个关于热门女歌手的歌单，但是怎样才算热门女歌手呢？最后博主决定以Last.fm的收听量作为标准来进行判定，所以也就有了用爬虫来爬取收听量超过一百万的女歌手的打算。">
+    <meta name="og:description" content="紧接着上一篇文章，这一篇就讲一个Python爬虫实验。博主一直想要在网易云音乐上建个关于热门女歌手的歌单，但是怎样才算热门女歌手呢？最后博主决定以Last.fm的收听量作为标准来进行判定，所以也就有了用爬虫来爬取收听量超过一百万的女歌手的打算。">
+      
+    
+    
+        
+    
+    <meta property="og:url" content="http://localhost:4000/python/2016/12/02/PythonLastFMFV/">
+    <meta property="og:site_name" content="Peiqin Lin's Homepage">
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="zh_CN" />
+    
+    <meta property="article:published_time" content="2016-12-02">
+    
+    <script src="http://localhost:4000/assets/vendor/jquery/dist/jquery.min.js"></script>
+    <script src="http://localhost:4000/assets/js/jquery-ui.js"></script>
+    <script type="text/javascript">
+    function toggleMenu() {
+        var nav = document.getElementsByClassName("site-header-nav")[0];
+        if (nav.style.display == "inline-flex") {
+          nav.style.display = "none";
+        } else {
+          nav.style.display = "inline-flex";
+        }
+    }
+    </script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-114643083-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-114643083-1');
+    </script>
+</head>
+<body class="" data-mz="">
+    <header class="site-header">
+        <div class="container">
+            <h1><a href="http://localhost:4000/" title="Peiqin Lin's Homepage">Peiqin Lin's Homepage</a></h1>
+            <button class="collapsed mobile-visible" type="button" onclick="toggleMenu();">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <nav class="site-header-nav" role="navigation">
+                
+            </nav>
+        </div>
+    </header>
+    <!-- / header -->
+
+    <section class="collection-head small geopattern" data-pattern-id="Python 历险记第一站——">
+<div class="container">
+  <div class="columns">
+    <div class="column three-fourths">
+      <div class="collection-title">
+        <h1 class="collection-header">Python 历险记第一站——爬取 last.fm 热门女歌手</h1>
+        <div class="collection-info">
+          
+          <span class="meta-info">
+            <span class="octicon octicon-calendar"></span> 2016/12/02
+          </span>
+          
+          
+          <span class="meta-info">
+            <span class="octicon octicon-file-directory"></span>
+            <a href="http://localhost:4000/categories/#Python" title="Python">Python</a>
+          </span>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+<!-- / .banner -->
+<section class="container content">
+<div class="columns">
+  <div class="column three-fourths" >
+    <article class="article-content markdown-body">
+    <p>紧接着上一篇文章，这一篇就讲一个Python爬虫实验。博主一直想要在网易云音乐上建个关于热门女歌手的歌单，但是怎样才算热门女歌手呢？最后博主决定以Last.fm的收听量作为标准来进行判定，所以也就有了用爬虫来爬取收听量超过一百万的女歌手的打算。</p>
+
+<p>首先第一步要选取网页，博主仔细甄选，最后选择了http://www.last.fm/zh/tag/female+vocalists/artists?page=1这个网页，其中后面的页数范围从1到50。经过了一个晚上到早上的时间（博主第一次搞，经验不足，所以花的时间比较多），写出了第一版的代码：</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">urllib</span>
+<span class="kn">import</span> <span class="nn">urllib.request</span>
+<span class="kn">import</span> <span class="nn">re</span>
+
+<span class="n">num</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">50</span><span class="p">):</span>
+    <span class="n">page</span> <span class="o">=</span> <span class="n">x</span><span class="o">+</span><span class="mi">1</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="s">"http://www.last.fm/zh/tag/female+vocalists/artists?page="</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">page</span><span class="p">)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">urllib</span><span class="p">.</span><span class="n">request</span><span class="p">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">url</span><span class="p">).</span><span class="n">read</span><span class="p">()</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="p">.</span><span class="n">decode</span><span class="p">(</span><span class="s">'UTF-8'</span><span class="p">)</span>
+        <span class="n">reg</span> <span class="o">=</span> <span class="p">(</span><span class="sa">r</span><span class="s">'class=\"link-block-target\"[\r\n]+.*?&gt;(.*?)&lt;/a&gt;[\r\n]+.*?&lt;/p&gt;'</span>
+        <span class="s">'[</span><span class="se">\r\n</span><span class="s">]+.*?&lt;p class=</span><span class="se">\"</span><span class="s">grid-items-item-aux-text</span><span class="se">\"</span><span class="s">&gt;[</span><span class="se">\r\n</span><span class="s">]+\s*(.*?)\s位'</span>
+        <span class="s">'&lt;span class=</span><span class="se">\"</span><span class="s">stat-name</span><span class="se">\"</span><span class="s">&gt;'</span><span class="p">)</span>
+        <span class="n">pattern</span> <span class="o">=</span> <span class="n">re</span><span class="p">.</span><span class="nb">compile</span><span class="p">(</span><span class="n">reg</span><span class="p">,</span> <span class="n">re</span><span class="p">.</span><span class="n">S</span><span class="p">)</span>
+        <span class="n">items</span> <span class="o">=</span> <span class="n">pattern</span><span class="p">.</span><span class="n">findall</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">items</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">int</span><span class="p">(</span><span class="n">item</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="o">&gt;</span><span class="mi">1000000</span><span class="p">:</span>
+                <span class="k">print</span><span class="p">(</span><span class="n">item</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">item</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+                <span class="n">num</span> <span class="o">=</span> <span class="n">num</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="k">except</span> <span class="n">urllib</span><span class="p">.</span><span class="n">error</span><span class="p">.</span><span class="n">URLError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">'We failed to reach a server.'</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">'Reason: '</span><span class="p">,</span> <span class="n">e</span><span class="p">.</span><span class="n">reason</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>总共爬到了119个歌手，由于用的是“female vocalists”这个标签，所以爬出来的结果可能会有所偏差，这个也希望后面能改进。在Python编程中，面向对象的编程思想也运用的很广泛，所以博主把它稍微修改一下有了以下的代码：</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">urllib</span>
+<span class="kn">import</span> <span class="nn">urllib.request</span>
+<span class="kn">import</span> <span class="nn">re</span>
+
+<span class="k">class</span> <span class="nc">LastFM</span><span class="p">:</span>
+
+    <span class="c1">#初始化方法
+</span>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">num</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">pagenum</span> <span class="o">=</span> <span class="mi">50</span>
+
+    <span class="c1">#获取数据
+</span>    <span class="k">def</span> <span class="nf">getItem</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">pagenum</span><span class="p">):</span>
+            <span class="n">page</span> <span class="o">=</span> <span class="n">x</span><span class="o">+</span><span class="mi">1</span>
+            <span class="n">url</span> <span class="o">=</span> <span class="s">"http://www.last.fm/zh/tag/female+vocalists/artists?page="</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">page</span><span class="p">)</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">data</span> <span class="o">=</span> <span class="n">urllib</span><span class="p">.</span><span class="n">request</span><span class="p">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">url</span><span class="p">).</span><span class="n">read</span><span class="p">()</span>
+                <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="p">.</span><span class="n">decode</span><span class="p">(</span><span class="s">'UTF-8'</span><span class="p">)</span>
+                <span class="n">reg</span> <span class="o">=</span> <span class="p">(</span><span class="sa">r</span><span class="s">'class=\"link-block-target\"[\r\n]+.*?&gt;(.*?)&lt;/a&gt;[\r\n]+.*?&lt;/p&gt;'</span>
+                    <span class="s">'[</span><span class="se">\r\n</span><span class="s">]+.*?&lt;p class=</span><span class="se">\"</span><span class="s">grid-items-item-aux-text</span><span class="se">\"</span><span class="s">&gt;[</span><span class="se">\r\n</span><span class="s">]+\s*(.*?)\s位'</span>
+                    <span class="s">'&lt;span class=</span><span class="se">\"</span><span class="s">stat-name</span><span class="se">\"</span><span class="s">&gt;'</span><span class="p">)</span>
+                <span class="n">pattern</span> <span class="o">=</span> <span class="n">re</span><span class="p">.</span><span class="nb">compile</span><span class="p">(</span><span class="n">reg</span><span class="p">,</span> <span class="n">re</span><span class="p">.</span><span class="n">S</span><span class="p">)</span>
+                <span class="n">items</span> <span class="o">=</span> <span class="n">pattern</span><span class="p">.</span><span class="n">findall</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+                <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">items</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="nb">int</span><span class="p">(</span><span class="n">item</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="o">&gt;</span><span class="mi">1000000</span><span class="p">:</span>
+                        <span class="k">print</span><span class="p">(</span><span class="n">item</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">item</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+                        <span class="bp">self</span><span class="p">.</span><span class="n">num</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">num</span> <span class="o">+</span> <span class="mi">1</span>
+            <span class="k">except</span> <span class="n">urllib</span><span class="p">.</span><span class="n">error</span><span class="p">.</span><span class="n">URLError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="k">print</span><span class="p">(</span><span class="s">'We failed to reach a server.'</span><span class="p">)</span>
+                <span class="k">print</span><span class="p">(</span><span class="s">'Reason: '</span><span class="p">,</span> <span class="n">e</span><span class="p">.</span><span class="n">reason</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">num</span><span class="p">)</span>
+
+<span class="n">spider</span> <span class="o">=</span> <span class="n">LastFM</span><span class="p">()</span>
+<span class="n">spider</span><span class="p">.</span><span class="n">getItem</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p>以上程序获得数据之后只是在控制台输出，而一般情况下我们抓取数据都需要保存下来的，这里博主打算用excel来存储数据。在实验过程中，博主尝试了xlwt、openpyxl以及xlsxwriter三种工具，最后选择了最后一种，关于这三种的比较，可以看<a href="http://ju.outofmemory.cn/entry/56671">这里</a>。花了一个上午，最后的代码是：</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">urllib</span>
+<span class="kn">import</span> <span class="nn">urllib.request</span>
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">import</span> <span class="nn">xlsxwriter</span>
+<span class="kn">import</span> <span class="nn">time</span>
+
+<span class="k">class</span> <span class="nc">LastFM</span><span class="p">:</span>
+
+    <span class="c1">#初始化方法
+</span>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">num</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">pagenum</span> <span class="o">=</span> <span class="mi">50</span>
+        <span class="c1">#获取时间
+</span>        <span class="n">date</span> <span class="o">=</span> <span class="n">time</span><span class="p">.</span><span class="n">strftime</span><span class="p">(</span><span class="s">"%Y-%m-%d"</span><span class="p">,</span> <span class="n">time</span><span class="p">.</span><span class="n">localtime</span><span class="p">())</span>
+        <span class="c1">#建立Excel
+</span>        <span class="bp">self</span><span class="p">.</span><span class="n">workbook</span> <span class="o">=</span> <span class="n">xlsxwriter</span><span class="p">.</span><span class="n">Workbook</span><span class="p">(</span><span class="s">"lastfm_femalesinger-"</span> <span class="o">+</span> <span class="n">date</span> <span class="o">+</span> <span class="s">".xlsx"</span><span class="p">)</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">sheet</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">workbook</span><span class="p">.</span><span class="n">add_worksheet</span><span class="p">(</span><span class="s">'lastfm_femalesinger'</span><span class="p">)</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">item</span> <span class="o">=</span> <span class="p">[</span><span class="s">'歌手名'</span><span class="p">,</span><span class="s">'收听人数'</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">):</span>
+            <span class="bp">self</span><span class="p">.</span><span class="n">sheet</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">i</span><span class="p">,</span><span class="bp">self</span><span class="p">.</span><span class="n">item</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+
+    <span class="c1">#获取数据
+</span>    <span class="k">def</span> <span class="nf">getItem</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">pagenum</span><span class="p">):</span>
+            <span class="n">page</span> <span class="o">=</span> <span class="n">x</span><span class="o">+</span><span class="mi">1</span>
+            <span class="n">url</span> <span class="o">=</span> <span class="s">"http://www.last.fm/zh/tag/female+vocalists/artists?page="</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">page</span><span class="p">)</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">data</span> <span class="o">=</span> <span class="n">urllib</span><span class="p">.</span><span class="n">request</span><span class="p">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">url</span><span class="p">).</span><span class="n">read</span><span class="p">()</span>
+                <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="p">.</span><span class="n">decode</span><span class="p">(</span><span class="s">'UTF-8'</span><span class="p">)</span>
+                <span class="n">reg</span> <span class="o">=</span> <span class="p">(</span><span class="sa">r</span><span class="s">'class=\"link-block-target\"[\r\n]+.*?&gt;(.*?)&lt;/a&gt;[\r\n]+.*?&lt;/p&gt;'</span>
+                    <span class="s">'[</span><span class="se">\r\n</span><span class="s">]+.*?&lt;p class=</span><span class="se">\"</span><span class="s">grid-items-item-aux-text</span><span class="se">\"</span><span class="s">&gt;[</span><span class="se">\r\n</span><span class="s">]+\s*(.*?)\s位'</span>
+                    <span class="s">'&lt;span class=</span><span class="se">\"</span><span class="s">stat-name</span><span class="se">\"</span><span class="s">&gt;'</span><span class="p">)</span>
+                <span class="n">pattern</span> <span class="o">=</span> <span class="n">re</span><span class="p">.</span><span class="nb">compile</span><span class="p">(</span><span class="n">reg</span><span class="p">,</span> <span class="n">re</span><span class="p">.</span><span class="n">S</span><span class="p">)</span>
+                <span class="n">items</span> <span class="o">=</span> <span class="n">pattern</span><span class="p">.</span><span class="n">findall</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+                <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">items</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="nb">int</span><span class="p">(</span><span class="n">item</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="o">&gt;</span><span class="mi">1000000</span><span class="p">:</span>
+                        <span class="bp">self</span><span class="p">.</span><span class="n">num</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">num</span> <span class="o">+</span> <span class="mi">1</span>
+                        <span class="bp">self</span><span class="p">.</span><span class="n">sheet</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">num</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">item</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+                        <span class="bp">self</span><span class="p">.</span><span class="n">sheet</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">num</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">item</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+                <span class="k">print</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">num</span><span class="p">)</span>
+            <span class="k">except</span> <span class="n">urllib</span><span class="p">.</span><span class="n">error</span><span class="p">.</span><span class="n">URLError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="k">print</span><span class="p">(</span><span class="s">'We failed to reach a server.'</span><span class="p">)</span>
+                <span class="k">print</span><span class="p">(</span><span class="s">'Reason: '</span><span class="p">,</span> <span class="n">e</span><span class="p">.</span><span class="n">reason</span><span class="p">)</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">workbook</span><span class="p">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="n">spider</span> <span class="o">=</span> <span class="n">LastFM</span><span class="p">()</span>
+<span class="n">spider</span><span class="p">.</span><span class="n">getItem</span><span class="p">()</span>
+
+</code></pre></div></div>
+
+<p><strong>20170927更新</strong></p>
+
+<p>由于网站的改版，原先的代码已经无效了，所以我根据网站改版后情况和现有能力修改代码如下：</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">from</span> <span class="nn">lxml</span> <span class="kn">import</span> <span class="n">etree</span>
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">xlsxwriter</span>
+<span class="kn">import</span> <span class="nn">time</span>
+
+<span class="k">class</span> <span class="nc">LastFM</span><span class="p">:</span>
+
+    <span class="c1">#初始化方法
+</span>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">num</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">pagenum</span> <span class="o">=</span> <span class="mi">50</span>
+        <span class="c1">#获取时间
+</span>        <span class="n">date</span> <span class="o">=</span> <span class="n">time</span><span class="p">.</span><span class="n">strftime</span><span class="p">(</span><span class="s">"%Y-%m-%d"</span><span class="p">,</span> <span class="n">time</span><span class="p">.</span><span class="n">localtime</span><span class="p">())</span>
+        <span class="c1">#建立Excel
+</span>        <span class="bp">self</span><span class="p">.</span><span class="n">workbook</span> <span class="o">=</span> <span class="n">xlsxwriter</span><span class="p">.</span><span class="n">Workbook</span><span class="p">(</span><span class="s">"lastfm_femalesinger-"</span> <span class="o">+</span> <span class="n">date</span> <span class="o">+</span> <span class="s">".xlsx"</span><span class="p">)</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">sheet</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">workbook</span><span class="p">.</span><span class="n">add_worksheet</span><span class="p">(</span><span class="s">'lastfm_femalesinger'</span><span class="p">)</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">item</span> <span class="o">=</span> <span class="p">[</span><span class="s">'歌手名'</span><span class="p">,</span><span class="s">'收听人数'</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">):</span>
+            <span class="bp">self</span><span class="p">.</span><span class="n">sheet</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="bp">self</span><span class="p">.</span><span class="n">item</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+
+    <span class="c1">#获取数据
+</span>    <span class="k">def</span> <span class="nf">getItem</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">pagenum</span><span class="p">):</span>
+            <span class="n">page</span> <span class="o">=</span> <span class="n">x</span><span class="o">+</span><span class="mi">1</span>
+            <span class="n">url</span> <span class="o">=</span> <span class="s">"http://www.last.fm/zh/tag/female+vocalists/artists?page="</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">page</span><span class="p">)</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+                <span class="n">root</span> <span class="o">=</span> <span class="n">etree</span><span class="p">.</span><span class="n">fromstring</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">content</span><span class="p">,</span> <span class="n">etree</span><span class="p">.</span><span class="n">HTMLParser</span><span class="p">())</span>
+                <span class="n">result</span> <span class="o">=</span> <span class="n">root</span><span class="p">.</span><span class="n">xpath</span><span class="p">(</span><span class="s">'//div[contains(@class, "big-artist-list-item")]'</span><span class="p">)</span>
+                <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">result</span><span class="p">:</span>
+                    <span class="n">name</span> <span class="o">=</span> <span class="n">i</span><span class="p">.</span><span class="n">xpath</span><span class="p">(</span><span class="s">"./h3/a/text()"</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+                    <span class="n">fans_num</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">re</span><span class="p">.</span><span class="n">sub</span><span class="p">(</span><span class="s">'\D'</span><span class="p">,</span> <span class="s">''</span><span class="p">,</span> <span class="n">i</span><span class="p">.</span><span class="n">xpath</span><span class="p">(</span><span class="s">"./p/text()"</span><span class="p">)[</span><span class="mi">0</span><span class="p">]))</span>
+                    <span class="k">if</span> <span class="n">fans_num</span> <span class="o">&gt;</span> <span class="mi">1000000</span><span class="p">:</span>
+                        <span class="bp">self</span><span class="p">.</span><span class="n">num</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">num</span> <span class="o">+</span> <span class="mi">1</span>
+                        <span class="bp">self</span><span class="p">.</span><span class="n">sheet</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">num</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+                        <span class="bp">self</span><span class="p">.</span><span class="n">sheet</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">num</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">fans_num</span><span class="p">)</span>
+                <span class="k">print</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">num</span><span class="p">)</span>
+            <span class="k">except</span><span class="p">:</span>
+                <span class="k">print</span><span class="p">(</span><span class="n">sys</span><span class="p">.</span><span class="n">exc_info</span><span class="p">()[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">workbook</span><span class="p">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="n">spider</span> <span class="o">=</span> <span class="n">LastFM</span><span class="p">()</span>
+<span class="n">spider</span><span class="p">.</span><span class="n">getItem</span><span class="p">()</span>
+</code></pre></div></div>
+
+    </article>
+    <div class="share">
+      <div class="share-component"></div>
+    </div>
+    <div class="comment">
+      
+  
+        <div id="container"></div>
+        <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+        <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+        <script>
+        var gitment = new Gitment({
+            id: '/python/2016/12/02/PythonLastFMFV/',
+            owner: 'lpq29743',
+            repo: 'blog-comments',
+            oauth: {
+                client_id: '5818ceff784afe05d31c',
+                client_secret: 'dc7e8efc044c7194cf453740f82c646aa998f206',
+            },
+        })
+        gitment.render('container')
+        </script>
+  
+
+
+    </div>
+	<ul class="pager">
+		
+		<li class="previous">
+			<a href="/python/2016/12/01/PythonDataStructure/" data-toggle="tooltip" data-placement="top" title="Python 之数据结构">
+				Previous<br>
+				<span>Python 之数据结构</span>
+			</a>
+		</li>
+		
+		
+		<li class="next">
+			<a href="/algorithm/2016/12/04/Quicksort/" data-toggle="tooltip" data-placement="top" title="快速排序法及其优化">
+				Next<br>
+				<span>快速排序法及其优化</span>
+			</a>
+		</li>
+		
+	</ul>
+  </div>
+  <div class="column one-fourth">
+    
+<h3>Search</h3>
+<div id="site_search">
+    <input type="text" id="search_box" placeholder="Search">
+</div>
+
+<ul id="search_results"></ul>
+
+<link rel="stylesheet" type="text/css" href="http://localhost:4000/assets/css/modules/sidebar-search.css">
+<script src="http://localhost:4000/assets/js/jekyll-search.min.js"></script>
+<script src="http://localhost:4000/assets/js/search.js"></script>
+
+<script type="text/javascript">
+SimpleJekyllSearch({
+    searchInput: document.getElementById('search_box'),
+    resultsContainer: document.getElementById('search_results'),
+    json: 'http://localhost:4000/assets/search_data.json',
+    searchResultTemplate: '<li><a href="{url}" title="{desc}">{title}</a></li>',
+    noResultsText: 'No results found',
+    limit: 10,
+    fuzzy: false,
+    exclude: ['Welcome']
+})
+</script>
+
+    
+<h3 class="post-directory-title mobile-hidden">Table of Contents</h3>
+<div id="post-directory-module" class="mobile-hidden">
+  <section class="post-directory">
+  <!-- Links that trigger the jumping -->
+  <!-- Added by javascript below -->
+  <dl></dl>
+  </section>
+</div>
+
+<script src="http://localhost:4000/assets/js/jquery.toc.js"></script>
+
+  </div>
+</div>
+</section>
+<!-- /section.content -->
+
+    <footer class="container">
+        <div class="site-footer" role="contentinfo">
+            <div class="copyright left mobile-block">
+                <a href="javascript:window.scrollTo(0,0)" class="right mobile-visible">TOP</a>
+            </div>
+
+            <ul class="site-footer-links right mobile-hidden">
+                <li>
+                    <a href="javascript:window.scrollTo(0,0)" >TOP</a>
+                </li>
+            </ul>
+            <a href="https://github.com/lpq29743/lpq29743.github.io" target="_blank" aria-label="view source code">
+                <span class="mega-octicon octicon-mark-github" title="GitHub"></span>
+            </a>
+            <ul class="site-footer-links mobile-hidden">
+                
+            </ul>
+
+        </div>
+    </footer>
+    <!-- / footer -->
+    <script src="http://localhost:4000/assets/vendor/share.js/dist/js/share.min.js"></script>
+    <script src="http://localhost:4000/assets/js/geopattern.js"></script>
+    <script src="http://localhost:4000/assets/js/prism.js"></script>
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/globals/prism.css">
+    <script>
+      jQuery(document).ready(function($) {
+        // geopattern
+        $('.geopattern').each(function(){
+          $(this).geopattern($(this).data('pattern-id'));
+        });
+       // hljs.initHighlightingOnLoad();
+      });
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans" prefix="og: http://ogp.me/ns#" class="han-init">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <title>二叉树遍历 &mdash; Peiqin Lin's Homepage</title>
+    <link rel="stylesheet" href="http://localhost:4000/assets/vendor/primer-css/css/primer.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/vendor/primer-markdown/dist/user-content.min.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/vendor/octicons/octicons/octicons.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/components/collection.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/components/repo-card.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/repo-list.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/mini-repo-list.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/profile.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/contact.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/news.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/components/boxed-group.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/globals/common.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/vendor/share.js/dist/css/share.min.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/globals/responsive.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/posts/index.css">
+    <!-- Latest compiled and minified CSS -->
+    
+
+    
+    <link rel="canonical" href="http://localhost:4000/algorithm/2018/09/25/BTreeTraversal/">
+    <link rel="alternate" type="application/atom+xml" title="Peiqin Lin's Homepage" href="/feed.xml">
+    <link rel="shortcut icon" href="http://localhost:4000/favicon.ico">
+    
+    <meta property="og:title" content="二叉树遍历">
+      
+    <meta name="keywords" content="算法, 二叉树, 遍历">
+    <meta name="og:keywords" content="算法, 二叉树, 遍历">
+      
+    <meta name="description" content="二叉树遍历是面试中经常出现的基础题目，主要需要掌握前序遍历、中序遍历和后序遍历的递归与非递归算法，以及层次遍历算法。">
+    <meta name="og:description" content="二叉树遍历是面试中经常出现的基础题目，主要需要掌握前序遍历、中序遍历和后序遍历的递归与非递归算法，以及层次遍历算法。">
+      
+    
+    
+        
+    
+    <meta property="og:url" content="http://localhost:4000/algorithm/2018/09/25/BTreeTraversal/">
+    <meta property="og:site_name" content="Peiqin Lin's Homepage">
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="zh_CN" />
+    
+    <meta property="article:published_time" content="2018-09-25">
+    
+    <script src="http://localhost:4000/assets/vendor/jquery/dist/jquery.min.js"></script>
+    <script src="http://localhost:4000/assets/js/jquery-ui.js"></script>
+    <script type="text/javascript">
+    function toggleMenu() {
+        var nav = document.getElementsByClassName("site-header-nav")[0];
+        if (nav.style.display == "inline-flex") {
+          nav.style.display = "none";
+        } else {
+          nav.style.display = "inline-flex";
+        }
+    }
+    </script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-114643083-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-114643083-1');
+    </script>
+</head>
+<body class="" data-mz="">
+    <header class="site-header">
+        <div class="container">
+            <h1><a href="http://localhost:4000/" title="Peiqin Lin's Homepage">Peiqin Lin's Homepage</a></h1>
+            <button class="collapsed mobile-visible" type="button" onclick="toggleMenu();">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <nav class="site-header-nav" role="navigation">
+                
+            </nav>
+        </div>
+    </header>
+    <!-- / header -->
+
+    <section class="collection-head small geopattern" data-pattern-id="二叉树遍历">
+<div class="container">
+  <div class="columns">
+    <div class="column three-fourths">
+      <div class="collection-title">
+        <h1 class="collection-header">二叉树遍历</h1>
+        <div class="collection-info">
+          
+          <span class="meta-info">
+            <span class="octicon octicon-calendar"></span> 2018/09/25
+          </span>
+          
+          
+          <span class="meta-info">
+            <span class="octicon octicon-file-directory"></span>
+            <a href="http://localhost:4000/categories/#Algorithm" title="Algorithm">Algorithm</a>
+          </span>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+<!-- / .banner -->
+<section class="container content">
+<div class="columns">
+  <div class="column three-fourths" >
+    <article class="article-content markdown-body">
+    <p>二叉树遍历是面试中经常出现的基础题目，主要需要掌握前序遍历、中序遍历和后序遍历的递归与非递归算法，以及层次遍历算法。</p>
+
+<h5 id="递归实现前序遍历中序遍历和后序遍历">递归实现前序遍历、中序遍历和后序遍历</h5>
+
+<p>用递归实现二叉树的这三种遍历方式比较简单，只要按定义撰写具体的代码就可以了。</p>
+
+<p>前序遍历：</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">preorder</span><span class="p">(</span><span class="n">btree</span> <span class="n">t</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">"%c "</span><span class="p">,</span> <span class="n">t</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">);</span>
+        <span class="n">preorder</span><span class="p">(</span><span class="n">t</span><span class="o">-&gt;</span><span class="n">lchild</span><span class="p">);</span>
+        <span class="n">preorder</span><span class="p">(</span><span class="n">r</span><span class="o">-&gt;</span><span class="n">lchild</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>中序遍历：</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">midorder</span><span class="p">(</span><span class="n">btree</span> <span class="n">t</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">"%c "</span><span class="p">,</span> <span class="n">t</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">);</span>
+        <span class="n">preorder</span><span class="p">(</span><span class="n">t</span><span class="o">-&gt;</span><span class="n">lchild</span><span class="p">);</span>
+        <span class="n">preorder</span><span class="p">(</span><span class="n">r</span><span class="o">-&gt;</span><span class="n">lchild</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>后序遍历：</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">postorder</span><span class="p">(</span><span class="n">btree</span> <span class="n">t</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">"%c "</span><span class="p">,</span> <span class="n">t</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">);</span>
+        <span class="n">preorder</span><span class="p">(</span><span class="n">t</span><span class="o">-&gt;</span><span class="n">lchild</span><span class="p">);</span>
+        <span class="n">preorder</span><span class="p">(</span><span class="n">r</span><span class="o">-&gt;</span><span class="n">lchild</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h5 id="非递归实现前序遍历中序遍历和后序遍历">非递归实现前序遍历、中序遍历和后序遍历</h5>
+
+<p>用非递归来实现这三种遍历方式相对于递归方式要复杂一些，需要栈的辅助，而后序遍历则会更复杂一些。</p>
+
+<p>先看前序遍历，实现前序遍历有两种思路。基本思路是：</p>
+
+<ol>
+  <li>访问输出结点</li>
+  <li>将结点入栈</li>
+  <li>将当前结点设置为原结点的左结点</li>
+  <li>若没有左结点则进行出栈，设置当前结点为出栈结点的右结点</li>
+  <li>重复 1 - 4 步，直至栈为空</li>
+</ol>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">preorder</span><span class="p">(</span><span class="n">btree</span> <span class="n">t</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">stack</span> <span class="n">s</span><span class="p">;</span>
+    <span class="k">while</span><span class="p">(</span><span class="n">t</span> <span class="o">||</span> <span class="n">s</span><span class="p">.</span><span class="n">stop</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">while</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s">"%c "</span><span class="p">,</span> <span class="n">t</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">);</span>
+            <span class="n">push</span><span class="p">(</span><span class="o">&amp;</span><span class="n">s</span><span class="p">,</span> <span class="n">t</span><span class="p">);</span>
+            <span class="n">t</span> <span class="o">=</span> <span class="n">t</span><span class="o">-&gt;</span><span class="n">lchild</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="n">t</span> <span class="o">=</span> <span class="n">pop</span><span class="p">(</span><span class="o">&amp;</span><span class="n">s</span><span class="p">);</span>
+        <span class="n">t</span> <span class="o">=</span> <span class="n">t</span><span class="o">-&gt;</span><span class="n">rchild</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>前序遍历还有一种实现方式，但这种方式在中序遍历和后序遍历中并不适用，具体如下：</p>
+
+<ol>
+  <li>将根节点入栈</li>
+  <li>只要栈不为空，出栈并访问，接着依次将访问节点的右节点、左节点入栈</li>
+</ol>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">preorder</span><span class="p">(</span><span class="n">btree</span> <span class="n">t</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">stack</span> <span class="n">s</span><span class="p">;</span>
+    <span class="n">push</span><span class="p">(</span><span class="o">&amp;</span><span class="n">s</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span>
+    <span class="k">while</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="n">stop</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">t</span> <span class="o">=</span> <span class="n">pop</span><span class="p">(</span><span class="o">&amp;</span><span class="n">s</span><span class="p">);</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">"%c "</span><span class="p">,</span> <span class="n">t</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">);</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">t</span><span class="o">-&gt;</span><span class="n">rchild</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">push</span><span class="p">(</span><span class="o">&amp;</span><span class="n">t</span><span class="p">,</span> <span class="n">t</span><span class="o">-&gt;</span><span class="n">rchild</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">t</span><span class="o">-&gt;</span><span class="n">lchild</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">push</span><span class="p">(</span><span class="o">&amp;</span><span class="n">t</span><span class="p">,</span> <span class="n">t</span><span class="o">-&gt;</span><span class="n">lchild</span><span class="p">);</span>
+        <span class="p">}</span><span class="err"> </span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>中序遍历的非递归方式与前序遍历的第一种非递归方式类似，主要的不同在于输出结点的时机不同。具体实现如下：</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">midorder</span><span class="p">(</span><span class="n">btree</span> <span class="n">t</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">stack</span> <span class="n">s</span><span class="p">;</span>
+    <span class="k">while</span><span class="p">(</span><span class="n">t</span> <span class="o">||</span> <span class="n">s</span><span class="p">.</span><span class="n">stop</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">while</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s">"%c "</span><span class="p">,</span> <span class="n">t</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">);</span>
+            <span class="n">t</span> <span class="o">=</span> <span class="n">t</span><span class="o">-&gt;</span><span class="n">lchild</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="n">t</span> <span class="o">=</span> <span class="n">pop</span><span class="p">(</span><span class="o">&amp;</span><span class="n">s</span><span class="p">);</span>
+        <span class="n">push</span><span class="p">(</span><span class="o">&amp;</span><span class="n">s</span><span class="p">,</span> <span class="n">t</span><span class="p">);</span>
+        <span class="n">t</span> <span class="o">=</span> <span class="n">t</span><span class="o">-&gt;</span><span class="n">rchild</span><span class="p">;</span>   <span class="err">       </span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>后序遍历的非递归算法是最难的。相比前序遍历和中序遍历可以先遍历完左子树后再遍历右子树不同，后序遍历需要遍历完左子树和右子树后再访问输出，因此每个结点需要出现在栈顶两次，第一次是为了访问右子树，第二次是为了访问输出。具体如下：</p>
+
+<ol>
+  <li>将结点入栈，沿其左子树往下搜索，直到搜索到没有左孩子的结点</li>
+  <li>此时不能将栈顶结点访问，因此其右子树还要被访问。所以要对其右子树进行 1 的处理</li>
+  <li>当访问完右子树时，该结点又出现在栈顶，此时可出栈访问</li>
+</ol>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">postorder</span><span class="p">(</span><span class="n">btree</span> <span class="n">t</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">stack</span> <span class="n">s</span><span class="p">;</span>
+    <span class="k">while</span><span class="p">(</span><span class="n">t</span> <span class="o">||</span> <span class="o">!</span><span class="n">s</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span> <span class="p">{</span>
+        <span class="k">while</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">t</span><span class="o">-&gt;</span><span class="n">isFirst</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+            <span class="n">push</span><span class="p">(</span><span class="o">&amp;</span><span class="n">s</span><span class="p">,</span> <span class="n">t</span><span class="p">);</span>
+            <span class="n">t</span> <span class="o">=</span> <span class="n">t</span><span class="o">-&gt;</span><span class="n">lchild</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">s</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span> <span class="p">{</span>
+            <span class="n">t</span> <span class="o">=</span> <span class="n">s</span><span class="p">.</span><span class="n">top</span><span class="p">();</span>
+            <span class="n">s</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">t</span><span class="o">-&gt;</span><span class="n">isFirst</span> <span class="o">==</span> <span class="nb">true</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">t</span><span class="o">-&gt;</span><span class="n">isFirst</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+                <span class="n">push</span><span class="p">(</span><span class="o">&amp;</span><span class="n">s</span><span class="p">,</span> <span class="n">t</span><span class="p">);</span>
+                <span class="n">p</span> <span class="o">=</span> <span class="n">t</span><span class="o">-&gt;</span><span class="n">rchild</span><span class="p">;</span>
+            <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                <span class="n">printf</span><span class="p">(</span><span class="s">"%c "</span><span class="p">,</span> <span class="n">t</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h5 id="层次遍历">层次遍历</h5>
+
+<p>如果把前序遍历、中序遍历和后序遍历认为是深度优先遍历的话，那么层次遍历就可以认定为广度优先遍历了。以“深度用栈，广度用队列”的原则，层次遍历需要借助队列的辅助，具体实现如下：</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">level</span><span class="p">(</span><span class="n">btree</span> <span class="n">t</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">queue</span> <span class="n">q</span><span class="p">;</span>
+    <span class="n">enter</span><span class="p">(</span><span class="o">&amp;</span><span class="n">q</span><span class="p">,</span> <span class="n">t</span><span class="p">);</span>
+    <span class="k">while</span><span class="p">(</span><span class="n">q</span><span class="p">.</span><span class="n">front</span> <span class="o">!=</span> <span class="n">q</span><span class="p">.</span><span class="n">rear</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">t</span> <span class="o">=</span> <span class="n">del</span><span class="p">(</span><span class="o">&amp;</span><span class="n">q</span><span class="p">);</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">"%c "</span><span class="p">,</span> <span class="n">t</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">);</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">t</span><span class="o">-&gt;</span><span class="n">lchild</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">enter</span><span class="p">(</span><span class="o">&amp;</span><span class="n">q</span><span class="p">,</span> <span class="n">t</span><span class="o">-&gt;</span><span class="n">lchild</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">t</span><span class="o">-&gt;</span><span class="n">rchild</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">enter</span><span class="p">(</span><span class="o">&amp;</span><span class="n">q</span><span class="p">,</span> <span class="n">t</span><span class="o">-&gt;</span><span class="n">rchild</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+
+    </article>
+    <div class="share">
+      <div class="share-component"></div>
+    </div>
+    <div class="comment">
+      
+  
+        <div id="container"></div>
+        <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+        <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+        <script>
+        var gitment = new Gitment({
+            id: '/algorithm/2018/09/25/BTreeTraversal/',
+            owner: 'lpq29743',
+            repo: 'blog-comments',
+            oauth: {
+                client_id: '5818ceff784afe05d31c',
+                client_secret: 'dc7e8efc044c7194cf453740f82c646aa998f206',
+            },
+        })
+        gitment.render('container')
+        </script>
+  
+
+
+    </div>
+	<ul class="pager">
+		
+		<li class="previous">
+			<a href="/blog/2018/09/22/ResearchNote/" data-toggle="tooltip" data-placement="top" title="计算机科学学术研究方法">
+				Previous<br>
+				<span>计算机科学学术研究方法</span>
+			</a>
+		</li>
+		
+		
+		<li class="next">
+			<a href="/artificialintelligence/2018/09/26/UnbalancedData/" data-toggle="tooltip" data-placement="top" title="样本不平衡问题">
+				Next<br>
+				<span>样本不平衡问题</span>
+			</a>
+		</li>
+		
+	</ul>
+  </div>
+  <div class="column one-fourth">
+    
+<h3>Search</h3>
+<div id="site_search">
+    <input type="text" id="search_box" placeholder="Search">
+</div>
+
+<ul id="search_results"></ul>
+
+<link rel="stylesheet" type="text/css" href="http://localhost:4000/assets/css/modules/sidebar-search.css">
+<script src="http://localhost:4000/assets/js/jekyll-search.min.js"></script>
+<script src="http://localhost:4000/assets/js/search.js"></script>
+
+<script type="text/javascript">
+SimpleJekyllSearch({
+    searchInput: document.getElementById('search_box'),
+    resultsContainer: document.getElementById('search_results'),
+    json: 'http://localhost:4000/assets/search_data.json',
+    searchResultTemplate: '<li><a href="{url}" title="{desc}">{title}</a></li>',
+    noResultsText: 'No results found',
+    limit: 10,
+    fuzzy: false,
+    exclude: ['Welcome']
+})
+</script>
+
+    
+<h3 class="post-directory-title mobile-hidden">Table of Contents</h3>
+<div id="post-directory-module" class="mobile-hidden">
+  <section class="post-directory">
+  <!-- Links that trigger the jumping -->
+  <!-- Added by javascript below -->
+  <dl></dl>
+  </section>
+</div>
+
+<script src="http://localhost:4000/assets/js/jquery.toc.js"></script>
+
+  </div>
+</div>
+</section>
+<!-- /section.content -->
+
+    <footer class="container">
+        <div class="site-footer" role="contentinfo">
+            <div class="copyright left mobile-block">
+                <a href="javascript:window.scrollTo(0,0)" class="right mobile-visible">TOP</a>
+            </div>
+
+            <ul class="site-footer-links right mobile-hidden">
+                <li>
+                    <a href="javascript:window.scrollTo(0,0)" >TOP</a>
+                </li>
+            </ul>
+            <a href="https://github.com/lpq29743/lpq29743.github.io" target="_blank" aria-label="view source code">
+                <span class="mega-octicon octicon-mark-github" title="GitHub"></span>
+            </a>
+            <ul class="site-footer-links mobile-hidden">
+                
+            </ul>
+
+        </div>
+    </footer>
+    <!-- / footer -->
+    <script src="http://localhost:4000/assets/vendor/share.js/dist/js/share.min.js"></script>
+    <script src="http://localhost:4000/assets/js/geopattern.js"></script>
+    <script src="http://localhost:4000/assets/js/prism.js"></script>
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/globals/prism.css">
+    <script>
+      jQuery(document).ready(function($) {
+        // geopattern
+        $('.geopattern').each(function(){
+          $(this).geopattern($(this).data('pattern-id'));
+        });
+       // hljs.initHighlightingOnLoad();
+      });
+    </script>
+    
+</body>
+</html>

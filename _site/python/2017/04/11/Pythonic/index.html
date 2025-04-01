@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans" prefix="og: http://ogp.me/ns#" class="han-init">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <title>让 Python 代码变得 Pythonic &mdash; Peiqin Lin's Homepage</title>
+    <link rel="stylesheet" href="http://localhost:4000/assets/vendor/primer-css/css/primer.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/vendor/primer-markdown/dist/user-content.min.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/vendor/octicons/octicons/octicons.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/components/collection.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/components/repo-card.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/repo-list.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/mini-repo-list.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/profile.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/contact.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/news.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/components/boxed-group.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/globals/common.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/vendor/share.js/dist/css/share.min.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/globals/responsive.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/posts/index.css">
+    <!-- Latest compiled and minified CSS -->
+    
+
+    
+    <link rel="canonical" href="http://localhost:4000/python/2017/04/11/Pythonic/">
+    <link rel="alternate" type="application/atom+xml" title="Peiqin Lin's Homepage" href="/feed.xml">
+    <link rel="shortcut icon" href="http://localhost:4000/favicon.ico">
+    
+    <meta property="og:title" content="让 Python 代码变得 Pythonic">
+      
+    <meta name="keywords" content="Python, Pythonic">
+    <meta name="og:keywords" content="Python, Pythonic">
+      
+    <meta name="description" content="Pythonic是一个经常被Python程序员提及的关键词，它用来形容符合Python风格的代码，让我们的代码变得更加直观、简洁、可读，甚至能提高我们代码的运行效率。这篇文章就让我们通过一些例子来学学Pythonic。">
+    <meta name="og:description" content="Pythonic是一个经常被Python程序员提及的关键词，它用来形容符合Python风格的代码，让我们的代码变得更加直观、简洁、可读，甚至能提高我们代码的运行效率。这篇文章就让我们通过一些例子来学学Pythonic。">
+      
+    
+    
+        
+    
+    <meta property="og:url" content="http://localhost:4000/python/2017/04/11/Pythonic/">
+    <meta property="og:site_name" content="Peiqin Lin's Homepage">
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="zh_CN" />
+    
+    <meta property="article:published_time" content="2017-04-11">
+    
+    <script src="http://localhost:4000/assets/vendor/jquery/dist/jquery.min.js"></script>
+    <script src="http://localhost:4000/assets/js/jquery-ui.js"></script>
+    <script type="text/javascript">
+    function toggleMenu() {
+        var nav = document.getElementsByClassName("site-header-nav")[0];
+        if (nav.style.display == "inline-flex") {
+          nav.style.display = "none";
+        } else {
+          nav.style.display = "inline-flex";
+        }
+    }
+    </script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-114643083-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-114643083-1');
+    </script>
+</head>
+<body class="" data-mz="">
+    <header class="site-header">
+        <div class="container">
+            <h1><a href="http://localhost:4000/" title="Peiqin Lin's Homepage">Peiqin Lin's Homepage</a></h1>
+            <button class="collapsed mobile-visible" type="button" onclick="toggleMenu();">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <nav class="site-header-nav" role="navigation">
+                
+            </nav>
+        </div>
+    </header>
+    <!-- / header -->
+
+    <section class="collection-head small geopattern" data-pattern-id="让 Python 代码变得 P">
+<div class="container">
+  <div class="columns">
+    <div class="column three-fourths">
+      <div class="collection-title">
+        <h1 class="collection-header">让 Python 代码变得 Pythonic</h1>
+        <div class="collection-info">
+          
+          <span class="meta-info">
+            <span class="octicon octicon-calendar"></span> 2017/04/11
+          </span>
+          
+          
+          <span class="meta-info">
+            <span class="octicon octicon-file-directory"></span>
+            <a href="http://localhost:4000/categories/#Python" title="Python">Python</a>
+          </span>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+<!-- / .banner -->
+<section class="container content">
+<div class="columns">
+  <div class="column three-fourths" >
+    <article class="article-content markdown-body">
+    <p>Pythonic是一个经常被Python程序员提及的关键词，它用来形容符合Python风格的代码，让我们的代码变得更加直观、简洁、可读，甚至能提高我们代码的运行效率。这篇文章就让我们通过一些例子来学学Pythonic。</p>
+
+<p>本文开头，我们先介绍一个Python库——pep8，它可以用来检测我们的代码是否符合Pythonic风格，用pip可以直接安装，要看一个文件是否符合Pythonic，只要运行<code class="language-plaintext highlighter-rouge">pep8 MyPython.py</code>就可以了。通过这种方式，我们可以迅速地习惯Pythonic这种Python编程风格。接下来我们再看一些比较直观的例子：</p>
+
+<h3 id="交换两个值">交换两个值</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 常规写法
+</span><span class="n">t</span> <span class="o">=</span> <span class="n">a</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">b</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">t</span>
+
+<span class="c1"># 糟糕写法
+</span><span class="n">a</span> <span class="o">=</span> <span class="n">a</span> <span class="o">^</span> <span class="n">b</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">a</span> <span class="o">^</span> <span class="n">b</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">b</span> <span class="o">^</span> <span class="n">a</span>
+
+<span class="c1"># Pythonic写法
+</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span>
+</code></pre></div></div>
+
+<h3 id="连接字符串">连接字符串</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 常规写法
+</span><span class="n">a</span> <span class="o">+=</span> <span class="n">b</span>
+
+<span class="c1"># Pythonic写法
+</span><span class="n">a</span><span class="p">.</span><span class="n">join</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="迭代输出序号">迭代输出序号</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 常规写法
+</span><span class="n">index</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">iterable</span><span class="p">:</span>
+    <span class="k">print</span> <span class="n">index</span><span class="p">,</span> <span class="n">item</span>
+    <span class="n">index</span> <span class="o">+=</span> <span class="mi">1</span>
+
+<span class="c1"># Pythonic写法
+</span><span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">item</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">iterable</span><span class="p">):</span>
+    <span class="k">print</span> <span class="n">index</span><span class="p">,</span> <span class="n">item</span>
+
+<span class="n">index</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">iterable</span><span class="p">:</span>
+    <span class="k">print</span> <span class="n">index</span><span class="p">,</span> <span class="n">item</span>
+    <span class="n">index</span> <span class="o">+=</span> <span class="mi">1</span>
+
+<span class="c1"># Pythonic写法
+</span><span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">item</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">iterable</span><span class="p">,</span> <span class="mi">100</span><span class="p">):</span>
+    <span class="k">print</span> <span class="n">index</span><span class="p">,</span> <span class="n">item</span>
+</code></pre></div></div>
+
+<h3 id="同时迭代">同时迭代</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 常规写法
+</span><span class="k">for</span> <span class="n">pos</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">iterable1</span><span class="p">)):</span>
+    <span class="n">item1</span> <span class="o">=</span> <span class="n">iterable1</span><span class="p">[</span><span class="n">pos</span><span class="p">]</span>
+    <span class="n">item2</span> <span class="o">=</span> <span class="n">iterable2</span><span class="p">[</span><span class="n">pos</span><span class="p">]</span>
+    <span class="k">print</span> <span class="n">item1</span><span class="p">,</span> <span class="n">item2</span>
+
+<span class="c1"># Pythonic写法
+</span><span class="k">for</span> <span class="n">item1</span><span class="p">,</span> <span class="n">item2</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">iterable1</span><span class="p">,</span> <span class="n">iterable2</span><span class="p">):</span>
+    <span class="k">print</span> <span class="n">item1</span><span class="p">,</span> <span class="n">item2</span>
+</code></pre></div></div>
+
+<h3 id="求幂">求幂</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 常规写法
+</span><span class="n">x</span> <span class="o">=</span> <span class="nb">pow</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+
+<span class="c1"># Pythonic写法
+</span><span class="n">x</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">**</span> <span class="mi">20</span>
+</code></pre></div></div>
+
+<h3 id="级联比较">级联比较</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 常规写法
+</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span>
+<span class="k">if</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="n">b</span> <span class="ow">and</span> <span class="n">b</span> <span class="o">&lt;</span> <span class="n">c</span><span class="p">:</span>
+    <span class="k">pass</span>
+
+<span class="c1"># Pythonic写法
+</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span>
+<span class="k">if</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="n">b</span> <span class="o">&lt;</span> <span class="n">c</span><span class="p">:</span>
+    <span class="k">pass</span>
+</code></pre></div></div>
+
+<h3 id="字符串格式化">字符串格式化</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 常规写法
+</span><span class="n">name</span> <span class="o">=</span> <span class="s">'xxx'</span>
+<span class="n">age</span> <span class="o">=</span> <span class="mi">21</span>
+<span class="n">string</span> <span class="o">=</span> <span class="s">'My name is %s and I am %d years old'</span> <span class="o">%</span> <span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">)</span>
+
+<span class="c1"># Pythonic写法
+</span><span class="n">string</span> <span class="o">=</span> <span class="s">'My name is {name} and I am {age} years old.'</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">'xxx'</span><span class="p">,</span> <span class="n">age</span><span class="o">=</span><span class="mi">21</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="装饰器">装饰器</h3>
+
+<p>假设我们有一个类，要求这个类中的函数执行的时候都要顺带输出函数的名称，那么我们可以这样写：</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Person</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">sleep</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"{name}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">func</span><span class="p">.</span><span class="n">__name__</span><span class="p">))</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"sleeping..."</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">eat</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"{name}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">func</span><span class="p">.</span><span class="n">__name__</span><span class="p">))</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"eating..."</span><span class="p">)</span>
+
+<span class="n">person</span> <span class="o">=</span> <span class="n">Person</span><span class="p">()</span>
+<span class="n">person</span><span class="p">.</span><span class="n">sleep</span><span class="p">()</span>
+<span class="n">person</span><span class="p">.</span><span class="n">eat</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p>但是这样写的话，当函数变多的时候，我们就要对<code class="language-plaintext highlighter-rouge">print("{name}".format(name=__name__))</code>这行代码多次复制粘贴，针对这个问题，Python提供了装饰器，具体使用如下：</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">log</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">wrapper</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kw</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"{name}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">func</span><span class="p">.</span><span class="n">__name__</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kw</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">wrapper</span>
+
+
+<span class="k">class</span> <span class="nc">Person</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="o">@</span><span class="n">log</span>
+    <span class="k">def</span> <span class="nf">sleep</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"sleeping..."</span><span class="p">)</span>
+
+    <span class="o">@</span><span class="n">log</span>
+    <span class="k">def</span> <span class="nf">eat</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"eating..."</span><span class="p">)</span>
+
+<span class="n">person</span> <span class="o">=</span> <span class="n">Person</span><span class="p">()</span>
+<span class="n">person</span><span class="p">.</span><span class="n">sleep</span><span class="p">()</span>
+<span class="n">person</span><span class="p">.</span><span class="n">eat</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p>如果我们需要传参数给装饰器，则需要修改代码如下：</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">log</span><span class="p">(</span><span class="n">action</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">decorator</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+        <span class="k">def</span> <span class="nf">wrapper</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kw</span><span class="p">):</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">"{action}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">action</span><span class="o">=</span><span class="n">action</span><span class="p">))</span>
+            <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kw</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">wrapper</span>
+    <span class="k">return</span> <span class="n">decorator</span>
+
+
+<span class="k">class</span> <span class="nc">Person</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="o">@</span><span class="n">log</span><span class="p">(</span><span class="s">"sleep"</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">sleep</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"sleeping..."</span><span class="p">)</span>
+
+    <span class="o">@</span><span class="n">log</span><span class="p">(</span><span class="s">"eat"</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">eat</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"eating..."</span><span class="p">)</span>
+
+<span class="n">person</span> <span class="o">=</span> <span class="n">Person</span><span class="p">()</span>
+<span class="n">person</span><span class="p">.</span><span class="n">sleep</span><span class="p">()</span>
+<span class="n">person</span><span class="p">.</span><span class="n">eat</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p>对于以上代码，<code class="language-plaintext highlighter-rouge">person.eat()</code>实际上等价于<code class="language-plaintext highlighter-rouge">eat = log("eat")(eat)</code>，也就是最后eat变成了wrapper（可以打印eat的函数名称查看），明显不符合我们的设计理念，对于这个问题，python提供了functools这个工具库帮我们解决，具体如下：</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">functools</span>
+
+
+<span class="k">def</span> <span class="nf">log</span><span class="p">(</span><span class="n">action</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">decorator</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+        <span class="o">@</span><span class="n">functools</span><span class="p">.</span><span class="n">wraps</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+        <span class="k">def</span> <span class="nf">wrapper</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kw</span><span class="p">):</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">"{action}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">action</span><span class="o">=</span><span class="n">action</span><span class="p">))</span>
+            <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kw</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">wrapper</span>
+    <span class="k">return</span> <span class="n">decorator</span>
+
+
+<span class="k">class</span> <span class="nc">Person</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="o">@</span><span class="n">log</span><span class="p">(</span><span class="s">"sleep"</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">sleep</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"sleeping..."</span><span class="p">)</span>
+
+    <span class="o">@</span><span class="n">log</span><span class="p">(</span><span class="s">"eat"</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">eat</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"eating..."</span><span class="p">)</span>
+
+<span class="n">person</span> <span class="o">=</span> <span class="n">Person</span><span class="p">()</span>
+<span class="n">person</span><span class="p">.</span><span class="n">sleep</span><span class="p">()</span>
+<span class="n">person</span><span class="p">.</span><span class="n">eat</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="n">person</span><span class="p">.</span><span class="n">sleep</span><span class="p">.</span><span class="n">__name__</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">person</span><span class="p">.</span><span class="n">eat</span><span class="p">.</span><span class="n">__name__</span><span class="p">)</span>
+</code></pre></div></div>
+
+    </article>
+    <div class="share">
+      <div class="share-component"></div>
+    </div>
+    <div class="comment">
+      
+  
+        <div id="container"></div>
+        <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+        <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+        <script>
+        var gitment = new Gitment({
+            id: '/python/2017/04/11/Pythonic/',
+            owner: 'lpq29743',
+            repo: 'blog-comments',
+            oauth: {
+                client_id: '5818ceff784afe05d31c',
+                client_secret: 'dc7e8efc044c7194cf453740f82c646aa998f206',
+            },
+        })
+        gitment.render('container')
+        </script>
+  
+
+
+    </div>
+	<ul class="pager">
+		
+		<li class="previous">
+			<a href="/python/2017/04/10/PythonMatplotlib/" data-toggle="tooltip" data-placement="top" title="Python 工具库之 Matplotlib">
+				Previous<br>
+				<span>Python 工具库之 Matplotlib</span>
+			</a>
+		</li>
+		
+		
+		<li class="next">
+			<a href="/java/2017/04/16/HashMap/" data-toggle="tooltip" data-placement="top" title="HashMap 的实现原理">
+				Next<br>
+				<span>HashMap 的实现原理</span>
+			</a>
+		</li>
+		
+	</ul>
+  </div>
+  <div class="column one-fourth">
+    
+<h3>Search</h3>
+<div id="site_search">
+    <input type="text" id="search_box" placeholder="Search">
+</div>
+
+<ul id="search_results"></ul>
+
+<link rel="stylesheet" type="text/css" href="http://localhost:4000/assets/css/modules/sidebar-search.css">
+<script src="http://localhost:4000/assets/js/jekyll-search.min.js"></script>
+<script src="http://localhost:4000/assets/js/search.js"></script>
+
+<script type="text/javascript">
+SimpleJekyllSearch({
+    searchInput: document.getElementById('search_box'),
+    resultsContainer: document.getElementById('search_results'),
+    json: 'http://localhost:4000/assets/search_data.json',
+    searchResultTemplate: '<li><a href="{url}" title="{desc}">{title}</a></li>',
+    noResultsText: 'No results found',
+    limit: 10,
+    fuzzy: false,
+    exclude: ['Welcome']
+})
+</script>
+
+    
+<h3 class="post-directory-title mobile-hidden">Table of Contents</h3>
+<div id="post-directory-module" class="mobile-hidden">
+  <section class="post-directory">
+  <!-- Links that trigger the jumping -->
+  <!-- Added by javascript below -->
+  <dl></dl>
+  </section>
+</div>
+
+<script src="http://localhost:4000/assets/js/jquery.toc.js"></script>
+
+  </div>
+</div>
+</section>
+<!-- /section.content -->
+
+    <footer class="container">
+        <div class="site-footer" role="contentinfo">
+            <div class="copyright left mobile-block">
+                <a href="javascript:window.scrollTo(0,0)" class="right mobile-visible">TOP</a>
+            </div>
+
+            <ul class="site-footer-links right mobile-hidden">
+                <li>
+                    <a href="javascript:window.scrollTo(0,0)" >TOP</a>
+                </li>
+            </ul>
+            <a href="https://github.com/lpq29743/lpq29743.github.io" target="_blank" aria-label="view source code">
+                <span class="mega-octicon octicon-mark-github" title="GitHub"></span>
+            </a>
+            <ul class="site-footer-links mobile-hidden">
+                
+            </ul>
+
+        </div>
+    </footer>
+    <!-- / footer -->
+    <script src="http://localhost:4000/assets/vendor/share.js/dist/js/share.min.js"></script>
+    <script src="http://localhost:4000/assets/js/geopattern.js"></script>
+    <script src="http://localhost:4000/assets/js/prism.js"></script>
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/globals/prism.css">
+    <script>
+      jQuery(document).ready(function($) {
+        // geopattern
+        $('.geopattern').each(function(){
+          $(this).geopattern($(this).data('pattern-id'));
+        });
+       // hljs.initHighlightingOnLoad();
+      });
+    </script>
+    
+</body>
+</html>

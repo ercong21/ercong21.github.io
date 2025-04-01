@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans" prefix="og: http://ogp.me/ns#" class="han-init">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <title>Android 测试 &mdash; Peiqin Lin's Homepage</title>
+    <link rel="stylesheet" href="http://localhost:4000/assets/vendor/primer-css/css/primer.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/vendor/primer-markdown/dist/user-content.min.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/vendor/octicons/octicons/octicons.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/components/collection.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/components/repo-card.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/repo-list.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/mini-repo-list.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/profile.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/contact.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/news.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/components/boxed-group.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/globals/common.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/vendor/share.js/dist/css/share.min.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/globals/responsive.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/posts/index.css">
+    <!-- Latest compiled and minified CSS -->
+    
+
+    
+    <link rel="canonical" href="http://localhost:4000/android/2017/01/23/AndroidTest/">
+    <link rel="alternate" type="application/atom+xml" title="Peiqin Lin's Homepage" href="/feed.xml">
+    <link rel="shortcut icon" href="http://localhost:4000/favicon.ico">
+    
+    <meta property="og:title" content="Android 测试">
+      
+    <meta name="keywords" content="Android, Android测试">
+    <meta name="og:keywords" content="Android, Android测试">
+      
+    <meta name="description" content="这是2017年的第一篇文章。之前由于期末考试的原因，抽不出时间写文章，这几天放假了，计划安排好了之后，便又着手写博文。">
+    <meta name="og:description" content="这是2017年的第一篇文章。之前由于期末考试的原因，抽不出时间写文章，这几天放假了，计划安排好了之后，便又着手写博文。">
+      
+    
+    
+        
+    
+    <meta property="og:url" content="http://localhost:4000/android/2017/01/23/AndroidTest/">
+    <meta property="og:site_name" content="Peiqin Lin's Homepage">
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="zh_CN" />
+    
+    <meta property="article:published_time" content="2017-01-23">
+    
+    <script src="http://localhost:4000/assets/vendor/jquery/dist/jquery.min.js"></script>
+    <script src="http://localhost:4000/assets/js/jquery-ui.js"></script>
+    <script type="text/javascript">
+    function toggleMenu() {
+        var nav = document.getElementsByClassName("site-header-nav")[0];
+        if (nav.style.display == "inline-flex") {
+          nav.style.display = "none";
+        } else {
+          nav.style.display = "inline-flex";
+        }
+    }
+    </script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-114643083-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-114643083-1');
+    </script>
+</head>
+<body class="" data-mz="">
+    <header class="site-header">
+        <div class="container">
+            <h1><a href="http://localhost:4000/" title="Peiqin Lin's Homepage">Peiqin Lin's Homepage</a></h1>
+            <button class="collapsed mobile-visible" type="button" onclick="toggleMenu();">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <nav class="site-header-nav" role="navigation">
+                
+            </nav>
+        </div>
+    </header>
+    <!-- / header -->
+
+    <section class="collection-head small geopattern" data-pattern-id="Android 测试">
+<div class="container">
+  <div class="columns">
+    <div class="column three-fourths">
+      <div class="collection-title">
+        <h1 class="collection-header">Android 测试</h1>
+        <div class="collection-info">
+          
+          <span class="meta-info">
+            <span class="octicon octicon-calendar"></span> 2017/01/23
+          </span>
+          
+          
+          <span class="meta-info">
+            <span class="octicon octicon-file-directory"></span>
+            <a href="http://localhost:4000/categories/#Android" title="Android">Android</a>
+          </span>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+<!-- / .banner -->
+<section class="container content">
+<div class="columns">
+  <div class="column three-fourths" >
+    <article class="article-content markdown-body">
+    <p>这是2017年的第一篇文章。之前由于期末考试的原因，抽不出时间写文章，这几天放假了，计划安排好了之后，便又着手写博文。</p>
+
+<p>由于本人不计划从事测试方向，所以本文更多的是了解性的文章，如果大家对某个框架比较感兴趣的话，可以去网上查阅相关资料学习。下面就开始介绍常用的Android测试框架及方法。</p>
+
+<h3 id="法宝一monkey">法宝一：Monkey</h3>
+
+<p>在学习Monkey之前，必须对Android ADB有一定的了解和熟悉，具体可以先粗略地阅读一下<a href="www.cnblogs.com/devinzhang/archive/2011/12/17/2291396.html">这篇文章</a>。</p>
+
+<p>Monkey是Android中的一个命令行工具，可以运行在模拟器里或实际设备中。Monkey测试就是让设备随机的乱点，事件都是随机产生的，不带任何人的主观性。所以Monkey测试主要是测试软件的稳定性、健壮性的方法。此外，Monkey也可以用来做简单的自动化测试工作。</p>
+
+<p>Monkey的基本语法如下：</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#向设备发送500个随机事件</span>
+adb shell monkey 500
+<span class="c">#列出设备中所有的包</span>
+adb shell pm list packages
+<span class="c">#限制在某个包中，向设备发送500个随机事件</span>
+adb shell monkey –p your-package-name 500
+<span class="c">#限制在多个包中，向设备发送500个随机事件</span>
+adb shell monkey –p your-package1-name –p your-package2-name 500
+</code></pre></div></div>
+
+<p>Monkey经常是用来做压力测试，虽然也可以写简单的脚本来进行测试，但是效果极差，所以这里也不多加说明。</p>
+
+<h3 id="法宝二monkeyrunner">法宝二：MonkeyRunner</h3>
+
+<p>MonkeyRunner工具提供了一个API，使用此API写出的程序可以在Android代码之外控制Android设备和模拟器。通过MonkeyRunner，我们可以写出一个Python程序去安装一个Android应用程序或测试包，运行它，向它发送模拟击键，截取它的用户界面图片，并将截图存储于工作站上。MonkeyRunner工具的主要设计目的是用于测试功能/框架水平上的应用程序和设备，或用于运行单元测试套件。</p>
+
+<p>MonkeyRunner脚本是用Python写的，可以参考<a href="http://www.android-doc.com/tools/help/monkeyrunner_concepts.html">官方中文文档</a>。下面用一个例子简单讲解一下：</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># import monkeyrunner modules
+</span><span class="kn">from</span> <span class="nn">com.android.monkeyrunner</span> <span class="kn">import</span> <span class="n">MonkeyRunner</span><span class="p">,</span> <span class="n">MonkeyDevice</span><span class="p">,</span> <span class="n">MonkeyImage</span>
+<span class="c1"># Parameters
+</span><span class="n">txt1_x</span> <span class="o">=</span> <span class="mi">210</span>
+<span class="n">txt1_y</span> <span class="o">=</span> <span class="mi">200</span>
+<span class="n">txt2_x</span> <span class="o">=</span> <span class="mi">210</span>
+<span class="n">txt2_y</span> <span class="o">=</span> <span class="mi">280</span>
+<span class="n">txt3_x</span> <span class="o">=</span> <span class="mi">210</span>
+<span class="n">txt3_y</span> <span class="o">=</span> <span class="mi">420</span>
+<span class="n">txt4_x</span> <span class="o">=</span> <span class="mi">338</span>
+<span class="n">txt4_y</span> <span class="o">=</span> <span class="mi">476</span>
+<span class="n">submit_x</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">submit_y</span> <span class="o">=</span> <span class="mi">540</span>
+<span class="nb">type</span> <span class="o">=</span> <span class="s">'DOWN_AND_UP'</span>
+<span class="n">seconds</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">txt1_msg</span> <span class="o">=</span> <span class="s">'Hello'</span>
+<span class="n">txt2_msg</span> <span class="o">=</span> <span class="s">'MonkeyRunner'</span> 
+<span class="c1"># package name and activity name
+</span><span class="n">package</span> <span class="o">=</span> <span class="s">'com.ringo.bugben'</span>
+<span class="n">activity</span> <span class="o">=</span> <span class="s">'.MainActivity'</span>
+<span class="n">component</span> <span class="o">=</span> <span class="n">package</span> <span class="o">+</span> <span class="s">'/'</span><span class="o">+</span><span class="n">activity</span> 
+<span class="c1"># Connect device
+</span><span class="n">device</span> <span class="o">=</span> <span class="n">MonkeyRunner</span><span class="p">.</span><span class="n">waitForConnection</span><span class="p">()</span> 
+<span class="c1"># Install bugben
+</span><span class="n">device</span><span class="p">.</span><span class="n">installPackage</span><span class="p">(</span><span class="s">'./bugben.apk'</span><span class="p">)</span>
+<span class="k">print</span> <span class="s">'Install bugben.apk...'</span> 
+<span class="c1"># Launch bugbendevice.startActivity(component)
+</span><span class="k">print</span> <span class="s">'Launching bugben...'</span> 
+<span class="c1"># Wait 1s
+</span><span class="n">MonkeyRunner</span><span class="p">.</span><span class="n">sle</span> <span class="n">ep</span><span class="p">(</span><span class="n">seconds</span><span class="p">)</span>
+<span class="c1"># Input txt1
+</span><span class="n">device</span><span class="p">.</span><span class="n">touch</span><span class="p">(</span><span class="n">txt1_x</span><span class="p">,</span> <span class="n">txt1_y</span><span class="p">,</span> <span class="nb">type</span><span class="p">)</span><span class="n">device</span><span class="p">.</span><span class="nb">type</span><span class="p">(</span><span class="n">txt1_msg</span><span class="p">)</span>
+<span class="k">print</span> <span class="s">'Inputing txt1...'</span> 
+<span class="c1"># Input txt2
+</span><span class="n">device</span><span class="p">.</span><span class="n">touch</span><span class="p">(</span><span class="n">txt2_x</span><span class="p">,</span> <span class="n">txt2_y</span><span class="p">,</span> <span class="nb">type</span><span class="p">)</span>
+<span class="n">device</span><span class="p">.</span><span class="nb">type</span><span class="p">(</span><span class="n">txt2_msg</span><span class="p">)</span>
+<span class="k">print</span> <span class="s">'Inputing txt2...'</span> 
+<span class="c1">#select bold and size
+</span><span class="n">device</span><span class="p">.</span><span class="n">touch</span><span class="p">(</span><span class="n">txt3_x</span><span class="p">,</span> <span class="n">txt3_y</span><span class="p">,</span> <span class="nb">type</span><span class="p">)</span>
+<span class="n">device</span><span class="p">.</span><span class="n">touch</span><span class="p">(</span><span class="n">txt4_x</span><span class="p">,</span> <span class="n">txt4_y</span><span class="p">,</span> <span class="nb">type</span><span class="p">)</span> 
+<span class="c1"># Wait 1s
+</span><span class="n">MonkeyRunner</span><span class="p">.</span><span class="n">slee</span> <span class="n">p</span><span class="p">(</span><span class="n">seconds</span><span class="p">)</span> 
+<span class="c1"># Submitdevice.touch(submit_x, submit_y, type)
+</span><span class="k">print</span> <span class="s">'Submiting...'</span> 
+<span class="c1"># Wait 1s
+</span><span class="n">MonkeyRunner</span><span class="p">.</span><span class="n">slee</span> <span class="n">p</span><span class="p">(</span><span class="n">seconds</span><span class="p">)</span> 
+<span class="c1"># Get the snapshot
+</span><span class="n">picture</span> <span class="o">=</span> <span class="n">device</span><span class="p">.</span><span class="n">takeSnapshot</span><span class="p">()</span>
+<span class="n">picture</span><span class="p">.</span><span class="n">writeToFile</span><span class="p">(</span><span class="s">'./HelloMonkeyRunner.png'</span><span class="p">,</span><span class="s">'png'</span><span class="p">)</span>
+<span class="k">print</span> <span class="s">'Complete! See bugben_pic.png in currrent folder!'</span> 
+<span class="c1"># Back to home
+</span><span class="n">device</span><span class="p">.</span><span class="n">press</span><span class="p">(</span><span class="s">'KEYCODE_HOME'</span><span class="p">,</span> <span class="nb">type</span><span class="p">)</span>
+<span class="k">print</span> <span class="s">'back to home.'</span>
+</code></pre></div></div>
+
+<p>将脚本保存为MonRun.py，并和apk一起拷贝到Android SDK的tools目录下，执行<code class="language-plaintext highlighter-rouge">monkeyrunner MonRun.py</code>。执行完后会在当前目录生成截图，利用MonkeyRecorder提供的控件，还可以对脚本进行录制。</p>
+
+<h3 id="法宝三instrumentation">法宝三：Instrumentation</h3>
+
+<p>Monkey和MonkeyRunner均可通过编写相应的脚本，在不依赖源码的前提下完成部分自动化测试的工作。但它们都是依靠控件坐标进行定位的，在实际项目中，控件坐标往往是最不稳定的，随时都有可能因为程序员对控件位置的调整而导致脚本运行失败。怎样可以不依赖坐标来进行应用的自动化测试呢？答案就是使用Instrumentation框架。Instrumentation框架主要是依靠控件的ID来进行定位的，是Android主推的白盒测试框架。</p>
+
+<p>Android API不提供调用Activity周期函数的方法，但在Instrumentation中则可以这样做。Instrumentation类通过“hooks”控制着Android组件的正常生命周期，同时控制Android系统加载应用程序。Instrumentation和Activity类似，只不过Activity需要界面，而Instrumentation并不用。具体的学习大家可以去网上找相应的博文学习，本人这里不打算深入学习。</p>
+
+<p>Instrumentation框架也有局限性，它不支持多应用的交互，例如测试“通过短信中的号码去拨打电话”这个用例，被测应用将从短信应用界面跳转到拨号应用界面，但Instrumentation没有办法同时控制短信和拨号两个应用，这是因为Android系统自身的安全性限制，禁止多应用的进程间相互访问。</p>
+
+<h3 id="法宝四uiautomator">法宝四：UIAutomator</h3>
+
+<p>鉴于Instrumentation框架需要读懂项目源码、脚本开发难度较高并且不支持多应用交互，Android官网亮出了自动化测试的王牌——UIAutomator，并主推这个自动化测试框架。该框架基于Java，无需项目源码，脚本开发效率高且难度低，并且支持多应用的交互。当UIAutomator面世后，Instrumentation框架回归到了其单元测试框架的本来位置。</p>
+
+<p>但UIAutomator难以捕捉到控件的颜色、字体粗细、字号等信息，要验证该类信息的话，需要通过截图的方式进行半自动验证。同时，UIAutomator的调试相比Instrumentation要困难。所以在平时的测试过程中，经常将两者结合使用。</p>
+
+<h3 id="法宝五其他框架">法宝五：其他框架</h3>
+
+<p>Robotium是基于Instrumentation的测试框架，网上相关资料丰富，但不能跨app；Appium是近几年很热门的测试框架，功能可以说是最强大的。这两个测试框架，尤其是后者，推荐大家可以尝试学习使用。</p>
+
+<h3 id="法宝六各网站测试平台">法宝六：各网站测试平台</h3>
+
+<p>腾讯、搜狗等各国内大公司提供了很多软件测试的平台，如果大家感兴趣的话，也可以去了解尝试一下。</p>
+
+    </article>
+    <div class="share">
+      <div class="share-component"></div>
+    </div>
+    <div class="comment">
+      
+  
+        <div id="container"></div>
+        <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+        <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+        <script>
+        var gitment = new Gitment({
+            id: '/android/2017/01/23/AndroidTest/',
+            owner: 'lpq29743',
+            repo: 'blog-comments',
+            oauth: {
+                client_id: '5818ceff784afe05d31c',
+                client_secret: 'dc7e8efc044c7194cf453740f82c646aa998f206',
+            },
+        })
+        gitment.render('container')
+        </script>
+  
+
+
+    </div>
+	<ul class="pager">
+		
+		<li class="previous">
+			<a href="/python/2016/12/18/PythonQQMusicMS/" data-toggle="tooltip" data-placement="top" title="Python 历险记第二站——爬取 QQ 音乐热门华语男歌手">
+				Previous<br>
+				<span>Python 历险记第二站——爬取 QQ 音乐热门华语男歌手</span>
+			</a>
+		</li>
+		
+		
+		<li class="next">
+			<a href="/tool/2017/02/10/Vim/" data-toggle="tooltip" data-placement="top" title="找个地方放放 Vim 命令">
+				Next<br>
+				<span>找个地方放放 Vim 命令</span>
+			</a>
+		</li>
+		
+	</ul>
+  </div>
+  <div class="column one-fourth">
+    
+<h3>Search</h3>
+<div id="site_search">
+    <input type="text" id="search_box" placeholder="Search">
+</div>
+
+<ul id="search_results"></ul>
+
+<link rel="stylesheet" type="text/css" href="http://localhost:4000/assets/css/modules/sidebar-search.css">
+<script src="http://localhost:4000/assets/js/jekyll-search.min.js"></script>
+<script src="http://localhost:4000/assets/js/search.js"></script>
+
+<script type="text/javascript">
+SimpleJekyllSearch({
+    searchInput: document.getElementById('search_box'),
+    resultsContainer: document.getElementById('search_results'),
+    json: 'http://localhost:4000/assets/search_data.json',
+    searchResultTemplate: '<li><a href="{url}" title="{desc}">{title}</a></li>',
+    noResultsText: 'No results found',
+    limit: 10,
+    fuzzy: false,
+    exclude: ['Welcome']
+})
+</script>
+
+    
+<h3 class="post-directory-title mobile-hidden">Table of Contents</h3>
+<div id="post-directory-module" class="mobile-hidden">
+  <section class="post-directory">
+  <!-- Links that trigger the jumping -->
+  <!-- Added by javascript below -->
+  <dl></dl>
+  </section>
+</div>
+
+<script src="http://localhost:4000/assets/js/jquery.toc.js"></script>
+
+  </div>
+</div>
+</section>
+<!-- /section.content -->
+
+    <footer class="container">
+        <div class="site-footer" role="contentinfo">
+            <div class="copyright left mobile-block">
+                <a href="javascript:window.scrollTo(0,0)" class="right mobile-visible">TOP</a>
+            </div>
+
+            <ul class="site-footer-links right mobile-hidden">
+                <li>
+                    <a href="javascript:window.scrollTo(0,0)" >TOP</a>
+                </li>
+            </ul>
+            <a href="https://github.com/lpq29743/lpq29743.github.io" target="_blank" aria-label="view source code">
+                <span class="mega-octicon octicon-mark-github" title="GitHub"></span>
+            </a>
+            <ul class="site-footer-links mobile-hidden">
+                
+            </ul>
+
+        </div>
+    </footer>
+    <!-- / footer -->
+    <script src="http://localhost:4000/assets/vendor/share.js/dist/js/share.min.js"></script>
+    <script src="http://localhost:4000/assets/js/geopattern.js"></script>
+    <script src="http://localhost:4000/assets/js/prism.js"></script>
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/globals/prism.css">
+    <script>
+      jQuery(document).ready(function($) {
+        // geopattern
+        $('.geopattern').each(function(){
+          $(this).geopattern($(this).data('pattern-id'));
+        });
+       // hljs.initHighlightingOnLoad();
+      });
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans" prefix="og: http://ogp.me/ns#" class="han-init">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <title>Python 历险记第六站——利用 Python 实现人脸识别 &mdash; Peiqin Lin's Homepage</title>
+    <link rel="stylesheet" href="http://localhost:4000/assets/vendor/primer-css/css/primer.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/vendor/primer-markdown/dist/user-content.min.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/vendor/octicons/octicons/octicons.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/components/collection.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/components/repo-card.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/repo-list.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/mini-repo-list.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/profile.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/contact.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/news.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/components/boxed-group.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/globals/common.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/vendor/share.js/dist/css/share.min.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/globals/responsive.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/posts/index.css">
+    <!-- Latest compiled and minified CSS -->
+    
+
+    
+    <link rel="canonical" href="http://localhost:4000/python/2017/03/29/PythonFaceReconigtion/">
+    <link rel="alternate" type="application/atom+xml" title="Peiqin Lin's Homepage" href="/feed.xml">
+    <link rel="shortcut icon" href="http://localhost:4000/favicon.ico">
+    
+    <meta property="og:title" content="Python 历险记第六站——利用 Python 实现人脸识别">
+      
+    <meta name="keywords" content="Python, Python人脸识别">
+    <meta name="og:keywords" content="Python, Python人脸识别">
+      
+    <meta name="description" content="Python提供了很多人脸识别的库，今天就让我们一起来学习学习。">
+    <meta name="og:description" content="Python提供了很多人脸识别的库，今天就让我们一起来学习学习。">
+      
+    
+    
+        
+    
+    <meta property="og:url" content="http://localhost:4000/python/2017/03/29/PythonFaceReconigtion/">
+    <meta property="og:site_name" content="Peiqin Lin's Homepage">
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="zh_CN" />
+    
+    <meta property="article:published_time" content="2017-03-29">
+    
+    <script src="http://localhost:4000/assets/vendor/jquery/dist/jquery.min.js"></script>
+    <script src="http://localhost:4000/assets/js/jquery-ui.js"></script>
+    <script type="text/javascript">
+    function toggleMenu() {
+        var nav = document.getElementsByClassName("site-header-nav")[0];
+        if (nav.style.display == "inline-flex") {
+          nav.style.display = "none";
+        } else {
+          nav.style.display = "inline-flex";
+        }
+    }
+    </script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-114643083-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-114643083-1');
+    </script>
+</head>
+<body class="" data-mz="">
+    <header class="site-header">
+        <div class="container">
+            <h1><a href="http://localhost:4000/" title="Peiqin Lin's Homepage">Peiqin Lin's Homepage</a></h1>
+            <button class="collapsed mobile-visible" type="button" onclick="toggleMenu();">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <nav class="site-header-nav" role="navigation">
+                
+            </nav>
+        </div>
+    </header>
+    <!-- / header -->
+
+    <section class="collection-head small geopattern" data-pattern-id="Python 历险记第六站——">
+<div class="container">
+  <div class="columns">
+    <div class="column three-fourths">
+      <div class="collection-title">
+        <h1 class="collection-header">Python 历险记第六站——利用 Python 实现人脸识别</h1>
+        <div class="collection-info">
+          
+          <span class="meta-info">
+            <span class="octicon octicon-calendar"></span> 2017/03/29
+          </span>
+          
+          
+          <span class="meta-info">
+            <span class="octicon octicon-file-directory"></span>
+            <a href="http://localhost:4000/categories/#Python" title="Python">Python</a>
+          </span>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+<!-- / .banner -->
+<section class="container content">
+<div class="columns">
+  <div class="column three-fourths" >
+    <article class="article-content markdown-body">
+    <p>Python提供了很多人脸识别的库，今天就让我们一起来学习学习。</p>
+
+<p>本文的实验环境是在Windows下，关于Windows下Python安装opencv库的具体详情可以查看<a href="https://www.solarianprogrammer.com/2016/09/17/install-opencv-3-with-python-3-on-windows/">这里</a>（Windows下用pip安装库时，经常会遇到报错的情况，这种情况可以去Python为Windows提供的<a href="http://www.lfd.uci.edu/~gohlke/pythonlibs">扩展库</a>下找自己需要的库手动安装），接下来我们用一段简洁的代码开始此篇文章，代码如下：</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">cv2</span>
+
+<span class="n">face_patterns</span> <span class="o">=</span> <span class="n">cv2</span><span class="p">.</span><span class="n">CascadeClassifier</span><span class="p">(</span><span class="s">'haarcascade_frontalface_default.xml'</span><span class="p">);</span>
+<span class="n">sample_image</span> <span class="o">=</span> <span class="n">cv2</span><span class="p">.</span><span class="n">imread</span><span class="p">(</span><span class="s">'test1.webp'</span><span class="p">);</span>
+<span class="n">faces</span> <span class="o">=</span> <span class="n">face_patterns</span><span class="p">.</span><span class="n">detectMultiScale</span><span class="p">(</span><span class="n">sample_image</span><span class="p">,</span> <span class="n">scaleFactor</span><span class="o">=</span><span class="mf">1.1</span><span class="p">,</span> <span class="n">minNeighbors</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">minSize</span><span class="o">=</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">))</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">)</span> <span class="ow">in</span> <span class="n">faces</span><span class="p">:</span>
+    <span class="n">cv2</span><span class="p">.</span><span class="n">rectangle</span><span class="p">(</span><span class="n">sample_image</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">),</span> <span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="n">w</span><span class="p">,</span> <span class="n">y</span><span class="o">+</span><span class="n">h</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="mi">2</span><span class="p">)</span>
+
+<span class="n">cv2</span><span class="p">.</span><span class="n">imwrite</span><span class="p">(</span><span class="s">'result1.png'</span><span class="p">,</span> <span class="n">sample_image</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>这里的haarcascade_frontalface_default.xml是一个存储训练人脸识别数据的分类器，此文件是opencv默认有的，如果需要的话，也可以训练自己想要的分类器；接下来这一步是加载图片，注意图片必须清晰，不然人脸部分过于模糊将会导致无法识别出脸部；detectMultiScale函数主要是用来进行多尺度检测，scaleFactor参数是图像的缩放因子，minNeighbors是每个矩形应该保留的邻近个数，可以理解为一个人周边有几个人脸，minSize是检测窗口的大小；for循环是为了给每个人脸加一个框；最后一步是将结果输出。</p>
+
+<p>关于图像识别，OpenCV更有名，但在提取面部图像部分，dlib更加精确，而且有识别眼睛，鼻子等功能。关于两者在人脸识别方面的比较可以参考这个视频：<a href="http://link.zhihu.com/?target=https%3A//www.youtube.com/watch%3Fv%3DLsK0hzcEyHI">dlib vs OpenCV face detection</a>。</p>
+
+<p>Dlib是一个基于C++的强大机器学习库，其官网为<a href="http://dlib.net/">dlib.net</a>，Github项目地址可以点击<a href="https://github.com/davisking/dlib">这里</a>。Dlib的官网上提供了一些例子，有基于C++的，也有基于Python的，我参考了<a href="http://dlib.net/face_detector.py.html">face_detector</a>这个例子写了以下代码：</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">cv2</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">dlib</span>
+<span class="kn">from</span> <span class="nn">skimage</span> <span class="kn">import</span> <span class="n">io</span>
+
+<span class="n">detector</span> <span class="o">=</span> <span class="n">dlib</span><span class="p">.</span><span class="n">get_frontal_face_detector</span><span class="p">()</span>
+
+<span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">sys</span><span class="p">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">:]:</span>
+    <span class="n">img</span> <span class="o">=</span> <span class="n">io</span><span class="p">.</span><span class="n">imread</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+    <span class="n">dets</span> <span class="o">=</span> <span class="n">detector</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">d</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">dets</span><span class="p">):</span>
+        <span class="n">cv2</span><span class="p">.</span><span class="n">rectangle</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="p">(</span><span class="n">d</span><span class="p">.</span><span class="n">left</span><span class="p">(),</span> <span class="n">d</span><span class="p">.</span><span class="n">top</span><span class="p">()),</span> <span class="p">(</span><span class="n">d</span><span class="p">.</span><span class="n">right</span><span class="p">(),</span> <span class="n">d</span><span class="p">.</span><span class="n">bottom</span><span class="p">()),</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">),</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="n">cv2</span><span class="p">.</span><span class="n">imwrite</span><span class="p">(</span><span class="s">'result-dlib-%s.png'</span> <span class="o">%</span> <span class="n">f</span><span class="p">.</span><span class="n">split</span><span class="p">(</span><span class="s">'.'</span><span class="p">)[</span><span class="mi">0</span><span class="p">],</span> <span class="n">img</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>这里与前面不同的是，处理图片是用参数的形式传进来的，其中detector中的第二个参数1表示的是采样图像1次，这允许我们检测更多的面孔；cv2的使用主要是为了保存图片。在官网还有几个基于Python的面部识别例子，感兴趣的朋友可以去尝试一下！</p>
+
+<p>工程上一向崇尚用最短的时间做最有效的事情。有一位大神<a href="https://github.com/ageitgey">Adam Geitgey</a>就利用dlib写了个Python库<a href="https://github.com/ageitgey/face_recognition">face_recognition</a>，只要用pip就可以下载到该库了。</p>
+
+<p>face_recognition安装后，会有一个自带的名为face_recognition的命令行工具，它能识别照片或照片文件夹中的所有人脸，使用的步骤具体如下：</p>
+
+<ol>
+  <li>提供一个包含照片的文件夹，且已知照片中的人是谁，每个人都有一张照片文件，且文件以该人姓名命名</li>
+  <li>准备另一个文件夹，装有想要识别人脸的照片</li>
+  <li>运行<code class="language-plaintext highlighter-rouge">face_recognition ./pictures_of_people_i_know/ ./unknown_pictures/</code></li>
+</ol>
+
+<p>face_recognition的Github站点提供了几个Demo，这里我们先尝试一下最简单的识别人脸：</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">cv2</span>
+<span class="kn">import</span> <span class="nn">face_recognition</span>
+
+<span class="n">image</span> <span class="o">=</span> <span class="n">face_recognition</span><span class="p">.</span><span class="n">load_image_file</span><span class="p">(</span><span class="s">"test2.webp"</span><span class="p">)</span>
+<span class="n">face_locations</span> <span class="o">=</span> <span class="n">face_recognition</span><span class="p">.</span><span class="n">face_locations</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"I found {} face(s) in this photograph."</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">face_locations</span><span class="p">)))</span>
+<span class="k">for</span> <span class="n">face_location</span> <span class="ow">in</span> <span class="n">face_locations</span><span class="p">:</span>
+    <span class="n">top</span><span class="p">,</span> <span class="n">right</span><span class="p">,</span> <span class="n">bottom</span><span class="p">,</span> <span class="n">left</span> <span class="o">=</span> <span class="n">face_location</span>
+    <span class="n">cv2</span><span class="p">.</span><span class="n">rectangle</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">top</span><span class="p">),</span> <span class="p">(</span><span class="n">right</span><span class="p">,</span> <span class="n">bottom</span><span class="p">),</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">),</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">cv2</span><span class="p">.</span><span class="n">imwrite</span><span class="p">(</span><span class="s">'result2.png'</span><span class="p">,</span> <span class="n">image</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>这个库封装了dlib，所以效果与上面的一样，如果想再进一步实验，可以去项目Github主页上查看Demo。</p>
+
+    </article>
+    <div class="share">
+      <div class="share-component"></div>
+    </div>
+    <div class="comment">
+      
+  
+        <div id="container"></div>
+        <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+        <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+        <script>
+        var gitment = new Gitment({
+            id: '/python/2017/03/29/PythonFaceReconigtion/',
+            owner: 'lpq29743',
+            repo: 'blog-comments',
+            oauth: {
+                client_id: '5818ceff784afe05d31c',
+                client_secret: 'dc7e8efc044c7194cf453740f82c646aa998f206',
+            },
+        })
+        gitment.render('container')
+        </script>
+  
+
+
+    </div>
+	<ul class="pager">
+		
+		<li class="previous">
+			<a href="/tool/2017/03/28/Hadoop/" data-toggle="tooltip" data-placement="top" title="CentOS7 下分布式安装 Hadoop">
+				Previous<br>
+				<span>CentOS7 下分布式安装 Hadoop</span>
+			</a>
+		</li>
+		
+		
+		<li class="next">
+			<a href="/python/2017/04/10/PythonMatplotlib/" data-toggle="tooltip" data-placement="top" title="Python 工具库之 Matplotlib">
+				Next<br>
+				<span>Python 工具库之 Matplotlib</span>
+			</a>
+		</li>
+		
+	</ul>
+  </div>
+  <div class="column one-fourth">
+    
+<h3>Search</h3>
+<div id="site_search">
+    <input type="text" id="search_box" placeholder="Search">
+</div>
+
+<ul id="search_results"></ul>
+
+<link rel="stylesheet" type="text/css" href="http://localhost:4000/assets/css/modules/sidebar-search.css">
+<script src="http://localhost:4000/assets/js/jekyll-search.min.js"></script>
+<script src="http://localhost:4000/assets/js/search.js"></script>
+
+<script type="text/javascript">
+SimpleJekyllSearch({
+    searchInput: document.getElementById('search_box'),
+    resultsContainer: document.getElementById('search_results'),
+    json: 'http://localhost:4000/assets/search_data.json',
+    searchResultTemplate: '<li><a href="{url}" title="{desc}">{title}</a></li>',
+    noResultsText: 'No results found',
+    limit: 10,
+    fuzzy: false,
+    exclude: ['Welcome']
+})
+</script>
+
+    
+<h3 class="post-directory-title mobile-hidden">Table of Contents</h3>
+<div id="post-directory-module" class="mobile-hidden">
+  <section class="post-directory">
+  <!-- Links that trigger the jumping -->
+  <!-- Added by javascript below -->
+  <dl></dl>
+  </section>
+</div>
+
+<script src="http://localhost:4000/assets/js/jquery.toc.js"></script>
+
+  </div>
+</div>
+</section>
+<!-- /section.content -->
+
+    <footer class="container">
+        <div class="site-footer" role="contentinfo">
+            <div class="copyright left mobile-block">
+                <a href="javascript:window.scrollTo(0,0)" class="right mobile-visible">TOP</a>
+            </div>
+
+            <ul class="site-footer-links right mobile-hidden">
+                <li>
+                    <a href="javascript:window.scrollTo(0,0)" >TOP</a>
+                </li>
+            </ul>
+            <a href="https://github.com/lpq29743/lpq29743.github.io" target="_blank" aria-label="view source code">
+                <span class="mega-octicon octicon-mark-github" title="GitHub"></span>
+            </a>
+            <ul class="site-footer-links mobile-hidden">
+                
+            </ul>
+
+        </div>
+    </footer>
+    <!-- / footer -->
+    <script src="http://localhost:4000/assets/vendor/share.js/dist/js/share.min.js"></script>
+    <script src="http://localhost:4000/assets/js/geopattern.js"></script>
+    <script src="http://localhost:4000/assets/js/prism.js"></script>
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/globals/prism.css">
+    <script>
+      jQuery(document).ready(function($) {
+        // geopattern
+        $('.geopattern').each(function(){
+          $(this).geopattern($(this).data('pattern-id'));
+        });
+       // hljs.initHighlightingOnLoad();
+      });
+    </script>
+    
+</body>
+</html>

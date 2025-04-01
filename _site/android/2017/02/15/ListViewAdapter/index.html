@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans" prefix="og: http://ogp.me/ns#" class="han-init">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <title>自定义 ListView 的 Adapter &mdash; Peiqin Lin's Homepage</title>
+    <link rel="stylesheet" href="http://localhost:4000/assets/vendor/primer-css/css/primer.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/vendor/primer-markdown/dist/user-content.min.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/vendor/octicons/octicons/octicons.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/components/collection.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/components/repo-card.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/repo-list.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/mini-repo-list.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/profile.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/contact.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/sections/news.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/components/boxed-group.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/globals/common.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/vendor/share.js/dist/css/share.min.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/globals/responsive.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/posts/index.css">
+    <!-- Latest compiled and minified CSS -->
+    
+
+    
+    <link rel="canonical" href="http://localhost:4000/android/2017/02/15/ListViewAdapter/">
+    <link rel="alternate" type="application/atom+xml" title="Peiqin Lin's Homepage" href="/feed.xml">
+    <link rel="shortcut icon" href="http://localhost:4000/favicon.ico">
+    
+    <meta property="og:title" content="自定义 ListView 的 Adapter">
+      
+    <meta name="keywords" content="Android, Android ListView, ListView, ListView Adapter">
+    <meta name="og:keywords" content="Android, Android ListView, ListView, ListView Adapter">
+      
+    <meta name="description" content="ListView在Android中的运用相当普遍。学习ListView，自定义适配器是永远无法跳过的知识点，今天就让我们一起来讲一讲ListView。">
+    <meta name="og:description" content="ListView在Android中的运用相当普遍。学习ListView，自定义适配器是永远无法跳过的知识点，今天就让我们一起来讲一讲ListView。">
+      
+    
+    
+        
+    
+    <meta property="og:url" content="http://localhost:4000/android/2017/02/15/ListViewAdapter/">
+    <meta property="og:site_name" content="Peiqin Lin's Homepage">
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="zh_CN" />
+    
+    <meta property="article:published_time" content="2017-02-15">
+    
+    <script src="http://localhost:4000/assets/vendor/jquery/dist/jquery.min.js"></script>
+    <script src="http://localhost:4000/assets/js/jquery-ui.js"></script>
+    <script type="text/javascript">
+    function toggleMenu() {
+        var nav = document.getElementsByClassName("site-header-nav")[0];
+        if (nav.style.display == "inline-flex") {
+          nav.style.display = "none";
+        } else {
+          nav.style.display = "inline-flex";
+        }
+    }
+    </script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-114643083-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-114643083-1');
+    </script>
+</head>
+<body class="" data-mz="">
+    <header class="site-header">
+        <div class="container">
+            <h1><a href="http://localhost:4000/" title="Peiqin Lin's Homepage">Peiqin Lin's Homepage</a></h1>
+            <button class="collapsed mobile-visible" type="button" onclick="toggleMenu();">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <nav class="site-header-nav" role="navigation">
+                
+            </nav>
+        </div>
+    </header>
+    <!-- / header -->
+
+    <section class="collection-head small geopattern" data-pattern-id="自定义 ListView 的 ">
+<div class="container">
+  <div class="columns">
+    <div class="column three-fourths">
+      <div class="collection-title">
+        <h1 class="collection-header">自定义 ListView 的 Adapter</h1>
+        <div class="collection-info">
+          
+          <span class="meta-info">
+            <span class="octicon octicon-calendar"></span> 2017/02/15
+          </span>
+          
+          
+          <span class="meta-info">
+            <span class="octicon octicon-file-directory"></span>
+            <a href="http://localhost:4000/categories/#Android" title="Android">Android</a>
+          </span>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+<!-- / .banner -->
+<section class="container content">
+<div class="columns">
+  <div class="column three-fourths" >
+    <article class="article-content markdown-body">
+    <p>ListView在Android中的运用相当普遍。学习ListView，自定义适配器是永远无法跳过的知识点，今天就让我们一起来讲一讲ListView。</p>
+
+<p>我们先创建一个Item类，该类包括img和text两个属性，具体如下：</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">com.activitydemo</span><span class="o">;</span>
+
+<span class="cm">/**
+ * Created by peiqin on 2/15/2017.
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Item</span> <span class="o">{</span>
+
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">img</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="nc">String</span> <span class="n">text</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="nf">Item</span><span class="o">(</span><span class="kt">int</span> <span class="n">img</span><span class="o">,</span> <span class="nc">String</span> <span class="n">text</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">img</span> <span class="o">=</span> <span class="n">img</span><span class="o">;</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">getImg</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">img</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setImg</span><span class="o">(</span><span class="kt">int</span> <span class="n">img</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">img</span> <span class="o">=</span> <span class="n">img</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">getText</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">text</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setText</span><span class="o">(</span><span class="nc">String</span> <span class="n">text</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>然后再创建item视图：</p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span>
+<span class="nt">&lt;LinearLayout</span> <span class="na">xmlns:android=</span><span class="s">"http://schemas.android.com/apk/res/android"</span>
+    <span class="na">android:layout_width=</span><span class="s">"match_parent"</span>
+    <span class="na">android:layout_height=</span><span class="s">"match_parent"</span>
+    <span class="na">android:orientation=</span><span class="s">"vertical"</span><span class="nt">&gt;</span>
+    
+    <span class="nt">&lt;TextView</span>
+        <span class="na">android:id=</span><span class="s">"@+id/item_tv"</span>
+        <span class="na">android:layout_width=</span><span class="s">"match_parent"</span>
+        <span class="na">android:layout_height=</span><span class="s">"wrap_content"</span> <span class="nt">/&gt;</span>
+    
+    <span class="nt">&lt;ImageView</span>
+        <span class="na">android:id=</span><span class="s">"@+id/item_iv"</span>
+        <span class="na">android:layout_width=</span><span class="s">"match_parent"</span>
+        <span class="na">android:layout_height=</span><span class="s">"wrap_content"</span> <span class="nt">/&gt;</span>
+
+<span class="nt">&lt;/LinearLayout&gt;</span>
+</code></pre></div></div>
+
+<p>接下来就可以写我们自定义的适配器了：</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">com.activitydemo</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">android.view.LayoutInflater</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">android.view.View</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">android.view.ViewGroup</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">android.widget.BaseAdapter</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">android.widget.ImageView</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">android.widget.TextView</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
+
+<span class="cm">/**
+ * Created by peiqin on 2/15/2017.
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyAdapter</span> <span class="kd">extends</span> <span class="nc">BaseAdapter</span> <span class="o">{</span>
+
+    <span class="kd">private</span> <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Item</span><span class="o">&gt;</span> <span class="n">mData</span><span class="o">;</span><span class="c1">//定义数据。</span>
+    <span class="kd">private</span> <span class="nc">LayoutInflater</span> <span class="n">mInflater</span><span class="o">;</span><span class="c1">//定义Inflater,加载我们自定义的布局。</span>
+
+    <span class="cm">/*
+    定义构造器，在Activity创建对象Adapter的时候将数据data和Inflater传入自定义的Adapter中进行处理。
+    */</span>
+    <span class="kd">public</span> <span class="nf">MyAdapter</span><span class="o">(</span><span class="nc">LayoutInflater</span> <span class="n">inflater</span><span class="o">,</span><span class="nc">List</span><span class="o">&lt;</span><span class="nc">Item</span><span class="o">&gt;</span> <span class="n">data</span><span class="o">){</span>
+        <span class="n">mInflater</span> <span class="o">=</span> <span class="n">inflater</span><span class="o">;</span>
+        <span class="n">mData</span> <span class="o">=</span> <span class="n">data</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">getCount</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">mData</span><span class="o">.</span><span class="na">size</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="nc">Object</span> <span class="nf">getItem</span><span class="o">(</span><span class="kt">int</span> <span class="n">position</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">position</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">long</span> <span class="nf">getItemId</span><span class="o">(</span><span class="kt">int</span> <span class="n">position</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">position</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="nc">View</span> <span class="nf">getView</span><span class="o">(</span><span class="kt">int</span> <span class="n">position</span><span class="o">,</span> <span class="nc">View</span> <span class="n">convertView</span><span class="o">,</span> <span class="nc">ViewGroup</span> <span class="n">viewGroup</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">//获得ListView中的view</span>
+        <span class="nc">View</span> <span class="n">view</span> <span class="o">=</span> <span class="n">mInflater</span><span class="o">.</span><span class="na">inflate</span><span class="o">(</span><span class="no">R</span><span class="o">.</span><span class="na">layout</span><span class="o">.</span><span class="na">item_custom</span><span class="o">,</span><span class="kc">null</span><span class="o">);</span>
+        <span class="c1">//获得学生对象</span>
+        <span class="nc">Item</span> <span class="n">item</span> <span class="o">=</span> <span class="n">mData</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">position</span><span class="o">);</span>
+        <span class="c1">//获得自定义布局中每一个控件的对象。</span>
+        <span class="nc">ImageView</span> <span class="n">imagePhoto</span> <span class="o">=</span> <span class="o">(</span><span class="nc">ImageView</span><span class="o">)</span> <span class="n">view</span><span class="o">.</span><span class="na">findViewById</span><span class="o">(</span><span class="no">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">item_iv</span><span class="o">);</span>
+        <span class="nc">TextView</span> <span class="n">name</span> <span class="o">=</span> <span class="o">(</span><span class="nc">TextView</span><span class="o">)</span> <span class="n">view</span><span class="o">.</span><span class="na">findViewById</span><span class="o">(</span><span class="no">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">item_tv</span><span class="o">);</span>
+        <span class="c1">//将数据一一添加到自定义的布局中。</span>
+        <span class="n">imagePhoto</span><span class="o">.</span><span class="na">setImageResource</span><span class="o">(</span><span class="n">item</span><span class="o">.</span><span class="na">getImg</span><span class="o">());</span>
+        <span class="n">name</span><span class="o">.</span><span class="na">setText</span><span class="o">(</span><span class="n">item</span><span class="o">.</span><span class="na">getText</span><span class="o">());</span>
+        <span class="k">return</span> <span class="n">view</span> <span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>最后我们再在我们的Activity中运用这个自定义的适配器就可以了，代码如下：</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">com.activitydemo</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">android.app.Activity</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">android.os.Bundle</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">android.view.LayoutInflater</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">android.widget.ListView</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
+
+<span class="cm">/**
+ * Created by peiqin on 2/15/2017.
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ListViewActivity</span> <span class="kd">extends</span> <span class="nc">Activity</span> <span class="o">{</span>
+
+    <span class="c1">//定义数据</span>
+    <span class="kd">private</span> <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Item</span><span class="o">&gt;</span> <span class="n">mData</span><span class="o">;</span>
+    <span class="c1">//定义ListView对象</span>
+    <span class="kd">private</span> <span class="nc">ListView</span> <span class="n">mListView</span><span class="o">;</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">onCreate</span><span class="o">(</span><span class="nc">Bundle</span> <span class="n">savedInstanceState</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kd">super</span><span class="o">.</span><span class="na">onCreate</span><span class="o">(</span><span class="n">savedInstanceState</span><span class="o">);</span>
+        <span class="n">setContentView</span><span class="o">(</span><span class="no">R</span><span class="o">.</span><span class="na">layout</span><span class="o">.</span><span class="na">activity_main</span><span class="o">);</span>
+
+        <span class="c1">//为ListView对象赋值</span>
+        <span class="n">mListView</span> <span class="o">=</span> <span class="o">(</span><span class="nc">ListView</span><span class="o">)</span> <span class="n">findViewById</span><span class="o">(</span><span class="no">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">custom_lv</span><span class="o">);</span>
+        <span class="nc">LayoutInflater</span> <span class="n">inflater</span> <span class="o">=</span> <span class="n">getLayoutInflater</span><span class="o">();</span>
+        <span class="c1">//初始化数据</span>
+        <span class="n">initData</span><span class="o">();</span>
+        <span class="c1">//创建自定义Adapter的对象</span>
+        <span class="nc">MyAdapter</span> <span class="n">adapter</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">MyAdapter</span><span class="o">(</span><span class="n">inflater</span><span class="o">,</span> <span class="n">mData</span><span class="o">);</span>
+        <span class="c1">//将布局添加到ListView中</span>
+        <span class="n">mListView</span><span class="o">.</span><span class="na">setAdapter</span><span class="o">(</span><span class="n">adapter</span><span class="o">);</span>
+
+    <span class="o">}</span>
+
+    <span class="cm">/*
+    初始化数据
+     */</span>
+    <span class="kd">private</span> <span class="kt">void</span> <span class="nf">initData</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">mData</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;();</span>
+        <span class="n">mData</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="nc">Item</span><span class="o">(</span><span class="n">android</span><span class="o">.</span><span class="na">R</span><span class="o">.</span><span class="na">mipmap</span><span class="o">.</span><span class="na">sym_def_app_icon</span><span class="o">,</span> <span class="s">"text1"</span><span class="o">));</span>
+        <span class="n">mData</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="nc">Item</span><span class="o">(</span><span class="n">android</span><span class="o">.</span><span class="na">R</span><span class="o">.</span><span class="na">mipmap</span><span class="o">.</span><span class="na">sym_def_app_icon</span><span class="o">,</span> <span class="s">"text2"</span><span class="o">));</span>
+        <span class="n">mData</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="nc">Item</span><span class="o">(</span><span class="n">android</span><span class="o">.</span><span class="na">R</span><span class="o">.</span><span class="na">mipmap</span><span class="o">.</span><span class="na">sym_def_app_icon</span><span class="o">,</span> <span class="s">"text3"</span><span class="o">));</span>
+        <span class="n">mData</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="nc">Item</span><span class="o">(</span><span class="n">android</span><span class="o">.</span><span class="na">R</span><span class="o">.</span><span class="na">mipmap</span><span class="o">.</span><span class="na">sym_def_app_icon</span><span class="o">,</span> <span class="s">"text4"</span><span class="o">));</span>
+    <span class="o">}</span>
+
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>这样子简单的自定义适配器就完成了，但是这样子ListView的效率极差，所以我们还要对它进行优化。具体的ListView优化方法有：</p>
+
+<ol>
+  <li>
+    <p>在Adapter中的getView方法中使用ConvertView，即ConvertView的复用，不需要每次都inflate一个View出来，这样既浪费时间，又浪费内存。</p>
+  </li>
+  <li>
+    <p>使用ViewHolder，不要在getView方法中写findViewById方法，因为getView方法会执行很多遍，这样也可以节省时间，节约内存。</p>
+
+    <p>结合上面两种优化方法，可以将getView的代码改写成如下代码进行优化：</p>
+
+    <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Override</span>
+<span class="kd">public</span> <span class="nc">View</span> <span class="nf">getView</span><span class="o">(</span><span class="kt">int</span> <span class="n">position</span><span class="o">,</span> <span class="nc">View</span> <span class="n">convertView</span><span class="o">,</span> <span class="nc">ViewGroup</span> <span class="n">viewGroup</span><span class="o">)</span> <span class="o">{</span>
+	<span class="nc">ViewHolder</span> <span class="n">vh</span><span class="o">;</span>
+	<span class="k">if</span> <span class="o">(</span><span class="n">convertView</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+		<span class="n">convertView</span> <span class="o">=</span> <span class="n">mInflater</span><span class="o">.</span><span class="na">inflate</span><span class="o">(</span><span class="no">R</span><span class="o">.</span><span class="na">layout</span><span class="o">.</span><span class="na">item_custom</span><span class="o">,</span> <span class="kc">null</span><span class="o">);</span>
+		<span class="n">vh</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ViewHolder</span><span class="o">();</span>
+		<span class="n">vh</span><span class="o">.</span><span class="na">text</span> <span class="o">=</span> <span class="o">(</span><span class="nc">TextView</span><span class="o">)</span> <span class="n">convertView</span><span class="o">.</span><span class="na">findViewById</span><span class="o">(</span><span class="no">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">item_tv</span><span class="o">);</span>
+		<span class="n">vh</span><span class="o">.</span><span class="na">img</span> <span class="o">=</span> <span class="o">(</span><span class="nc">ImageView</span><span class="o">)</span> <span class="n">convertView</span><span class="o">.</span><span class="na">findViewById</span><span class="o">(</span><span class="no">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">item_iv</span><span class="o">);</span>
+		<span class="n">convertView</span><span class="o">.</span><span class="na">setTag</span><span class="o">(</span><span class="n">vh</span><span class="o">);</span>
+	<span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+		<span class="n">vh</span> <span class="o">=</span> <span class="o">(</span><span class="nc">ViewHolder</span><span class="o">)</span> <span class="n">convertView</span><span class="o">.</span><span class="na">getTag</span><span class="o">();</span>
+	<span class="o">}</span>
+	<span class="nc">Item</span> <span class="n">item</span> <span class="o">=</span> <span class="n">mData</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">position</span><span class="o">);</span>
+	<span class="n">vh</span><span class="o">.</span><span class="na">text</span><span class="o">.</span><span class="na">setText</span><span class="o">(</span><span class="n">item</span><span class="o">.</span><span class="na">getText</span><span class="o">());</span>
+	<span class="n">vh</span><span class="o">.</span><span class="na">img</span><span class="o">.</span><span class="na">setImageResource</span><span class="o">(</span><span class="n">item</span><span class="o">.</span><span class="na">getImg</span><span class="o">());</span>
+	<span class="k">return</span> <span class="n">convertView</span><span class="o">;</span>
+<span class="o">}</span>
+
+<span class="kd">private</span> <span class="kd">class</span> <span class="nc">ViewHolder</span> <span class="o">{</span>
+	<span class="kd">public</span> <span class="nc">TextView</span> <span class="n">text</span><span class="o">;</span>
+	<span class="kd">public</span> <span class="nc">ImageView</span> <span class="n">img</span><span class="o">;</span>
+<span class="o">}</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>分页加载，实际开发中，ListView的数据肯定不止几百条，成千上万条数据不可能一次性加载出来，所以需要用到分页加载，一次加载几条或者十几条，但如果数据量很大，即使顺利加载到最后面，list中也会有几万甚至几十万的数据，这样可能会导致OOM，所以每加载一页的时候可以覆盖前一页的数据。</p>
+
+    <p>要实现分页加载，就必须要用到OnScrollListener，它的主要内容：</p>
+
+    <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 静态属性</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="no">SCROLL_STATE_IDLE</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="c1">// 空闲状态</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="no">SCROLL_STATE_TOUCH_SCROLL</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="c1">// 滚动状态,并且手指在屏幕上</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="no">SCROLL_STATE_FLING</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span>    <span class="c1">//    滚动状态,手指已经离开了屏幕</span>
+
+<span class="c1">// 抽象方法</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">onScrollStateChanged</span><span class="o">(</span><span class="nc">AbsListView</span> <span class="n">view</span><span class="o">,</span> <span class="kt">int</span> <span class="n">scrollState</span><span class="o">);</span> 
+<span class="c1">// ListView在状态改变的时候调用，用户在正常滑动的时候通常会执行三次(刻意滑动当listView停止的时候才将手离开屏幕执行两次)</span>
+
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">onScroll</span><span class="o">(</span><span class="nc">AbsListView</span> <span class="n">view</span><span class="o">,</span> <span class="kt">int</span> <span class="n">firstVisibleItem</span><span class="o">,</span> <span class="kt">int</span> <span class="n">visibleItemCount</span><span class="o">,</span> <span class="kt">int</span> <span class="n">totalItemCount</span><span class="o">);</span> 
+<span class="c1">// ListView在滚动的时候会反复调用该方法,调用次数和listView的子项无关(屏幕只要滑动一点就会调用)</span>
+</code></pre></div>    </div>
+
+    <p>所以如果要分页加载的话，实现代码如下：</p>
+
+    <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">mNewsListView</span><span class="o">.</span><span class="na">setOnScrollListener</span><span class="o">(</span><span class="k">new</span> <span class="nc">OnScrollListener</span><span class="o">()</span> <span class="o">{</span>
+
+     <span class="nd">@Override</span>
+     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onScrollStateChanged</span><span class="o">(</span><span class="nc">AbsListView</span> <span class="n">view</span><span class="o">,</span> <span class="kt">int</span> <span class="n">scrollState</span><span class="o">)</span> <span class="o">{</span>
+         <span class="k">if</span> <span class="o">(</span><span class="n">scrollState</span> <span class="o">==</span> <span class="nc">OnScrollListener</span><span class="o">.</span><span class="na">SCROLL_STATE_IDLE</span><span class="o">)</span> <span class="o">{</span>
+             <span class="k">if</span> <span class="o">(</span><span class="n">isBottom</span><span class="o">)</span> <span class="o">{</span>
+                 <span class="c1">// 下载更多数据</span>
+                 <span class="nc">Toast</span><span class="o">.</span><span class="na">makeText</span><span class="o">(</span><span class="nc">MainActivity</span><span class="o">.</span><span class="na">this</span><span class="o">,</span> <span class="s">"正在加载"</span><span class="o">,</span>
+                         <span class="nc">Toast</span><span class="o">.</span><span class="na">LENGTH_SHORT</span><span class="o">).</span><span class="na">show</span><span class="o">();</span>        
+                 <span class="c1">// 加载数据的方法代码.......</span>
+                 <span class="c1">// 这里面的代码通常是根据mPageNum加载不同的数据</span>
+                 <span class="c1">// 对mPageNum处理: mPageNum++</span>
+
+             <span class="o">}</span>
+         <span class="o">}</span>
+     <span class="o">}</span>
+
+     <span class="nd">@Override</span>
+     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onScroll</span><span class="o">(</span><span class="nc">AbsListView</span> <span class="n">view</span><span class="o">,</span> <span class="kt">int</span> <span class="n">firstVisibleItem</span><span class="o">,</span>
+             <span class="kt">int</span> <span class="n">visibleItemCount</span><span class="o">,</span> <span class="kt">int</span> <span class="n">totalItemCount</span><span class="o">)</span> <span class="o">{</span>
+         <span class="k">if</span> <span class="o">(</span><span class="n">firstVisibleItem</span> <span class="o">+</span> <span class="n">visibleItemCount</span> <span class="o">==</span> <span class="n">totalItemCount</span><span class="o">)</span> <span class="o">{</span>
+             <span class="c1">// 说明:</span>
+             <span class="c1">// fistVisibleItem:表示划出屏幕的ListView子项个数</span>
+             <span class="c1">// visibleItemCount:表示屏幕中正在显示的ListView子项个数</span>
+             <span class="c1">// totalItemCount:表示ListView子项的总数    </span>
+             <span class="c1">// 前两个相加==最后一个说明ListView滑到底部</span>
+             <span class="n">isButtom</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+         <span class="o">}</span><span class="k">else</span><span class="o">{</span>
+             <span class="n">isButtom</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+         <span class="o">}</span>
+     <span class="o">}</span>
+ <span class="o">});</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>如果有图片的话，用第三方库来加载（也就是缓存）。另外，滑动列表时尽可能不加载图片。</p>
+  </li>
+</ol>
+
+<p>其实，在这些年的开发中，ListView的使用频率越来越低，取而代之的是RecyclerView。RecyclerView是V7包下新增的控件，用来替代ListView，RecyclerView标准化了ViewHolder（类似于ListView中的convertView）用来做视图缓存。</p>
+
+<p>RecyclerView可通过设置LayoutManager来快速实现Listview、Gridview、瀑布流的效果，还可以设置横向和纵向显示，添加动画也非常简单（自带了ItemAnimation，可以设置加载和移除时的动画，方便做出各种动态浏览的效果）。那么这个如此有用的官方推荐控件，又应该如何使用呢？</p>
+
+<p>首先需要在gradle文件中添加包的引用（配合官方CardView使用）</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>compile 'com.android.support:cardview-v7:21.0.3'
+compile 'com.android.support:recyclerview-v7:21.0.3'
+</code></pre></div></div>
+
+<p>然后在XML文件中使用它</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;android.support.v7.widget.RecyclerView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/recycler_view"
+    android:layout_centerVertical="true"
+    android:layout_centerHorizontal="true"/&gt;
+    
+</code></pre></div></div>
+
+<p>接着在Activity中进行设置</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>public class MainActivity extends ActionBarActivity {
+    @InjectView(R.id.recycler_view)
+    RecyclerView mRecyclerView;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        ButterKnife.inject(this);
+
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));//这里用线性显示 类似于listview
+//        mRecyclerView.setLayoutManager(new GridLayoutManager(this, 2));//这里用线性宫格显示 类似于grid view
+//        mRecyclerView.setLayoutManager(new StaggeredGridLayoutManager(2, OrientationHelper.VERTICAL));//这里用线性宫格显示 类似于瀑布流
+        mRecyclerView.setAdapter(new NormalRecyclerViewAdapter(this));
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == R.id.action_settings) {
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+}
+</code></pre></div></div>
+
+<p>最后是自定义RecyclerView的适配器</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>public class NormalRecyclerViewAdapter extends RecyclerView.Adapter&lt;NormalRecyclerViewAdapter.NormalTextViewHolder&gt; {
+    private final LayoutInflater mLayoutInflater;
+    private final Context mContext;
+    private String[] mTitles;
+
+    public NormalRecyclerViewAdapter(Context context) {
+        mTitles = context.getResources().getStringArray(R.array.titles);
+        mContext = context;
+        mLayoutInflater = LayoutInflater.from(context);
+    }
+
+    @Override
+    public NormalTextViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        return new NormalTextViewHolder(mLayoutInflater.inflate(R.layout.item_text, parent, false));
+    }
+
+    @Override
+    public void onBindViewHolder(NormalTextViewHolder holder, int position) {
+        holder.mTextView.setText(mTitles[position]);
+    }
+
+    @Override
+    public int getItemCount() {
+        return mTitles == null ? 0 : mTitles.length;
+    }
+
+    public static class NormalTextViewHolder extends RecyclerView.ViewHolder {
+        @InjectView(R.id.text_view)
+        TextView mTextView;
+
+        NormalTextViewHolder(View view) {
+            super(view);
+            ButterKnife.inject(this, view);
+            view.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Log.d("NormalTextViewHolder", "onClick--&gt; position = " + getPosition());
+                }
+            });
+        }
+    }
+}
+</code></pre></div></div>
+
+<p>这样子，我们就实现了RecyclerView，那么对于已经使用了ListView的情况，我们有没有必要把它替换成RecyclerView呢？这个问题应该分情况进行讨论：</p>
+
+<ol>
+  <li>如果需要支持动画、频繁更新（如弹幕）或者局部刷新，建议使用RecyclerView，更加强大完善。</li>
+  <li>其它情况两者都OK，RecyclerView从性能上并没有带来显著的提升，但ListView在使用上会更加方便，快捷。</li>
+</ol>
+
+    </article>
+    <div class="share">
+      <div class="share-component"></div>
+    </div>
+    <div class="comment">
+      
+  
+        <div id="container"></div>
+        <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+        <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+        <script>
+        var gitment = new Gitment({
+            id: '/android/2017/02/15/ListViewAdapter/',
+            owner: 'lpq29743',
+            repo: 'blog-comments',
+            oauth: {
+                client_id: '5818ceff784afe05d31c',
+                client_secret: 'dc7e8efc044c7194cf453740f82c646aa998f206',
+            },
+        })
+        gitment.render('container')
+        </script>
+  
+
+
+    </div>
+	<ul class="pager">
+		
+		<li class="previous">
+			<a href="/android/2017/02/12/AndroidActivity/" data-toggle="tooltip" data-placement="top" title="Android 四大组件之 Activity">
+				Previous<br>
+				<span>Android 四大组件之 Activity</span>
+			</a>
+		</li>
+		
+		
+		<li class="next">
+			<a href="/java/2017/02/18/JavaJVM1/" data-toggle="tooltip" data-placement="top" title="Java 中 JVM 的原理（上）">
+				Next<br>
+				<span>Java 中 JVM 的原理（上）</span>
+			</a>
+		</li>
+		
+	</ul>
+  </div>
+  <div class="column one-fourth">
+    
+<h3>Search</h3>
+<div id="site_search">
+    <input type="text" id="search_box" placeholder="Search">
+</div>
+
+<ul id="search_results"></ul>
+
+<link rel="stylesheet" type="text/css" href="http://localhost:4000/assets/css/modules/sidebar-search.css">
+<script src="http://localhost:4000/assets/js/jekyll-search.min.js"></script>
+<script src="http://localhost:4000/assets/js/search.js"></script>
+
+<script type="text/javascript">
+SimpleJekyllSearch({
+    searchInput: document.getElementById('search_box'),
+    resultsContainer: document.getElementById('search_results'),
+    json: 'http://localhost:4000/assets/search_data.json',
+    searchResultTemplate: '<li><a href="{url}" title="{desc}">{title}</a></li>',
+    noResultsText: 'No results found',
+    limit: 10,
+    fuzzy: false,
+    exclude: ['Welcome']
+})
+</script>
+
+    
+<h3 class="post-directory-title mobile-hidden">Table of Contents</h3>
+<div id="post-directory-module" class="mobile-hidden">
+  <section class="post-directory">
+  <!-- Links that trigger the jumping -->
+  <!-- Added by javascript below -->
+  <dl></dl>
+  </section>
+</div>
+
+<script src="http://localhost:4000/assets/js/jquery.toc.js"></script>
+
+  </div>
+</div>
+</section>
+<!-- /section.content -->
+
+    <footer class="container">
+        <div class="site-footer" role="contentinfo">
+            <div class="copyright left mobile-block">
+                <a href="javascript:window.scrollTo(0,0)" class="right mobile-visible">TOP</a>
+            </div>
+
+            <ul class="site-footer-links right mobile-hidden">
+                <li>
+                    <a href="javascript:window.scrollTo(0,0)" >TOP</a>
+                </li>
+            </ul>
+            <a href="https://github.com/lpq29743/lpq29743.github.io" target="_blank" aria-label="view source code">
+                <span class="mega-octicon octicon-mark-github" title="GitHub"></span>
+            </a>
+            <ul class="site-footer-links mobile-hidden">
+                
+            </ul>
+
+        </div>
+    </footer>
+    <!-- / footer -->
+    <script src="http://localhost:4000/assets/vendor/share.js/dist/js/share.min.js"></script>
+    <script src="http://localhost:4000/assets/js/geopattern.js"></script>
+    <script src="http://localhost:4000/assets/js/prism.js"></script>
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/globals/prism.css">
+    <script>
+      jQuery(document).ready(function($) {
+        // geopattern
+        $('.geopattern').each(function(){
+          $(this).geopattern($(this).data('pattern-id'));
+        });
+       // hljs.initHighlightingOnLoad();
+      });
+    </script>
+    
+</body>
+</html>
