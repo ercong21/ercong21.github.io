@@ -68,7 +68,7 @@ See more in [my publications](publications/).
 * ACM Transactions on Asian and Low-Resource Language Information Processing [(TALLIP)](https://dl.acm.org/journal/TALLIP)
 
 ###### Community Members
-* Committe member of [NICE](https://nice-nlp.github.io/), an NLP Academic Exchange Platform.
+* Committee member of [NICE](https://nice-nlp.github.io/), an NLP Academic Exchange Platform.
 * Member of [AI Grid](https://ai-grid.org/en/), a community connecting young scientists AI funded by the German Ferderal Ministry of Education and Research.
 * Junior member of Munich Center for Machine Learning [(MCML)](https://mcml.ai/#about), one of six German national AI Competence Centers.
 * Member of NLP/CL communities such as [ACL](https://www.aclweb.org/portal/), [GSCL](https://gscl.org/en/) (German Society fo Computational Linguistics and Language Technology)
