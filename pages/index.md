@@ -63,7 +63,8 @@ See more in [my publications](publications/).
 * **2023:** [EMNLP](https://2023.emnlp.org/), [First Workshop on Bangla Language Processing](https://blp-workshop.github.io/organizers) @ EMNLP, [Workshop on Instruction Tuning and Instruction Following](https://an-instructive-workshop.github.io/organization/) @ NeurIPS, [CoNLL-CMCL BabyLM Challenge](https://babylm.github.io/) @ EMNLP
 
 ###### Journal Reviewer
-* ACM Transactions on Intelligent Systems and Technology [(ACM TIST)](https://dl.acm.org/journal/tist)
+* IEEE Transactions on Neural Networks and Learning Systems[(TNNLS)](https://cis.ieee.org/publications/t-neural-networks-and-learning-systems)
+* ACM Transactions on Intelligent Systems and Technology [(TIST)](https://dl.acm.org/journal/tist)
 * Royal Society Open Science [(RSOS)](https://royalsocietypublishing.org/journal/rsos)
 * ACM Transactions on Asian and Low-Resource Language Information Processing [(TALLIP)](https://dl.acm.org/journal/TALLIP)
 
