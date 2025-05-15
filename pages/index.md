@@ -45,12 +45,14 @@ I have a broad research interest in the field of *Natural Language Processing* (
 
 #### Selected Publications
 
+- **Ercong Nie**\*, Bo Shao\*, Zifeng Ding, Mingyang Wang, Helmut Schmid, Hinrich Schütze. **Bmike-53: Investigating cross-lingual knowledge editing with in-context learning**. In ACL 2025. [[Paper]](https://arxiv.org/pdf/2406.17764)
+- Linyang He, **Ercong Nie**, Helmut Schmid, Hinrich Schütze, Nima Mesgarani, Jonathan Brennan. **Large Language Models as Neurolinguistic Subjects: Identifying Internal Representations for Form and Meaning**. In ACL Findings 2025. [[Paper]](https://arxiv.org/pdf/2411.07533)
+- Shuzhou Yuan, **Ercong Nie**, Michael Färber, Helmut Schmid, Hinrich Schuetze. **GNNavi: Navigating the Information Flow in Large Language Models by Graph Neural Network**. In ACL Findings 2024. [[Paper]](https://aclanthology.org/2024.findings-acl.237.pdf), [[Code]](https://github.com/ShuzhouYuan/GNNavi)
 - **Ercong Nie**\*, Sheng Liang\*, Helmut Schmid, Hinrich Schütze. **Cross-Lingual Retrieval Augmented Prompt for Low-Resource Languages**. In ACL Findings 2023. [[Paper]](https://aclanthology.org/2023.findings-acl.528.pdf), [[Code]](https://github.com/ercong21/parc)
 - **Ercong Nie**, Helmut Schmid, Hinrich Schuetze. **Unleashing the Multilingual Encoder Potential: Boosting Zero-Shot Performance via Probability Calibration**. In EMNLP Findings 2023. [[Paper]](https://aclanthology.org/2023.findings-emnlp.1056.pdf), [[Code]](https://github.com/ercong21/calibration)
-- Bolei Ma\*, **Ercong Nie**\*, Shuzhou Yuan, Helmut Schmid, Michael Färber, Frauke Kreuter, Hinrich Schuetze. **ToPro: Token-Level Prompt Decomposition for Cross-Lingual Sequence Labeling Tasks**. In EACL 2024. [[Paper]](https://aclanthology.org/2024.eacl-long.164.pdf), [[Code]](https://github.com/boleima/ToPro)
 - Yongkang Liu\*, **Ercong Nie**\*, Shi Feng, Zheng Hua, Zifeng Ding, Daling Wang, Yifei Zhang, Hinrich Schütze. **A Unified Data Augmentation Framework for Low-Resource Multi-domain Dialogue Generation**. In ECML-PKDD 2024. [[Paper]](https://link.springer.com/chapter/10.1007/978-3-031-70344-7_10) 
-- Shuzhou Yuan, **Ercong Nie**, Michael Färber, Helmut Schmid, Hinrich Schuetze. **GNNavi: Navigating the Information Flow in Large Language Models by Graph Neural Network**. In ACL Findings 2024. [[Paper]](https://aclanthology.org/2024.findings-acl.237.pdf), [[Code]](https://github.com/ShuzhouYuan/GNNavi)
-- Linyang He, Peili Chen, **Ercong Nie**, Yuanning Li, Jonathan R. Brennan. **Decoding Probing: Revealing Internal Linguistic Structures in Neural Language Models Using Minimal Pairs**. In LREC-COLING 2024. [[Paper]](https://aclanthology.org/2024.lrec-main.402.pdf)
+- Bolei Ma\*, **Ercong Nie**\*, Shuzhou Yuan, Helmut Schmid, Michael Färber, Frauke Kreuter, Hinrich Schuetze. **ToPro: Token-Level Prompt Decomposition for Cross-Lingual Sequence Labeling Tasks**. In EACL 2024. [[Paper]](https://aclanthology.org/2024.eacl-long.164.pdf), [[Code]](https://github.com/boleima/ToPro)
+<!-- - Linyang He, Peili Chen, **Ercong Nie**, Yuanning Li, Jonathan R. Brennan. **Decoding Probing: Revealing Internal Linguistic Structures in Neural Language Models Using Minimal Pairs**. In LREC-COLING 2024. [[Paper]](https://aclanthology.org/2024.lrec-main.402.pdf) -->
 
 (\* denotes equal contribution)  
 See more in [my publications](publications/).
