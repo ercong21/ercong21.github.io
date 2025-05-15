@@ -7,6 +7,7 @@ permalink: /publications/
 ---
 - **Ercong Nie**\*, Bo Shao\*, Zifeng Ding, Mingyang Wang, Helmut Schmid, Hinrich Schütze. **Bmike-53: Investigating cross-lingual knowledge editing with in-context learning**. In ACL 2025. [[Paper]](https://arxiv.org/pdf/2406.17764)
 - Linyang He, **Ercong Nie**, Helmut Schmid, Hinrich Schütze, Nima Mesgarani, Jonathan Brennan. **Large Language Models as Neurolinguistic Subjects: Identifying Internal Representations for Form and Meaning**. In ACL Findings 2025. [[Paper]](https://arxiv.org/pdf/2411.07533)
+- Mingyang Wang, Heike Adel, Lukas Lange, Yihong Liu, **Ercong Nie**, Jannik Strötgen, Hinrich Schütze. **Lost in Multilinguality: Dissecting Cross-lingual Factual Inconsistency in Transformer Language Models**. In ACL 2025 [[Paper]](https://arxiv.org/pdf/2504.04264)
 - Shuzhou Yuan\*, **Ercong Nie**\*, Bolei Ma, Michael Färber. **Why lift so heavy? slimming large language models by cutting off the layers**. In IJCNN 2025. [[Paper]](https://arxiv.org/pdf/2402.11700)
 - Linyang He\*, **Ercong Nie**\*, Sukru Samet Dindar, Arsalan Firoozi, Adrian Florea, Van Nguyen, Corentin Puffay, Riki Shimizu, Haotian Ye, Jonathan Brennan, Helmut Schmid, Hinrich Schütze, Nima Mesgarani. **XCOMPS: A Multilingual Benchmark of Conceptual Minimal Pairs**. In arXiv 2025. [[Paper]](https://arxiv.org/pdf/2502.19737)
 - Lovisa Hagström, **Ercong Nie**, Ruben Halifa, Helmut Schmid, Richard Johansson, Alexander Junge. **Language Model Re-rankers are Steered by Lexical Similarities**. In arXiv 2025. [[Paper]](https://arxiv.org/pdf/2502.17036)
