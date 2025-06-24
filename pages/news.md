@@ -5,6 +5,7 @@ description: Ercong Nie's full news
 comments: false
 permalink: /news/
 ---
+- **06/2025** Presenting recent work on [interpretability of language confusion](../files/language_confusion.pdf) at CIS PhD seminar.
 - **05/2025** Three papers accepted to ACL 2025.
 - **04/2025** Attended [Spring School](https://scai.sorbonne-universite.fr/public/events/view/758217297999e78bcad4/9) on emotional intelligence at [SCAI](https://scai.sorbonne-universite.fr/) in Paris.
 - **04/2025** One paper accepted to IJCNN 2025.
