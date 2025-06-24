@@ -8,7 +8,7 @@ permalink: /news/
 - **06/2025** Presenting recent work on [interpretability of language confusion](../files/language_confusion.pdf) at CIS PhD seminar.
 - **06/2025** Invited [talk](../files/CSSA_Munich_talk.pdf) (zh) on interdisciplinary NLP research at CSSA Munich.
 - **06/2025** Two papers accepted to ACL 2025 Workshops ([SIGTYP](https://sigtyp.github.io/workshop.html) and [FEVER](https://fever.ai/workshop.html))
-- **05/2025** Three papers accepted to ACL 2025.
+- **05/2025** Three papers accepted to ACL 2025 (one oral, one poster, one findings).
 - **04/2025** Attended [Spring School](https://scai.sorbonne-universite.fr/public/events/view/758217297999e78bcad4/9) on emotional intelligence at [SCAI](https://scai.sorbonne-universite.fr/) in Paris.
 - **04/2025** One paper accepted to IJCNN 2025.
 - **12/2024** Invited talk on "[LLM probing](../files/Probing_Dresden_2024.pdf)" at the [Workshop](https://scads.ai/1st-workshop-of-learning-large-language-models-for-knowledge-representation/) held by ScaDS.AI, TU Dresden.
