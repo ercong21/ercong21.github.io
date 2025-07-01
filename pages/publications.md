@@ -14,6 +14,9 @@ permalink: /publications/
 - Chunkit Chan, Yauwai Yim, Hongchuan Zeng, Zhiying Zou, Xinyuan Cheng, Zhifan Sun, Zheye Deng, Kawai Chung, Yuzhuo Ao, Yixiang Fan, Cheng Jiayang, **Ercong Nie**, Ginny Y Wong, Helmut Schmid, Hinrich Schütze, Simon See, Yangqiu Song. [**XToM: Exploring the Multilingual Theory of Mind for Large Language Models**](https://arxiv.org/pdf/2506.02461). In arXiv 2025. [[Paper]](https://arxiv.org/pdf/2506.02461)
 - **Ercong Nie**, Shuzhou Yuan, Bolei Ma, Helmut Schmid, Michael Färber, Frauke Kreuter, Hinrich Schütze. [**Decomposed prompting: Unveiling multilingual linguistic structure knowledge in english-centric large language models**](https://arxiv.org/pdf/2402.18397). In arXiv 2024. [[Paper]](https://arxiv.org/pdf/2402.18397)
 
+### Datasets and Resources
+- Jürg Fleischer, Lena Haden, Martin Klotz, **Ercong Nie**, Helmut Schmid, Gohar Schnelle, Lilian Slawski, and Lars Erik Zeige. [**Korpus Zur Erforschung Von Registerphänomenen Bei Martin Luther (regil)**](https://doi.org/10.5281/zenodo.14702151). Zenodo 2025.
+
 ### 2025
 - **Ercong Nie**\*, Bo Shao\*, Zifeng Ding, Mingyang Wang, Helmut Schmid, Hinrich Schütze. [**BMIKE-53: Investigating cross-lingual knowledge editing with in-context learning**](https://arxiv.org/pdf/2406.17764). In ACL 2025 **(oral)**. [[Paper]](https://arxiv.org/pdf/2406.17764), [[Code]](https://github.com/ercong21/MultiKnow/)
 - Linyang He, **Ercong Nie**, Helmut Schmid, Hinrich Schütze, Nima Mesgarani, Jonathan Brennan. [**Large Language Models as Neurolinguistic Subjects: Identifying Internal Representations for Form and Meaning**](https://arxiv.org/pdf/2411.07533). In ACL Findings 2025. [[Paper]](https://arxiv.org/pdf/2411.07533)
