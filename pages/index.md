@@ -45,8 +45,8 @@ I have a broad research interest in the field of *Natural Language Processing* (
 
 #### Selected Publications
 
-- **Ercong Nie**\*, Bo Shao\*, Zifeng Ding, Mingyang Wang, Helmut Schmid, Hinrich Schütze. **Bmike-53: Investigating cross-lingual knowledge editing with in-context learning**. In ACL 2025 **(oral)**. [[Paper]](https://arxiv.org/pdf/2406.17764)
-- Linyang He, **Ercong Nie**, Helmut Schmid, Hinrich Schütze, Nima Mesgarani, Jonathan Brennan. **Large Language Models as Neurolinguistic Subjects: Identifying Internal Representations for Form and Meaning**. In ACL Findings 2025. [[Paper]](https://arxiv.org/pdf/2411.07533)
+- **Ercong Nie**\*, Bo Shao\*, Zifeng Ding, Mingyang Wang, Helmut Schmid, Hinrich Schütze. **Bmike-53: Investigating cross-lingual knowledge editing with in-context learning**. In ACL 2025 **(oral)**. [[Paper]](https://aclanthology.org/2025.acl-long.798.pdf)
+- Linyang He, **Ercong Nie**, Helmut Schmid, Hinrich Schütze, Nima Mesgarani, Jonathan Brennan. **Large Language Models as Neurolinguistic Subjects: Identifying Internal Representations for Form and Meaning**. In ACL Findings 2025. [[Paper]](https://aclanthology.org/2025.findings-acl.986.pdf)
 - Shuzhou Yuan, **Ercong Nie**, Michael Färber, Helmut Schmid, Hinrich Schuetze. **GNNavi: Navigating the Information Flow in Large Language Models by Graph Neural Network**. In ACL Findings 2024. [[Paper]](https://aclanthology.org/2024.findings-acl.237.pdf), [[Code]](https://github.com/ShuzhouYuan/GNNavi)
 - **Ercong Nie**\*, Sheng Liang\*, Helmut Schmid, Hinrich Schütze. **Cross-Lingual Retrieval Augmented Prompt for Low-Resource Languages**. In ACL Findings 2023. [[Paper]](https://aclanthology.org/2023.findings-acl.528.pdf), [[Code]](https://github.com/ercong21/parc)
 - **Ercong Nie**, Helmut Schmid, Hinrich Schuetze. **Unleashing the Multilingual Encoder Potential: Boosting Zero-Shot Performance via Probability Calibration**. In EMNLP Findings 2023. [[Paper]](https://aclanthology.org/2023.findings-emnlp.1056.pdf), [[Code]](https://github.com/ercong21/calibration)
