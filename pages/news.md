@@ -5,6 +5,7 @@ description: Ercong Nie's full news
 comments: false
 permalink: /news/
 ---
+- **07/2025** Our [multilingual interpretability work](https://aclanthology.org/2025.acl-long.253.pdf) was awarded SAC Highlights at ACL 2025!
 - **06/2025** Presenting recent work on [interpretability of language confusion](../files/language_confusion.pdf) at CIS PhD seminar.
 - **06/2025** Invited [talk](../files/CSSA_Munich_talk.pdf) (zh) on interdisciplinary NLP research at CSSA Munich.
 - **06/2025** Two papers accepted to ACL 2025 Workshops ([SIGTYP](https://sigtyp.github.io/workshop.html) and [FEVER](https://fever.ai/workshop.html))
