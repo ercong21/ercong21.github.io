@@ -5,6 +5,7 @@ description: Ercong Nie's full news
 comments: false
 permalink: /news/
 ---
+- **08/2025** Two paper accepted to EMNLP 2025 Findings. See you in Suzhou, China!
 - **07/2025** Our [multilingual interpretability work](https://aclanthology.org/2025.acl-long.253.pdf) was awarded SAC Highlights at ACL 2025!
 - **06/2025** Presenting recent work on [interpretability of language confusion](../files/language_confusion.pdf) at CIS PhD seminar.
 - **06/2025** Invited [talk](../files/CSSA_Munich_talk.pdf) (zh) on interdisciplinary NLP research at CSSA Munich.

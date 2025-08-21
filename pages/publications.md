@@ -6,8 +6,7 @@ comments: false
 permalink: /publications/
 ---
 ### Preprints
-- **Ercong Nie**, Helmut Schmid, Hinrich Schütze. [**Mechanistic Understanding and Mitigation of Language Confusion in English-Centric Large Language Models**](https://arxiv.org/pdf/2505.16538). In arXiv 2025. [[Paper]](https://arxiv.org/pdf/2505.16538)
-- Yihong Liu, Mingyang Wang, Amir Hossein Kargaran, Felicia Körner, **Ercong Nie**, Barbara Plank, François Yvon, Hinrich Schütze. [**Tracing Multilingual Factual Knowledge Acquisition in Pretraining**](https://arxiv.org/pdf/2505.14824). In arXiv 2025. [[Paper]](https://arxiv.org/pdf/2505.14824)
+- Shuzhou Yuan, William LaCroix, Hardik Ghoshal, **Ercong Nie**, Michael Färber. [**CoDAE: Adapting Large Language Models for Education via Chain-of-Thought Data Augmentation**](https://arxiv.org/pdf/2508.08386). In arXiv 2025. [[Paper]](https://arxiv.org/pdf/2508.08386)
 - Shuzhou Yuan*, **Ercong Nie**\*, Lukas Kouba, Ashish Yashwanth Kangen, Helmut Schmid, Hinrich Schütze, Michael Farber. [**LLM in the Loop: Creating the ParaDeHate Dataset for Hate Speech Detoxification**](https://arxiv.org/pdf/2506.01484). In arXiv 2025. [[Paper]](https://arxiv.org/pdf/2506.01484)
 - Yongkang Liu, Xingle Xu, **Ercong Nie**, Zijing Wang, Shi Feng, Daling Wang, Qian Li, Hinrich Schütze. [**Look Within or Look Beyond? A Theoretical Comparison Between Parameter-Efficient and Full Fine-Tuning**](https://arxiv.org/pdf/2505.22355). In arXiv 2025. [[Paper]](https://arxiv.org/pdf/2505.22355)
 - Shuzhou Yuan*, **Ercong Nie**\*, Mario Tawfelis, Helmut Schmid, Hinrich Schütze, Michael Farber. [**Hateful Person or Hateful Model? Investigating the Role of Personas in Hate Speech Detection by Large Language Models**](https://arxiv.org/pdf/2506.08593). In arXiv 2025. [[Paper]](https://arxiv.org/pdf/2506.08593)
@@ -18,6 +17,8 @@ permalink: /publications/
 - Jürg Fleischer, Lena Haden, Martin Klotz, **Ercong Nie**, Helmut Schmid, Gohar Schnelle, Lilian Slawski, and Lars Erik Zeige. [**Korpus Zur Erforschung Von Registerphänomenen Bei Martin Luther (regil)**](https://doi.org/10.5281/zenodo.14702151). Zenodo 2025.
 
 ### 2025
+- **Ercong Nie**, Helmut Schmid, Hinrich Schütze. [**Mechanistic Understanding and Mitigation of Language Confusion in English-Centric Large Language Models**](https://arxiv.org/pdf/2505.16538). In EMNLP 2025 Findings. [[Paper]](https://arxiv.org/pdf/2505.16538)
+- Yihong Liu, Mingyang Wang, Amir Hossein Kargaran, Felicia Körner, **Ercong Nie**, Barbara Plank, François Yvon, Hinrich Schütze. [**Tracing Multilingual Factual Knowledge Acquisition in Pretraining**](https://arxiv.org/pdf/2505.14824). In EMNLP 2025 Findings. [[Paper]](https://arxiv.org/pdf/2505.14824)
 - **Ercong Nie**\*, Bo Shao\*, Zifeng Ding, Mingyang Wang, Helmut Schmid, Hinrich Schütze. [**BMIKE-53: Investigating cross-lingual knowledge editing with in-context learning**](https://aclanthology.org/2025.acl-long.798.pdf). In ACL 2025 **(oral)**. [[Paper]](https://aclanthology.org/2025.acl-long.798.pdf), [[Code]](https://github.com/ercong21/MultiKnow/)
 - Linyang He, **Ercong Nie**, Helmut Schmid, Hinrich Schütze, Nima Mesgarani, Jonathan Brennan. [**Large Language Models as Neurolinguistic Subjects: Identifying Internal Representations for Form and Meaning**](https://aclanthology.org/2025.findings-acl.986.pdf). In ACL Findings 2025. [[Paper]](https://aclanthology.org/2025.findings-acl.986.pdf)
 - Mingyang Wang, Heike Adel, Lukas Lange, Yihong Liu, **Ercong Nie**, Jannik Strötgen, Hinrich Schütze. [**Lost in Multilinguality: Dissecting Cross-lingual Factual Inconsistency in Transformer Language Models**](https://aclanthology.org/2025.acl-long.253.pdf. In ACL 2025 [[Paper]](https://aclanthology.org/2025.acl-long.253.pdf)
