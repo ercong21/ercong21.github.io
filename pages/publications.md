@@ -6,7 +6,7 @@ comments: false
 permalink: /publications/
 ---
 ### Preprints
-- Sikuan Yan*, Xiufeng Yang*, Zuchao Huang, **Ercong Nie**, Zifeng Ding, Zonggen Li, Xiaowen Ma, Hinrich Schütze, Volker Tresp, Yunpu Ma. [**Memory-R1: Enhancing Large Language Model Agents to Manage and Utilize Memories via Reinforcement Learning**](https://arxiv.org/pdf/2508.19828). In arXiv 2025. [[Paper]](https://arxiv.org/pdf/2508.19828)
+- Sikuan Yan\*, Xiufeng Yang\*, Zuchao Huang, **Ercong Nie**, Zifeng Ding, Zonggen Li, Xiaowen Ma, Hinrich Schütze, Volker Tresp, Yunpu Ma. [**Memory-R1: Enhancing Large Language Model Agents to Manage and Utilize Memories via Reinforcement Learning**](https://arxiv.org/pdf/2508.19828). In arXiv 2025. [[Paper]](https://arxiv.org/pdf/2508.19828)
 - Shuzhou Yuan, William LaCroix, Hardik Ghoshal, **Ercong Nie**, Michael Färber. [**CoDAE: Adapting Large Language Models for Education via Chain-of-Thought Data Augmentation**](https://arxiv.org/pdf/2508.08386). In arXiv 2025. [[Paper]](https://arxiv.org/pdf/2508.08386)
 - Shuzhou Yuan*, **Ercong Nie**\*, Lukas Kouba, Ashish Yashwanth Kangen, Helmut Schmid, Hinrich Schütze, Michael Farber. [**LLM in the Loop: Creating the ParaDeHate Dataset for Hate Speech Detoxification**](https://arxiv.org/pdf/2506.01484). In arXiv 2025. [[Paper]](https://arxiv.org/pdf/2506.01484)
 - Yongkang Liu, Xingle Xu, **Ercong Nie**, Zijing Wang, Shi Feng, Daling Wang, Qian Li, Hinrich Schütze. [**Look Within or Look Beyond? A Theoretical Comparison Between Parameter-Efficient and Full Fine-Tuning**](https://arxiv.org/pdf/2505.22355). In arXiv 2025. [[Paper]](https://arxiv.org/pdf/2505.22355)
