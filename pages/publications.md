@@ -25,6 +25,7 @@ permalink: /publications/
 - Mingyang Wang, Heike Adel, Lukas Lange, Yihong Liu, **Ercong Nie**, Jannik Strötgen, Hinrich Schütze. [**Lost in Multilinguality: Dissecting Cross-lingual Factual Inconsistency in Transformer Language Models**](https://aclanthology.org/2025.acl-long.253.pdf. In ACL 2025 [[Paper]](https://aclanthology.org/2025.acl-long.253.pdf)
 - Linyang He\*, **Ercong Nie**\*, Sukru Samet Dindar, Arsalan Firoozi, Adrian Florea, Van Nguyen, Corentin Puffay, Riki Shimizu, Haotian Ye, Jonathan Brennan, Helmut Schmid, Hinrich Schütze, Nima Mesgarani. [**XCOMPS: A Multilingual Benchmark of Conceptual Minimal Pairs**](https://arxiv.org/pdf/2502.19737). In ACL 2025 Workshop SIGTYP. [[Paper]](https://arxiv.org/pdf/2502.19737)
 - Lovisa Hagström, **Ercong Nie**, Ruben Halifa, Helmut Schmid, Richard Johansson, Alexander Junge. [**Language Model Re-rankers are Steered by Lexical Similarities**](https://arxiv.org/pdf/2502.17036). In ACL Workshop FEVER. [[Paper]](https://arxiv.org/pdf/2502.17036)
+- Wenhan Feng, Anqi Zhu, Thanh Phuoc Ho, **Ercong Nie**, Beiduo Chen, Shijia Zhou, Hao Su, Liang Emlyn Yang. **Generative agent-based modeling for climate adaptation policy: A flood resilience perspective**. In ESSA SSC 2025. [In Publication]
 - Shuzhou Yuan\*, **Ercong Nie**\*, Bolei Ma, Michael Färber. [**Why lift so heavy? slimming large language models by cutting off the layers**](https://arxiv.org/pdf/2402.11700). In IJCNN 2025. [[Paper]](https://arxiv.org/pdf/2402.11700)
 
 ### 2024
