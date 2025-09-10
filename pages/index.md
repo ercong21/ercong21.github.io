@@ -25,17 +25,18 @@ During my bachelor study, I spent one exchange semester at [University of Heidel
 
 #### Research Interest
 I have a broad research interest in the field of *Natural Language Processing* (NLP), especially in multilingual NLP, efficient methods for NLP, and human-inspired NLP. <br>
-* **Multilingual NLP:** multilinguality of LLMs ([Nie et al., 2024](https://arxiv.org/pdf/2402.18397.pdf)), cross-lingual transfer ([Nie et al., 2023a](https://doi.org/10.18653/v1/2023.findings-acl.528), [Li et al., 2023b](https://openreview.net/pdf?id=KLPLCXo4aD), [Ma et al., 2024](https://aclanthology.org/2024.eacl-long.164v2.pdf)), historical language processing ([Nie et al., 2023b](https://aclanthology.org/2023.alp-1.8/)).
+* **Multilingual NLP:** multilinguality of LLMs ([Nie et al., 2024](https://arxiv.org/pdf/2402.18397.pdf)), cross-lingual transfer ([Nie et al., 2023a](https://doi.org/10.18653/v1/2023.findings-acl.528), [Li et al., 2023b](https://openreview.net/pdf?id=KLPLCXo4aD), [Ma et al., 2024](https://aclanthology.org/2024.eacl-long.164v2.pdf), [Nie et al., 2025a](https://aclanthology.org/2025.acl-long.798.pdf)), historical language processing ([Nie et al., 2023b](https://aclanthology.org/2023.alp-1.8/)).
+* **Human-inspired NLP:** NLP inspired by human language processing ([Zhang et al., 2023](https://aclanthology.org/2023.conll-babylm.13/), [Yan et al., 2025]https://arxiv.org/pdf/2508.19828)), computational neurolinguistics ([He et al., 2024](https://aclanthology.org/2024.lrec-main.402.pdf), ([He et al., 2024a](https://aclanthology.org/2025.findings-acl.986.pdf)], [b](https://aclanthology.org/2025.sigtyp-1.9.pdf)), mechanistic interpretability ([Nie et al., 2025b](https://arxiv.org/pdf/2505.16538)).
 * **Efficient methods for NLP:**  prompt-based learning([Nie et al., 2023c](https://aclanthology.org/2023.findings-emnlp.1056/), [Ma et al., 2023](https://aclanthology.org/2023.konvens-main.1), [Li et al., 2023a](https://aclanthology.org/2023.banglalp-1.15.pdf)), low-resource learning ([Liu et al., 2024](https://www.google.com)), parameter-efficient fine-tuning ([Yuan et al., 2024a](https://arxiv.org/pdf/2402.11709.pdf), [Yuan et al., 2024b](https://arxiv.org/pdf/2402.11700.pdf)).
-* **Human-inspired NLP:** NLP inspired by human language processing ([Zhang et al., 2023](https://aclanthology.org/2023.conll-babylm.13/), [Chen et al., 2024](https://aclanthology.org/2024.semeval2024-1.243)), computational neurolinguistics ([He et al., 2024](https://aclanthology.org/2024.lrec-main.402.pdf)).
 
 <p>
         <strong>Feel free to reach out if you're interested in topics related to
-        <span style="color: blue;">NLP</span> and 
-        <span style="color: green;">LLM</span>, including 
+        <span style="color: blue;">NLP</span>, 
+        <span style="color: green;">LLM</span> and
+        <span style="color: yellow;">Agentic AI</span>, including 
         <span style="color: red;">multilinguality</span>, 
         <span style="color: purple;">interpretability</span>, 
-        <span style="color: orange;">retrieval-augmented methods</span>, 
+        <span style="color: orange;">retrieval-/memory-augmented methods</span>, 
         <span style="color: teal;">human-inspired NLP</span>, 
         and their intersections with 
         <span style="color: coral;">digital humanities</span> and 
