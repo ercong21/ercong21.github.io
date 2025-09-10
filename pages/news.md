@@ -5,6 +5,8 @@ description: Ercong Nie's full news
 comments: false
 permalink: /news/
 ---
+- **09/2025** Invited talk on recent advances of LLMs at the [annual meeting of SJTU German Alumni Association](https://mp.weixin.qq.com/s/h5jD-CeoqbgPcpRA-q8B3g).
+- **09/2025** Will attend the [MCML-LAMARR Workshop](https://mcml.ai/events/2025-09-24-mcml-lamarr-workshop/) on NLP and GenAI.
 - **08/2025** Two paper accepted to EMNLP 2025 Findings. See you in Suzhou, China!
 - **07/2025** Our [multilingual interpretability work](https://aclanthology.org/2025.acl-long.253.pdf) was awarded SAC Highlights at ACL 2025!
 - **06/2025** Presenting recent work on [interpretability of language confusion](../files/language_confusion.pdf) at CIS PhD seminar.
