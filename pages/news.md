@@ -6,10 +6,10 @@ comments: false
 permalink: /news/
 ---
 - **09/2025** Invited talk on recent advances of LLMs at the [annual meeting of SJTU German Alumni Association](https://mp.weixin.qq.com/s/h5jD-CeoqbgPcpRA-q8B3g).
-- **09/2025** Will attend the [MCML-LAMARR Workshop](https://mcml.ai/events/2025-09-24-mcml-lamarr-workshop/) on NLP and GenAI.
+- **09/2025** Attended the [MCML-LAMARR NLP Workshop](https://mcml.ai/events/2025-09-24-mcml-lamarr-workshop/) and gave a [presentation](../files/language_confusion.pdf)) on interpretability of language confusion in LLMs. [[Schedule](https://events.lamarr-institute.org/event/262/timetable/#20250924)].
 - **08/2025** Two paper accepted to EMNLP 2025 Findings. See you in Suzhou, China!
 - **07/2025** Our [multilingual interpretability work](https://aclanthology.org/2025.acl-long.253.pdf) was awarded SAC Highlights at ACL 2025!
-- **06/2025** Presenting recent work on [interpretability of language confusion](../files/language_confusion.pdf) at CIS PhD seminar.
+<!-- - **06/2025** Presenting recent work on [interpretability of language confusion](../files/language_confusion.pdf) at CIS PhD seminar. -->
 - **06/2025** Invited [talk](../files/CSSA_Munich_talk.pdf) (zh) on interdisciplinary NLP research at CSSA Munich.
 - **06/2025** Two papers accepted to ACL 2025 Workshops ([SIGTYP](https://sigtyp.github.io/workshop.html) and [FEVER](https://fever.ai/workshop.html))
 - **05/2025** Three papers accepted to ACL 2025 (one oral, one poster, one findings).
