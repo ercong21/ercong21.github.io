@@ -16,7 +16,7 @@ permalink: /publications/
 
 
 ### 2025
-- Shuzhou Yuan*, **Ercong Nie**\*, Lukas Kouba, Ashish Yashwanth Kangen, Helmut Schmid, Hinrich Schütze, Michael Farber. [**LLM in the Loop: Creating the ParaDeHate Dataset for Hate Speech Detoxification**](https://arxiv.org/pdf/2506.01484). In IJCNLP-AACL 2025 Findings. [[Paper]](https://arxiv.org/pdf/2506.01484)
+- ![IJCNLP-AACL’25](https://img.shields.io/badge/IJCNLP--AACL-2025-blue) Shuzhou Yuan*, **Ercong Nie**\*, Lukas Kouba, Ashish Yashwanth Kangen, Helmut Schmid, Hinrich Schütze, Michael Farber. [**LLM in the Loop: Creating the ParaDeHate Dataset for Hate Speech Detoxification**](https://arxiv.org/pdf/2506.01484). In IJCNLP-AACL 2025 Findings. [[Paper]](https://arxiv.org/pdf/2506.01484)
 - **Ercong Nie**, Shuzhou Yuan, Bolei Ma, Helmut Schmid, Michael Färber, Frauke Kreuter, Hinrich Schütze. [**Decomposed prompting: Unveiling multilingual linguistic structure knowledge in english-centric large language models**](https://arxiv.org/pdf/2402.18397). In IJCNLP-AACL 2025 Findings. [[Paper]](https://arxiv.org/pdf/2402.18397)
 - **Ercong Nie**, Helmut Schmid, Hinrich Schütze. [**Mechanistic Understanding and Mitigation of Language Confusion in English-Centric Large Language Models**](https://arxiv.org/pdf/2505.16538). In EMNLP 2025 Findings. [[Paper]](https://arxiv.org/pdf/2505.16538), [[Code]](https://github.com/ercong21/lang_confusion)
 - Yihong Liu, Mingyang Wang, Amir Hossein Kargaran, Felicia Körner, **Ercong Nie**, Barbara Plank, François Yvon, Hinrich Schütze. [**Tracing Multilingual Factual Knowledge Acquisition in Pretraining**](https://arxiv.org/pdf/2505.14824). In EMNLP 2025 Findings. [[Paper]](https://arxiv.org/pdf/2505.14824)
