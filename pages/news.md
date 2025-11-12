@@ -5,6 +5,7 @@ description: Ercong Nie's full news
 comments: false
 permalink: /news/
 ---
+- **11/2025** Visited [HUST](https://mp.weixin.qq.com/s/JHlxYl1HNSIMabpnWMT14Q), [SJTU](https://sfl.sjtu.edu.cn/Data/View/9711), and [Xenon Automation](https://mp.weixin.qq.com/s/6Ed_W0k1lLyDAtRtw46P7g) with the ScaDS.AI delegation led by Prof. Michael Färber.
 - **11/2025** Successful organization of the [BoF on MechInterp](https://2025.emnlp.org/program/bof/) at EMNLP 2025 in Suzhou.
 - **10/2025** Two papers accepted to [IJCNLP-AACL 2025](https://2025.aaclnet.org/) Findings!
 - **10/2025** 🎓 Thrilled to pass my PhD defense with *summa cum laude*! [[Slides](../files/defense.pdf)]
