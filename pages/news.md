@@ -5,6 +5,7 @@ description: Ercong Nie's full news
 comments: false
 permalink: /news/
 ---
+- **11/2025** Successful organization of the [BoF on MechInterp](https://2025.emnlp.org/program/bof/) at EMNLP 2025 in Suzhou.
 - **10/2025** Two papers accepted to [IJCNLP-AACL 2025](https://2025.aaclnet.org/) Findings!
 - **10/2025** 🎓 Thrilled to pass my PhD defense with *summa cum laude*! [[Slides](../files/defense.pdf)]
 - **09/2025** Invited [talk](../files/SJTU_Dresden_2025.pdf) on recent advances of LLMs at the [annual meeting of SJTU German Alumni Association](https://mp.weixin.qq.com/s/h5jD-CeoqbgPcpRA-q8B3g). [[Slides](../files/SJTU_Dresden_2025.pdf)]
