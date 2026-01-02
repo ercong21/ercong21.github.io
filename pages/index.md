@@ -11,7 +11,7 @@ permalink: /
 [Ludwig Maximilians University of Munich (LMU Munich)](https://www.lmu.de/en/),  
 [Munich Center for Machine Learning (MCML)](https://mcml.ai/)<br>
 
-Email: lastname@cis.lmu.de
+Email: ecnie97 at gmail.com
 
 #### About Me
 
