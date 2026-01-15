@@ -16,7 +16,7 @@ permalink: /publications/
 
 ### Journal
 - ![IF-15.5](https://img.shields.io/badge/IF-15.5-red) Minghan Li, **Ercong Nie**, Huiping Huang, Xinxuan Lv, Guodong Zhou. **Dual-Layer Prompt Ensembles: Leveraging System- and User-Level Instructions for Robust LLM-Based Query Expansion and Rank Fusion**. Information Fusion.
-- ![IF-2.0](https://img.shields.io/badge/IF-15.5-red) Mingyang He*, **Ercong Nie**\*, Jonathan Brennan, Helmut Schmid, Hinrich Schütze, Nima Mesgarani. **Investigating Multilingual Conceptual Understanding of Large Language Models with Minimal Pair Probing**. ACM Transactions on Asian and Low-Resource Language Information Processing (TALLIP).
+- ![IF-2.0](https://img.shields.io/badge/IF-2.0-red) Mingyang He*, **Ercong Nie**\*, Jonathan Brennan, Helmut Schmid, Hinrich Schütze, Nima Mesgarani. **Investigating Multilingual Conceptual Understanding of Large Language Models with Minimal Pair Probing**. ACM Transactions on Asian and Low-Resource Language Information Processing (TALLIP).
 
 ### Conference
 - ![IJCNLP-AACL’25](https://img.shields.io/badge/IJCNLP--AACL-2025-blue) Shuzhou Yuan*, **Ercong Nie**\*, Lukas Kouba, Ashish Yashwanth Kangen, Helmut Schmid, Hinrich Schütze, Michael Farber. [**LLM in the Loop: Creating the ParaDeHate Dataset for Hate Speech Detoxification**](https://arxiv.org/pdf/2506.01484). In IJCNLP-AACL 2025 Findings. [[Paper]](https://arxiv.org/pdf/2506.01484)
