@@ -14,6 +14,8 @@ permalink: /publications/
 - Yongkang Liu, Xingle Xu, **Ercong Nie**, Zijing Wang, Shi Feng, Daling Wang, Qian Li, Hinrich Schütze. [**Look Within or Look Beyond? A Theoretical Comparison Between Parameter-Efficient and Full Fine-Tuning**](https://arxiv.org/pdf/2505.22355). In arXiv 2025. [[Paper]](https://arxiv.org/pdf/2505.22355)
 - Chunkit Chan, Yauwai Yim, Hongchuan Zeng, Zhiying Zou, Xinyuan Cheng, Zhifan Sun, Zheye Deng, Kawai Chung, Yuzhuo Ao, Yixiang Fan, Cheng Jiayang, **Ercong Nie**, Ginny Y Wong, Helmut Schmid, Hinrich Schütze, Simon See, Yangqiu Song. [**XToM: Exploring the Multilingual Theory of Mind for Large Language Models**](https://arxiv.org/pdf/2506.02461). In arXiv 2025. [[Paper]](https://arxiv.org/pdf/2506.02461)
 
+### Journal
+- - ![IF-15.5](https://img.shields.io/badge/IF-15.5-red) Shuzhou Yuan*, **Ercong Nie**\*, Lukas Kouba, Ashish Yashwanth Kangen, Helmut Schmid, Hinrich Schütze, Michael Farber. [**LLM in the Loop: Creating the ParaDeHate Dataset for Hate Speech Detoxification**](https://arxiv.org/pdf/2506.01484). In IJCNLP-AACL 2025 Findings. [[Paper]](https://arxiv.org/pdf/2506.01484)
 
 ### Conference
 - ![IJCNLP-AACL’25](https://img.shields.io/badge/IJCNLP--AACL-2025-blue) Shuzhou Yuan*, **Ercong Nie**\*, Lukas Kouba, Ashish Yashwanth Kangen, Helmut Schmid, Hinrich Schütze, Michael Farber. [**LLM in the Loop: Creating the ParaDeHate Dataset for Hate Speech Detoxification**](https://arxiv.org/pdf/2506.01484). In IJCNLP-AACL 2025 Findings. [[Paper]](https://arxiv.org/pdf/2506.01484)
