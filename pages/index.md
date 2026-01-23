@@ -45,10 +45,10 @@ I have a broad research interest in the field of *Natural Language Processing* (
     </p>
 
 #### Selected Publications
-- ![EMNLP’25](https://img.shields.io/badge/EMNLP-2025-blue) **Ercong Nie**, Helmut Schmid, Hinrich Schütze. **Mechanistic Understanding and Mitigation of Language Confusion in English-Centric Large Language Models**. In EMNLP 2025 Findings. [[Paper]](https://arxiv.org/pdf/2505.16538)
+- ![EMNLP’25](https://img.shields.io/badge/EMNLP-2025-blue) **Ercong Nie**, Helmut Schmid, Hinrich Schütze. **Mechanistic Understanding and Mitigation of Language Confusion in English-Centric Large Language Models**. In EMNLP 2025 Findings. [[Paper]](https://aclanthology.org/2025.findings-emnlp.37.pdf)
 - ![ACL’25](https://img.shields.io/badge/ACL-2025-blue) **Ercong Nie**\*, Bo Shao\*, Zifeng Ding, Mingyang Wang, Helmut Schmid, Hinrich Schütze. **Bmike-53: Investigating cross-lingual knowledge editing with in-context learning**. In ACL 2025 **(oral)**. [[Paper]](https://aclanthology.org/2025.acl-long.798.pdf)
 - ![ACL’25](https://img.shields.io/badge/ACL-2025-blue) Linyang He, **Ercong Nie**, Helmut Schmid, Hinrich Schütze, Nima Mesgarani, Jonathan Brennan. **Large Language Models as Neurolinguistic Subjects: Identifying Internal Representations for Form and Meaning**. In ACL Findings 2025. [[Paper]](https://aclanthology.org/2025.findings-acl.986.pdf)
-- ![IJCNLP-AACL’25](https://img.shields.io/badge/IJCNLP--AACL-2025-blue) **Ercong Nie**, Shuzhou Yuan, Bolei Ma, Helmut Schmid, Michael Färber, Frauke Kreuter, Hinrich Schütze. **Decomposed prompting: Unveiling multilingual linguistic structure knowledge in english-centric large language models**. In IJCNLP-AACL 2025 Findings. [[Paper]](https://arxiv.org/pdf/2402.18397)
+- ![IJCNLP-AACL’25](https://img.shields.io/badge/IJCNLP--AACL-2025-blue) **Ercong Nie**, Shuzhou Yuan, Bolei Ma, Helmut Schmid, Michael Färber, Frauke Kreuter, Hinrich Schütze. **Decomposed prompting: Unveiling multilingual linguistic structure knowledge in english-centric large language models**. In IJCNLP-AACL 2025 Findings. [[Paper]](https://aclanthology.org/2025.findings-ijcnlp.38/)
 - ![IJCNN’25](https://img.shields.io/badge/IJCNN-2025-blue) Shuzhou Yuan, **Ercong Nie**, Bolei Ma, Michael Färber. **Why lift so heavy? Slimming large language models by cutting off the layers**. In IJCNN 2025. [[paper]](https://ieeexplore.ieee.org/document/1122853)
 - ![ACL’24](https://img.shields.io/badge/ACL-2024-blue) Shuzhou Yuan, **Ercong Nie**, Michael Färber, Helmut Schmid, Hinrich Schuetze. **GNNavi: Navigating the Information Flow in Large Language Models by Graph Neural Network**. In ACL Findings 2024. [[Paper]](https://aclanthology.org/2024.findings-acl.237.pdf), [[Code]](https://github.com/ShuzhouYuan/GNNavi)
 - ![ECML-PKDD’24](https://img.shields.io/badge/ECML--PKDD-2024-blue) Yongkang Liu\*, **Ercong Nie**\*, Shi Feng, Zheng Hua, Zifeng Ding, Daling Wang, Yifei Zhang, Hinrich Schütze. **A Unified Data Augmentation Framework for Low-Resource Multi-domain Dialogue Generation**. In ECML-PKDD 2024. [[Paper]](https://link.springer.com/chapter/10.1007/978-3-031-70344-7_10) 
@@ -68,10 +68,12 @@ See more in [my publications](publications/).
 * **2023:** [EMNLP](https://2023.emnlp.org/), [First Workshop on Bangla Language Processing](https://blp-workshop.github.io/organizers) @ EMNLP, [Workshop on Instruction Tuning and Instruction Following](https://an-instructive-workshop.github.io/organization/) @ NeurIPS, [CoNLL-CMCL BabyLM Challenge](https://babylm.github.io/) @ EMNLP
 
 ###### Journal Reviewer
-* IEEE Transactions on Neural Networks and Learning Systems [(TNNLS)](https://cis.ieee.org/publications/t-neural-networks-and-learning-systems)
-* ACM Transactions on Intelligent Systems and Technology [(TIST)](https://dl.acm.org/journal/tist)
-* Royal Society Open Science [(RSOS)](https://royalsocietypublishing.org/journal/rsos)
-* ACM Transactions on Asian and Low-Resource Language Information Processing [(TALLIP)](https://dl.acm.org/journal/TALLIP)
+* IEEE Transactions on Neural Networks and Learning Systems [(TNNLS)](https://cis.ieee.org/publications/t-neural-networks-and-learning-systems) SCI. IF: 8.9.
+* ACM Transactions on Intelligent Systems and Technology [(TIST)](https://dl.acm.org/journal/tist) SCI. IF: 6.6.
+* Royal Society Open Science [(RSOS)](https://royalsocietypublishing.org/journal/rsos) SCI. IF: 2.9.
+* ACM Transactions on Asian and Low-Resource Language Information Processing [(TALLIP)](https://dl.acm.org/journal/TALLIP) SCI. IF: 2.0.
+* Acta Psychologica. SSCI. IF: 2.7.
+* Journal of Computational Social Science. SCI. IF: 2.3.
 
 ###### Community Members
 * Committee member of [NICE](https://nice-nlp.github.io/), an NLP Academic Exchange Platform.
