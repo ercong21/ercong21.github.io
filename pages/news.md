@@ -5,6 +5,7 @@ description: Ercong Nie's full news
 comments: false
 permalink: /news/
 ---
+- **01/2025** One paper accepted to LREC 2026.
 - **01/2025** One paper accepted to Information Fusion (IF 15.5).
 - **12/2025** One paper accepted to ACM Transactions on Asian and Low-Resource Language Information Processing (TALLIP, IF 2.0).
 - **11/2025** Invited [talk](../files/multilingual_interpretability.pdf) on multilingual interpretability of LLMs at [Grammar and Cognition (GraC) Lab](https://www.upf.edu/web/grac) of Universitat Pompeu Fabra (Barcelona, Spain).
