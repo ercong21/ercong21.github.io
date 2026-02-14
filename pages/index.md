@@ -63,9 +63,10 @@ See more in [my publications](publications/).
 #### Academic Services
 
 ###### Conference Reviewer
-* **2025:** [ACL ARR](https://aclrollingreview.org/people) (ACL, EMNLP, NAACL), [COLING](https://coling2025.org/), [IJCNN](https://2025.ijcnn.org/), [Second Workshop on Ancient Language Processing](https://www.ancientnlp.com/alp2025/organization/) @ NAACL, [The 19th Linguistic Annotation Workshop](https://sigann.github.io/LAW-XIX-2025/) @ ACL
-* **2024:** [ACL ARR](https://aclrollingreview.org/people) (ACL, EMNLP, NAACL, EACL), [LREC-COLING](https://lrec-coling-2024.org/), [SemEval](https://semeval.github.io/SemEval2024/)
-* **2023:** [EMNLP](https://2023.emnlp.org/), [First Workshop on Bangla Language Processing](https://blp-workshop.github.io/organizers) @ EMNLP, [Workshop on Instruction Tuning and Instruction Following](https://an-instructive-workshop.github.io/organization/) @ NeurIPS, [CoNLL-CMCL BabyLM Challenge](https://babylm.github.io/) @ EMNLP
+* **2026:** [ACL ARR](https://aclrollingreview.org/people) (ACL), [ICML](https://icml.cc/Conferences/2026).
+* **2025:** [ACL ARR](https://aclrollingreview.org/people) (ACL, EMNLP, NAACL), [COLING](https://coling2025.org/), [IJCNN](https://2025.ijcnn.org/), [Second Workshop on Ancient Language Processing](https://www.ancientnlp.com/alp2025/organization/) @ NAACL, [The 19th Linguistic Annotation Workshop](https://sigann.github.io/LAW-XIX-2025/) @ ACL.
+* **2024:** [ACL ARR](https://aclrollingreview.org/people) (ACL, EMNLP, NAACL, EACL), [LREC-COLING](https://lrec-coling-2024.org/), [SemEval](https://semeval.github.io/SemEval2024/).
+* **2023:** [EMNLP](https://2023.emnlp.org/), [First Workshop on Bangla Language Processing](https://blp-workshop.github.io/organizers) @ EMNLP, [Workshop on Instruction Tuning and Instruction Following](https://an-instructive-workshop.github.io/organization/) @ NeurIPS, [CoNLL-CMCL BabyLM Challenge](https://babylm.github.io/) @ EMNLP.
 
 ###### Journal Reviewer
 * IEEE Transactions on Neural Networks and Learning Systems [(TNNLS)](https://cis.ieee.org/publications/t-neural-networks-and-learning-systems) SCI. IF: 8.9.
@@ -76,6 +77,7 @@ See more in [my publications](publications/).
 * Journal of Computational Social Science. SCI. IF: 2.3.
 
 ###### Community Members
+* Co-organizer of ICLR 2026 Workshop [MemAgents](https://sites.google.com/view/memagent-iclr26/) on memory for LLM-based agent systems.
 * Committee member of [NICE](https://nice-nlp.github.io/), an NLP and AI Academic Exchange Platform.
 * Member of [AI Grid](https://ai-grid.org/en/), a German AI community connecting young AI scientists funded by the German Federal Ministry of Education and Research.
 * Junior member of Munich Center for Machine Learning [(MCML)](https://mcml.ai/#about), one of six German national AI Competence Centers.
