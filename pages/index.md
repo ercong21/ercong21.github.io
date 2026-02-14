@@ -76,7 +76,7 @@ See more in [my publications](publications/).
 * Journal of Computational Social Science. SCI. IF: 2.3.
 
 ###### Community Members
-* Committee member of [NICE](https://nice-nlp.github.io/), an NLP Academic Exchange Platform.
+* Committee member of [NICE](https://nice-nlp.github.io/), an NLP and AI Academic Exchange Platform.
 * Member of [AI Grid](https://ai-grid.org/en/), a German AI community connecting young AI scientists funded by the German Federal Ministry of Education and Research.
 * Junior member of Munich Center for Machine Learning [(MCML)](https://mcml.ai/#about), one of six German national AI Competence Centers.
 * Member of NLP/CL communities such as [ACL](https://www.aclweb.org/portal/), [GSCL](https://gscl.org/en/) (German Society for Computational Linguistics and Language Technology)
