@@ -60,24 +60,31 @@ I have a broad research interest in the field of *Natural Language Processing* (
 (\* denotes equal contribution)  
 See more in [my publications](publications/).
 
-#### Academic Services
+#### Academic Roles
 
-###### Conference Reviewer
-* **2026:** [ACL ARR](https://aclrollingreview.org/people) (ACL), [ICML](https://icml.cc/Conferences/2026).
+###### Reviewer
+I regularly review for major NLP conferences and leading AI/ML venues, as well as SCI/SSCI-indexed international journals in NLP, AI, and related interdisciplinary fields.
+* **Conferences**: ICML, ACL, EMNLP, NAACL, COLING, EACL, LREC, IJCNN, etc.
+* **Journals**: IEEE TNNLS, ACM TIST, ACM TALLIP, Royal Society Open Science, Acta Psychologica, Journal of Computational Social Science.
+<!-- * **2026:** [ACL ARR](https://aclrollingreview.org/people) (ACL), [ICML](https://icml.cc/Conferences/2026).
 * **2025:** [ACL ARR](https://aclrollingreview.org/people) (ACL, EMNLP, NAACL), [COLING](https://coling2025.org/), [IJCNN](https://2025.ijcnn.org/), [Second Workshop on Ancient Language Processing](https://www.ancientnlp.com/alp2025/organization/) @ NAACL, [The 19th Linguistic Annotation Workshop](https://sigann.github.io/LAW-XIX-2025/) @ ACL.
 * **2024:** [ACL ARR](https://aclrollingreview.org/people) (ACL, EMNLP, NAACL, EACL), [LREC-COLING](https://lrec-coling-2024.org/), [SemEval](https://semeval.github.io/SemEval2024/).
-* **2023:** [EMNLP](https://2023.emnlp.org/), [First Workshop on Bangla Language Processing](https://blp-workshop.github.io/organizers) @ EMNLP, [Workshop on Instruction Tuning and Instruction Following](https://an-instructive-workshop.github.io/organization/) @ NeurIPS, [CoNLL-CMCL BabyLM Challenge](https://babylm.github.io/) @ EMNLP.
+* **2023:** [EMNLP](https://2023.emnlp.org/), [First Workshop on Bangla Language Processing](https://blp-workshop.github.io/organizers) @ EMNLP, [Workshop on Instruction Tuning and Instruction Following](https://an-instructive-workshop.github.io/organization/) @ NeurIPS, [CoNLL-CMCL BabyLM Challenge](https://babylm.github.io/) @ EMNLP. -->
 
-###### Journal Reviewer
+<!-- ###### Journal Reviewer
 * IEEE Transactions on Neural Networks and Learning Systems [(TNNLS)](https://cis.ieee.org/publications/t-neural-networks-and-learning-systems) SCI. IF: 8.9.
 * ACM Transactions on Intelligent Systems and Technology [(TIST)](https://dl.acm.org/journal/tist) SCI. IF: 6.6.
 * Royal Society Open Science [(RSOS)](https://royalsocietypublishing.org/journal/rsos) SCI. IF: 2.9.
 * ACM Transactions on Asian and Low-Resource Language Information Processing [(TALLIP)](https://dl.acm.org/journal/TALLIP) SCI. IF: 2.0.
 * Acta Psychologica. SSCI. IF: 2.7.
-* Journal of Computational Social Science. SCI. IF: 2.3.
+* Journal of Computational Social Science. SCI. IF: 2.3. -->
+
+###### Service Roles
+* **Area Chair (AC)**: ACL 2026
+* **Program Chair**: ICLR 2026 Workshop MemAgents](https://sites.google.com/view/memagent-iclr26/)
 
 ###### Community Members
-* Co-organizer of ICLR 2026 Workshop [MemAgents](https://sites.google.com/view/memagent-iclr26/) on memory for LLM-based agent systems.
+<!-- * Co-organizer of ICLR 2026 Workshop [MemAgents](https://sites.google.com/view/memagent-iclr26/) on memory for LLM-based agent systems. -->
 * Committee member of [NICE](https://nice-nlp.github.io/), an NLP and AI Academic Exchange Platform.
 * Member of [AI Grid](https://ai-grid.org/en/), a German AI community connecting young AI scientists funded by the German Federal Ministry of Education and Research.
 * Junior member of Munich Center for Machine Learning [(MCML)](https://mcml.ai/#about), one of six German national AI Competence Centers.
