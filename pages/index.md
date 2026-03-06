@@ -62,6 +62,10 @@ See more in [my publications](publications/).
 
 #### Academic Roles
 
+###### Service Roles
+* **Area Chair (AC)**: ACL 2026
+* **Program Chair**: ICLR 2026 Workshop [MemAgents](https://sites.google.com/view/memagent-iclr26/)
+
 ###### Reviewer
 I regularly review for major NLP conferences and leading AI/ML venues, as well as SCI/SSCI-indexed international journals in NLP, AI, and related interdisciplinary fields.
 * **Conferences**: ICML, ACL, EMNLP, NAACL, COLING, EACL, LREC, IJCNN, etc.
@@ -79,10 +83,6 @@ I regularly review for major NLP conferences and leading AI/ML venues, as well a
 * ACM Transactions on Asian and Low-Resource Language Information Processing [(TALLIP)](https://dl.acm.org/journal/TALLIP) SCI. IF: 2.0.
 * Acta Psychologica. SSCI. IF: 2.7.
 * Journal of Computational Social Science. SCI. IF: 2.3. -->
-
-###### Service Roles
-* **Area Chair (AC)**: ACL 2026
-* **Program Chair**: ICLR 2026 Workshop [MemAgents](https://sites.google.com/view/memagent-iclr26/)
 
 ###### Community Members
 <!-- * Co-organizer of ICLR 2026 Workshop [MemAgents](https://sites.google.com/view/memagent-iclr26/) on memory for LLM-based agent systems. -->
