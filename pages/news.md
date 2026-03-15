@@ -5,9 +5,10 @@ description: Ercong Nie's full news
 comments: false
 permalink: /news/
 ---
-- **01/2025** One paper accepted to LREC 2026.
-- **01/2025** One paper accepted to Information Fusion (IF 15.5).
-- **12/2025** One paper accepted to ACM Transactions on Asian and Low-Resource Language Information Processing (TALLIP, IF 2.0).
+- **03/2026** Invited to talk about OpenClaw🦞 at Wuhan AI Community. [[Slides](../files/OpenClaw.pdf)]
+- **02/2026** One paper accepted to LREC 2026.
+- **01/2026** One paper accepted to Information Fusion (IF 15.5).
+- **12/2026** One paper accepted to ACM Transactions on Asian and Low-Resource Language Information Processing (TALLIP, IF 2.0).
 - **11/2025** Invited [talk](../files/multilingual_interpretability.pdf) on multilingual interpretability of LLMs at [Grammar and Cognition (GraC) Lab](https://www.upf.edu/web/grac) of Universitat Pompeu Fabra (Barcelona, Spain).
 - **11/2025** Visited [HUST](https://mp.weixin.qq.com/s/JHlxYl1HNSIMabpnWMT14Q), [SJTU](https://sfl.sjtu.edu.cn/Data/View/9711), and [Xenon Automation](https://mp.weixin.qq.com/s/6Ed_W0k1lLyDAtRtw46P7g) with the ScaDS.AI delegation led by Prof. Michael Färber.
 - **11/2025** Successful organization of the [BoF on MechInterp](https://2025.emnlp.org/program/bof/) at EMNLP 2025 in Suzhou.
