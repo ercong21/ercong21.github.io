@@ -57,8 +57,8 @@ permalink: /publications/
 1. Jürg Fleischer, Lena Haden, Martin Klotz, **Ercong Nie**, Helmut Schmid, Gohar Schnelle, Lilian Slawski, and Lars Erik Zeige. [**Korpus Zur Erforschung Von Registerphänomenen Bei Martin Luther (regil)**](https://doi.org/10.5281/zenodo.14702151). Zenodo 2025.
 
 ### Theses
-2. ![Ph.D.](https://img.shields.io/badge/phd-orange) **Ercong Nie**. [**Efficient and human-inspired natural language processing methods for multilingual and low-resource settings**](https://edoc.ub.uni-muenchen.de/36162/). Dissertation, LMU München. 2025. [[Paper]](https://edoc.ub.uni-muenchen.de/36162/1/Nie_Ercong.pdf)
-1. ![Master](https://img.shields.io/badge/master-orange) **Ercong Nie**. [**Zero-Shot Learning on Low-Resource Languages by Cross-Lingual Retrieval**](https://www.cip.ifi.lmu.de/~nie/Files/Master_Thesis_Nie.pdf). Master Thesis, LMU München. 2022.
+2. ![Ph.D.](https://img.shields.io/badge/PhD-green) **Ercong Nie**. [**Efficient and human-inspired natural language processing methods for multilingual and low-resource settings**](https://edoc.ub.uni-muenchen.de/36162/). Dissertation, LMU München. 2025. [[Paper]](https://edoc.ub.uni-muenchen.de/36162/1/Nie_Ercong.pdf)
+1. ![Master](https://img.shields.io/badge/Master-green) **Ercong Nie**. [**Zero-Shot Learning on Low-Resource Languages by Cross-Lingual Retrieval**](https://www.cip.ifi.lmu.de/~nie/Files/Master_Thesis_Nie.pdf). Master Thesis, LMU München. 2022.
 
 
 (\* denotes equal contribution, &dagger; denotes corresponding author.)
