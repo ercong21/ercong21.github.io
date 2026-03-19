@@ -13,17 +13,41 @@ permalink: /
 
 Email: ecnie97 at gmail.com
 
-#### About Me
+#### About me
 
-* Hi, I am Ercong, a third-year PhD student at Center for Information and Language Processing ([CIS](https://www.cis.lmu.de/)), [LMU Munich](https://www.lmu.de/en/index.html).
-* I am supervised by [PD. Dr. Helmut Schmid](https://www.cis.uni-muenchen.de/~schmid/). I am also part of the [Schütze Lab](https://schuetze.cis.lmu.de/) led by [Prof. Hinrich Schütze](https://schuetze.cis.lmu.de/about/), and an affiliated doctoral researcher of Munich Center for Machine Learning ([MCML](https://mcml.ai/)).
-* I obtained my M.Sc. degree in computational linguistics and informatics (computer science) at 
-[LMU Munich](https://www.lmu.de/en/index.html). Prior to LMU, I was an undergraduate at Shanghai Jiao Tong University ([SJTU](https://sfl.sjtu.edu.cn/En)),
-majoring in German Studies and minoring in Finance. 
-During my bachelor study, I spent one exchange semester at [University of Heidelberg](https://www.uni-heidelberg.de/en) in *Comparative German Studies*.
+* Hi, I am Ercong, a PhD in Natural Language Processing (NLP) from the Center for Information and Language Processing ([CIS](https://www.cis.lmu.de/)) at [LMU Munich](https://www.lmu.de/en/index.html).
+* I was supervised by [PD Dr. Helmut Schmid](https://www.cis.uni-muenchen.de/~schmid/) and [Prof. Hinrich Schütze](https://schuetze.cis.lmu.de/about/) at the [Schütze Lab](https://schuetze.cis.lmu.de/), and was also affiliated with the Munich Center for Machine Learning ([MCML](https://mcml.ai/)).
+* I received my M.Sc. in Computational Linguistics and Informatics (Computer Science) from [LMU Munich](https://www.lmu.de/en/index.html).
+* Prior to LMU, I completed my undergraduate studies at Shanghai Jiao Tong University ([SJTU](https://sfl.sjtu.edu.cn/En)), majoring in German Studies with a minor in Finance. During my undergraduate studies, I spent one exchange semester at the [University of Heidelberg](https://www.uni-heidelberg.de/en) in *Comparative German Studies*.
 
 
 #### Research Interest
+
+My research lies broadly in *Natural Language Processing* (NLP), with a particular interest in **multilingual large language models**, **interpretability**, and **human-inspired language modeling**. I am especially interested in how LLMs acquire, represent, and deploy linguistic and factual knowledge across languages, how their internal mechanisms relate to cross-lingual generalization and failure, and how such behaviors can be diagnosed and improved through efficient and interpretable methods. <br>
+
+* **<span style="color: #c62828;">Multilingual NLP and multilingual LLMs</span>:** multilinguality of LLMs ([Nie et al., 2025a](https://aclanthology.org/2025.findings-ijcnlp.38.pdf)), cross-lingual transfer ([Nie et al., 2023a](https://doi.org/10.18653/v1/2023.findings-acl.528), [Ma et al., 2024](https://aclanthology.org/2024.eacl-long.164v2.pdf), [Nie et al., 2025a](https://aclanthology.org/2025.acl-long.798.pdf)), and historical language processing ([Nie et al., 2023b](https://aclanthology.org/2023.alp-1.8/)).
+* **<span style="color: #6a1b9a;">Interpretability and internal mechanisms of LLMs</span>:** mechanistic interpretability ([Nie et al., 2025b](https://aclanthology.org/2025.findings-emnlp.37.pdf)), multilingual representation analysis, and model behaviors related to language, knowledge, and reasoning.
+* **<span style="color: #00897b;">Human-inspired NLP</span>:** NLP inspired by human language processing ([Zhang et al., 2023](https://aclanthology.org/2023.conll-babylm.13/), [Yan et al., 2025](https://arxiv.org/pdf/2508.19828)), and computational neurolinguistics ([He et al., 2024](https://aclanthology.org/2024.lrec-main.402.pdf), [He et al., 2025a](https://aclanthology.org/2025.findings-acl.986.pdf), [He et al., 2025b](https://aclanthology.org/2025.sigtyp-1.9.pdf)).
+* **<span style="color: #ef6c00;">Efficient methods for NLP</span>:** prompt-based learning ([Nie et al., 2023c](https://aclanthology.org/2023.findings-emnlp.1056/), [Ma et al., 2023](https://aclanthology.org/2023.konvens-main.1)), low-resource learning ([Liu et al., 2024](https://link.springer.com/chapter/10.1007/978-3-031-70344-7_10)), and parameter-efficient fine-tuning ([Yuan et al., 2024](https://aclanthology.org/2024.findings-acl.237.pdf), [Yuan et al., 2025](https://ieeexplore.ieee.org/document/1122853)).
+
+<p>
+  <strong>
+    Feel free to reach out if you're interested in topics related to
+    <span style="color: #1565c0;">NLP</span>,
+    <span style="color: #2e7d32;">LLMs</span>, and
+    <span style="color: #f9a825;">Agentic AI</span>, including
+    <span style="color: #d32f2f;">multilinguality</span>,
+    <span style="color: #7b1fa2;">interpretability</span>,
+    <span style="color: #ef6c00;">retrieval- and memory-augmented methods</span>,
+    <span style="color: #00897b;">human-inspired NLP</span>,
+    and their intersections with
+    <span style="color: #ff7043;">digital humanities</span>,
+    <span style="color: #c2185b;">social sciences</span>, and
+    <span style="color: #ec407a;">domain-specific applications</span>.
+  </strong>
+</p>
+
+<!-- #### Research Interest (old version)
 I have a broad research interest in the field of *Natural Language Processing* (NLP), especially in multilingual NLP, efficient methods for NLP, and human-inspired NLP. <br>
 * **Multilingual NLP:** multilinguality of LLMs ([Nie et al., 2024](https://arxiv.org/pdf/2402.18397.pdf)), cross-lingual transfer ([Nie et al., 2023a](https://doi.org/10.18653/v1/2023.findings-acl.528), [Li et al., 2023b](https://openreview.net/pdf?id=KLPLCXo4aD), [Ma et al., 2024](https://aclanthology.org/2024.eacl-long.164v2.pdf), [Nie et al., 2025a](https://aclanthology.org/2025.acl-long.798.pdf)), historical language processing ([Nie et al., 2023b](https://aclanthology.org/2023.alp-1.8/)).
 * **Human-inspired NLP:** NLP inspired by human language processing ([Zhang et al., 2023](https://aclanthology.org/2023.conll-babylm.13/), [Yan et al., 2025](https://arxiv.org/pdf/2508.19828)), computational neurolinguistics ([He et al., 2024](https://aclanthology.org/2024.lrec-main.402.pdf), ([He et al., 2024a](https://aclanthology.org/2025.findings-acl.986.pdf), [b](https://aclanthology.org/2025.sigtyp-1.9.pdf)), mechanistic interpretability ([Nie et al., 2025b](https://arxiv.org/pdf/2505.16538)).
@@ -42,7 +66,7 @@ I have a broad research interest in the field of *Natural Language Processing* (
         <span style="color: coral;">digital humanities</span> and 
         <span style="color: crimson;">social sciences</span> or 
         <span style="color: deeppink;">domain-specific applications</span>.</strong> 
-    </p>
+    </p> -->
 
 #### Selected Publications
 - ![ACL’25](https://img.shields.io/badge/ACL-2025-blue) **Ercong Nie**\*, Bo Shao\*, Zifeng Ding, Mingyang Wang, Helmut Schmid, Hinrich Schütze. **Bmike-53: Investigating cross-lingual knowledge editing with in-context learning**. In ACL 2025 **(oral)**. [[Paper]](https://aclanthology.org/2025.acl-long.798.pdf)
