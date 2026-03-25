@@ -92,7 +92,7 @@ See more in [my publications](publications/).
 
 ###### Reviewer
 I regularly review for major NLP conferences and leading AI/ML venues, as well as SCI/SSCI-indexed international journals in NLP, AI, and related interdisciplinary fields.
-* **Conferences**: ICML, ACL, EMNLP, NAACL, COLING, EACL, LREC, IJCNN, etc.
+* **Conferences**: ICML, NeurIPS, ACL, EMNLP, NAACL, COLING, EACL, LREC, IJCNN, etc.
 * **Journals**: IEEE TNNLS, ACM TIST, ACM TALLIP, Royal Society Open Science, Acta Psychologica, Journal of Computational Social Science.
 
 <!-- * **2026:** [ACL ARR](https://aclrollingreview.org/people) (ACL), [ICML](https://icml.cc/Conferences/2026).
