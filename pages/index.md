@@ -87,13 +87,13 @@ See more in [my publications](publications/).
 #### Academic Roles
 
 ###### Service Roles
-* **Area Chair (AC)**: ACL 2026
+* **Area Chair (AC)**: ACL ARR (ACL 2026)
 * **Program Chair**: ICLR 2026 Workshop [MemAgents](https://sites.google.com/view/memagent-iclr26/)
 
 ###### Reviewer
 I regularly review for major NLP conferences and leading AI/ML venues, as well as SCI/SSCI-indexed international journals in NLP, AI, and related interdisciplinary fields.
-* **Conferences**: ICML, ACL, EMNLP, NAACL, COLING, EACL, LREC, IJCNN, etc.
-* **Journals**: IEEE TNNLS, ACM TIST, ACM TALLIP, Royal Society Open Science, Acta Psychologica, Journal of Computational Social Science.
+* **Conferences**: ICML, NeurIPS ACL, EMNLP, NAACL, COLING, EACL, LREC, IJCNN, etc.
+* **Journals**: IEEE TNNLS, ACM TIST, ACM TALLIP, Natural Language Processing, Royal Society Open Science, Acta Psychologica, Journal of Computational Social Science.
 
 <!-- * **2026:** [ACL ARR](https://aclrollingreview.org/people) (ACL), [ICML](https://icml.cc/Conferences/2026).
 * **2025:** [ACL ARR](https://aclrollingreview.org/people) (ACL, EMNLP, NAACL), [COLING](https://coling2025.org/), [IJCNN](https://2025.ijcnn.org/), [Second Workshop on Ancient Language Processing](https://www.ancientnlp.com/alp2025/organization/) @ NAACL, [The 19th Linguistic Annotation Workshop](https://sigann.github.io/LAW-XIX-2025/) @ ACL.
