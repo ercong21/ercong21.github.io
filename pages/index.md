@@ -6,7 +6,7 @@ keywords: Ercong Nie, 聂耳聪
 comments: true
 permalink: /
 ---
-Incoming tenure-track assistant professor at [Shanghai Jiao Tong Unversity (SJTU)](https://en.sjtu.edu.cn/).
+Incoming tenure-track assistant professor at [Shanghai Jiao Tong Unversity (SJTU)](https://en.sjtu.edu.cn/).  
 [Schuetze NLP Lab](https://schuetze.cis.lmu.de/), [Center for Information and Language Processing (CIS)](https://www.cis.lmu.de/),  
 [Ludwig Maximilians University of Munich (LMU Munich)](https://www.lmu.de/en/),  
 [Munich Center for Machine Learning (MCML)](https://mcml.ai/)<br>
@@ -15,7 +15,7 @@ Email: ecnie97 at gmail.com
 
 #### About me
 
-* Hi, I am Ercong, an incoming tenure-track assistant professor in AI and language science at the [School of Foreign Languages](https://sfl.sjtu.edu.cn/en) of [Shanghai Jiao Tong University (SJTU)]((https://en.sjtu.edu.cn/))
+* Hi, I am Ercong, an incoming tenure-track assistant professor in AI and language science at the [School of Foreign Languages](https://sfl.sjtu.edu.cn/en) of [Shanghai Jiao Tong University (SJTU)]((https://en.sjtu.edu.cn/))  
 * I acquired my PhD in Natural Language Processing (NLP) from the Center for Information and Language Processing ([CIS](https://www.cis.lmu.de/)) at [LMU Munich](https://www.lmu.de/en/index.html).
 * I was supervised by [PD Dr. Helmut Schmid](https://www.cis.uni-muenchen.de/~schmid/) and [Prof. Hinrich Schütze](https://schuetze.cis.lmu.de/about/) at the [Schütze Lab](https://schuetze.cis.lmu.de/), and was also affiliated with the Munich Center for Machine Learning ([MCML](https://mcml.ai/)).
 * I received my M.Sc. in Computational Linguistics and Informatics (Computer Science) from [LMU Munich](https://www.lmu.de/en/index.html).
