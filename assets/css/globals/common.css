@@ -176,6 +176,20 @@
     border-bottom: 2px solid #d26911
 }
 
+.site-header-nav-item.language-switch {
+    padding: 5px 10px;
+    border: 1px solid #d8dee4;
+    border-radius: 999px;
+    color: #24292f;
+    background: #fff;
+    font-weight: 600
+}
+
+.site-header-nav-item.language-switch:hover {
+    border-color: #d26911;
+    color: #8a4b0f
+}
+
 .site-header-nav-item+.btn-outline {
     margin-top: -1px;
     margin-left: 20px

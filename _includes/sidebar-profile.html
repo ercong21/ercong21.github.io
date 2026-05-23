@@ -1,4 +1,4 @@
-<h3>Profile</h3>
+<h3>{% if page.lang == 'zh' %}个人信息{% else %}Profile{% endif %}</h3>
 <div class="widget__content">
     <div class="profile__container">
         <img class="profile__avatar" src="/images/prof_pic.jpg"></img>
@@ -7,5 +7,10 @@
         <div>
             <b>Ercong Nie (聂耳聪)</b>
         </div>
+        {% if page.lang == 'zh' %}
+        <div class="profile__title">上海交通大学外国语学院<br>长聘教轨助理教授</div>
+        {% else %}
+        <div class="profile__title">Tenure-track Assistant Professor<br>School of Foreign Languages, SJTU</div>
+        {% endif %}
     </div>
 </div>

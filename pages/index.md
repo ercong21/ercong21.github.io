@@ -5,34 +5,34 @@ description: Ercong Nie's Homepage
 keywords: Ercong Nie, 聂耳聪
 comments: true
 permalink: /
+lang: en
+translation_url: /zh/
 ---
-Incoming tenure-track assistant professor at [Shanghai Jiao Tong Unversity (SJTU)](https://en.sjtu.edu.cn/).  
-[Schuetze NLP Lab](https://schuetze.cis.lmu.de/), [Center for Information and Language Processing (CIS)](https://www.cis.lmu.de/),  
-[Ludwig Maximilians University of Munich (LMU Munich)](https://www.lmu.de/en/),  
-[Munich Center for Machine Learning (MCML)](https://mcml.ai/)<br>
+Tenure-track Assistant Professor (starting soon)  
+[School of Foreign Languages](https://sfl.sjtu.edu.cn/en), [Shanghai Jiao Tong University (SJTU)](https://en.sjtu.edu.cn/)  
+Previously: [Schuetze NLP Lab](https://schuetze.cis.lmu.de/), [Center for Information and Language Processing (CIS)](https://www.cis.lmu.de/),  
+[LMU Munich](https://www.lmu.de/en/), [Munich Center for Machine Learning (MCML)](https://mcml.ai/)<br>
 
 Email: ecnie97 at gmail.com
 
 #### About me
 
-* Hi, I am Ercong, an incoming tenure-track assistant professor in AI and language science at the [School of Foreign Languages](https://sfl.sjtu.edu.cn/en) of [Shanghai Jiao Tong University (SJTU)]((https://en.sjtu.edu.cn/))  
-* I acquired my PhD in Natural Language Processing (NLP) from the Center for Information and Language Processing ([CIS](https://www.cis.lmu.de/)) at [LMU Munich](https://www.lmu.de/en/index.html).
-* I was supervised by [PD Dr. Helmut Schmid](https://www.cis.uni-muenchen.de/~schmid/) and [Prof. Hinrich Schütze](https://schuetze.cis.lmu.de/about/) at the [Schütze Lab](https://schuetze.cis.lmu.de/), and was also affiliated with the Munich Center for Machine Learning ([MCML](https://mcml.ai/)).
-* I received my M.Sc. in Computational Linguistics and Informatics (Computer Science) from [LMU Munich](https://www.lmu.de/en/index.html).
-* Prior to LMU, I completed my undergraduate studies at Shanghai Jiao Tong University ([SJTU](https://sfl.sjtu.edu.cn/En)), majoring in German Studies with a minor in Finance. During my undergraduate studies, I spent one exchange semester at the [University of Heidelberg](https://www.uni-heidelberg.de/en) in *Comparative German Studies*.
+* I will soon join the [School of Foreign Languages](https://sfl.sjtu.edu.cn/en) at [Shanghai Jiao Tong University (SJTU)](https://en.sjtu.edu.cn/) as a tenure-track assistant professor, where I will build a research group at the intersection of NLP, large language models, language science, and human-centered AI.
+* I received my PhD in Natural Language Processing (NLP) from the Center for Information and Language Processing ([CIS](https://www.cis.lmu.de/)) at [LMU Munich](https://www.lmu.de/en/index.html), supervised by [PD Dr. Helmut Schmid](https://www.cis.uni-muenchen.de/~schmid/) and [Prof. Hinrich Schütze](https://schuetze.cis.lmu.de/about/) at the [Schütze Lab](https://schuetze.cis.lmu.de/).
+* I was also affiliated with the Munich Center for Machine Learning ([MCML](https://mcml.ai/)) and received my M.Sc. in Computational Linguistics and Informatics (Computer Science) from [LMU Munich](https://www.lmu.de/en/index.html).
+* Before LMU, I completed my undergraduate studies at [SJTU](https://sfl.sjtu.edu.cn/En), majoring in German Studies with a minor in Finance, and spent one exchange semester at the [University of Heidelberg](https://www.uni-heidelberg.de/en) in *Comparative German Studies*.
 
-**For potential students:**
-Please contact if you're interested in working with me in the intersection of **NLP, LLM, language science, and human-centred AI**.
+**For prospective students:** I welcome motivated students interested in **NLP, LLMs, language science, multilingual AI, interpretability, and human-centered AI**. Please contact me if your interests overlap with the research directions below.
 
 
-#### Research Interest
+#### Research Vision
 
-My research lies broadly in *Natural Language Processing* (NLP), with a particular interest in **multilingual large language models**, **interpretability**, and **human-inspired language modeling**. I am especially interested in how LLMs acquire, represent, and deploy linguistic and factual knowledge across languages, how their internal mechanisms relate to cross-lingual generalization and failure, and how such behaviors can be diagnosed and improved through efficient and interpretable methods. <br>
+My research aims to develop language technologies that are **multilingual**, **interpretable**, **efficient**, and **human-centered**. Building on my recent work on multilingual LLMs, cross-lingual knowledge, language confusion, retrieval-augmented prompting, and neurolinguistic probing, my near-term agenda is to understand how large language models acquire, represent, edit, retrieve, and deploy linguistic and factual knowledge across languages. I am particularly interested in turning this understanding into reliable methods for low-resource, cross-cultural, and domain-specific settings. <br>
 
-* **<span style="color: #c62828;">Multilingual NLP and multilingual LLMs</span>:** multilinguality of LLMs ([Nie et al., 2025a](https://aclanthology.org/2025.findings-ijcnlp.38.pdf)), cross-lingual transfer ([Nie et al., 2023a](https://doi.org/10.18653/v1/2023.findings-acl.528), [Ma et al., 2024](https://aclanthology.org/2024.eacl-long.164v2.pdf), [Nie et al., 2025a](https://aclanthology.org/2025.acl-long.798.pdf)), and historical language processing ([Nie et al., 2023b](https://aclanthology.org/2023.alp-1.8/)).
-* **<span style="color: #6a1b9a;">Interpretability and internal mechanisms of LLMs</span>:** mechanistic interpretability ([Nie et al., 2025b](https://aclanthology.org/2025.findings-emnlp.37.pdf)), multilingual representation analysis, and model behaviors related to language, knowledge, and reasoning.
-* **<span style="color: #00897b;">Human-inspired NLP</span>:** NLP inspired by human language processing ([Zhang et al., 2023](https://aclanthology.org/2023.conll-babylm.13/), [Yan et al., 2025](https://arxiv.org/pdf/2508.19828)), and computational neurolinguistics ([He et al., 2024](https://aclanthology.org/2024.lrec-main.402.pdf), [He et al., 2025a](https://aclanthology.org/2025.findings-acl.986.pdf), [He et al., 2025b](https://aclanthology.org/2025.sigtyp-1.9.pdf)).
-* **<span style="color: #ef6c00;">Efficient methods for NLP</span>:** prompt-based learning ([Nie et al., 2023c](https://aclanthology.org/2023.findings-emnlp.1056/), [Ma et al., 2023](https://aclanthology.org/2023.konvens-main.1)), low-resource learning ([Liu et al., 2024](https://link.springer.com/chapter/10.1007/978-3-031-70344-7_10)), and parameter-efficient fine-tuning ([Yuan et al., 2024](https://aclanthology.org/2024.findings-acl.237.pdf), [Yuan et al., 2025](https://ieeexplore.ieee.org/document/1122853)).
+* **<span style="color: #c62828;">Multilingual NLP and multilingual LLMs</span>:** multilinguality of LLMs ([Nie et al., 2025a](https://aclanthology.org/2025.findings-ijcnlp.38.pdf)), cross-lingual transfer ([Nie et al., 2023a](https://doi.org/10.18653/v1/2023.findings-acl.528), [Ma et al., 2024](https://aclanthology.org/2024.eacl-long.164v2.pdf), [Nie et al., 2025a](https://aclanthology.org/2025.acl-long.798.pdf)), low-resource language technologies, and historical language processing ([Nie et al., 2023b](https://aclanthology.org/2023.alp-1.8/)).
+* **<span style="color: #6a1b9a;">Interpretability and internal mechanisms of LLMs</span>:** mechanistic interpretability ([Nie et al., 2025b](https://aclanthology.org/2025.findings-emnlp.37.pdf)), multilingual representation analysis, language confusion, knowledge editing, and model behaviors related to language, knowledge, and reasoning.
+* **<span style="color: #00897b;">Human-inspired NLP and language science</span>:** NLP inspired by human language processing ([Zhang et al., 2023](https://aclanthology.org/2023.conll-babylm.13/), [Yan et al., 2025](https://arxiv.org/pdf/2508.19828)), computational neurolinguistics ([He et al., 2024](https://aclanthology.org/2024.lrec-main.402.pdf), [He et al., 2025a](https://aclanthology.org/2025.findings-acl.986.pdf), [He et al., 2025b](https://aclanthology.org/2025.sigtyp-1.9.pdf)), and interdisciplinary AI for language, culture, and cognition.
+* **<span style="color: #ef6c00;">Efficient and agentic methods for NLP</span>:** prompt-based learning ([Nie et al., 2023c](https://aclanthology.org/2023.findings-emnlp.1056/), [Ma et al., 2023](https://aclanthology.org/2023.konvens-main.1)), retrieval- and memory-augmented methods, low-resource learning ([Liu et al., 2024](https://link.springer.com/chapter/10.1007/978-3-031-70344-7_10)), and parameter-efficient fine-tuning ([Yuan et al., 2024](https://aclanthology.org/2024.findings-acl.237.pdf), [Yuan et al., 2025](https://ieeexplore.ieee.org/document/1122853)).
 
 <p>
   <strong>

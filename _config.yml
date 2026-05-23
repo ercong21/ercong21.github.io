@@ -13,24 +13,30 @@ repository: ercong21/ercong21.github.io
 # Author Settings
 author: Ercong Nie
 github_username: ercong21
-location: Munich, Germany
-email: nie@cis.lmu.de
+location: Shanghai, China
+email: ecnie97@gmail.com
 
 # Navigation Settings
 navs:
   -
     href: /
     label: Home
+    zh_label: 首页
   - href: /news/
     label: News
+    zh_label: 动态
   - href: /publications/
     label: Publications
+    zh_label: 论文
   - href: /teaching/
     label: Teaching
+    zh_label: 教学
   - href: /grants/
     label: Grants
+    zh_label: 项目与奖项
   - href: /files/Resume_Nie.pdf
     label: CV
+    zh_label: 简历
 
 # RSS Settings
 RSS: true

@@ -20,3 +20,10 @@
 .profile__name {
 	text-align: center;
 }
+
+.profile__title {
+	margin-top: 6px;
+	color: #586069;
+	font-size: 14px;
+	line-height: 1.45;
+}

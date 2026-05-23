@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-cmn-Hans" prefix="og: http://ogp.me/ns#" class="han-init">
+<html lang="{% if page.lang == 'zh' %}zh-CN{% else %}en{% endif %}" prefix="og: http://ogp.me/ns#" class="han-init">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -65,7 +65,7 @@
     <meta property="og:url" content="{{ site.url }}{{ page.url | remove_first:'index.html' }}">
     <meta property="og:site_name" content="{{ site.title }}">
     <meta property="og:type" content="article">
-    <meta property="og:locale" content="zh_CN" />
+    <meta property="og:locale" content="{% if page.lang == 'zh' %}zh_CN{% else %}en_US{% endif %}" />
     {% if page.date %}
     <meta property="article:published_time" content="{{ page.date | date: '%Y-%m-%d' }}">
     {% endif %}
@@ -102,8 +102,19 @@
             </button>
             <nav class="site-header-nav" role="navigation">
                 {% for nav in site.navs %}
-                <a href="{{ site.url }}{{ nav.href }}" class="{% if page.menu == nav.label %} selected {% endif %} site-header-nav-item" target="{{ nav.target | default: _self }}" title="{{ nav.label }}">{{ nav.label }}</a>
+                {% assign nav_label = nav.label %}
+                {% if page.lang == 'zh' and nav.zh_label %}
+                {% assign nav_label = nav.zh_label %}
+                {% endif %}
+                <a href="{{ site.url }}{{ nav.href }}" class="{% if page.menu == nav.label %} selected {% endif %} site-header-nav-item" target="{{ nav.target | default: _self }}" title="{{ nav_label }}">{{ nav_label }}</a>
                 {% endfor %}
+                {% assign switch_url = page.translation_url | default: '/zh/' %}
+                {% assign switch_label = '中文' %}
+                {% if page.lang == 'zh' %}
+                {% assign switch_url = page.translation_url | default: '/' %}
+                {% assign switch_label = 'English' %}
+                {% endif %}
+                <a href="{{ site.url }}{{ switch_url }}" class="site-header-nav-item language-switch" title="Switch language">{{ switch_label }}</a>
             </nav>
         </div>
     </header>
