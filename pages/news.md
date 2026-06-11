@@ -5,6 +5,7 @@ description: Ercong Nie's full news
 comments: false
 permalink: /news/
 ---
+- **06/2026** Chaired the "Language Science and LLMs" session of the [3rd Language Science and Intelligence Forum](https://mp.weixin.qq.com/s/Vx1bKvHS2kE1wh_a156-hQ) at Shanghai International Studies University.
 - **05/2026** One paper accepted to Transactions on Information Systems (TOIS, IF 9.1).
 - **04/2026** Successfully chaired [MemAgents](https://sites.google.com/view/memagent-iclr26/) Workshop at ICLR 2026 in Rio de Janeiro, Brazil 🇧🇷
 - **04/2026** 6 papers accepted to ACL 2026 (4 Main, 2 Findings).
