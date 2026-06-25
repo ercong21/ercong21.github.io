@@ -8,7 +8,7 @@ permalink: /news/
 - **06/2026** One paper accepted to Digital Scholarship in the Humanities (SSCI, IF 1.0).
 - **06/2026** Invited talk (online) on cross-lingual failures in LLMs at Prof. Sun's [group](https://sites.google.com/view/jingyuan-sun/home) at University of Manchester.
 - **06/2026** Chaired the "Language Science and LLMs" session of the [3rd Language Science and Intelligence Forum](https://mp.weixin.qq.com/s/Vx1bKvHS2kE1wh_a156-hQ) at Shanghai International Studies University.
-- **06/2026** **Delighted to announce the I joined SJTU as a tenure-track assistant professor. New journey, new challenge!**
+- **06/2026** **Delighted to announce the I joined SJTU as a tenure-track assistant professor.** New journey, new challenge!
 - **05/2026** One paper accepted to Transactions on Information Systems (SCI, IF 9.1).
 - **04/2026** Successfully chaired [MemAgents](https://sites.google.com/view/memagent-iclr26/) Workshop at ICLR 2026 in Rio de Janeiro, Brazil 🇧🇷
 - **04/2026** 6 papers accepted to ACL 2026 (4 Main, 2 Findings).
