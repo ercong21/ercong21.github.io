@@ -5,13 +5,15 @@ description: Ercong Nie's full news
 comments: false
 permalink: /news/
 ---
+- **06/2026** One paper accepted to Digital Scholarship in the Humanities (SSCI, IF 1.0).
+- **06/2026** Invited talk (online) on cross-lingual failures in LLMs at Prof. Sun's [group](https://sites.google.com/view/jingyuan-sun/home) at University of Manchester.
 - **06/2026** Chaired the "Language Science and LLMs" session of the [3rd Language Science and Intelligence Forum](https://mp.weixin.qq.com/s/Vx1bKvHS2kE1wh_a156-hQ) at Shanghai International Studies University.
-- **05/2026** One paper accepted to Transactions on Information Systems (TOIS, IF 9.1).
+- **05/2026** One paper accepted to Transactions on Information Systems (SCI, IF 9.1).
 - **04/2026** Successfully chaired [MemAgents](https://sites.google.com/view/memagent-iclr26/) Workshop at ICLR 2026 in Rio de Janeiro, Brazil 🇧🇷
 - **04/2026** 6 papers accepted to ACL 2026 (4 Main, 2 Findings).
 - **03/2026** Invited to talk about OpenClaw🦞 at Wuhan AI Community. [[Slides](../files/OpenClaw.pdf)]
 - **02/2026** One paper accepted to LREC 2026.
-- **01/2026** One paper accepted to Information Fusion (IF 15.5).
+- **01/2026** One paper accepted to Information Fusion (SCI, IF 15.5).
 - **12/2025** One paper accepted to ACM Transactions on Asian and Low-Resource Language Information Processing (TALLIP, IF 2.0).
 - **11/2025** Invited [talk](../files/multilingual_interpretability.pdf) on multilingual interpretability of LLMs at [Grammar and Cognition (GraC) Lab](https://www.upf.edu/web/grac) of Universitat Pompeu Fabra (Barcelona, Spain).
 - **11/2025** Visited [HUST](https://mp.weixin.qq.com/s/JHlxYl1HNSIMabpnWMT14Q), [SJTU](https://sfl.sjtu.edu.cn/Data/View/9711), and [Xenon Automation](https://mp.weixin.qq.com/s/6Ed_W0k1lLyDAtRtw46P7g) with the ScaDS.AI delegation led by Prof. Michael Färber.
