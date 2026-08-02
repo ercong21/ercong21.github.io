@@ -9,17 +9,18 @@ lang: zh
 translation_url: /
 ---
 长聘教轨助理教授，[上海交通大学外国语学院](https://sfl.sjtu.edu.cn/)    
+[语言科学与人工智能实验室（LaSAI Lab）](https://lasai-sjtu.github.io/)<br>
 此前任职与学习：德国[慕尼黑大学](https://www.lmu.de/en/) 信息与语言处理中心（[CIS)](https://www.cis.lmu.de/)）[Schuetze NLP Lab](https://schuetze.cis.lmu.de/), 慕尼黑机器学习研究中心（[MCML](https://mcml.ai/)）<br>
 
 邮箱：ecnie97 at gmail.com
 
 #### 关于我
 
-* [上海交通大学外国语学院](https://sfl.sjtu.edu.cn/)长聘教轨助理教授，研究方向是自然语言处理、大语言模型、语言科学智能等AI与语言人文交叉领域。
+* [上海交通大学外国语学院](https://sfl.sjtu.edu.cn/)长聘教轨助理教授，创建并负责[语言科学与人工智能实验室（LaSAI Lab）](https://lasai-sjtu.github.io/)，研究方向涵盖自然语言处理、大语言模型、语言科学与以人为本的人工智能等交叉领域。
 * 在德国[慕尼黑大学](https://www.lmu.de/en/index.html)信息与语言处理中心（[CIS](https://www.cis.lmu.de/)）获得自然语言处理方向博士学位，导师为 [PD Dr. Helmut Schmid](https://www.cis.uni-muenchen.de/~schmid/) 和 [Prof. Hinrich Schütze](https://schuetze.cis.lmu.de/about/)。博士期间，同时是 [Munich Center for Machine Learning (MCML)](https://mcml.ai/) 的junior member。
 * 硕士毕业于慕尼黑大学，获得计算语言学与信息学（计算机科学）理学硕士学位。本科毕业于[上海交通大学](https://sfl.sjtu.edu.cn/)，主修德语、辅修金融；本科期间曾赴[海德堡大学](https://www.uni-heidelberg.de/en)比较日耳曼研究专业交流学习。
 
-**欢迎潜在学生联系：** 如果你对 **自然语言处理、大语言模型、多语言人工智能、可解释性、语言科学、以人为本的 AI** 感兴趣，欢迎通过邮件联系我。
+**欢迎潜在学生联系：** 如果你对 **自然语言处理、大语言模型、多语言人工智能、可解释性、语言科学、以人为本的 AI** 感兴趣，可访问 [LaSAI 实验室主页](https://lasai-sjtu.github.io/)了解我们的研究与招生信息，也欢迎通过邮件联系我。
 
 #### 研究愿景
 

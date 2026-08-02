@@ -10,6 +10,7 @@ translation_url: /zh/
 ---
 Tenure-track Assistant Professor 
 [School of Foreign Languages](https://sfl.sjtu.edu.cn/en), [Shanghai Jiao Tong University (SJTU)](https://en.sjtu.edu.cn/)  
+[LaSAI Lab (Language Science & AI)](https://lasai-sjtu.github.io/)<br>
 Previously: [Schuetze NLP Lab](https://schuetze.cis.lmu.de/), [Center for Information and Language Processing (CIS)](https://www.cis.lmu.de/),  
 [LMU Munich](https://www.lmu.de/en/), [Munich Center for Machine Learning (MCML)](https://mcml.ai/)<br>
 
@@ -17,12 +18,12 @@ Email: ecnie97 at gmail.com
 
 #### About me
 
-* I am a tenure-track assistant professor at [School of Foreign Languages](https://sfl.sjtu.edu.cn/en), [Shanghai Jiao Tong University (SJTU)](https://en.sjtu.edu.cn/), where I will build a research group (LaSAI, Language Science & AI) at the intersection of NLP, large language models, language science, and human-centered AI.
+* I am a tenure-track assistant professor at [School of Foreign Languages](https://sfl.sjtu.edu.cn/en), [Shanghai Jiao Tong University (SJTU)](https://en.sjtu.edu.cn/), where I lead the [LaSAI Lab (Language Science & AI)](https://lasai-sjtu.github.io/). Our research lies at the intersection of NLP, large language models, language science, and human-centered AI.
 * I received my PhD in Natural Language Processing (NLP) from the Center for Information and Language Processing ([CIS](https://www.cis.lmu.de/)) at [LMU Munich](https://www.lmu.de/en/index.html), supervised by [PD Dr. Helmut Schmid](https://www.cis.uni-muenchen.de/~schmid/) and [Prof. Hinrich Schütze](https://schuetze.cis.lmu.de/about/) at the [Schütze Lab](https://schuetze.cis.lmu.de/). I was also affiliated with the Munich Center for Machine Learning ([MCML](https://mcml.ai/)), one of the six German national AI research centers.
 *  I received my M.Sc. in Computational Linguistics and Informatics (Computer Science) from [LMU Munich](https://www.lmu.de/en/index.html).
 * Before LMU, I completed my undergraduate studies at [SJTU](https://sfl.sjtu.edu.cn/En), majoring in German Studies with a minor in Finance, and spent one exchange semester at the [University of Heidelberg](https://www.uni-heidelberg.de/en) in *Comparative German Studies*.
 
-**For prospective students:** I welcome motivated students interested in **NLP, LLMs, language science, multilingual AI, interpretability, and human-centered AI**. Please contact me if your interests overlap with the research directions below.
+**For prospective students:** I welcome motivated students interested in **NLP, LLMs, language science, multilingual AI, interpretability, and human-centered AI**. Please visit the [LaSAI Lab website](https://lasai-sjtu.github.io/) to learn more about our research and opportunities, and contact me if your interests overlap with the directions below.
 
 
 #### Research Vision
