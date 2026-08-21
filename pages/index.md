@@ -8,7 +8,7 @@ permalink: /
 lang: en
 translation_url: /zh/
 ---
-Tenure-track Assistant Professor 
+**Tenure-track Assistant Professor**<br>
 [School of Foreign Languages](https://sfl.sjtu.edu.cn/en), [Shanghai Jiao Tong University (SJTU)](https://en.sjtu.edu.cn/)  
 [LaSAI Lab (Language Science & AI)](https://lasai-sjtu.github.io/)<br>
 Previously: [Schuetze NLP Lab](https://schuetze.cis.lmu.de/), [Center for Information and Language Processing (CIS)](https://www.cis.lmu.de/),  
