@@ -70,7 +70,7 @@ translation_url: /
 
 ###### 审稿
 我长期为 NLP、AI/ML 相关国际会议以及 SCI/SSCI 期刊审稿。
-* **会议**：ICML, NeurIPS, ACL, EMNLP, NAACL, COLING, EACL, LREC, IJCNN 等。
+* **会议**：ICML, NeurIPS, ACL, AAAI, EMNLP, NAACL, COLING, EACL, LREC, IJCNN, PRICAI 等。
 * **期刊**：IEEE TNNLS, ACM TIST, ACM TALLIP, Natural Language Processing, Royal Society Open Science, Acta Psychologica, Journal of Computational Social Science 等。
 
 ###### 学术共同体
