@@ -5,6 +5,7 @@ description: Ercong Nie's full news
 comments: false
 permalink: /news/
 ---
+- **08/2026** Our survey, [*A Survey of Long-Document Retrieval in the PLM and LLM Era*](https://arxiv.org/abs/2509.07759), was accepted to ACM Transactions on Information Systems (TOIS).
 - **08/2026** Two papers accepted to [EMNLP 2026](https://2026.emnlp.org/) (one Main, one Findings).
 - **07/2026** Organized SJTU's first Workshop on LLM & Digital Humanities and gave a keynote [talk](files/SJTU-DH2026.pdf)
 - **06/2026** One paper accepted to Digital Scholarship in the Humanities (SSCI, IF 1.0).
