@@ -5,6 +5,11 @@ description: Ercong Nie's full news
 comments: false
 permalink: /news/
 ---
+- **10/2026** Launched SJTU’s interdisciplinary seminar series on language intelligence. [First seminar](https://sfl.sjtu.edu.cn/post/6886).
+- **10/2026** Gave a talk on “Linguistic Data in the LLM Era” at East China University of Political Science and Law. [News](https://mp.weixin.qq.com/s/yzufD4spK1FKx4Tsmp3RyQ) · [Slides](../files/202610-华政报告_从语言到数据.pdf)
+- **10/2026** Excited to co-organize the [BilingLM Workshop](https://bilinglm.github.io/) at COLING 2027 in Macau!
+- **10/2026** Awarded an NSSFC Youth Project grant (国家社科基金青年项目) on cross-lingual representations in LLMs and human–LLM alignment.
+- **10/2026** Gave a talk on “Modeling Alzheimer’s-Related Language Changes in LLMs” at [SJTU-SFL LingLunch](https://sfl.sjtu.edu.cn/events/458), exploring neuron interventions that induce AD-related language phenotypes. [Slides](../files/202610-语言学午餐会-神经元干预与AD相关语言表型-聂耳聪.pdf)
 - **09/2026** Three papers accepted to NeurIPS 2026, on [agent memory](https://arxiv.org/abs/2605.21768), [model merging](https://arxiv.org/abs/2605.12960), and [efficient fine-tuning](https://arxiv.org/abs/2605.21177).
 - **08/2026** Our survey, [*A Survey of Long-Document Retrieval in the PLM and LLM Era*](https://arxiv.org/abs/2509.07759), was accepted to ACM Transactions on Information Systems (TOIS).
 - **08/2026** Two papers accepted to [EMNLP 2026](https://2026.emnlp.org/) (one Main, one Findings).
