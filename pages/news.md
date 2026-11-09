@@ -5,6 +5,7 @@ description: Ercong Nie's full news
 comments: false
 permalink: /news/
 ---
+- **11/2026** Invited to serve as Senior Area Chair (SAC) for ACL 2027.
 - **10/2026** Launched SJTU’s interdisciplinary seminar series on language intelligence. [First seminar](https://sfl.sjtu.edu.cn/post/6886).
 - **10/2026** Gave a talk on “Linguistic Data in the LLM Era” at East China University of Political Science and Law. [News](https://mp.weixin.qq.com/s/yzufD4spK1FKx4Tsmp3RyQ) · [Slides](../files/202610-华政报告_从语言到数据.pdf)
 - **10/2026** Excited to co-organize the [BilingLM Workshop](https://bilinglm.github.io/) at COLING 2027 in Macau!
